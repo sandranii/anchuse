@@ -1,0 +1,10 @@
+// 測試用可修改
+
+//base
+@import 'base/var';
+//component
+@import 'component/btn';
+
+body {
+    font-size: $fontSize;   
+}

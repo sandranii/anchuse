@@ -1,0 +1,20 @@
+// 測試用可修改
+.btn {
+    height: 40px;
+    border: 1px solid #000;
+    width: 100px;
+
+    &-small {
+        width: 60px;
+        background-color: #fa0;
+        color: #fff;
+    }
+
+    &-big {
+        width: 120px;
+        background-color: #fff;
+        color: #fa0;
+
+    }
+
+}
