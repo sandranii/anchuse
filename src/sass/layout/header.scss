@@ -1,0 +1,26 @@
+@import "../base/color";
+@import "../component/btn";
+@import "../base/font";
+
+.page_header{
+    width: 100%;
+    display: flex;
+    background-color:$baseWhite;
+    box-shadow: 0px 2px 3px rgba(48, 48, 48, 0.252);
+    a {
+        @include url();
+        font-family: $fontTitle;
+        font-size: 18px;
+        letter-spacing: 2px;
+       
+    }
+}
+button{
+    @include btnLittle()
+}
+.text2{
+    @include btnLarge()
+}
+.text3{
+    @include btnAddCart()
+}

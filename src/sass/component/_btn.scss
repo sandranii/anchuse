@@ -1,20 +1,80 @@
-// 測試用可修改
-.btn {
-    height: 40px;
-    border: 1px solid #000;
-    width: 100px;
+@import "../base/color";
 
-    &-small {
-        width: 60px;
-        background-color: #fa0;
-        color: #fff;
-    }
-
-    &-big {
-        width: 120px;
-        background-color: #fff;
-        color: #fa0;
-
-    }
-
+@mixin btnLarge() {//大顆按鈕
+    width: 200px;
+    border-radius: 100px;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 800;
+    background-color: $blue;
+    color: $white;
+    border: none;
+    z-index: 10;
+    letter-spacing: 3px;
+    cursor: pointer;
+    &:hover{//&是連結父層
+        background-color: $red;
+        transform: translateY(-3px);
+        box-shadow: 2px 4px 0px $black;
+        transition: all 0.3s 
 }
+    &:active{
+        transform: translateY(-3px) scale(.97);
+        box-shadow: 1px 2px 0px $black;
+        transition: all 0.1s 
+  }
+}
+
+@mixin btnLittle() {//小顆按鈕
+    width: 120px;
+    border-radius: 100px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 800;
+    background-color: $blue;
+    color: $white;
+    border: none;
+    position: relative;
+    z-index: 10;
+    letter-spacing: 2px;
+    cursor: pointer;
+    &:hover{//&是連結父層
+        background-color: $red;
+        transform: translateY(-3px);
+        box-shadow: 2px 4px 0px $black;
+        transition: all 0.3s 
+}
+    &:active{
+        transform: translateY(-3px) scale(.97);
+        box-shadow: 1px 2px 0px $black;
+        transition: all 0.1s 
+  }
+}
+
+@mixin btnAddCart() {//加入購物車小小顆按鈕
+    width: 110px;
+    border-radius: 100px;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 800;
+    background-color: $blue;
+    color: $white;
+    border: none;
+    position: relative;
+    z-index: 10;
+    letter-spacing: 1px;
+    cursor: pointer;
+    &:hover{//&是連結父層
+        background-color: $red;
+        transform: translateY(-3px);
+        box-shadow: 2px 4px 0px $black;
+        transition: all 0.3s 
+}
+    &:active{
+        transform: translateY(-3px) scale(.97);
+        box-shadow: 1px 2px 0px $black;
+        transition: all 0.1s 
+}
+}
+
+
