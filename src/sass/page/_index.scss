@@ -1,0 +1,12 @@
+.index {
+
+    //  write
+    .banner {
+        @include layout(100);
+
+        ul {
+            li {}
+        }
+    }
+
+}

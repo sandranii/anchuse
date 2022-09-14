@@ -1,0 +1,33 @@
+// .reservation {
+//   // 
+
+
+// }
+
+.banner {
+    position: relative;
+}
+
+.picCtnr img {
+    object-position: center;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.bnrPic {
+    height: 600px;
+
+}
+
+.msgCardPic {
+    width: 300px;
+    height: 300px;
+}
+
+
+.bnrTitle {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

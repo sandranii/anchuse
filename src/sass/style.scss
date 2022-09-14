@@ -1,10 +1,10 @@
-// 測試用可修改
-
 //base
 @import 'base/var';
+//mixin
+
 //component
 @import 'component/btn';
+// layout
 
-body {
-    font-size: $fontSize;   
-}
+// page
+@import './page/reservation';

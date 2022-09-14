@@ -1,0 +1,8 @@
+header {
+    @include layout(100);
+
+    nav {
+        @include layout(1200);
+    }
+
+}
