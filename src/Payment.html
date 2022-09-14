@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/Payment.css">
+</head>
+<body>
+
+<div id="app">
+    <div class="receiver col-6">
+        <div class="receiver-title">
+            <p>收貨人訊息</p>
+        </div>
+        <form action="">
+            <div class="receiver-name">
+              <label for="name">名字:</label>
+                <input type="text" name="" value="" id="name">
+            </div>
+
+            <label for="gender">性別:</label>
+           <div class="receiver-gender">
+    
+                <select name="" id="gneder">
+                    <option value="">請選擇</option>
+                    <option value="">男</option>
+                    <option value="">女</option>
+                </select>
+           </div> 
+            <div class="receiver-cellphone">
+                <label for="cellphone"> 手機:</label>
+               <input type="text" name="" value="" id="cellphone">
+            </div>
+            
+            <div class="receiver-telephone">
+                <label for="tellphone">市話:</label>
+               <input type="text" name="" value="" id="tellphone">
+            </div>
+            <div class="receiver-address">
+
+                <label for="address">收件地址:</label>
+                縣市:<select name="" id="address" v-model="sel">
+                    <option  v-for="item in city" :value="item.CityName" >{{item.CityName}}</option>
+                </select>
+
+                區域:<select name="" id="" v-model="selArea">
+                    <option v-for="item in township"  :value="item.AreaName">{{item.AreaName}}</option>
+                </select><br>
+                <input type="text" placeholder="請輸入詳細地址">
+            </div>
+                <button>下一步</button>
+        </form>
+    </div>
+<!-- ===================================== -->
+<div class="wrap">
+    <div class="credit-card col-6">
+        <div class="credit-card-title">
+            <p>信用卡付款</p>
+        </div>
+        <form action="">
+            <div class="credit-card-name">
+                <label for="credit-people">持卡人姓名:</label>
+                <input type="text" name="credit-people" value="" >
+            </div>
+            <div class="credit-card-number">
+                <label for="credit-people">卡片號碼:</label>
+            <input type="text" name="" value="">
+            </div>
+            <div class="credit-card-date">
+                有效期限:<select name="" id=""></select>
+                        <select name="" id=""></select>
+                        <select name="" id=""></select>
+    
+                  
+            </div>
+            <button>下一步</button>
+        </form>
+ 
+    </div>
+</div>
+  
+
+    <!-- ============================================= -->
+
+        <div class="confirm-data col-6">
+            <div class="confirm-data-title">
+                <p>確認資料</p>
+            </div>
+            <form action="">
+                <table>
+                    <tr>
+                        <th>商品名稱</th>
+                        <th>數量</th>
+                        <th>價格</th>
+                    </tr>
+                    <tr v-for="item in car">
+                        <th>{{item.name}}</th>
+                        <th>{{item.num}}</th>
+                        <th>{{item.price*item.num}}</th>
+                    </tr>
+                    <tr>
+                        <th>總價</th>
+                        <th></th>
+                        <th>{{money}}</th>
+                    </tr>
+                </table>
+          
+                <button>送出</button>
+            </form>
+        </div>
+
+</div>
+ 
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script>
+            Vue.createApp({
+               data(){
+                   return{
+                    city:[],
+                    sel:"臺北市",
+                    selArea:"",
+                    car:[],
+                    money:0,
+                    totalPrice:0
+                 
+                   }
+               },
+               methods:{
+                    getAddress(){
+                        axios.get("./taiwan.json")
+                        .then((res)=>{
+                            console.log(res)
+                            this.city = res.data
+                            console.log(this.city)
+                            console.log(this.car)
+                            
+                        })
+                    },
+                    first(){
+                        this.selArea = this.township[0].AreaList.AreaName
+                    },
+                    
+                 carOnline(){
+                let buyCar = localStorage.getItem("car");
+                    if(!buyCar) return;
+                    this.car = JSON.parse(buyCar)
+
+                    
+                let gold = localStorage.getItem("price")
+                if(!gold) return;
+                this.totalPrice = JSON.parse(gold)
+                },
+                set(){
+                    this.$set(car,1,{})
+                }
+                   
+               },
+               computed:{
+                township(){
+                    return this.city.find(city=>city.CityName == this.sel)?.AreaList
+
+                },
+                buyCar:function(){
+                    return JSON.parse(JSON.stringify(this.car))
+                }
+
+               },
+               watch:{
+                buyCar:{
+                    handler(newVal,oldVal){
+                        this.money=""
+                        for(let i=0;i<newVal.length;i++){
+                            this.money = parseFloat(this.money+newVal[i].price*newVal[i].num)
+                        }
+                    }
+                }
+               },
+               created() {
+                this.carOnline()
+               },
+               mounted() {
+                   this.getAddress()
+                   this.first()
+                  
+               },
+            }).mount("#app")
+           </script>
+</body>
+</html>

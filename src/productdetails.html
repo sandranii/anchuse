@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/Product details.css">
+</head>
+<body>
+<div id="app">
+    <div class="bread">
+        <p>首頁>商品專區>按摩精油>薰衣草</p>
+    </div>
+    <div class="product-title">
+     
+        <div class="product-pic" v-for="item in order" :class="{light:value==page}">
+            <!-- <img :src="item.img" > -->
+            <img :src="item.img" v-if ="page==0">
+            <img :src="item.imgTop" v-if ="page==1">
+            <img :src="item.imgBody" v-if ="page==2">
+            <div class="pic-slide" >
+                <button @click="prev()"><</button>
+                <div class="pic-chose" v-for="(item,index,value) in order"  >              
+                    <img  :src="item.img" alt="" :class="{light:page==0}" @click="changePhoto(value)">
+                    <img  :src="item.imgTop" alt="" :class="{light:page==1}" @click="changePhoto(value)">
+                    <img  :src="item.imgBody" alt="" :class="{light:page==2}" @click="changePhoto(value)">
+      
+                </div>
+            
+                <button @click="next()">></button>
+            </div>
+        </div>
+    
+
+        <div class="pic-control" >
+            <div class="pic-number" v-for="(i,value) in 3" :class="{active:page==i-1}" 
+            @click="changePic(i)">{{i-1}}</div>
+            
+        </div>
+
+    
+
+        <div class="product-body" v-for="item in order" :key="item.id">
+            <div class="product-name" >
+                <h2>{{item.name}}</h2>
+            </div>
+    
+            <div class="product-price"  >
+                <p>售價:{{item.price}}元</p>
+            </div>
+            <div class="product-introduce">
+                <div class="product-txt">
+                    <p>品牌:{{item.logo}}</p>
+                    <ul>
+                        <li>💓{{item.product1}}</li>
+                        <li>💓{{item.product2}}</li>
+                        <li>💓{{item.product3}}</li>
+                    </ul>
+    
+                </div>
+                <div class="product-number">
+                    <button @click="addNum(item)">+</button>
+                    <input type="text" v-model="item.num">
+                    <button  @click="reduceNum(item)">-</button>
+                </div>
+                <div class="product-addcar">
+                    <button @click="addCar(item.id,item)">加入購物車</button>
+                    <a href="../購物車/shoppingCart.html"><button>直接購買</button> </a>
+                </div>
+            </div>
+      
+        </div>
+    </div>
+
+
+  
+    <!-- ================================================ -->
+    <div class="illustrate">
+        <div class="illustrate-chose">
+            <div class="illustrate-order" @click="changeRule":class="{color:rule}">
+                <h3>規格說明</h3>
+            </div>
+            <div class="illustrate-order" @click="changeNotice" :class="{color:precautions}">
+                <h3>產品特色</h3>
+            </div>
+            <div class="illustrate-order" @click="changePickUp":class="{color:pickUp}">
+                <h3>取貨問題</h3>
+            </div>
+            <div class="illustrate-order" @click="changeComment" :class="{color:comment}">
+                <h3>退貨須知</h3>
+            </div>
+        </div>
+
+        <div class="illustrate-txt" v-if="article==1" >
+            <table border="1" width="600">
+                <tr >
+                    <th>商品名稱</th>
+                    <th>{{product.name}}</th>
+                </tr>
+                <tr>
+                    <th>品牌</th>
+                    <th>{{product.brand}}</th>
+                </tr>
+                <tr>
+                    <th>尺寸</th>
+                    <th>{{product.size}}</th>
+                </tr>
+                <tr>
+                    <th>顏色</th>
+                    <th>{{product.color}}</th>
+                </tr>
+                <tr>
+                    <th>類別</th>
+                    <th>{{product.type}}</th>
+                </tr>
+                <tr>
+                    <th>產地</th>
+                    <th>{{product.origin}}</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="illustrate-txt" v-if="article==2" style="font-weight:800;letter-spacing:3px;">
+           <p style="font-size:25px">·{{special.one}}</p>
+           <p style="font-size:25px">·{{special.two}}</p>
+           <p style="font-size:25px">·{{special.three}}</p>
+           <p style="font-size:25px">·{{special.four}}</p>
+           <p style="font-size:25px">·{{special.five}}</p>
+           <p style="font-size:25px">·{{special.six}}</p>
+           <p style="font-size:25px">·{{special.seven}}</p>
+        </div>
+
+        <div class="illustrate-txt" v-if="article==3">
+           <p>※使用前請務必充飽電再使用※ </p>
+           <p>※請將當筆訂單所有之商品、贈品寄送至 '' 台中市豐原大道一段647號  葵柏兒  04-2313-8558 轉422 '' </p>
+           <p>※若非商品問提退貨之運費，請消費者自行吸收。</p>
+           <p>※退回之商品內容必須保維持所有商品、贈品、附件、包裝、附隨文件或資料的完整性</p>
+           <p>※退貨須連同發票一併退回，若沒有提供發票，恕不退還現金</p>
+         
+            
+        </div>
+
+        <div class="illustrate-txt" v-if="article==4">
+            <p>※須於訂單商品送達後14日內申請 </p>
+            <p>※ 此商品僅配送一樓，謝謝 ※</p>
+            <p>※ 請將此平台的購買證明印出 或 發票 與保固卡一起保存，即可視為保證章，享保固服務</p>
+            <p>※ 因拍攝與實品略有色差，圖片僅供參考，請以實際收到商品為準</p>
+            <p>※ 以上規格資料若與原廠資料有所出入，以原廠官方所公佈資料為準</p>
+            <p>※鑑賞期非試用期，此商品不開放試用，請見諒；一經拆封使用，將影響退貨權限，如需退換貨請保持商品與其包裝之完整</p> 
+            <p>   ※退換貨時商品必須是全新狀態(不得有刮傷或人為的破壞)，並有完整的包裝，包含外紙箱、配件紙箱、保麗龍、保護袋、贈品等及所有附隨文件之完整。若上述之包裝或配件不完整者，需負擔整修費用。</p>
+            <p>    ※ 此商品僅配送一樓，謝謝！</p>
+            <p> ※ 此商品只限台灣本島運送，偏遠地區無法配送，請見諒！</p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+
+
+
+<script>
+    Vue.createApp({
+       data(){
+           return{
+                data:[],
+                order:[],
+                car:[],
+                product:[],
+                special:[],
+                page:0,
+                article:1,
+                rule:true,
+                precautions:false,
+                pickUp:false,
+                comment:false,
+              
+          
+           }
+       },
+       methods: {
+           commodityInfo(){
+               axios.get("../商品區/list.json")
+               .then((res)=>{
+                //    console.log(res)
+                   this.data = res.data.gun
+
+                   
+                //    this.product = res.data.oil[0].specification
+                //    console.log(this.data)
+                for(let i=0;i<1;i++){
+                    this.product =  res.data.gun[i].specification
+                    console.log(this.product)
+                   }
+
+                   for(let i=0;i<1;i++){
+                    this.special =  res.data.gun[i].feature
+                    console.log(this.special)
+                   }
+        
+                  
+               })
+           },
+
+           addCar(id,item){
+          
+                let index = this.order.findIndex(item=>{
+                return item.id===id
+                })
+                
+                let code = this.car.find(item=>item.id===id)
+                if(item.num==0){
+                    alert("數量不能為零")
+                }else{
+                    if(!code){
+                    alert("成功加入購物車")
+                    this.car.push({
+                    id:this.order[index].id,
+                    img:this.order[index].img,
+                    name:this.order[index].name,
+                    price:this.order[index].price,
+                    num:this.order[index].num
+                })
+                }else{
+                alert("購物車內已有相同物品")
+                }
+
+                }
+                
+            
+                this.setCar()
+           },
+           changePic(i){
+            this.page=i-1
+        },
+        info(){
+
+          
+
+        },
+        changeRule(){
+            this.article=1
+            this.precautions=false
+            this.rule=true
+            this.pickUp=false
+            this.comment=false
+        },
+        changeNotice(){
+            this.article=2
+            this.precautions=true
+            this.rule=false
+            this.pickUp=false
+            this.comment=false
+        },
+        changePickUp(){
+            this.article=3
+            this.rule=false
+            this.precautions=false
+            this.pickUp=true
+            this.comment=false
+        },
+        changeComment(){
+            this.article=4
+            this.rule=false
+            this.precautions=false
+            this.pickUp=false
+            this.comment=true
+
+        },
+        changePhoto(value){
+            this.page = value
+        },
+        prev(){
+            
+            console.log(this.page)
+            if(this.page>0){
+                this.page-=1
+            } 
+        },
+        next(){
+            console.log(this.page)
+            if(this.page<2){
+                this.page+=1;
+            }
+        },
+        addNum(item){
+            item.num+=1
+            
+        },
+        reduceNum(item){
+            if(item.num>0){
+                item.num-=1
+            }
+        },
+        set(){
+            this.$set(product,1,{})
+        },
+       
+        
+           storage(){
+               localStorage.setItem("order",JSON.stringify(this.order))
+            
+           },
+           setCar(){
+             localStorage.setItem("car",JSON.stringify(this.car))
+           },
+           
+           online(){
+               let orderList = localStorage.getItem("order");
+               if(!orderList) return;
+               this.order = JSON.parse(orderList);
+
+           
+           },
+        carOnline(){
+            let buyCar = localStorage.getItem("car");
+                if(!buyCar) return;
+                this.car = JSON.parse(buyCar)
+        }
+         
+         
+       },
+       created() {
+           this.online()
+           this.carOnline()
+       },
+       computed:{
+            detail:function(){
+                return JSON.parse(JSON.stringify(this.product))
+            }
+       },
+       watch:{
+       
+           
+       },
+       mounted() {
+           this.commodityInfo()
+           this.info()
+       },
+    }).mount("#app")
+   </script>  
+</body>
+</html>

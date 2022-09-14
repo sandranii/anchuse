@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/shopingArea.css">
+</head>
+<body>
+<div id="app">
+    <div class="buycar">
+        
+    </div>
+    <div class="commodity-container">
+        <div class="page-path">
+            <div class="commodity-title">
+               <div class="title-font">嚴</div>
+               <div class="title-font">選</div>
+               <div class="title-font">商</div>
+               <div class="title-font">品</div>
+            </div>
+            <div class="bread">
+                <small>首頁>商品專區>嚴選產品</small>
+            </div>  
+        </div>
+
+        <div class="commodity-search">
+            <div class="commodity-filter">
+                <select name="" id="">
+                    <option value="">由新到舊</option>
+                    <option value="">價錢由高至低</option>
+                </select>
+            </div>
+            <div class="commodity-enter">
+                <input type="text">
+            </div>
+            <div class="commodity-keywords">
+                <p class="words">玫瑰</p>
+                <p class="words">薄荷</p>
+                <p class="words">筋膜槍</p>
+                <p class="words">按摩槍</p>
+                <p class="words">精油</p>
+            </div>
+        </div>
+    </div>
+   
+
+        <div class="area-list">
+            <div class="row">
+                <div class="area-order">
+                    <div class="area-order-title">
+                        <h2>嚴選商品</h2>
+                    </div>
+                    <ul>
+                        <li @click="showOil()">
+                            <spn style="font-size: 23px;font-weight: 800;">按摩精油 </spn>
+                            <span class="triangle">{{text}}</span>
+                            
+                           
+    
+                            <ul :class="{oilList:openPage1}">
+                                <li>玫瑰ROSE</li>
+                                <li>薰衣草 Lavender</li>
+                                <li>薄荷 Peppermint</li>
+                            </ul>
+    
+    
+                        </li>
+                        <li @click="showAppliance">
+                        <span style="font-size: 23px;font-weight:800">按摩器具</span><span class="triangle">{{text2}}</span>
+    
+                            
+                            <ul :class="{massageList:openPage2}">
+                                <li>玫瑰ROSE</li>
+                                <li>薰衣草 Lavender</li>
+                                <li>薄荷 Peppermint</li>
+                            </ul>
+    
+                        </li>
+                    </ul>
+                </div>
+    
+              <div class="wrap">
+             <a href="../商品明細/productdetails.html">
+                <div class="area-box" v-if="currentPage==1" :class="{block:currentPage==1}" >
+                    <div class="col-3  area-card" v-for="(item,value) in data" @click="addOrder(item.id)" :key="item.id">
+                        <div class="area-pic">
+                            <img :src="item.img">
+                        </div>
+                        <div class="area-name">
+                            <h3>{{item.name}}</h3>
+                        </div>
+                        <div class="area-introduce">
+                            <div class="area-oritem">
+                                <small class="area-capacity">{{item.cpacity}}</small>
+                                <small class="area-origin">產地：{{item.origin}}</small>
+                        
+                            </div>
+                            <div class="area-price">
+                                <p>售價:{{item.price}}元</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </a>
+             
+
+                <div class="area-box" v-if="show=currentPage=='2'" 
+                :class="{block:currentPage==2}">
+                    <div class="col-3  area-card" v-for="(item,value) in info">
+                        <div class="area-pic">
+                            <img :src="item.img">
+                        </div>
+                        <div class="area-name">
+                            <h3>{{item.name}}</h3>
+                        </div>
+                        <div class="area-introduce">
+                            <div class="area-oritem">
+                                <small class="area-capacity">{{item.cpacity}}</small>
+                                <small class="area-origin">產地：{{item.origin}}</small>
+                        
+                            </div>
+                            <div class="area-price">
+                                <p>售價:{{item.price}}元</p>
+                            </div>
+                        </div>
+                    </div>
+                 
+                </div>
+<!-- ========================================================== -->
+            <div class="area-box" v-if="show=currentPage=='3'" :class="{block:currentPage==3}">
+                <div class="col-3  area-card" v-for="(item,value) in rose">
+                    <div class="area-pic">
+                        <img :src="item.img">
+                    </div>
+                    <div class="area-name">
+                        <h3>{{item.name}}</h3>
+                    </div>
+                    <div class="area-introduce">
+                        <div class="area-oritem">
+                            <small class="area-capacity">{{item.cpacity}}</small>
+                            <small class="area-origin">產地：{{item.origin}}</small>
+                    
+                        </div>
+                        <div class="area-price">
+                            <p>售價:{{item.price}}元</p>
+                        </div>
+                    </div>
+                </div>
+             
+            </div>
+            
+                    <div class="page-number-computer">
+                        <button @click="pageReduce"><</button>
+                        <span style="  letter-spacing: 2px;" v-for="i in 3" :class="{active:i==currentPage}" @click="chose(i)">{{i}}</span>
+                        <button @click="pageAdd()">></button>
+                    </div>
+              </div> 
+        </div>
+    </div>            
+</div>
+   
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+     Vue.createApp({
+        data(){
+            return{
+                data:[],
+                info:[],
+                rose:[],
+                order:[],
+                car:[],
+                index:1,
+                count:0,
+                text:"+",
+                text2:"+",
+                openPage1:true,
+                openPage2:true,
+                currentPage:1
+            
+            }
+        },
+        methods: {
+            commodityInfo(){
+                axios.get("./list.json")
+                .then((res)=>{
+                    console.log(res)
+                    this.data = res.data.gun
+                    this.info = res.data.equipment
+                    this.rose = res.data.rose
+                   console.log(this.car)
+                })
+            },
+            showOil(){
+          
+                this.openPage1=!this.openPage1
+                if(!this.openPage1){
+                    this.text="-";
+                }else{
+                    this.text="+";
+                }
+            },
+            showAppliance(){
+                this.openPage2 = !this.openPage2
+                if(!this.openPage2){
+                    this.text2="-";
+                }else{
+                    this.text2="+";
+                }
+            },
+            chose(i){
+                this.currentPage=i
+            },
+            pageReduce(){
+                if(this.currentPage>1){
+                    this.currentPage-=1;
+                }   
+            },
+            pageAdd(){
+              
+                if(this.currentPage<3){
+                    this.currentPage+=1;
+                }
+            },
+            addOrder(id){
+             let index = this.data.findIndex(item=>item.id==id)
+         
+                this.order.push({
+                    id:this.data[index].id,
+                    img:this.data[index].img,
+                    imgTop:this.data[index].imgTop,
+                    imgBody:this.data[index].imgBody,
+                    name:this.data[index].name,
+                    price:this.data[index].price,
+                    num:this.data[index].num,
+                    logo:this.data[index].logo,
+                    product1:this.data[index].product1,
+                    product2:this.data[index].product2,
+                    product3:this.data[index].product3,
+                    specification:this.data[index].specification,
+                    feature:this.data[index].feature
+
+                })
+               
+                this.storage()
+            },
+            storage(){
+                localStorage.setItem("order",JSON.stringify(this.order))
+            },
+            online(){
+                let orderList = localStorage.getItem("order");
+                if(!orderList) return;
+                this.order = JSON.parse(orderList);
+            },
+            clear(){
+                let index = this.data.findIndex(item=>item.id==id)
+                this.order.splice(index,1)
+            },
+            carOnline(){
+            let buyCar = localStorage.getItem("car");
+                if(!buyCar) return;
+                this.car = JSON.parse(buyCar)
+            },
+          
+          
+        },
+        created() {
+            this.online()
+            this.carOnline()
+        },
+        computed:{
+           
+        },
+        
+        mounted() {
+            this.commodityInfo()
+            this.clear()
+        },
+     }).mount("#app")
+    </script>
+
+    
+</body>
+</html>
