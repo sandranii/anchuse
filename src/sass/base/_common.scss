@@ -1,33 +1,3 @@
-@import "./color";
-@import "./font";
-
-@mixin title() {//標題
-   
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: $blue;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-    font-weight: 900;
-    color: aliceblue;
-    font-family:$fontTitle;
-
+.bold {
+    font-weight: 800;
 }
-
-@mixin titleBefore {//標題before
-    content: "";
-    width: 42px;
-    height: 42px;
-    background-color: transparent;
-    border: 3px solid aliceblue;
-    position: absolute;
-    top: .5px;
-    left: 2.5%;
-    border-radius: 50%;
-
-}
-

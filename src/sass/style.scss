@@ -1,0 +1,17 @@
+//base
+@import "base/reset";
+@import "base/color";
+@import "base/common";
+@import "base/font";
+
+//mixin
+@import "mixin/mixin";
+
+//component
+@import "component/btn";
+
+// layout
+@import "layout/header";
+
+// page
+@import "page/index";

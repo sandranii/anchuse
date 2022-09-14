@@ -38,10 +38,3 @@ $funColor:(
     }
 }
 
-@mixin url(){ //<a>連結去除樣式
-    text-decoration: none;
-    // display: block;
-    color:$blue;
-    margin: 10px;
-    font-weight: 800;
-}

@@ -1,9 +1,0 @@
-@mixin grid($val ,$d:null){
-    @for $i from 1 through $val {
-      .col#{$d}-#{$i} {
-        width: $i / $val *100%;
-      }
-    }
-  }
-  
-  @include grid(12);

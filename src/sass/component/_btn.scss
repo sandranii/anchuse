@@ -1,4 +1,3 @@
-@import "../base/color";
 
 @mixin btnLarge() {//大顆按鈕
     width: 200px;
@@ -24,6 +23,7 @@
         transition: all 0.1s 
   }
 }
+
 
 @mixin btnLittle() {//小顆按鈕
     width: 120px;
