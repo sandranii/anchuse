@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員登入</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <section>
+    @@include('./layout/header.html')
+    <div class="memberLogin">
         <h2>會員登入</h2>
         <div class="input_area">
             <div class="account">
@@ -26,24 +27,22 @@
                 <a href="#">忘記密碼</a>
             </div>
         </div>
-
-
         <!-- 登入按鈕 -->
-        <button class="text">登入</button>
+        <button class="test">登入</button>
         <hr>
         <div>其他登入方式</div>
-        <div class="social_media">
-            <div class="google">
-                <img src="./pic/Google.png">
-            </div>
-            <div class="facebook">
-                <img src="./pic/ant-design_facebook-filled.png">
-            </div>
-            <div class="line">
-                <img src="./pic/bi_line.png">
-            </div>
+        <div class="another_login">
+            <a href="https://www.google.com.tw" class="google">
+                <img src="./images/Google__G__Logo.svg.png">
+            </a>
+            <a href="https://www.facebook.com/" class="facebook">
+                <img src="./images/facebook.png">
+            </a>
+            <a href="https://line.me/zh-hant/" class="line">
+                <img src="./images/line.png">
+            </a>
         </div>
-    </section>
+    </div>
 </body>
 
 </html>
