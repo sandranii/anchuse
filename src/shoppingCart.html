@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/shoppingCart.css">
+</head>
+<body>
+
+    <div id="app">
+        <div class="shopping-cart">
+            <div class="shopping-title">
+                <div class="title-font">購</div>
+                <div class="title-font">物</div>
+                <div class="title-font">車</div>
+            </div>
+    
+            <table border="1"  class="shopping-table col-12" >
+                <tr>
+                    <th>商品展示</th>
+                    <th>名稱</th>
+                    <th>售價</th>
+                    <th>數量</th>
+                    <th>小計</th>
+                    <th>變更</th>  
+                </tr>
+               <tr  v-for="item in car">
+                    <th><img :src="item.img" alt=""></th>
+                  <th>{{item.name}}</th>
+             
+                    <th>{{item.price}}</th> 
+                    <th><button @click="addNum(item)">+</button ><input style="text-align:center" type="text" :value="item.num" size="1"><button @click="reduceNum(item)">-</button></th>
+                    <th>{{item.price*item.num}}</th>
+           
+               
+                    <th><button @click="reduceCar(item.id)">移出購物車</button></th>
+    
+                </tr> 
+               
+            </table>
+
+            <div class="shopping-price">
+                <select name="" id="" v-model="sel" @change="change">
+                    <option value="1">請選擇</option>
+                    <option value="0.85">85折</option>
+                    <option value="0.7">7折</option>
+                    <option value="0.5">5折</option>
+            
+                </select>
+                <p>商品金額:{{money}}元 折扣金額:{{money-discount}} 結帳金額:${{discount}}</p>
+                <a href="../付款流程/Payment.html">前往結帳</a>
+            </div>
+        </div>
+
+
+        <div class="purchase-area">
+            <div class="purchase-area-title">
+               <div class="title-font">加</div>
+               <div class="title-font">購</div>
+               <div class="title-font">區</div>
+            </div>
+         
+            <div class="purchase-area-container">
+                <button @click="prev" class="prev"><</button>
+                <div class="purchase-area-slide" :style="{left:330*index+'px',
+                transition:.5+'s'}">
+                  <div class="purchase-area-card " v-for="(item,value) in data" :key="item.id">
+                        <div class="purchase-area-pic">
+                            <img :src="item.img" alt="">
+                        </div>
+                        <div class="purchase-area-name">
+                            <h3>{{item.name}}</h3>
+                        </div>
+                        <div class="purchase-area-introduce">
+                            <div class="purchase-area-cpacity">
+                                    <small>{{item.cpacity}}</small>
+                                </div>
+                                <div class="purchase-area-orign">
+                                    <small>{{item.orign}}</small>
+                                </div>
+                            </div>
+                        <div class="purchase-area-price">
+                            <p>售價:{{item.price}}</p>
+                        </div>
+                        <div class="purchase-area-btn">
+                            <button @click="addCar(item.id,item)">加入購物車</button>
+                        </div>
+                    </div>
+            <!-- ============================================ -->
+
+           <div class="purchase-area-card " v-for="(item,value) in data">
+                <div class="purchase-area-pic">
+                    <img :src="item.img" alt="">
+                </div>
+                <div class="purchase-area-name">
+                    <h3>{{item.name}}</h3>
+                </div>
+                <div class="purchase-area-introduce">
+                    <div class="purchase-area-cpacity">
+                            <small>{{item.cpacity}}</small>
+                        </div>
+                        <div class="purchase-area-orign">
+                            <small>{{item.orign}}</small>
+                        </div>
+                    </div>
+                <div class="purchase-area-price">
+                    <p>售價:{{item.price}}</p>
+                </div>
+            </div> 
+
+                </div>
+                <button @click="next" class="next">></button>
+            </div>
+        </div>
+    </div>
+       
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <!-- <script>
+     Vue.createApp({
+        data(){
+            return{
+                data:[],
+                index:0,
+                car:[],
+                number:1,
+                sel:1,
+                
+    
+            }
+        },
+        methods: {
+            getInfo(){
+                axios.get("../商品區/list.json")
+                .then((res)=>{
+                    this.data = res.data.oil
+                    console.log(this.car)
+                    
+                })
+            },
+            prev(){
+                    if(this.index>-8){
+                        this.index-=1
+                    }   
+            },
+            next(){
+                if(this.index<0){
+                    this.index+=1
+                }
+             
+            },
+            change(){
+                console.log(this.sel)
+            },
+            select(){
+            
+                this.sel=1
+        
+            },
+            storage(){
+               localStorage.setItem("order",JSON.stringify(this.order))
+           },
+           online(){
+               let orderList = localStorage.getItem("order");
+               if(!orderList) return;
+               this.order = JSON.parse(orderList);
+           },
+            
+        },
+        computed:{
+           
+            money(){
+              return parseInt (this.name.price*this.sel)
+            }
+        },
+        watch:{
+       
+
+        },
+        mounted(){
+            this.getInfo()
+            this.select()
+        },
+     }).mount("#app")
+    </script> -->
+
+    <script>
+        Vue.createApp({
+           data(){
+               return{
+                    data:[],
+                    order:[],
+                    car:[],
+                    gold:[],
+                    page:0,
+                    article:1,
+                    rule:true,
+                    precautions:false,
+                    pickUp:false,
+                    comment:false,
+                    number:0,
+                    sel:"",
+                    index:0,
+                    money:0,
+                    totalPrice:0,
+                    
+                   
+              
+               }
+           },
+           methods: {
+               commodityInfo(){
+                   axios.get("../商品區/list.json")
+                   .then((res)=>{
+               
+                       this.data = res.data.oil
+                      
+                      
+                   })
+               },
+        
+               addCar(id,item){
+               
+
+                let count = this.data.findIndex(item=>{
+                    
+                    
+                   return item.id===id
+                
+                }) 
+                let code = this.car.find(carItem=>carItem.id==id)
+                
+                    
+
+                    if(!code){
+                    alert("成功加入購物車")
+                    item.num+=1
+                    this.car.push({
+                        id:this.data[count].id,
+                        img:this.data[count].img,
+                        name:this.data[count].name,
+                        price:this.data[count].price,
+                        num:this.data[count].num
+                        
+                    })
+
+                }else{
+                    alert("購物車內已有相同物品")
+                }
+                this.totalPrice = this.discount
+   
+               
+                this.setCar() 
+             
+                           
+               },
+               reduceCar(id){
+              
+                let index = this.car.findIndex(item=>item.id===id)
+               
+                this.car.splice(index,1)
+                        
+                this.setCar()
+           
+                },
+               addNum(item){
+                item.num+=1
+                this.setCar()
+               },
+               reduceNum(item){
+                if(item.num>0){
+                    item.num-=1
+                }
+                this.setCar()
+               
+               },
+            
+          
+           setCar(){
+             localStorage.setItem("car",JSON.stringify(this.car))
+             localStorage.setItem("price",JSON.stringify(this.totalPrice))
+           },
+         
+      
+           carOnline(){
+            let buyCar = localStorage.getItem("car");
+                if(!buyCar) return;
+                this.car = JSON.parse(buyCar)
+
+                let gold = localStorage.getItem("price")
+                if(!gold) return;
+                this.totalPrice = JSON.parse(gold)
+            },
+         
+            prev(){
+                    if(this.index>-8){
+                        this.index-=1
+                    }   
+            },
+            next(){
+                if(this.index<0){
+                    this.index+=1
+                }
+             
+            },
+            select(){
+                this.sel=1
+            },
+            set(){
+                this.$set(car,1,{});
+            },
+            change(){
+                      
+                       
+                        this.setCar()
+           },
+             
+           },
+       
+           created() {
+               this.carOnline()
+           
+           },
+           computed:{
+                buyCar:function(){//不可與陣列同名
+                    return JSON.parse(JSON.stringify(this.car))
+                },
+                discount:function(){
+                    this.setCar()
+                    return this.money*this.sel
+                    
+                   
+                }
+           },
+           watch:{
+            buyCar:{
+                    handler(newVal,oldVal){
+                        this.money="";
+                        
+                        for(let i=0;i<newVal.length;i++){
+                            this.money = parseFloat(this.money+newVal[i].price*newVal[i].num)
+                          
+                        }   
+                    
+                       
+                    }
+                    
+                },
+                totalPrice:{
+                    handler(newVal,oldVal){
+                  
+                          
+                      
+            
+                       
+                        this.setCar()
+                    }
+                    
+                }
+           },
+           
+           mounted() {
+               this.commodityInfo()
+            //    this.getInfo()
+                this.select()
+                
+           },
+        }).mount("#app")
+       </script>
+        
+    
+</body>
+</html>
