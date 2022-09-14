@@ -1,13 +1,66 @@
-@mixin rect($w , $h:$w) {
-  width: $w;
-  height: $h;
+@mixin rect($w, $h:$w) {
+    width: $w;
+    height: $h;
 }
 
 @mixin layout($w) {
-     @if $w == 100 {
-         width: 100%;
-     }@else {
+    @if $w==100 {
+        width: 100%;
+    }
+
+    @else {
         width: $w + px;
         margin: 0 auto;
-     }
+    }
 }
+
+@mixin container() {
+    //外部容器
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+@mixin title() {
+    //標題藍色圈圈
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: $blue;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 900;
+    color: aliceblue;
+    font-family: $fontTitle;
+
+}
+
+@mixin titleBefore {
+    //標題before
+    content: "";
+    width: 42px;
+    height: 42px;
+    background-color: transparent;
+    border: 3px solid aliceblue;
+    position: absolute;
+    top: .5px;
+    left: 2.5%;
+    border-radius: 50%;
+
+}
+
+
+// @mixin grid($val ,$d:null){//格線系統
+//     @for $i from 1 through $val {
+//       .col#{$d}-#{$i} {
+//         width: $i / $val *100%;
+//       }
+//     }
+//   }
+
+//   @include grid(12);
