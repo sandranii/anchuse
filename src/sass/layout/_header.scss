@@ -3,23 +3,62 @@
     display: flex;
     background-color: $baseWhite;
     box-shadow: 0px 2px 3px rgba(48, 48, 48, 0.252);
+    ul{
+        width: 1200px;
+        list-style: none;
+        display: flex;
+        margin: 0 auto;
+        justify-content: space-between;
 
-    a {
-        font-family: $fontTitle;
-        font-size: 18px;
-        letter-spacing: 2px;
+        li{
+            align-self: center;
+            a {
+                display: inline-block;
+                font-family: $fontTitle;
+                font-weight: 600;
+                font-size: 18px;
+                letter-spacing: 2px;
+                color: $blue;
+                text-decoration: none;
+                padding: 5px;
+                white-space: nowrap;
+                &:hover{
+                    color: $red;
+                }
+            }
+        }
+        .header_logo{
+            width: 200px;
+            padding: 5px 0px;
+            a{
+                padding: 0;
+                img{
+                    vertical-align: bottom;
+                    width: 100%;
+                }
+            }
+        }
+        .header_member{
+            width: 30px;
+            a{
+                padding: 0;
 
+                img{
+                    vertical-align: bottom;
+                    width: 100%;
+                }
+            }
+        }  
+        .header_shopping_cart{
+            width: 30px;
+            a{
+                padding: 0;
+
+                img{
+                    vertical-align: bottom;
+                    width: 100%;
+                }
+            }
+        }  
     }
-}
-
-button {
-    @include btnLittle()
-}
-
-.text2 {
-    @include btnLarge()
-}
-
-.text3 {
-    @include btnAddCart()
 }

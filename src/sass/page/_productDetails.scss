@@ -1,0 +1,138 @@
+@import "../scss/base/base";
+@import"../scss/layout/header";
+@import"../scss/layout/footer";
+@import"../scss/componet/btn.scss";
+@import"../scss/mixin/mixin";
+
+@import"../scss/media/media";
+
+.product-title{
+    @include container();
+    line-height: 3;
+    .bread{
+        padding: 10px;
+        font-size: 16px;
+    }
+    .product-name{}
+    .product-pic{
+        width: 100%;
+        padding: 10px;
+    }
+    .product-pic img{
+        width: 100%;
+    }
+    .pic-slide{
+        display: none ;
+    }
+    .pic-control{
+        width: 100px;
+        display: flex;
+        justify-content: space-evenly;
+        margin: auto;
+
+        .pic-number{
+            font-size: 0px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: gray;
+        }
+    }
+    .product-number{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0;
+        button{
+            width: 30px;
+            height: 30px;
+            font-size: 25px;
+        }
+        input{
+            width: 50px;
+            padding: 5px 0;
+            text-align: center;
+        }
+    }
+    .product-price{
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px;
+        font-size: 25px;
+    }
+
+}
+// ==============================
+.product-introduce{
+    @include container();
+    .product-txt{
+        padding: 10px;
+        line-height: 2;
+    }
+    .product-addcar{
+        margin-bottom: 50px;
+        button{
+            width: 100%;
+            padding: 5px;
+            font-size: 18px;
+            font-weight: 800;
+        }
+       
+    }
+}
+// ===============================
+.illustrate{
+    
+    @include container();
+    .illustrate-chose{
+        display: flex;
+        justify-content: space-around;
+        border: 1px solid black;
+        position: relative;
+        text-align: center;
+        cursor: pointer;
+
+        .illustrate-order{
+            width: 100%;
+            border: 1px solid;
+            border-bottom: none;
+            padding: 5px;
+        }
+     
+
+    }
+    .illustrate-txt{
+        width: 100%;
+        height: 400px;
+        overflow-y: scroll;
+        border: 1px solid black;
+        margin-bottom: 50px;
+        padding: 10px;
+    }
+
+
+}
+.active{
+    background-color: red !important;
+}
+.illustrate-post{
+    width: 100%;
+    height: 50vh;
+    border: 1px solid black;
+    margin-bottom: 50px;
+    padding: 10px;
+}
+.color{
+    background-color: black;
+    h3{
+        color: aliceblue;
+    }
+   
+}
+.light{
+    opacity: 1 !important;
+}
+
+@import"../scss/media/productdetails";
+
+@include productDetails();
