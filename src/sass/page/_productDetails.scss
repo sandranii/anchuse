@@ -1,10 +1,10 @@
-@import "../scss/base/base";
-@import"../scss/layout/header";
-@import"../scss/layout/footer";
-@import"../scss/componet/btn.scss";
-@import"../scss/mixin/mixin";
+// @import "../scss/base/base";
+// @import"../scss/layout/header";
+// @import"../scss/layout/footer";
+// @import"../scss/componet/btn.scss";
+// @import"../scss/mixin/mixin";
 
-@import"../scss/media/media";
+// @import"../scss/media/media";
 
 .product-title{
     @include container();
@@ -133,6 +133,6 @@
     opacity: 1 !important;
 }
 
-@import"../scss/media/productdetails";
+// @import"../scss/media/productdetails";
 
-@include productDetails();
+// @include productDetails();
