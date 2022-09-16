@@ -1,0 +1,49 @@
+footer{
+    width: 100%;
+    display: flex;
+    background-color: $blue;
+    nav{
+        width:1200px;
+        height: 100%;
+        display: flex;
+        margin: 0 auto;
+        justify-content: space-between;
+        padding: 50px 0px;
+
+        .follow{
+            width: 15%;
+            .footer_logo{
+                
+                img{
+                    width: 170px;
+                    display: block;
+                }
+            }
+            .social{
+                width: 95%;
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+        }
+        
+        .time{
+            width: 20%;
+            h4{
+                color: $white;
+                font-family: $fontTitle;
+
+                &::before{
+                    content: '';
+                    background-image: url('/images/footerCircle.png');
+                    width: 100px;
+                }
+            }
+
+            p{
+                color: $white;
+            }
+        }
+    }
+    
+}
