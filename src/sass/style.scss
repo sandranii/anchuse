@@ -3,13 +3,14 @@
 @import "./base/color";
 @import "./base/common";
 @import "./base/font";
+@import "./base/bcgFlower";
 
 //mixin
 @import "./mixin/mixin";
 
 //component
 @import "./component/btn";
-
+@import './component/banner';
 // layout
 @import "./layout/header";
 
@@ -20,9 +21,9 @@
 
 @import './page/reservation';
 
-
-
 @import './page/aboutUs';
+
+
 
 @import"./page/productDetails";
 

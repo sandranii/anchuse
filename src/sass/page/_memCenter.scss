@@ -1,4 +1,6 @@
 .memCenter {
+    position: relative;
+    //會員大頭貼
     .member {
         display: flex;
         position: absolute;
@@ -19,11 +21,13 @@
         .mem_name {
             height: 100%;
             position: relative;
-            top: 80px;
+            top: 70px;
             color: #ffffff;
+            padding: 5px 10px;
+            background-color: rgba(204, 204, 204, 0.192);
         }
     }
-
+    //會員背景圖
     .mem_banner {
         width: 100%;
         height: 200px;
@@ -34,40 +38,50 @@
             object-fit: cover;
         }
     }
+    // 個人資料
+    .person_info_item{
+        padding-bottom: 32px;
+    }
 
-    .panel-control {
+    .edit{
+        text-align: right;
+    }
+    
+    // 書籤頁切換
+    .panel_control {
         position: absolute;
         opacity: 0;
     }
 
-    .tab-group label {
-        display: inline-block;
-        padding: 10px 30px;
-        border: 1px solid #ccc;
-        border-bottom: none;
-        background-color: #ccc;
-        bottom: -1px;
-        position: relative;
+    .tab_group{
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        background-color: $blue;
     }
 
-    .content-group {
-        border: 1px solid #ccc;
-        padding: 20px;
+    .tab_group label {
+        display: inline-block;
+        padding: 10px 30px;
+        border-bottom: none;
+        background-color: $blue;
+        position: relative;
+        color: $white;
     }
 
     .content {
         display: none;
     }
 
-    #radio1:checked~.tab-group [for="radio1"],
-    #radio2:checked~.tab-group [for="radio2"],
-    #radio3:checked~.tab-group [for="radio3"] {
-        background-color: #fff;
+    #radio1:checked~.tab_group [for="radio1"],
+    #radio2:checked~.tab_group [for="radio2"],
+    #radio3:checked~.tab_group [for="radio3"] {
+        background-color: $red;
     }
 
-    #radio1:checked~.content-group .content1,
-    #radio2:checked~.content-group .content2,
-    #radio3:checked~.content-group .content3 {
+    #radio1:checked~.content_group .content1,
+    #radio2:checked~.content_group .content2,
+    #radio3:checked~.content_group .content3 {
         display: block
     }
 }
