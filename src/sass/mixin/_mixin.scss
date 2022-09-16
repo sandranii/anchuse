@@ -58,7 +58,7 @@
 @mixin grid($val ,$d:null){//格線系統
     @for $i from 1 through $val {
       .col#{$d}-#{$i} {
-        width: $i / $val *100%;
+        width: calc($i / $val * 100%);
       }
     }
   }
