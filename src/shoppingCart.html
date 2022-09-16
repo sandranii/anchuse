@@ -18,21 +18,21 @@
             </div>
     
             <table border="1"  class="shopping-table col-12" >
-                <tr>
+                <!-- <tr>
                     <th>商品展示</th>
                     <th>名稱</th>
                     <th>售價</th>
                     <th>數量</th>
                     <th>小計</th>
                     <th>變更</th>  
-                </tr>
+                </tr> -->
                <tr  v-for="item in car">
                     <th><img :src="item.img" alt=""></th>
-                  <th>{{item.name}}</th>
+                  <th><p>{{item.name}}</p><p>{{item.price}}</p><button @click="addNum(item)">+</button ><input style="text-align:center" type="text" :value="item.num" size="1"><button @click="reduceNum(item)">-</button></th>
              
-                    <th>{{item.price}}</th> 
-                    <th><button @click="addNum(item)">+</button ><input style="text-align:center" type="text" :value="item.num" size="1"><button @click="reduceNum(item)">-</button></th>
-                    <th>{{item.price*item.num}}</th>
+                    <!-- <th></th> 
+                    <th></th> -->
+                    <th><p>{{item.price*item.num}}</p></th>
            
                
                     <th><button  class="btnLittle"  @click="reduceCar(item.id)">移出購物車</button></th>
@@ -49,7 +49,7 @@
                     <option value="0.5">5折</option>
             
                 </select>
-                <p>商品金額:{{money}}元 折扣金額:{{money-discount}} 結帳金額:${{totalPrice}}</p>
+                <p>商品金額:{{money}}元 折扣金額:{{money-totalPrice}} 結帳金額:${{totalPrice}}</p>
                 <a href="./Payment.html"><button class="btnLittle">前往結帳</button> </a>
             </div>
         </div>

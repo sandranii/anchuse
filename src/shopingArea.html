@@ -53,7 +53,18 @@
                         <h2>嚴選商品</h2>
                     </div>
                     <ul>
-                        <li @click="showOil()">
+                        <li v-for="(product,key) in data" @click="showOil(key)">
+                            <span style="font-size: 23px;font-weight: 800;">{{product[0].itemName}}</span>
+                            <span class="triangle">{{text}}</span>                          
+    
+                            <ul :class="{oilList:openPage1}">
+                                <li>玫瑰ROSE</li>
+                                <li>薰衣草 Lavender</li>
+                                <li>薄荷 Peppermint</li>
+                            </ul>    
+                        </li>
+
+                        <!-- <li @click.stop="showOil()">
                             <span style="font-size: 23px;font-weight: 800;">按摩精油 </span>
                             <span class="triangle">{{text}}</span>
                             
@@ -77,7 +88,7 @@
                                 <li>薄荷 Peppermint</li>
                             </ul>
     
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
     
@@ -86,7 +97,7 @@
                 <div class="area-box" v-if="currentPage==1" :class="{block:currentPage==1}" >
 
 
-                    <div class="col-3  area-card" v-for="(item,value) in data" @click="addOrder(item.id)" :key="item.id">
+                    <div class="col-3  area-card" v-for="(item,key) in commodity" @click="addOrder(item.id)" :key="item.id">
                         <div class="area-pic">
                             <img :src="item.img">
                         </div>
@@ -175,6 +186,8 @@
                 rose:[],
                 order:[],
                 car:[],
+                gun:[],
+                commodity:[],
                 index:1,
                 count:0,
                 text:"+",
@@ -197,25 +210,31 @@
         },
         methods: {
             commodityInfo(){
+             
                 axios.get("./json/list.json")
-                .then((res)=>{
-                    
-                    this.data = res.data.gun
-                    this.info = res.data.equipment
-                    this.rose = res.data.rose
+                .then((res)=>{                    
+                    this.data = res.data
+
+                    this.commodity=res.data.gun
+                    this.gun = res.data.gun
+                    this.equipment = res.data.equipment
+                    this.oil = res.data.rose
                     console.log(this.data)
                 })
             },
-            showOil(){
-          
-                this.openPage1=!this.openPage1
-               
-                if(!this.openPage1){
-                    this.text="-";
+            showOil(key){
+                if(key=="gun"){
+                    this.commodity=this.gun
+                }else if(key=="equipment"){
+                    this.commodity=this.equipment
                 }else{
-                    this.text="+";
+                    this.commodity=this.oil
                 }
+
             },
+            // showGun(){
+            //     this.data=res.data.gun
+            // },
             showAppliance(){
                 this.openPage2 = !this.openPage2
                 if(!this.openPage2){

@@ -2,10 +2,11 @@
     "gun":[
           {
             "id":1,
+            "itemName": "按摩槍",
             "img":"./carpic/massagegun/10269397_01_002_R.webp",
             "imgTop":"./carpic/massagegun/10269397_R1.webp",
             "imgBody":"./carpic/massagegun/10269397_R.webp",
-            "name":"美式按摩槍 FG-271",
+            "name":"美式按摩槍",
             "cpacity":"16oz/473ml",
             "origin":"美國",
             "num":0,
@@ -40,10 +41,11 @@
           },
           {
             "id":2,
+            "itemName": "按摩槍",
             "img":"./carpic/massagegun/project.webp",
             "imgTop":"./carpic/massagegun/10269397_R1.webp",
             "imgBody":"./carpic/massagegun/10269397_R.webp",
-            "name":"Project Mars 火星計畫",
+            "name":"火星計畫",
             "cpacity":"16oz/473ml",
             "origin":"日本",
             "num":0,
@@ -57,7 +59,7 @@
 
             "specification":{
 
-                            "name":"Project Mars 火星計畫",
+                            "name":"火星計畫",
                             "brand":"其他",
                             "type":"按摩棒/按摩器",
                             "color":"暗黑色",
@@ -78,6 +80,7 @@
           },
           {
             "id":3,
+            "itemName": "按摩槍",
             "img":"./carpic/massagegun/project.webp",
             "imgTop":"./carpic/massagegun/10269397_R1.webp",
             "imgBody":"./carpic/massagegun/10269397_R.webp",
@@ -115,6 +118,7 @@
           },
           {
             "id":4,
+            "itemName": "按摩槍",
             "img":"./carpic/massagegun/project.webp",
             "imgTop":"./carpic/massagegun/10269397_R1.webp",
             "imgBody":"./carpic/massagegun/10269397_R.webp",
@@ -153,6 +157,7 @@
           },
           {
             "id":5,
+            "itemName": "按摩槍",
             "img":"./carpic/massagegun/project.webp",
             "imgTop":"./carpic/massagegun/10269397_R1.webp",
             "imgBody":"./carpic/massagegun/10269397_R.webp",
@@ -191,6 +196,7 @@
           },
           {
             "id":6,
+            "itemName": "按摩槍",
             "img":"./carpic/massagegun/project.webp",
             "imgTop":"./carpic/massagegun/10269397_R1.webp",
             "imgBody":"./carpic/massagegun/10269397_R.webp",
@@ -227,10 +233,10 @@
             
             
           }
-      ],
-  
+      ],  
       "equipment":[
           {
+              "itemName": "按摩滾筒",
               "img":"https://picsum.photos/300/200/?random=10",
               "name":"滾筒",
               "cpacity":"16oz/473ml",
@@ -238,6 +244,7 @@
               "price":200
           },
           {
+            "itemName": "按摩滾筒",
               "img":"https://picsum.photos/300/200/?random=11",
               "name":"滾筒",
               "cpacity":"16oz/473ml",
@@ -245,6 +252,7 @@
               "price":200
           },
           {
+            "itemName": "按摩滾筒",
               "img":"https://picsum.photos/300/200/?random=12",
               "name":"滾筒",
               "cpacity":"16oz/473ml",
@@ -252,6 +260,7 @@
               "price":200
           },
           {
+            "itemName": "按摩滾筒",
               "img":"https://picsum.photos/300/200/?random=13",
               "name":"滾筒",
               "cpacity":"16oz/473ml",
@@ -259,6 +268,7 @@
               "price":200
           },
           {
+            "itemName": "按摩滾筒",
               "img":"https://picsum.photos/300/200/?random=14",
               "name":"滾筒",
               "cpacity":"16oz/473ml",
@@ -266,6 +276,7 @@
               "price":200
           },
           {
+            "itemName": "按摩滾筒",
               "img":"https://picsum.photos/300/200/?random=15",
               "name":"滾筒",
               "cpacity":"16oz/473ml",
@@ -275,13 +286,16 @@
       ],
       "rose":[
           {
-              "img":"https://picsum.photos/300/200/?random=10",
-              "name":"玫瑰 ROSE",
-              "cpacity":"16oz/473ml",
-              "origin":"中國",
-              "price":1200
+            "itemName": "按摩精油",
+            
+            "img":"https://picsum.photos/300/200/?random=10",
+            "name":"玫瑰 ROSE",
+            "cpacity":"16oz/473ml",
+            "origin":"中國",
+            "price":1200
           },
           {
+            "itemName": "按摩精油",
               "img":"https://picsum.photos/300/200/?random=11",
               "name":"玫瑰 ROSE",
               "cpacity":"16oz/473ml",
@@ -289,6 +303,7 @@
               "price":1200
           },
           {
+            "itemName": "按摩精油",
               "img":"https://picsum.photos/300/200/?random=12",
               "name":"玫瑰 ROSE",
               "cpacity":"16oz/473ml",
@@ -296,6 +311,7 @@
               "price":1200
           },
           {
+            "itemName": "按摩精油",
               "img":"https://picsum.photos/300/200/?random=13",
               "name":"玫瑰 ROSE",
               "cpacity":"16oz/473ml",
@@ -303,6 +319,7 @@
               "price":1200
           },
           {
+            "itemName": "按摩精油",
               "img":"https://picsum.photos/300/200/?random=14",
               "name":"玫瑰 ROSE",
               "cpacity":"16oz/473ml",
@@ -310,6 +327,7 @@
               "price":1200
           },
           {
+            "itemName": "按摩精油",
               "img":"https://picsum.photos/300/200/?random=15",
               "name":"玫瑰 ROSE",
               "cpacity":"16oz/473ml",
