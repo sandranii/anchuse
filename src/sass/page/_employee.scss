@@ -30,8 +30,8 @@
                         width: 490px;
                         height: 490px;
                         overflow: hidden;
-                        position: relative;
-                        z-index: -1;
+                        border: 5px solid $blue;
+                        box-sizing: border-box;
                     }
                 }
                 .Rframe{
