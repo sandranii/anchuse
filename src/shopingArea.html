@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    @@include('./layout/header.html')
 <div id="app">
     <div class="buycar">
         
@@ -46,27 +47,27 @@
     </div>
    
 
-        <div class="area-list">
-            <div class="row">
-                <div class="area-order">
-                    <div class="area-order-title">
-                        <h2>嚴選商品</h2>
-                    </div>
-                    <ul>
-                        <li v-for="(product,key) in data" @click="showOil(key)">
-                            <span style="font-size: 23px;font-weight: 800;">{{product[0].itemName}}</span>
-                            <span class="triangle">{{text}}</span>                          
-    
-                            <ul :class="{oilList:openPage1}">
-                                <li>玫瑰ROSE</li>
-                                <li>薰衣草 Lavender</li>
-                                <li>薄荷 Peppermint</li>
-                            </ul>    
-                        </li>
-                    </ul>
+    <div class="area-list">
+        <div class="row">
+            <div class="area-order">
+                <div class="area-order-title">
+                    <h2>嚴選商品</h2>
                 </div>
+                <ul>
+                    <li v-for="(product,key) in data" @click="showOil(key)">
+                        <span style="font-size: 23px;font-weight: 800;">{{product[0].itemName}}</span>
+                        <span class="triangle">{{text}}</span>                          
+
+                        <ul :class="{oilList:openPage1}">
+                            <li>玫瑰ROSE</li>
+                            <li>薰衣草 Lavender</li>
+                            <li>薄荷 Peppermint</li>
+                        </ul>    
+                    </li>
+                </ul>
+            </div>
     
-              <div class="wrap">
+            <div class="wrap">
         
 
                 <a href="./productdetails.html">
@@ -123,33 +124,33 @@
                  
                 </div>
 <!-- ========================================================== -->
-            <div class="area-box" v-if="show=currentPage=='3'" :class="{block:currentPage==3}">
-                <div class="col-3  area-card" v-for="(item,value) in rose">
-                    <div class="area-pic">
-                        <img :src="item.img">
-                    </div>
-                    <div class="area-name">
-                        <h3>{{item.name}}</h3>
-                    </div>
-                    <div class="area-introduce">
-                        <div class="area-oritem">
-                            <small class="area-capacity">{{item.cpacity}}</small>
-                            <small class="area-origin">產地：{{item.origin}}</small>
-                    
+                <div class="area-box" v-if="show=currentPage=='3'" :class="{block:currentPage==3}">
+                    <div class="col-3  area-card" v-for="(item,value) in rose">
+                        <div class="area-pic">
+                            <img :src="item.img">
                         </div>
-                        <div class="area-price">
-                            <p>售價:{{item.price}}元</p>
+                        <div class="area-name">
+                            <h3>{{item.name}}</h3>
+                        </div>
+                        <div class="area-introduce">
+                            <div class="area-oritem">
+                                <small class="area-capacity">{{item.cpacity}}</small>
+                                <small class="area-origin">產地：{{item.origin}}</small>
+                        
+                            </div>
+                            <div class="area-price">
+                                <p>售價:{{item.price}}元</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             
-                    <div class="page-number-computer">
-                        <button  class="btnLittle"  @click="pageReduce"><</button>
-                        <span style="  letter-spacing: 2px;" v-for="i in 3" :class="{fontcolor:i==currentPage}" @click="chose(i)">{{i}}</span>
-                        <button class="btnLittle"  @click="pageAdd()">></button>
-                    </div>
-              </div> 
+                <div class="page-number-computer">
+                    <button  class="btnLittle"  @click="pageReduce"><</button>
+                    <span style="  letter-spacing: 2px;" v-for="i in 3" :class="{fontcolor:i==currentPage}" @click="chose(i)">{{i}}</span>
+                    <button class="btnLittle"  @click="pageAdd()">></button>
+                </div>
+            </div> 
         </div>
     </div>            
 </div>
