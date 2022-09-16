@@ -4,46 +4,152 @@ footer{
     background-color: $blue;
     nav{
         width:1200px;
-        height: 100%;
-        display: flex;
+        height: 180px;
         margin: 0 auto;
-        justify-content: space-between;
-        padding: 50px 0px;
+        padding: 70px 20px;
+        .footer_content{
+            width:100%;
+            height: 100%;
+            display: flex;
+            margin: 0 auto;
+            white-space: nowrap;
+            justify-content: space-between;
 
-        .follow{
-            width: 15%;
-            .footer_logo{
-                
-                img{
-                    width: 170px;
-                    display: block;
+            .follow{
+                width: 180px;
+                .footer_logo{
+                    
+                    img{
+                        width: 170px;
+                        display: block;
+                    }
+                }
+                .social{
+                    width: 95%;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 20px;
                 }
             }
-            .social{
-                width: 95%;
-                display: flex;
-                justify-content: space-between;
-                margin-top: 20px;
+            
+            .time{
+                width: 240px;
+                h4{
+                    color: $white;
+                    font-family: $fontTitle;
+                    letter-spacing: 7px;
+                    line-height: 50px;
+                    margin-bottom: 10px;
+
+                    &::before{
+                        content: url('/images/footerCircle.png');
+                        position: absolute;
+                        
+                    }
+                }
+
+                p{
+                    color: $white;
+                }
+            }
+
+            .contact{
+                width: 220px;
+                h4{
+                    color: $white;
+                    font-family: $fontTitle;
+                    letter-spacing: 7px;
+                    line-height: 50px;
+                    margin-bottom: 10px;
+
+                    &::before{
+                        content: url('/images/footerCircle.png');
+                        position: absolute;
+                        
+                    }
+                }
+
+                p{
+                    color: $white;
+                    margin-bottom: 10px;
+                }
             }
         }
-        
-        .time{
-            width: 20%;
-            h4{
-                color: $white;
-                font-family: $fontTitle;
-
-                &::before{
-                    content: '';
-                    background-image: url('/images/footerCircle.png');
-                    width: 100px;
-                }
-            }
-
+        .copyright{
+            width: 100%;
+            height: 20%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            white-space: nowrap;
             p{
-                color: $white;
+                display: block;
+                width: 25%;
+                color: rgb(172, 172, 172);
+                font-size: 14px;
             }
         }
     }
     
+}
+
+
+/*====== 行動版 RWD | 320px ~ 768px ======*/
+@media screen and (min-width: 320px) and (max-width: 767.98px){
+    footer{
+        width: 100%;
+        nav{
+            width:100%;
+            height: 100%;
+            padding: 70px 40px;
+            .footer_content{
+                width:100%;
+                height: 450px;
+                display: flex;
+                flex-direction: column;
+                margin: 0 auto;
+                justify-content: space-between;
+    
+            }
+            .copyright{
+                width: 100%;
+                height: 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-end;
+                margin-top: 60px;
+                white-space: normal;
+                p{
+                    line-height: 30px;
+                    width: 100%;
+                }
+            }
+        }
+        
+    }
+
+}
+
+/*======    平板版 RWD | 768px ~ 1200px ======*/
+@media screen and (min-width: 768px) and (max-width: 1199.98px){
+footer nav{
+    padding: 70px 40px;
+}
+
+    footer nav .copyright{
+        width: 100%;
+        height: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        white-space: nowrap;
+        p{
+            display: block;
+            width: 25%;
+            color: rgb(172, 172, 172);
+            font-size: 14px;
+        }
+    }
 }
