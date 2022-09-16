@@ -6,6 +6,8 @@
 
 //mixin
 @import "mixin/mixin";
+@import "mixin/productMedia";
+@import"./mixin/AreaMedia";
 
 //component
 @import "component/btn";
@@ -19,7 +21,6 @@
 
 @import './page/reservation';
 
-@import"./page/Mediaproductdetails";
 
 
 @import './page/aboutUs';
@@ -27,3 +28,8 @@
 @import"./page/productDetails";
 
 @import "./page/massageschool";
+
+@import"./page/Payment";
+@import"./page/shopingArea";
+
+@import"./page/shoppingCart";

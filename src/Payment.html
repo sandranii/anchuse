@@ -5,12 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/Payment.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
 <div id="app">
-    <div class="receiver col-6">
+
+<div class="path">
+    <div class="target" :class="{hint:active==1}">
+        <h4 :class="{hint:active==1}">確認商品</h4>
+    </div>
+    <div class="target" :class="{hint:active==2}">
+        <h4 :class="{hint:active==2}">填寫資訊</h4>
+    </div>
+    <div class="target" :class="{hint:active==3}">
+        <h4 :class="{hint:active==3}">付款</h4>
+    </div>
+</div>
+
+
+
+    <!-- ============================== -->
+    <div class="confirm-data col-6" v-if="active==1">
+        <div class="confirm-data-title">
+            <p>確認商品</p>
+        </div>
+        <form action="">
+            <table>
+                <tr>
+                    <th>商品名稱</th>
+                    <th>數量</th>
+                    <th>價格</th>
+                </tr>
+                <tr v-for="item in car">
+                    <th>{{item.name}}</th>
+                    <th>{{item.num}}</th>
+                    <th>{{item.price*item.num}}</th>
+                </tr>
+                <tr>
+                    <th>總價</th>
+                    <th></th>
+                    <th>{{money}}</th>
+                </tr>
+            </table>
+      
+            <button @click="next">下一步</button>
+        </form>
+    </div>
+<!-- ================================= -->
+
+    <div class="receiver col-6" v-if="active==2">
         <div class="receiver-title">
             <p>收貨人訊息</p>
         </div>
@@ -50,12 +94,15 @@
                 </select><br>
                 <input type="text" placeholder="請輸入詳細地址">
             </div>
-                <button>下一步</button>
+                <button @click="next">下一步</button>
         </form>
     </div>
+
+
+ 
 <!-- ===================================== -->
-<div class="wrap">
-    <div class="credit-card col-6">
+
+    <div class="credit-card col-6" v-if="active==3">
         <div class="credit-card-title">
             <p>信用卡付款</p>
         </div>
@@ -75,42 +122,16 @@
     
                   
             </div>
-            <button>下一步</button>
+            <button>送出</button>
         </form>
  
     </div>
-</div>
+
   
 
     <!-- ============================================= -->
 
-        <div class="confirm-data col-6">
-            <div class="confirm-data-title">
-                <p>確認資料</p>
-            </div>
-            <form action="">
-                <table>
-                    <tr>
-                        <th>商品名稱</th>
-                        <th>數量</th>
-                        <th>價格</th>
-                    </tr>
-                    <tr v-for="item in car">
-                        <th>{{item.name}}</th>
-                        <th>{{item.num}}</th>
-                        <th>{{item.price*item.num}}</th>
-                    </tr>
-                    <tr>
-                        <th>總價</th>
-                        <th></th>
-                        <th>{{money}}</th>
-                    </tr>
-                </table>
-          
-                <button>送出</button>
-            </form>
-        </div>
-
+       
 </div>
  
 
@@ -126,7 +147,7 @@
                     selArea:"",
                     car:[],
                     money:0,
-                    totalPrice:0
+                    active:1,
                  
                    }
                },
@@ -157,6 +178,9 @@
                 },
                 set(){
                     this.$set(car,1,{})
+                },
+                next(){
+                    this.active+=1
                 }
                    
                },

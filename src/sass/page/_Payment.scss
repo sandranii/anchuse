@@ -1,0 +1,147 @@
+// @import "../scss/base/base";
+// @import"../scss/layout/header";
+// @import"../scss/layout/footer";
+// @import"../scss/componet/btn.scss";
+// @import"../scss/mixin/mixin";
+// @import"../scss/media/media";
+
+// @include cellphone();
+
+
+
+
+#app{
+   height: 70vh;
+   display: flex;
+   flex-direction: column;
+}
+.path{
+    width: 50%;
+    min-width: 500px;
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+    padding:50px 0;
+
+    .target{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: beige;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        position: relative;
+    }
+    .target:nth-child(1):before{
+        content:"";
+        width: 160px;
+        height: 4px;
+        background-color: beige;
+        position: absolute;
+        right: -160px;
+    }
+    .target:nth-child(2):before{
+        content:"";
+        width: 160px;
+        height: 4px;
+        background-color: beige;
+        position: absolute;
+        right: -160px;
+    }
+}
+.receiver{
+
+    box-shadow: 0px 0px 10px rgb(199, 199, 199);
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+   
+   .receiver-title{
+    padding: 5px;
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 20px;
+   }
+   .receiver-address{
+    margin: 10px 0;
+    line-height: 2;
+   }
+}
+label{
+    display: block;
+}
+// =========================================
+
+
+    .credit-card-title{
+        padding: 5px;
+        font-size: 25px;
+        font-weight: 800;
+        margin-bottom: 20px;
+    }
+
+    .credit-card{
+        box-shadow: 0px 0px 10px rgb(199, 199, 199);
+        margin: auto;
+        line-height: 1.5;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+       
+    }
+    
+// ==================================
+
+.confirm-data{
+    box-shadow: 0px 0px 10px rgb(199, 199, 199);
+    margin: auto;
+    line-height: 1.5;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    .confirm-data-title{
+        padding: 5px;
+        font-size: 25px;
+        font-weight: 800;
+        margin-bottom: 20px;
+    }
+    table{
+
+        th{
+            padding: 0 20px;
+           
+        }
+    }
+
+       
+
+   
+}
+
+button{
+    width: 100%;
+    min-width: 200px;
+    background-color: $blue;
+    color: aliceblue;
+    padding: 5px 10px;
+    margin: 10px;
+    border: none;
+}
+.hint{
+    background-color: red !important;
+    color: aliceblue !important;
+}
+
+

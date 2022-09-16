@@ -55,12 +55,12 @@
 }
 
 
-// @mixin grid($val ,$d:null){//格線系統
-//     @for $i from 1 through $val {
-//       .col#{$d}-#{$i} {
-//         width: $i / $val *100%;
-//       }
-//     }
-//   }
+@mixin grid($val ,$d:null){//格線系統
+    @for $i from 1 through $val {
+      .col#{$d}-#{$i} {
+        width: $i / $val *100%;
+      }
+    }
+  }
 
-//   @include grid(12);
+  @include grid(12);

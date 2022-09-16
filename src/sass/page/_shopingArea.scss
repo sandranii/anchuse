@@ -1,0 +1,197 @@
+// @import "../scss/base/base";
+// @import"../scss/layout/header";
+// @import"../scss/layout/footer";
+// @import"../scss/componet/btn.scss";
+// @import"../scss/mixin/mixin";
+// @import"../scss/media/AreaMedia";
+// @import"../scss/media/media";
+
+
+// @include flag() ;
+// @include cellphone();
+
+@include  shoppingArea();
+
+.commodity-container{
+    @include container();
+    display: flex;
+    flex-direction: column;
+    line-height: 2;
+
+    justify-content: center;
+    .commodity-title{
+        display: flex;
+        text-align: center;
+
+        .title-font{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #163D82;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+            font-weight: 900;
+            color: aliceblue;
+            font-family:serif,sans-serif,cursive,fantasy,monospace;
+        }
+        .title-font:before{
+            content: "";
+            width: 42px;
+            height: 42px;
+            background-color: transparent;
+            border: 3px solid aliceblue;
+            position: absolute;
+            top: .5px;
+            left: 2.5%;
+            border-radius: 50%;
+        }
+    }
+    .bread{
+        padding: 10px;
+    }
+   .commodity-filter{
+    text-align: center;
+   }
+   .commodity-enter{
+    text-align: center;
+    
+   }
+   .commodity-enter input{
+    border-radius: 100px;
+    padding: 5px;
+   }
+   .commodity-keywords{
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: 800;
+
+   }
+
+}
+
+// =======================================
+.area-list{
+    padding: 10px;
+    @include container();
+ 
+    .row{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .area-order{
+        width: 100%;
+        max-width: 300px;
+        margin: auto;
+        
+
+        .area-order-title{
+        background-color: rgb(179, 178, 178);
+        text-align: center;
+        }
+        .oilList{
+            display: none;
+            
+        }
+        .massageList{
+            display: none;
+        }
+        
+        li{
+            background-color: gray;
+            border-top: 1px solid black;
+            padding: 15px  15px;
+            
+        }
+        .triangle{
+            float: right;
+            margin: auto 0;
+            font-weight: 800;
+            font-size: 23px
+         
+        }
+
+    }
+}
+   
+.wrap{
+    width: 100%;
+    max-width: 1000px;
+    height: 360vh;
+    margin: auto;
+    position: relative;
+    padding-bottom: 100px;
+    .area-box{
+      
+        @include container();
+          padding-top: 50px;
+          justify-content: center;
+          display: none;
+      
+          .area-card{
+              margin: 15px 10px;
+              padding: 5px;
+              box-shadow: 0px 0px 10px rgb(204, 204, 204);
+           
+          }
+          .area-oritem{
+              small{
+                  display: block;
+              }
+          }
+          .area-introduce{
+            
+              padding: 5px;
+          }
+          .area-name{
+              padding: 5px;
+          }
+          .area-pic img{
+              width: 100%;
+          }
+          .area-price{
+              display: flex;
+              justify-content: flex-end;
+              padding: 5px;
+          }
+          .add-shoppingCar{
+              display: flex;
+              justify-content: flex-end;
+              padding: 5px;
+          }
+          
+       
+          }
+}
+  
+
+.page-number-computer{
+
+    margin: auto;
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    button{
+        padding: 5px;
+    }
+    span{
+        margin: 0 10px;
+    }
+}
+   
+    .active{
+        color: red;
+    }
+    .show{
+        position: absolute;
+        top: 0;
+    }
+    .block{
+        display: block !important;
+    }
+
+    
