@@ -3,7 +3,6 @@
     margin-top: 120px;
     .frame{
         width: 60%;
-        min-width: 600px;
         padding: 5px;
         margin-left: auto;
         margin-right: auto;
@@ -36,38 +35,100 @@
     }
 }
 
-.container{
-    .row{
-        display: flex;
-        .col-6{
-            .btnLarge{
-                margin: 30px auto 0px;
-                text-align: center;
-            }
-            .content{
-                width: 75%;
-                margin: auto;
-                display: flex;
-                box-sizing: border-box;
-                .imgFrame{
-                    border: 4px solid $blue;
-                    border-radius: 12px;
-                    overflow: hidden;
+/*======    平板版 RWD | 768px ~ ???px ======*/
+@media screen and (min-width: 768px){
+    
+    .container{
+        .row{
+            display: flex;
+            .col-6{
+                .btnLarge{
+                    margin: 30px auto 0px;
+                    text-align: center;
+                }
+                .content{
+                    width: 75%;
+                    margin: auto;
+                    display: flex;
                     box-sizing: border-box;
-                    width: 90%;
-                    img{
-                        width: 100%;
-                        display: block;
-                        background-size: 100% 100%;
+                    .imgFrame{
+                        border: 4px solid $blue;
+                        border-radius: 12px;
+                        overflow: hidden;
+                        box-sizing: border-box;
+                        width: 90%;
+                        img{
+                            width: 100%;
+                            display: block;
+                            background-size: 100% 100%;
+                        }
                     }
-                }
-                .imgInfo{
-                    width: 10%;
-                    img{
-                        width: 100%;
+                    .imgInfo{
+                        width: 10%;
+                        img{
+                            width: 100%;
+                        }
                     }
+                } 
+            }
+        }
+    }
+}
+
+// ==========================================手機版
+
+@media screen and (min-width: 320px) and (max-width: 767.98px){
+    .about,
+    .store_info{
+        .frame{
+            width: 80%;
+        }
+    }
+    .container{
+        .row{
+            .col-12{
+                margin-left: auto;
+                margin-right: auto;
+                .btnLarge{
+                    margin: 60px auto;
+                    text-align: center;
                 }
-            } 
+                .content{
+                    width: 80%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    display: flex;
+                    box-sizing: border-box;
+                    .imgFrame{
+                        margin-left: auto;
+                        margin-right: auto;
+                        border: 4px solid $blue;
+                        border-radius: 12px;
+                        overflow: hidden;
+                        box-sizing: border-box;
+                        width: 90%;
+                        img{
+                            width: 100%;
+                            display: block;
+                            background-size: 100% 100%;
+                        }
+                    }
+                    .imgInfo{
+                        position: absolute;
+                        z-index: -1;
+                        width: 10%;
+                        img{
+                            width: 80%;
+                        }
+                    }
+                    .imgInfo:nth-child(1){
+                        left: 10%;
+                    }
+                    .imgInfo:nth-child(2){
+                        right: 8%;
+                    }
+                } 
+            }
         }
     }
 }
