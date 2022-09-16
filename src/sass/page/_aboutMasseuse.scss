@@ -58,34 +58,37 @@
 
 /*======    平板版 RWD | 768px ~ ???px ======*/
 @media screen and (min-width: 768px){
-    .row{
-        display: flex;
-        justify-content: center;
-        .col-6{
-            padding: 0px 7%;
-            .frame{
-                position: relative;
-                left: 10%;
+    .masseuse{
+        .row{
+            display: flex;
+            justify-content: center;
+            .col-6{
+                padding: 0px 7%;
+                .frame{
+                    position: relative;
+                    left: 10%;
+                }
             }
         }
     }
-    
 }
 
 // ==========================================手機版
 
 @media screen and (min-width: 320px) and (max-width: 767.98px){
-    .col-12{
-        align-items: center;
-        .third_title{
-            margin-bottom: 30px;
-        }
-        .text{
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .frame{
-            margin-bottom: 70px;
+    .masseuse{
+        .col-12{
+            align-items: center;
+            .third_title{
+                margin-bottom: 30px;
+            }
+            .text{
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            .frame{
+                margin-bottom: 70px;
+            }
         }
     }
 }
