@@ -1,5 +1,5 @@
 
-@mixin btnLarge() {//大顆按鈕
+.btnLarge{//大顆按鈕
     width: 200px;
     border-radius: 100px;
     padding: 10px;
@@ -25,7 +25,7 @@
 }
 
 
-@mixin btnLittle() {//小顆按鈕
+.btnLittle{//小顆按鈕
     width: 120px;
     border-radius: 100px;
     padding: 10px;
@@ -51,7 +51,7 @@
   }
 }
 
-@mixin btnAddCart() {//加入購物車小小顆按鈕
+.btnAddCart{//加入購物車小小顆按鈕
     width: 110px;
     border-radius: 100px;
     padding: 5px;

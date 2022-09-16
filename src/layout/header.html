@@ -1,17 +1,37 @@
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 <header class="page_header">
-    <ul class="menu">
-        <li><a href="../aboutUs.html">關於我們</a></li>
-        <li><a href="../reservation.html">預約按摩</a></li>
-        <li><a href="../shopingArea.html">商品專區</a></li>
-        <li class="header_logo"><a href="../index.html"><img src="../images/headerLogo.png" alt=""></a></li>
-        <li><a href="../massageschool.html">按摩小學堂</a></li>
-        <li><a href="">常見問題</a></li>
-        <li class="header_member"><a href="../memLogin.html" ><img src="../images/headerMember.png" alt=""></a></li>
-        <li class="header_shopping_cart"><a href="../shoppingCart.html"><img src="../images/headerShoppinCart.png" alt=""></a></li>
-    </ul>
-    <button class="hamburger hamburger--collapse" type="button"><!-------漢堡按鈕-------->
-        <span class="hamburger_box">
-            <span class="hamburger_inner"></span>
-        </span>
-    </button>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check"></label>
+        <a href="../index.html" class="header_logo"><img src="../images/headerLogo.png" alt=""></a>
+        <ul>
+            <li><a href="../aboutUs.html">關於我們</a></li>
+            <li><a href="../reservation.html">預約按摩</a></li>
+            <li><a href="../shopingArea.html">商品專區</a></li>
+            <!-- <a href="../index.html" class="header_logo"><img src="../images/headerLogo.png" alt=""></a> -->
+            <li><a href="../massageschool.html">按摩小學堂</a></li>
+            <li><a href="">常見問題</a></li>
+        </ul>
+        <div class="header_icon">
+            <span class="header_member"><a href="../memLogin.html" ><img src="../images/headerMember.png" alt=""></a></span>
+            <span class="header_shopping_cart"><a href="../shoppingCart.html"><img src="../images/headerShoppinCart.png" alt=""></a></span>
+        </div>   
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="close"></i>
+    </nav>
 </header>
+<Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></Script>
+<script>
+    $(function(){
+    // hamburger icon 的切換
+    $("button.hamburger").on("click", function(){
+        $(this).toggleClass("is-active");
+    });
+
+   // 點擊漢堡按鈕，導覽列縮放
+    $("button.hamburger").on("click", function(){
+    $("#nav").fadeToggle();
+    });
+});
+</script>

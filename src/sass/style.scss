@@ -1,21 +1,22 @@
 //base
-@import "base/reset";
-@import "base/color";
-@import "base/common";
-@import "base/font";
+@import "./base/reset";
+@import "./base/color";
+@import "./base/common";
+@import "./base/font";
 
 //mixin
-@import "mixin/mixin";
+@import "./mixin/mixin";
 
 //component
-@import "component/btn";
+@import "./component/btn";
 
 // layout
-@import "layout/header";
+@import "./layout/header";
 
 // page
-@import "page/index";
-@import "page/memLogin";
+@import "./page/index";
+@import "./page/memLogin";
+@import "./page/memCenter";
 
 @import './page/reservation';
 
@@ -27,3 +28,4 @@
 @import"./page/productDetails";
 
 @import "./page/massageschool";
+// @import"./page/productDetails";
