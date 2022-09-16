@@ -1,15 +1,3 @@
-// @import "../scss/base/base";
-// @import"../scss/layout/header";
-// @import"../scss/layout/footer";
-// @import"../scss/componet/btn.scss";
-// @import"../scss/mixin/mixin";
-// @import"../scss/media/media";
-
-// @include cellphone();
-
-
-
-
 #app{
    height: 70vh;
    display: flex;
@@ -130,15 +118,7 @@ label{
    
 }
 
-button{
-    width: 100%;
-    min-width: 200px;
-    background-color: $blue;
-    color: aliceblue;
-    padding: 5px 10px;
-    margin: 10px;
-    border: none;
-}
+
 .hint{
     background-color: red !important;
     color: aliceblue !important;

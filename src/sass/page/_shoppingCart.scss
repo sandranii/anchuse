@@ -1,12 +1,3 @@
-// @import "../scss/base/base";
-// @import"../scss/layout/header";
-// @import"../scss/layout/footer";
-// @import"../scss/componet/btn.scss";
-// @import"../scss/mixin/mixin";
-// @import"../scss/media/AreaMedia";
-// @import"../scss/media/media";
-
-// @include cellphone();
 
 .shopping-cart{
     @include container();
@@ -50,9 +41,6 @@
         justify-content:flex-end;
         letter-spacing: 2px;
         
-        button{
-            margin: 10px
-        }
     }
 }
 
@@ -86,11 +74,7 @@
     overflow: hidden;
     position: relative;
    
-    button{
-        padding: 5px;
-        font-size: 22px;
-        z-index: 10;
-    }
+   
     .prev{
         position: absolute;
     }

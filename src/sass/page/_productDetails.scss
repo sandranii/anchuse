@@ -1,4 +1,4 @@
-@include productDetails();
+
 
 .product-title{
     @include container();
@@ -7,7 +7,7 @@
         padding: 10px;
         font-size: 16px;
     }
-    .product-name{}
+    
     .product-pic{
         width: 100%;
         padding: 10px;
@@ -107,7 +107,7 @@
 
 }
 .active{
-    background-color: red !important;
+    background-color: red;
 }
 .illustrate-post{
     width: 100%;
@@ -124,12 +124,12 @@
    
 }
 .light{
-    opacity: 1 !important;
+    opacity: 1;
 }
 
 
 // =================================
-@mixin  productDetails() {
+
     
     @media screen and (min-width:1200px) {
         .bread{
@@ -168,7 +168,6 @@
                 }
             }
             .pic-slide{
-             
               display: flex;
               align-items: center;
               margin-bottom: 30px;
@@ -178,7 +177,7 @@
                    
                 }
                 img{
-                    width: 10%;
+                    width: 20%;
                     height: 100%; 
                     opacity: .2;   
                 }
@@ -214,8 +213,6 @@
             }
         
         }
-        // ==========================
-    }
 
     // ===================================
 
@@ -235,7 +232,7 @@
             }
         
             .product-pic{
-                width: 45% ;
+                width: 100% ;
             }
             .product-pic img{
                 width: 100%;
@@ -243,7 +240,7 @@
          
             .pic-control{
                 width: 100px;
-                display: none !important;
+                display: none ;
                 justify-content: space-evenly;
                 margin: auto;
         
@@ -279,7 +276,7 @@
             .product-number{
                 display: flex;
                 align-items: center;
-                justify-content:flex-start !important;
+                justify-content:flex-start;
                 margin: 10px 0;
                 button{
                     width: 30px;
@@ -294,10 +291,10 @@
             }
             .product-price{
                 display: flex;
-                justify-content: flex-start !important;
+                justify-content: flex-start;
                 padding: 10px;
                 p{
-                    font-size: 35px !important;
+                    font-size: 35px;
                 }
               
             }

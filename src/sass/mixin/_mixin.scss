@@ -58,9 +58,25 @@
 @mixin grid($val ,$d:null){//格線系統
     @for $i from 1 through $val {
       .col#{$d}-#{$i} {
-        width: $i / $val *100%;
+        width: calc($i / $val *100%);
       }
     }
   }
 
   @include grid(12);
+
+
+ 
+    
+    @mixin cellphone() {
+        @media screen and (max-width:$cellPhone) {
+            .col-1,.col-2,.col-3,.col-4,.col-5,.col-6,
+            .col-7,.col-8,.col-9,.col-10,.col-11,.col-12{
+            width:90%;
+            }
+            
+        }
+        @content;
+      
+    }
+  

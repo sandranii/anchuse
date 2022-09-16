@@ -1,4 +1,4 @@
-@mixin  productDetails() {
+
     
     @media screen and (min-width:1200px) {
         .bread{
@@ -83,7 +83,7 @@
             }
         
         }
-        // ==========================
+      
     }
 
     // ===================================
@@ -104,7 +104,7 @@
             }
         
             .product-pic{
-                width: 45% ;
+                width: 400px;
             }
             .product-pic img{
                 width: 100%;
@@ -125,18 +125,18 @@
                 }
             }
             .pic-slide{
-             
-              display: flex;
+              display: flex !important;
               align-items: center;
               margin-bottom: 30px;
               justify-content: center;
                 .pic-chose{
                     width: 400px;
                     height: 120px;
+                    display: flex;
                    
                 }
                 img{
-                    width: 33%;
+                    width: 10%;
                     height: 100%; 
                     opacity: .2;   
                 }
@@ -174,4 +174,3 @@
         }
         // ==========================
     }
-}

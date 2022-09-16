@@ -6,8 +6,6 @@
 
 //mixin
 @import "./mixin/mixin";
-@import "./mixin/productMedia";
-@import"./mixin/AreaMedia";
 
 //component
 @import "./component/btn";
@@ -34,3 +32,8 @@
 @import"./page/shopingArea";
 
 @import"./page/shoppingCart";
+@import"./mixin/MediaPayment";
+
+@import "./mixin/productMedia";
+@import"./mixin/AreaMedia";
+
