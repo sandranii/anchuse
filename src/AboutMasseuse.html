@@ -5,111 +5,116 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>關於我們</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <picture class="banner">
-        <img src="./image/bannerPic.jpg" alt="按摩師團隊">
-    </picture>
-    <h1 class="main_title">
-        <img src="./image/aboutMassage.png" alt="按摩師介紹">
-    </h1>
-    <section class="masseuse">
-        <h2 class="sub_title">
-            <img src="./image/masseuse.png" alt="按摩師傅">
+    <div class="background_flower">
+        @@include('./layout/header.html')
+        <div class="banner">
+            <img src="./images/banner_teamPic.jpg" alt="按摩師團隊">
+        </div>
+        <h1 class="sr_only">按摩師介紹</h1>
+        <h2 class="main_title">
+            <img src="./images/aboutMassage.png" alt="按摩師介紹">
         </h2>
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <div class="frame">
-                        <picture class="masseusePic">
-                            <img src="./image/masseusePic1.jpg" alt="按摩師傅1">
-                        </picture>
+        <section class="masseuse">
+            <h3 class="sub_title">
+                <img src="./images/masseuse.png" alt="按摩師傅">
+            </h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 col-12">
+                        <div class="frame">
+                            <div class="masseusePic">
+                                <img src="./images/masseusePic1.jpg" alt="按摩師傅1">
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-6">
-                    <h3 class="third_title">李駿燕<span>師傅</span></h3>
-                    <p class="text">
-                        證照：<br>
-                        英國 IPHM 國際經絡芳療師證照<br>
-                        英國 ITEC 國際高階芳療師證照<br>
-                        美國 NAHA 國際芳療保健師證照<br>
-                        印度 Himalaya Yoga 喜瑪拉雅瑜伽學院證照
-                    </p>
-                    <div class="apply">
-                        <a href="#">立即預約</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <div class="frame">
-                        <picture class="masseusePic">
-                            <img src="./image/masseusePic2.jpg" alt="按摩師傅2">
-                        </picture>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <h3 class="third_title">言子倩<span>師傅</span></h3>
-                    <p class="text">
-                        證照：<br>
-                        英國 IPHM 國際經絡芳療師證照<br>
-                        英國 IPHM 國際高級健康管理師證照<br>
-                        美國 NAHA 國際芳療保健師證照
-                    </p>
-                    <div class="apply">
-                        <a href="#">立即預約</a>
+                    <div class="col-6 col-12">
+                        <h4 class="third_title">李駿燕  <span>師傅</span></h4>
+                        <p class="text">
+                            證照：<br>
+                            英國 IPHM 國際經絡芳療師證照<br>
+                            英國 ITEC 國際高階芳療師證照<br>
+                            美國 NAHA 國際芳療保健師證照<br>
+                            印度 Himalaya Yoga 喜瑪拉雅瑜伽學院證照
+                        </p>
+                        <a href="#">
+                            <div class="btnLittle">立即預約</div>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <div class="frame">
-                        <picture class="masseusePic">
-                            <img src="./image/masseusePic3.jpg" alt="按摩師傅3">
-                        </picture>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 col-12">
+                        <div class="frame">
+                            <div class="masseusePic">
+                                <img src="./images/masseusePic2.jpg" alt="按摩師傅2">
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-6">
-                    <h3 class="third_title">康晉壕<span>師傅</span></h3>
-                    <p class="text">
-                        證照：<br>
-                        英國 IPHM 國際經絡芳療師證照<br>
-                        美國 NAHA 國際芳療保健師證照<br>
-                        印度 Himalaya Yoga 喜瑪拉雅瑜伽學院證照
-                    </p>
-                    <div class="apply">
-                        <a href="#">立即預約</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <div class="frame">
-                        <picture class="masseusePic">
-                            <img src="./image/masseusePic4.jfif" alt="按摩師傅4">
-                        </picture>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <h3 class="third_title">倪玉涓<span>師傅</span></h3>
-                    <p class="text">
-                        證照：<br>
-                        英國 IPHM 國際經絡芳療師證照<br>
-                        英國 IAOTH 國際芳香理療師證照<br>
-                        印度 Himalaya Yoga 喜瑪拉雅瑜伽學院證照
-                    </p>
-                    <div class="apply">
-                        <a href="#">立即預約</a>
+                    <div class="col-6 col-12">
+                        <h4 class="third_title">言子倩  <span>師傅</span></h4>
+                        <p class="text">
+                            證照：<br>
+                            英國 IPHM 國際經絡芳療師證照<br>
+                            英國 IPHM 國際高級健康管理師證照<br>
+                            美國 NAHA 國際芳療保健師證照
+                        </p>
+                        <a href="#">
+                            <div class="btnLittle">立即預約</div>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 col-12">
+                        <div class="frame">
+                            <div class="masseusePic">
+                                <img src="./images/masseusePic3.jpg" alt="按摩師傅3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-12">
+                        <h4 class="third_title">康晉壕  <span>師傅</span></h4>
+                        <p class="text">
+                            證照：<br>
+                            英國 IPHM 國際經絡芳療師證照<br>
+                            美國 NAHA 國際芳療保健師證照<br>
+                            印度 Himalaya Yoga 喜瑪拉雅瑜伽學院證照
+                        </p>
+                        <a href="#">
+                            <div class="btnLittle">立即預約</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 col-12">
+                        <div class="frame">
+                            <div class="masseusePic">
+                                <img src="./images/masseusePic4.jfif" alt="按摩師傅4">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-12">
+                        <h4 class="third_title">倪玉涓  <span>師傅</span></h4>
+                        <p class="text">
+                            證照：<br>
+                            英國 IPHM 國際經絡芳療師證照<br>
+                            英國 IAOTH 國際芳香理療師證照<br>
+                            印度 Himalaya Yoga 喜瑪拉雅瑜伽學院證照
+                        </p>
+                        <a href="#">
+                            <div class="btnLittle">立即預約</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>

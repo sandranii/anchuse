@@ -123,10 +123,13 @@
 
 .page_header nav{
     width: 100%;
+
     .header_logo{
         width: 160px;
     }
-
+    nav{
+        position: fixed;
+    }
     ul{
         display: flex;
         flex-direction: column;
