@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/shoppingCart.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
@@ -119,73 +119,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
 
-    <!-- <script>
-     Vue.createApp({
-        data(){
-            return{
-                data:[],
-                index:0,
-                car:[],
-                number:1,
-                sel:1,
-                
-    
-            }
-        },
-        methods: {
-            getInfo(){
-                axios.get("../商品區/list.json")
-                .then((res)=>{
-                    this.data = res.data.oil
-                    console.log(this.car)
-                    
-                })
-            },
-            prev(){
-                    if(this.index>-8){
-                        this.index-=1
-                    }   
-            },
-            next(){
-                if(this.index<0){
-                    this.index+=1
-                }
-             
-            },
-            change(){
-                console.log(this.sel)
-            },
-            select(){
-            
-                this.sel=1
-        
-            },
-            storage(){
-               localStorage.setItem("order",JSON.stringify(this.order))
-           },
-           online(){
-               let orderList = localStorage.getItem("order");
-               if(!orderList) return;
-               this.order = JSON.parse(orderList);
-           },
-            
-        },
-        computed:{
-           
-            money(){
-              return parseInt (this.name.price*this.sel)
-            }
-        },
-        watch:{
-       
 
-        },
-        mounted(){
-            this.getInfo()
-            this.select()
-        },
-     }).mount("#app")
-    </script> -->
 
     <script>
         Vue.createApp({
@@ -213,10 +147,10 @@
            },
            methods: {
                commodityInfo(){
-                   axios.get("../商品區/list.json")
+                   axios.get("./json/list.json")
                    .then((res)=>{
-               
-                       this.data = res.data.oil
+                    
+                       this.data = res.data.gun
                       
                       
                    })
@@ -315,7 +249,7 @@
             change(){
                       
                        
-                        this.setCar()
+                this.setCar()
            },
              
            },

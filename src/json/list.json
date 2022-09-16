@@ -1,0 +1,207 @@
+{
+    "gun":[
+          {
+            "id":1,
+            "img":"../pic/massage gun/10269397_01_001_R.webp",
+            "imgTop":"../pic/massage gun/10269397_01_002_R.webp",
+            "imgBody":"../pic/massage gun/10269397_R1.webp",
+            "name":"美式按摩槍 FG-271",
+            "cpacity":"16oz/473ml",
+            "origin":"美國",
+            "num":0,
+            "price":1250,
+            "logo":"Full",
+            "checkout":"貨到付款/線上支付/",
+            "warranty":"1年",
+            "product1":"六段按摩強度調整功能",
+            "product2":"四種按摩頭",
+            "product3":"USB充電",
+
+            "specification":{
+
+                            "name":"日式按摩槍 FG-271",
+                            "brand":"其他",
+                            "type":"按摩棒/按摩器",
+                            "color":"青綠色",
+                            "size":"(寬)168x (深)65x (高)235 mm",
+                            "origin":"美國"
+                    },
+            "feature":{
+                    "one":" 38段檔位調節，男女老少都試用",
+                    "two":"  8MM深層筋膜震感 ",
+                    "three":" 710克輕巧機身",
+                    "four":" USB充",
+                    "five":"3000轉高速捶打",
+                    "six":"2400mAh內置電池",
+                    "seven":"運作低噪，不吵鄰"
+                    }
+            
+            
+          },
+          {
+            "id":2,
+            "img":"../pic/massage gun/project.webp",
+            "name":"Project Mars 火星計畫",
+            "cpacity":"16oz/473ml",
+            "origin":"日本",
+            "num":0,
+            "price":1910,
+            "logo":"Full",
+            "checkout":"貨到付款/線上支付/",
+            "warranty":"2年",
+            "product1":"市場同級最輕，9mm迷你筋膜槍",
+            "product2":"350g輕盈隨行，收納包好輕巧",
+            "product3":"防手震專利，防震結構再升級",
+
+            "specification":{
+
+                            "name":"Project Mars 火星計畫",
+                            "brand":"其他",
+                            "type":"按摩棒/按摩器",
+                            "color":"暗黑色",
+                            "size":"(寬)178x (深)61x (高)225 mm",
+                            "origin":"日本"
+                    },
+            "feature":{
+                    "one":" 36段檔位調節，男女老少都試用",
+                    "two":"  8MM深層筋膜震感 ",
+                    "three":" 710克輕巧機身",
+                    "four":" USB充",
+                    "five":"3000轉高速捶打",
+                    "six":"2400mAh內置電池",
+                    "seven":"運作低噪，不吵鄰"
+                    }
+            
+            
+          },
+          {
+              
+            "id":3,
+            "img":"https://picsum.photos/300/200/?random=12",
+              "name":"薰衣草按摩油",
+              "cpacity":"16oz/473ml",
+              "origin":"美國",
+              "num":0,
+              "price":100
+          },
+          {
+              
+            "id":4,
+            "img":"https://picsum.photos/300/200/?random=13",
+              "name":"薰衣草按摩油",
+              "cpacity":"16oz/473ml",
+              "origin":"美國",
+              "num":0,
+              "price":100
+          },
+          {
+              
+            "id":5,
+            "img":"https://picsum.photos/300/200/?random=14",
+              "name":"薰衣草按摩油",
+              "cpacity":"16oz/473ml",
+              "origin":"美國",
+              "num":0,
+              "price":100
+          },
+          {
+              
+            "id":6,
+            "img":"https://picsum.photos/300/200/?random=15",
+              "name":"薰衣草按摩油",
+              "cpacity":"16oz/473ml",
+              "origin":"美國",
+              "num":0,
+              "price":100
+          }
+      ],
+  
+      "equipment":[
+          {
+              "img":"https://picsum.photos/300/200/?random=10",
+              "name":"滾筒",
+              "cpacity":"16oz/473ml",
+              "origin":"澳洲",
+              "price":200
+          },
+          {
+              "img":"https://picsum.photos/300/200/?random=11",
+              "name":"滾筒",
+              "cpacity":"16oz/473ml",
+              "origin":"澳洲",
+              "price":200
+          },
+          {
+              "img":"https://picsum.photos/300/200/?random=12",
+              "name":"滾筒",
+              "cpacity":"16oz/473ml",
+              "origin":"澳洲",
+              "price":200
+          },
+          {
+              "img":"https://picsum.photos/300/200/?random=13",
+              "name":"滾筒",
+              "cpacity":"16oz/473ml",
+              "origin":"澳洲",
+              "price":200
+          },
+          {
+              "img":"https://picsum.photos/300/200/?random=14",
+              "name":"滾筒",
+              "cpacity":"16oz/473ml",
+              "origin":"澳洲",
+              "price":200
+          },
+          {
+              "img":"https://picsum.photos/300/200/?random=15",
+              "name":"滾筒",
+              "cpacity":"16oz/473ml",
+              "origin":"澳洲",
+              "price":200
+          }
+      ],
+      "rose":[
+          {
+              "img":"https://picsum.photos/300/200/?random=10",
+              "name":"玫瑰 ROSE",
+              "cpacity":"16oz/473ml",
+              "origin":"中國",
+              "price":1200
+          },
+          {
+              "img":"https://picsum.photos/300/200/?random=11",
+              "name":"玫瑰 ROSE",
+              "cpacity":"16oz/473ml",
+              "origin":"中國",
+              "price":1200
+          },
+          {
+              "img":"https://picsum.photos/300/200/?random=12",
+              "name":"玫瑰 ROSE",
+              "cpacity":"16oz/473ml",
+              "origin":"中國",
+              "price":1200
+          },
+          {
+              "img":"https://picsum.photos/300/200/?random=13",
+              "name":"玫瑰 ROSE",
+              "cpacity":"16oz/473ml",
+              "origin":"中國",
+              "price":1200
+          },
+          {
+              "img":"https://picsum.photos/300/200/?random=14",
+              "name":"玫瑰 ROSE",
+              "cpacity":"16oz/473ml",
+              "origin":"中國",
+              "price":1200
+          },
+          {
+              "img":"https://picsum.photos/300/200/?random=15",
+              "name":"玫瑰 ROSE",
+              "cpacity":"16oz/473ml",
+              "origin":"中國",
+              "price":1200
+          }
+      ]
+  }

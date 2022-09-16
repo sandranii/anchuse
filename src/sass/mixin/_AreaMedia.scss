@@ -1,0 +1,274 @@
+
+
+@mixin shoppingArea() {
+    @media screen and (max-width:768px) {
+        .col-1,.col-2,.col-3,.col-4,.col-5,.col-6,
+        .col-7,.col-8,.col-9,.col-10,.col-11,.col-12{
+        width:90%;
+        }
+        
+    }
+    @media screen and (min-width:1200px){
+        .commodity-container{
+            padding-top: 50px;
+            display: flex;
+            flex-direction: row;
+            line-height: 2;
+            justify-content: space-around ;
+            .commodity-title{
+                text-align: center;
+            }
+            .bread{
+                padding: 10px;
+                letter-spacing: 2px;
+            }
+            .commodity-search{
+                width: 700px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                line-height: 2;
+            }
+           .words{
+            margin: 0 10px;
+           }
+           
+           
+        
+        }
+        // ===================================
+        .area-list{
+            padding: 10px;
+            @include container();
+         
+            .row{
+                display: flex;
+                flex-direction: row ;
+                align-items: flex-start ;
+            }
+            .area-order{
+                width: 100%;
+                max-width: 300px;
+                height: 80vh;
+                margin: auto;
+                
+        
+                .area-order-title{
+                background-color: rgb(179, 178, 178);
+                text-align: center;
+                }
+                .oilList{
+                    display: none;
+                    
+                }
+                .massageList{
+                    display: none;
+                }
+                
+                li{
+                    background-color: gray;
+                    border-top: 1px solid black;
+                    padding: 10px;
+                    position: relative;
+                }
+             
+            }
+            // ==========================
+            .area-box{
+                @include container();
+                display: flex ;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding-top: 50px;
+                  .area-card{
+                      margin: 15px 10px;
+                      box-shadow: 0px 0px 10px rgb(204, 204, 204);
+                      
+                  }
+                  .area-oritem{
+                      small{
+                          display: block;
+                      }
+                  }
+                  .area-introduce{
+                    
+                      padding: 5px;
+                  }
+                  .area-name{
+                      padding: 5px;
+                  }
+                  .area-pic img{
+                      width: 100%;
+                  }
+                  .area-price{
+                      display: flex;
+                      justify-content: flex-end;
+                      padding: 5px;
+                  }
+                  .add-shoppingCar{
+                      display: flex;
+                      justify-content: flex-end;
+                      padding: 5px;
+                  }
+                  
+                  }
+
+        }
+
+        .page-number-computer{
+            width: 550px;
+            margin: auto;
+            display: flex ;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 20px 0;
+            button{
+                padding: 5px;
+            }
+            span{
+                margin: 0 10px;
+            }
+           
+        }
+        .page-number-cellPhone{
+            display: none !important;
+        }
+    }
+    // ==================================
+  
+    // =======================================
+    @media screen and (min-width:768px) {
+        .commodity-container{
+            padding-top: 50px;
+            display: flex;
+            flex-direction: row !important;
+            line-height: 2;
+            justify-content: space-around !important;
+            .commodity-title{
+                text-align: center;
+            }
+            .bread{
+                padding: 10px;
+                letter-spacing: 2px;
+            }
+            .commodity-search{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                line-height: 2;
+            }
+           .words{
+            margin: 0 10px;
+           }
+           
+           
+        
+        }
+        // ===================================
+        .area-list{
+            padding: 10px;
+            @include container();
+         
+            .row{
+                display: flex;
+                flex-direction: row !important;
+                align-items: flex-start !important;
+            }
+            .area-order{
+                width: 100%;
+                max-width: 300px;
+                height: 80vh;
+                margin: auto;
+                
+        
+                .area-order-title{
+                background-color: rgb(179, 178, 178);
+                text-align: center;
+                }
+                .oilList{
+                    display: none;
+                    
+                }
+                .massageList{
+                    display: none;
+                }
+                
+                li{
+                    background-color: gray;
+                    border-top: 1px solid black;
+                    padding: 10px;
+                    position: relative;
+                  
+                }
+            
+            }
+            // ==========================
+            .wrap{
+                display: block !important;
+                height: 100vh !important;;
+                .area-box{
+                    @include container();
+                    display: flex !important;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    padding-top: 50px;
+                      .area-card{
+                          margin: 15px 10px;
+                          box-shadow: 0px 0px 10px rgb(204, 204, 204);
+                          
+                      }
+                      .area-oritem{
+                          small{
+                              display: block;
+                          }
+                      }
+                      .area-introduce{
+                        
+                          padding: 5px;
+                      }
+                      .area-name{
+                          padding: 5px;
+                      }
+                      .area-pic img{
+                          width: 100%;
+                      }
+                      .area-price{
+                          display: flex;
+                          justify-content: flex-end;
+                          padding: 5px;
+                      }
+                      .add-shoppingCar{
+                          display: flex;
+                          justify-content: flex-end;
+                          padding: 5px;
+                      }
+                      
+                    
+                      
+                  
+                      }
+            }
+           
+
+
+        }
+
+        .page-number-computer{
+            width: 550px;
+            margin: auto;
+            display: flex !important;
+            justify-content: flex-end !important;
+            align-items: center;
+            padding: 20px 0;
+            button{
+                padding: 5px;
+            }
+            span{
+                margin: 0 10px;
+            }
+           
+        }
+      
+    }
+}
+
