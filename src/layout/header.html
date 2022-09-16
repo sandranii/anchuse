@@ -23,17 +23,3 @@
         
     </nav>
 </header>
-<Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></Script>
-<script>
-    $(function(){
-    // hamburger icon 的切換
-    $("button.hamburger").on("click", function(){
-        $(this).toggleClass("is-active");
-    });
-
-   // 點擊漢堡按鈕，導覽列縮放
-    $("button.hamburger").on("click", function(){
-    $("#nav").fadeToggle();
-    });
-});
-</script>
