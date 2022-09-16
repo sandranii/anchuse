@@ -35,7 +35,7 @@
                     <th>{{item.price*item.num}}</th>
            
                
-                    <th><button @click="reduceCar(item.id)">移出購物車</button></th>
+                    <th><button  class="btnLittle"  @click="reduceCar(item.id)">移出購物車</button></th>
     
                 </tr> 
                
@@ -84,8 +84,8 @@
                         <div class="purchase-area-price">
                             <p>售價:{{item.price}}</p>
                         </div>
-                        <div class="purchase-area-btn">
-                            <button @click="addCar(item.id,item)">加入購物車</button>
+                        <div class="purchase-area-btn ">
+                            <button class="btnLittle" @click="addCar(item.id,item)">加入購物車</button>
                         </div>
                     </div>
             <!-- ============================================ -->

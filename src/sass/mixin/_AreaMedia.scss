@@ -1,6 +1,6 @@
 
 
-@mixin shoppingArea() {
+
     @media screen and (max-width:768px) {
         .col-1,.col-2,.col-3,.col-4,.col-5,.col-6,
         .col-7,.col-8,.col-9,.col-10,.col-11,.col-12{
@@ -122,9 +122,7 @@
             justify-content: flex-end;
             align-items: center;
             padding: 20px 0;
-            button{
-                padding: 5px;
-            }
+        
             span{
                 margin: 0 10px;
             }
@@ -270,5 +268,5 @@
         }
       
     }
-}
+
 

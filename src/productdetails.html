@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
-
 </head>
 <body>
 <div id="app">
@@ -22,10 +21,10 @@
             <img :src="item.imgBody" v-if ="page==2">
             <div class="pic-slide" >
                 <button @click="prev()"><</button>
-                <div class="pic-chose" v-for="(item,index,value) in order"  >              
-                    <img  :src="item.img" alt="" :class="{light:page==0}" @click="changePhoto(value)">
-                    <img  :src="item.imgTop" alt="" :class="{light:page==1}" @click="changePhoto(value)">
-                    <img  :src="item.imgBody" alt="" :class="{light:page==2}" @click="changePhoto(value)">
+                <div class="pic-chose" v-for="(item,index) in order">              
+                    <img  :src="item.img" alt="" :class="{light:page==0}" @click="changePhoto(0)">
+                    <img  :src="item.imgTop" alt="" :class="{light:page==1}" @click="changePhoto(1)">
+                    <img  :src="item.imgBody" alt="" :class="{light:page==2}" @click="changePhoto(2)">
       
                 </div>
             
@@ -67,7 +66,7 @@
                 </div>
                 <div class="product-addcar">
                     <button @click="addCar(item.id,item)">加入購物車</button>
-                    <a href="../購物車/shoppingCart.html"><button>直接購買</button> </a>
+                    <a href="../購物車/shoppingCart.html"><button @click="direct(item.id,item)">直接購買</button> </a>
                 </div>
             </div>
       
@@ -182,23 +181,20 @@
        },
        methods: {
            commodityInfo(){
-               axios.get("./")
+               axios.get("./json/list.json")
                .then((res)=>{
-                //    console.log(res)
+                //    
                    this.data = res.data.gun
 
                    
-                //    this.product = res.data.oil[0].specification
-                //    console.log(this.data)
-                for(let i=0;i<1;i++){
-                    this.product =  res.data.gun[i].specification
-                    console.log(this.product)
-                   }
-
-                   for(let i=0;i<1;i++){
-                    this.special =  res.data.gun[i].feature
-                    console.log(this.special)
-                   }
+                   this.product =  this.order[0].specification
+                   this.special =  this.order[0].feature
+                
+                   console.log(this.order[0].specification)
+                //    for(let i=0;i<2;i++){
+                //   
+                //     console.log(this.special)
+                //    }
         
                   
                })
@@ -231,6 +227,32 @@
                 
             
                 this.setCar()
+           },
+           direct(id,item){
+            let index = this.order.findIndex(item=>{
+                return item.id===id
+                })
+                
+                let code = this.car.find(item=>item.id===id)
+                if(item.num==0){
+                    alert("數量不能為零")
+                    event.preventDefault();
+                }else{
+                    if(!code){
+                
+                    alert("成功加入購物車")
+                    this.car.push({
+                    id:this.order[index].id,
+                    img:this.order[index].img,
+                    name:this.order[index].name,
+                    price:this.order[index].price,
+                    num:this.order[index].num
+                })
+                }
+
+                }
+                this.setCar()
+
            },
            changePic(i){
             this.page=i-1
@@ -305,13 +327,13 @@
            },
            setCar(){
              localStorage.setItem("car",JSON.stringify(this.car))
+             localStorage.setItem("product",JSON.stringify(this.product))
            },
            
            online(){
                let orderList = localStorage.getItem("order");
                if(!orderList) return;
                this.order = JSON.parse(orderList);
-
            
            },
         carOnline(){

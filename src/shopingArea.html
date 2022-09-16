@@ -54,7 +54,7 @@
                     </div>
                     <ul>
                         <li @click="showOil()">
-                            <spn style="font-size: 23px;font-weight: 800;">按摩精油 </spn>
+                            <span style="font-size: 23px;font-weight: 800;">按摩精油 </span>
                             <span class="triangle">{{text}}</span>
                             
                            
@@ -82,8 +82,10 @@
                 </div>
     
               <div class="wrap">
-             <a href="../商品明細/productdetails.html">
+             <a href="./productdetails.html">
                 <div class="area-box" v-if="currentPage==1" :class="{block:currentPage==1}" >
+
+
                     <div class="col-3  area-card" v-for="(item,value) in data" @click="addOrder(item.id)" :key="item.id">
                         <div class="area-pic">
                             <img :src="item.img">
@@ -148,13 +150,12 @@
                         </div>
                     </div>
                 </div>
-             
             </div>
             
                     <div class="page-number-computer">
-                        <button @click="pageReduce"><</button>
-                        <span style="  letter-spacing: 2px;" v-for="i in 3" :class="{active:i==currentPage}" @click="chose(i)">{{i}}</span>
-                        <button @click="pageAdd()">></button>
+                        <button  class="btnLittle"  @click="pageReduce"><</button>
+                        <span style="  letter-spacing: 2px;" v-for="i in 3" :class="{fontcolor:i==currentPage}" @click="chose(i)">{{i}}</span>
+                        <button class="btnLittle"  @click="pageAdd()">></button>
                     </div>
               </div> 
         </div>
@@ -180,7 +181,17 @@
                 text2:"+",
                 openPage1:true,
                 openPage2:true,
-                currentPage:1
+                currentPage:1,
+
+                obj:[
+
+                    {
+                        id:1,
+                        name:"沙拉油",
+                        price:200,
+                    
+                    }
+                ]
             
             }
         },
@@ -188,16 +199,17 @@
             commodityInfo(){
                 axios.get("./json/list.json")
                 .then((res)=>{
-                    console.log(res)
+                    
                     this.data = res.data.gun
                     this.info = res.data.equipment
                     this.rose = res.data.rose
-                   console.log(this.car)
+                    console.log(this.data)
                 })
             },
             showOil(){
           
                 this.openPage1=!this.openPage1
+               
                 if(!this.openPage1){
                     this.text="-";
                 }else{
