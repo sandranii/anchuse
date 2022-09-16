@@ -1,4 +1,6 @@
+@media screen and (min-width: 7680px) and (max-width: 1200px){
 
+    
 .shopping-cart{
     @include container();
 
@@ -35,17 +37,13 @@
         padding: 10px;
     }
     th{
-        width:100%;
+        width:120px;
         margin: auto;
+        display: flex;
         p{ font-size: 12px;}
        
         button{
-           border-radius: 50%;
-            font-size: 26px;
-            border: none;
-            background-color: transparent;
-            padding: 0 5px;
-        
+            padding: 10px;
         }
         img{
             width: 100%;
@@ -64,9 +62,6 @@
             position: relative;
             z-index: 10;
             letter-spacing: 1px;
-        }
-        input{
-            padding: 3px
         }
     }
     .shopping-price{
@@ -131,13 +126,11 @@
             padding: 5px;
             box-shadow: 0px 0px 10px rgb(204, 204, 204);
             flex-shrink: 0;
-        
-            .purchase-area-pic{}
+    
             .purchase-area-pic img{
                 width: 100%;
             }
-            .purchase-area-name{}
-            .purchase-area-introduce{
+          
         
                 .purchase-area-cpacity{
                     padding: 5px;
@@ -160,3 +153,5 @@
 
    
 }
+
+
