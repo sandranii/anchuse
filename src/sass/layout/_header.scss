@@ -12,8 +12,9 @@
         display: flex;
         margin: 0 auto;
         justify-content: space-between;
+        padding: 0px 20px 0px 10px;
         .header_logo{
-            width: 180px;
+            width: 160px;
             display: block;
             padding: 5px 0px;
             align-self: center;
@@ -98,6 +99,7 @@
         }
         label{
             display: none;
+            align-self: center;
         }
         #btn,#close{
             color: $blue;
@@ -113,16 +115,13 @@
 
 /*====== 行動版 RWD | 320px ~ 768px ======*/
 @media screen and (min-width: 320px) and (max-width: 767.98px){
-#btn{
-    display: block;
-    width: 100px;
-    background-color: aqua;
-}
+
 .page_header nav{
     width: 100%;
-    .header_logo_phone{
-        display: block;
+    .header_logo{
+        width: 160px;
     }
+
     ul{
         display: flex;
         flex-direction: column;
@@ -131,7 +130,13 @@
         background-color: $blue ;
         height: 90vh;
         top: 80px;
-        left: 0;
+        left: -100%;
+        transition: all .7s;
+        opacity: 0;
+        background-image: url('/images/bcgFlowerLittle.png');
+        background-repeat:no-repeat;
+        background-position: center;
+        background-size: cover;
         li{
             line-height: 40px;
             margin: 30px 0;
@@ -148,6 +153,89 @@
            
         }
     }
+    .header_icon{
+        margin-right: 50px;
+        .header_member{
+            width: 30px;
+            align-self: center;
+            a{
+                padding: 0;
+
+                img{
+                    vertical-align: bottom;
+                    width: 100%;
+                }
+            }
+        }  
+        .header_shopping_cart{
+            width: 30px;
+            align-self: center;
+            a{
+                padding: 0;
+
+                img{
+                    vertical-align: bottom;
+                    width: 100%;
+                }
+            }
+        }
+    }
+    #check:checked ~ ul{
+        left: 0;
+        opacity: 1;
+    }
+    label{
+        display: block;
+        position: absolute;
+        right: 10px;
+        #btn{
+            display: block;
+        }
+    }
+    #check:checked ~ label #btn{
+        display: none;
+    }
+    
+    #check:checked ~ label #close{
+        display: block;
+    }
+
 }
 
+}
+
+/*======    平板版 RWD | 768px ~ 1200px ======*/
+@media screen and (min-width: 768px) and (max-width: 1199.98px){
+    .page_header {
+        width: 100%;
+        display: flex;
+        background-color: $baseWhite;
+        box-shadow: 0px 2px 3px rgba(48, 48, 48, 0.252);
+        
+    
+        nav{
+            width: 100%;
+            
+            .header_logo{
+                width: 150px;
+                img{
+                    width: 100%;
+                }
+            }
+            ul{
+                width: 60%;
+                li{
+                    align-self: center;
+                    
+                    a {
+
+                        font-size: 16px;
+                        letter-spacing: 1px;
+                        padding: 5px;
+                        
+                    }
+                }
+            }
+        }
+    }
 }
