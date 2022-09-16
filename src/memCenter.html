@@ -6,37 +6,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員中心</title>
-    <link rel="stylesheet" href="./reset css.css">
-    <link rel="stylesheet" href="./css/style.css/memCenter.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
+    @@include('./layout/header.html')
     <!-- header -->
     <div class="memCenter">
         <div class="member">
             <div class="mem_mug_shot">
-                <img src="./pic/ali-morshedlou-WMD64tMfc4k-unsplash.jpg">
+                <img src="./images/member.jpg">
             </div>
             <div class="mem_name">無名氏</div>
         </div>
         <div class="mem_banner">
-            <img src="./pic/wallhaven-0pw8lp.jpg">
+            <img src="./images/memberbanner.jpg">
         </div>
-        <div class="panel-group">
-            <input type="radio" name="panel-radio" id="radio1" class="panel-control" checked>
-            <input type="radio" name="panel-radio" id="radio2" class="panel-control">
-            <input type="radio" name="panel-radio" id="radio3" class="panel-control">
-            <div class="tab-group">
-              <label for="radio1" class="active">個人資料</label>
-              <label for="radio2">歷史訂單</label>
-              <label for="radio3">預約紀錄</label>
+        <div class="panel_group">
+            <input type="radio" name="panel_radio" id="radio1" class="panel_control" checked>
+            <input type="radio" name="panel_radio" id="radio2" class="panel_control">
+            <input type="radio" name="panel_radio" id="radio3" class="panel_control">
+            <div class="tab_group">
+                <label for="radio1">個人資料</label>
+                <label for="radio2">歷史訂單</label>
+                <label for="radio3">預約紀錄</label>
             </div>
-            <div class="content-group">
-              <div class="content content1">content1</div>
-              <div class="content content2">content2</div>
-              <div class="content content3">content3</div>
+            <div class="content_group">
+                <div class="content content1">
+                    <div class="edit">
+                        <button class="btnLittle">編輯</button>
+                    </div>
+                    <div class="person_info_item">
+                        帳號: abc123
+                    </div>
+                    <div class="person_info_item">
+                        密碼: ******
+                    </div>
+                    <div class="person_info_item">
+                        信箱:abc123@gmail.com
+                    </div>
+                    <div class="person_info_item">
+                        生日:1998年10月27日
+                    </div>
+                    <div class="person_info_item">
+                        手機:0912345678
+                    </div>
+                    <div class="person_info_item">
+                        市話:03-12345678
+                    </div>
+                    <div class="person_info_item">
+                        地址:桃園市中壢區復興路46號9樓
+                    </div>
+                </div>
+                <div class="content content2">content2</div>
+                <div class="content content3">content3</div>
             </div>
-          </div>
+        </div>
     </div>
     <!-- footer -->
 </body>
