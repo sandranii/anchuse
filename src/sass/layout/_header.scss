@@ -105,14 +105,32 @@
         label{
             display: none;
             align-self: center;
+            justify-content: space-evenly;
+            span{
+                width: 36px;
+                height: 3px;
+                background-color: $blue;
+            }
         }
-        #btn,#close{
-            color: $blue;
-            font-size: 28px;
-            align-self: center;
-            cursor: pointer;
-            display: none;
+        #check:checked ~ label .line2{
+            opacity: 0;
         }
+        #check:checked ~ label .line1,
+        #check:checked ~ label .line3{    
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }
+        #check:checked ~ label .line1{
+            transform: rotate(45deg);
+        }
+        #check:checked ~ label .line3{
+            transform: rotate(-45deg);
+        }
+        
     }
 }
 
@@ -163,7 +181,7 @@
         }
     }
     .header_icon{
-        margin-right: 50px;
+        margin-right: 55px;
         .header_member{
             width: 30px;
             align-self: center;
@@ -193,20 +211,19 @@
         left: 0;
         opacity: 1;
     }
+    
     label{
-        display: block;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        flex-direction: column;
         position: absolute;
         right: 10px;
-        #btn{
+        justify-content: space-evenly;
+        span{
             display: block;
+            
         }
-    }
-    #check:checked ~ label #btn{
-        display: none;
-    }
-    
-    #check:checked ~ label #close{
-        display: block;
     }
 
 }
