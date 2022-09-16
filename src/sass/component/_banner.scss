@@ -1,3 +1,9 @@
+.sr_only{
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+}
 .banner{
     height: 600px;
     overflow: hidden;

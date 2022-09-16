@@ -7,16 +7,16 @@
     <title>按摩小學堂</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
-    <header>
-        @@include('./layout/header.html')
-    </header>
+<body class="background_flower">
+    <h1 class="sr_only">按摩小學堂</h1>
 
-    <section class="banner">
-        <div class="banner-pic">
+    @@include('./layout/header.html')
+
+    <section>
+        <div class="banner">
             <img src="./images/schoolBanner.png" alt="按摩小學堂banner">
         </div>
-        <div class="banner-title">
+        <div class="main_title">
             <img src="./images/schoolTitle.png" alt="按摩小學堂招牌">
         </div>
     </section>
@@ -26,16 +26,16 @@
         <span>ACUPOINT KNOWLEDGE</span>
     </h2>
 
-    <section class="knowledge">
-        <div class="knowledge-head">
+    <section class="knowledge_container">
+        <div class="knowledge">
             <h3>頭部</h3>
-            <div class="knowledge-slider">
+            <div class="knowledge_slider">
                 <ul>
                     <li>
-                        <div class="knowledge-pic">
+                        <div class="knowledge_pic">
                             <img src="" alt="">
                         </div>
-                        <div class="knowledge-txt">
+                        <div class="knowledge_txt">
                             <h3>百會穴</h3>
                             <p>
                                 百會位於頭頂正中央，從兩耳到頭頂畫一條線，再從兩眉<br>
@@ -52,11 +52,11 @@
                 </ul>
             </div>
         </div>
-        <div class="knowledge-hand">
-            <div class="knowledge-slider">
+        <div class="knowledge">
+            <div class="knowledge_slider">
                 <ul>
                     <li>
-                        <div class="knowledge-txt">
+                        <div class="knowledge_txt">
                             <h3>內關穴</h3>
                             <p>
                                 將一手的食指、中指、無名指併攏，放在另一手的手腕內<br>
@@ -69,7 +69,7 @@
                                 ．寧心安神，有助改善睡眠品質
                             </p>
                         </div>
-                        <div class="knowledge-pic">
+                        <div class="knowledge_pic">
                             <img src="" alt="">
                         </div>
                     </li>
@@ -77,15 +77,15 @@
             </div>
             <h3>手部</h3>
         </div>
-        <div class="knowledge-body">
+        <div class="knowledge">
             <h3>身體</h3>
-            <div class="knowledge-slider">
+            <div class="knowledge_slider">
                 <ul>
                     <li>
-                        <div class="knowledge-pic">
+                        <div class="knowledge_pic">
                             <img src="" alt="">
                         </div>
-                        <div class="knowledge-txt">
+                        <div class="knowledge_txt">
                             <h3>天樞穴</h3>
                             <p>
                                 將一手的食指、中指、無名指併攏，放在另一手的手腕內<br>
@@ -102,11 +102,11 @@
                 </ul>
             </div>
         </div>
-        <div class="knowledge-foot">
-            <div class="knowledge-slider">
+        <div class="knowledge">
+            <div class="knowledge_slider">
                 <ul>
                     <li>
-                        <div class="knowledge-txt">
+                        <div class="knowledge_txt">
                             <h3>三陰交穴</h3>
                             <p>
                                 取穴時，可採用仰臥的姿勢，天樞穴位於人體中腹部，肚<br>
@@ -119,7 +119,7 @@
                                 ．避免腹部脂肪的囤積
                             </p>
                         </div>
-                        <div class="knowledge-pic">
+                        <div class="knowledge_pic">
                             <img src="" alt="">
                         </div>
                     </li>
@@ -129,10 +129,9 @@
         </div>
     </section>
 
-    <a class="btn" href="">開始遊戲吧!</a>
+    <a class="btnLarge" href="">開始遊戲吧!</a>
 
-    <footer>
-        @@include('./layout/footer.html')
-    </footer>
+    @@include('./layout/footer.html')
+
 </body>
 </html>
