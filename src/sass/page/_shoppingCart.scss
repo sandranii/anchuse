@@ -51,7 +51,6 @@
         letter-spacing: 2px;
         
         button{
-            @include btnLittle();
             margin: 10px
         }
     }
