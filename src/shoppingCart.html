@@ -28,14 +28,14 @@
                 </tr> -->
                <tr  v-for="item in car">
                     <th><img :src="item.img" alt=""></th>
-                  <th><p>{{item.name}}</p><p>{{item.price}}</p><button @click="addNum(item)">+</button ><input style="text-align:center" type="text" :value="item.num" size="1"><button @click="reduceNum(item)">-</button></th>
+                  <th><p>{{item.name}}</p>${{item.price}}<p></p><button @click="addNum(item)">+</button ><input style="text-align:center" type="text" :value="item.num" size="1"><button @click="reduceNum(item)">-</button></th>
              
                     <!-- <th></th> 
                     <th></th> -->
-                    <th><p>{{item.price*item.num}}</p></th>
+                    <th><p>${{item.price*item.num}}</p></th>
            
                
-                    <th><button  class="btnLittle"  @click="reduceCar(item.id)">移出購物車</button></th>
+                    <th><button  class="addCart"  @click="reduceCar(item.id)">移出購物車</button></th>
     
                 </tr> 
                
