@@ -65,11 +65,12 @@
     }
     .product-addcar{
         margin-bottom: 50px;
+
         button{
-            width: 100%;
-            padding: 5px;
-            font-size: 18px;
-            font-weight: 800;
+            margin: 10px;
+        }
+        .redBtn{
+            background-color: $red
         }
        
     }
@@ -79,35 +80,53 @@
     
     @include container();
     .illustrate-chose{
+     
         display: flex;
         justify-content: space-around;
-        border: 1px solid black;
         position: relative;
         text-align: center;
         cursor: pointer;
 
         .illustrate-order{
             width: 100%;
-            border: 1px solid;
+            border: 1px solid $blue;
             border-bottom: none;
-            padding: 5px;
+            padding: 10px;
+            font-weight: 800;
+
+            h4{
+                color: $blue;
+            }
+         
         }
      
 
     }
     .illustrate-txt{
-        width: 100%;
         height: 400px;
-        overflow-y: scroll;
-        border: 1px solid black;
+        border: 1px solid $blue;
         margin-bottom: 50px;
         padding: 10px;
+        line-height: 2;
+    }
+    table{
+        tr>:first-child{
+            // background-color: $red;
+            color:$blue;
+            font-weight: 800;
+        }
+
+        th{
+            border: 1px solid $blue; 
+            padding: 10px;
+        }
+        
     }
 
 
 }
 .active{
-    background-color: red;
+    background-color: $red;
 }
 .illustrate-post{
     width: 100%;
@@ -115,193 +134,24 @@
     border: 1px solid black;
     margin-bottom: 50px;
     padding: 10px;
+  
 }
 .color{
-    background-color: black;
-    h3{
-        color: aliceblue;
+    background-color: $blue;
+    h4{
+        color: aliceblue !important;
     }
    
 }
-.light{
-    opacity: 1;
-}
+
 
 
 // =================================
 
     
-    @media screen and (min-width:1200px) {
-        .bread{
-            padding: 10px;
-            font-size: 16px;
-        }
-        .product-title{
-            @include container();
-            line-height: 2;
-            display: flex;
-            justify-content: space-between;
-          
-            .product-body{
-                width: 45%;
-            }
-       
-            .product-pic{
-                width: 45%;
-            }
-            .product-pic img{
-                width: 100%;
-            }
-         
-            .pic-control{
-                width: 100px;
-                display: none ;
-                justify-content: space-evenly;
-                margin: auto;
-        
-                .pic-number{
-                    font-size: 0px;
-                    width: 10px;
-                    height: 10px;
-                    border-radius: 50%;
-                    background-color: gray;
-                }
-            }
-            .pic-slide{
-              display: flex;
-              align-items: center;
-              margin-bottom: 30px;
-                .pic-chose{
-                    width: 200px;
-                    height: 120px;
-                   
-                }
-                img{
-                    width: 20%;
-                    height: 100%; 
-                    opacity: .2;   
-                }
-                button{
-                    width: 30px;
-                    height: 30px;
-                }
-            }
-            .product-number{
-                display: flex;
-                align-items: center;
-                justify-content: flex-start ;
-                margin: 10px 0;
-                button{
-                    width: 30px;
-                    height: 30px;
-                    font-size: 25px;
-                }
-                input{
-                    width: 50px;
-                    padding: 5px 0;
-                    text-align: center;
-                }
-            }
-            .product-price{
-                display: flex;
-                justify-content: flex-start ;
-                padding: 10px;
-                p{
-                    font-size: 35px;
-                }
-              
-            }
-        
-        }
 
-    // ===================================
-
-    @media screen and (min-width:1024px) {
-        .bread{
-            padding: 10px;
-            font-size: 16px;
-        }
-        .product-title{
-            @include container();
-            line-height: 2;
-            display: flex;
-            justify-content: space-between;
-          
-            .product-body{
-                width: 45%;
-            }
-        
-            .product-pic{
-                width: 100% ;
-            }
-            .product-pic img{
-                width: 100%;
-            }
-         
-            .pic-control{
-                width: 100px;
-                display: none ;
-                justify-content: space-evenly;
-                margin: auto;
-        
-                .pic-number{
-                    font-size: 0px;
-                    width: 10px;
-                    height: 10px;
-                    border-radius: 50%;
-                    background-color: gray;
-                }
-            }
-            .pic-slide{
-             
-              display: flex;
-              align-items: center;
-              margin-bottom: 30px;
-              justify-content: center;
-                .pic-chose{
-                    width: 400px;
-                    height: 120px;
-                   
-                }
-                img{
-                    width: 33%;
-                    height: 100%; 
-                    opacity: .2;   
-                }
-                button{
-                    width: 30px;
-                    height: 30px;
-                }
-            }
-            .product-number{
-                display: flex;
-                align-items: center;
-                justify-content:flex-start;
-                margin: 10px 0;
-                button{
-                    width: 30px;
-                    height: 30px;
-                    font-size: 25px;
-                }
-                input{
-                    width: 50px;
-                    padding: 5px 0;
-                    text-align: center;
-                }
-            }
-            .product-price{
-                display: flex;
-                justify-content: flex-start;
-                padding: 10px;
-                p{
-                    font-size: 35px;
-                }
-              
-            }
-        
-        }
-        // ==========================
-    }
+.light{
+    opacity: 1 !important;
 }
 
 

@@ -65,8 +65,8 @@
                     <button  @click="reduceNum(item)">-</button>
                 </div>
                 <div class="product-addcar">
-                    <button @click="addCar(item.id,item)">加入購物車</button>
-                    <a href="../購物車/shoppingCart.html"><button @click="direct(item.id,item)">直接購買</button> </a>
+                    <button  class="btnLarge"  @click="addCar(item.id,item)">加入購物車</button>
+                    <a href="./shoppingCart.html"><button   class="btnLarge  redBtn" @click="direct(item.id,item)">直接購買</button> </a>
                 </div>
             </div>
       
@@ -76,23 +76,23 @@
 
   
     <!-- ================================================ -->
-    <div class="illustrate">
-        <div class="illustrate-chose">
+    <div class="illustrate col-12">
+        <div class="illustrate-chose ">
             <div class="illustrate-order" @click="changeRule":class="{color:rule}">
-                <h3>規格說明</h3>
+                <h4>規格說明</h4>
             </div>
             <div class="illustrate-order" @click="changeNotice" :class="{color:precautions}">
-                <h3>產品特色</h3>
+                <h4>產品特色</h4>
             </div>
             <div class="illustrate-order" @click="changePickUp":class="{color:pickUp}">
-                <h3>取貨問題</h3>
+                <h4>取貨問題</h4>
             </div>
             <div class="illustrate-order" @click="changeComment" :class="{color:comment}">
-                <h3>退貨須知</h3>
+                <h4>退貨須知</h4>
             </div>
         </div>
 
-        <div class="illustrate-txt" v-if="article==1" >
+        <div class="illustrate-txt " v-if="article==1"  width="600">
             <table border="1" width="600">
                 <tr >
                     <th>商品名稱</th>
@@ -112,7 +112,7 @@
                 </tr>
                 <tr>
                     <th>類別</th>
-                    <th>{{product.type}}</th>
+                    <th style="border-bottom: none;">{{product.type}}</th>
                 </tr>
                 <tr>
                     <th>產地</th>
@@ -122,13 +122,13 @@
         </div>
 
         <div class="illustrate-txt" v-if="article==2" style="font-weight:800;letter-spacing:3px;">
-           <p style="font-size:25px">·{{special.one}}</p>
-           <p style="font-size:25px">·{{special.two}}</p>
-           <p style="font-size:25px">·{{special.three}}</p>
-           <p style="font-size:25px">·{{special.four}}</p>
-           <p style="font-size:25px">·{{special.five}}</p>
-           <p style="font-size:25px">·{{special.six}}</p>
-           <p style="font-size:25px">·{{special.seven}}</p>
+           <p style="font-size:25px">●{{special.one}}</p>
+           <p style="font-size:25px">●{{special.two}}</p>
+           <p style="font-size:25px">●{{special.three}}</p>
+           <p style="font-size:25px">●{{special.four}}</p>
+           <p style="font-size:25px">●{{special.five}}</p>
+           <p style="font-size:25px">●{{special.six}}</p>
+           <p style="font-size:25px">●{{special.seven}}</p>
         </div>
 
         <div class="illustrate-txt" v-if="article==3">

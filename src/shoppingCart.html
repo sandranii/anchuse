@@ -49,8 +49,8 @@
                     <option value="0.5">5折</option>
             
                 </select>
-                <p>商品金額:{{money}}元 折扣金額:{{money-discount}} 結帳金額:${{discount}}</p>
-                <a href="../付款流程/Payment.html">前往結帳</a>
+                <p>商品金額:{{money}}元 折扣金額:{{money-discount}} 結帳金額:${{totalPrice}}</p>
+                <a href="./Payment.html"><button class="btnLittle">前往結帳</button> </a>
             </div>
         </div>
 
@@ -152,7 +152,8 @@
                     
                        this.data = res.data.gun
                       
-                      
+                       this.totalPrice=this.discount
+                       console.log(this.totalPrice)
                    })
                },
         
@@ -246,15 +247,15 @@
             set(){
                 this.$set(car,1,{});
             },
-            change(){
+        //     change(){
                       
                        
-                this.setCar()
-           },
+        //         this.setCar()
+        //    },
              
            },
        
-           created() {
+           created() {//mount之前 會先讀到data
                this.carOnline()
            
            },
@@ -262,15 +263,9 @@
                 buyCar:function(){//不可與陣列同名
                     return JSON.parse(JSON.stringify(this.car))
                 },
-                discount:function(){
-                    this.setCar()
-                    return this.money*this.sel
-                    
-                   
-                }
            },
            watch:{
-            buyCar:{
+                buyCar:{
                     handler(newVal,oldVal){
                         this.money="";
                         
@@ -283,20 +278,14 @@
                     }
                     
                 },
-                totalPrice:{
-                    handler(newVal,oldVal){
-                  
-                          
-                      
-            
-                       
-                        this.setCar()
-                    }
-                    
-                }
-           },
+             
+            },
+            updated(){//資料有更新會自動呼叫
+                 this.totalPrice = this.money*this.sel
+                this.setCar()
+            },
            
-           mounted() {
+           mounted() {//等app載入之後才會讀取
                this.commodityInfo()
             //    this.getInfo()
                 this.select()
