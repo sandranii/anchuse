@@ -160,6 +160,11 @@
     <script src="https://unpkg.com/vue@next"></script>
 
     <script>
+   
+
+
+
+
      Vue.createApp({
         data(){
             return{
@@ -193,6 +198,7 @@
                     this.oil = res.data.rose
                 
                 })
+           
             },
             showOil(key){
                 if(key=="gun"){
@@ -204,9 +210,6 @@
                 }
 
             },
-            // showGun(){
-            //     this.data=res.data.gun
-            // },
             showAppliance(){
                 this.openPage2 = !this.openPage2
                 if(!this.openPage2){
@@ -253,6 +256,14 @@
                
                 this.storage()
             },
+            clear(){
+                let index = this.data.findIndex(item=>item.id==id)
+                this.order.splice(index,1)
+                console.log(this.order)
+                localStorage.clear("order")
+                
+                this.storage()
+            },
             storage(){
                 localStorage.setItem("order",JSON.stringify(this.order))
             },
@@ -261,13 +272,7 @@
                 if(!orderList) return;
                 this.order = JSON.parse(orderList);
             },
-            clear(){
-                let index = this.data.findIndex(item=>item.id==id)
-                this.order.splice(index,1)
-                
-      
-           
-            },
+        
             carOnline(){
             let buyCar = localStorage.getItem("car");
                 if(!buyCar) return;
@@ -277,8 +282,10 @@
           
         },
         created() {
+            this.clear()
             this.online()
             this.carOnline()
+           
         },
         computed:{
            
@@ -286,10 +293,12 @@
         
         mounted() {
             this.commodityInfo()
-            this.clear()
+          
         
         },
      }).mount("#app")
+
+    
     </script>
 
     
