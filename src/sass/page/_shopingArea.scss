@@ -71,13 +71,18 @@
     }
     .area-order{
         width: 100%;
-        max-width: 300px;
+        max-width: 240px;
         margin: auto;
         
 
         .area-order-title{
-        background-color: $blue;
-        text-align: center;
+            background-color: $blue;
+            text-align: center;
+            padding: 10px;
+
+            h2{
+                color:$white
+            }
         }
         .oilList{
             display: none;
@@ -88,10 +93,10 @@
         }
         
         li{
-            background-color: gray;
-            border-top: 1px solid black;
+            text-align: center;
+            background-color: $white;
+            border: 1px solid $blue;
             padding: 15px  15px;
-            
         }
         .triangle{
             float: right;
