@@ -1,3 +1,4 @@
+
 #app{
    height: 70vh;
    display: flex;
@@ -112,16 +113,15 @@ label{
            
         }
     }
-
-       
-
    
 }
-
-
 .hint{
     background-color: red !important;
     color: aliceblue !important;
+}
+.pay-btn{
+    text-align: center;
+    margin: 20px 0;
 }
 
 

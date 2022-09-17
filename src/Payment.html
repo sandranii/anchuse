@@ -51,8 +51,10 @@
                     <th>{{totalPrice}}</th>
                 </tr>
             </table>
-      
-            <button @click="next">下一步</button>
+            <div class="pay-btn">
+                <button class="btnLittle" @click="next">下一步</button>
+            </div>
+            
         </form>
     </div>
 <!-- ================================= -->
@@ -97,7 +99,9 @@
                 </select><br>
                 <input type="text" placeholder="請輸入詳細地址">
             </div>
-                <button @click="next">下一步</button>
+            <div class="pay-btn">
+                <button class="btnLittle" @click="next">下一步</button>
+            </div>
         </form>
     </div>
 
@@ -125,7 +129,9 @@
     
                   
             </div>
-            <button>送出</button>
+            <div class="pay-btn">
+                 <button class="btnLittle">送出</button>
+            </div>
         </form>
  
     </div>
@@ -151,23 +157,37 @@
                     car:[],
                     money:0,
                     active:1,
+                    width:0,
                  
                    }
                },
                methods:{
                     getAddress(){
-                        axios.get("./taiwan.json")
-                        .then((res)=>{
-                            console.log(res)
-                            this.city = res.data
-                            console.log(this.city)
-                            console.log(this.car)
-                            
-                        })
+                    
+                        // this.data = this.obj.data
+
+                        // this.commodity=this.obj.gun
+                        // this.gun = this.obj.gun
+                        // this.equipment = this.obj.equipment
+                        // this.oil = this.obj.rose
+                 
+               
+                        window.onresize=()=>{
+                            this.width = window.innerWidth
+                            console.log(this.width)//查銀幕寬度
+                            if(this.width<700){
+                            alert("太小了")
+                        }
+                         
+                        }
+                       
+                     
+                   
                     },
                     first(){
                         this.selArea = this.township[0].AreaList.AreaName
                     },
+                   
                     
                  carOnline(){
                 let buyCar = localStorage.getItem("car");

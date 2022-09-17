@@ -10,38 +10,64 @@
 <body>
 
     <div id="app">
+        <header class="page_header">
+            <nav>
+                <input type="checkbox" id="check">
+                <label for="check">
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                    <span class="line3"></span>
+                </label> 
+                <a href="../index.html" class="header_logo"><img src="../images/headerLogo.png" alt=""></a>
+                <ul>
+                    <li><a href="../aboutUs.html">關於我們</a></li>
+                    <li><a href="../reservation.html">預約按摩</a></li>
+                    <li><a href="../shopingArea.html">商品專區</a></li>
+                    <!-- <a href="../index.html" class="header_logo"><img src="../images/headerLogo.png" alt=""></a> -->
+                    <li><a href="../massageschool.html">按摩小學堂</a></li>
+                    <li><a href="">常見問題</a></li>
+                </ul>
+                <div class="header_icon">
+                    <span class="header_member"><a href="../memLogin.html" ><img src="../images/headerMember.png" alt=""></a></span>
+                    <span class="header_shopping_cart"><a href="../shoppingCart.html"><img src="../images/headerShoppinCart.png" alt=""></a></span>
+                </div>  
+                
+            </nav>
+        </header>
+    
+        <!-- ======================== -->
         <div class="shopping-cart">
             <div class="shopping-title">
                 <div class="title-font">購</div>
                 <div class="title-font">物</div>
                 <div class="title-font">車</div>
             </div>
-    
-            <table border="1"  class="shopping-table col-12" >
-                <!-- <tr>
-                    <th>商品展示</th>
-                    <th>名稱</th>
-                    <th>售價</th>
-                    <th>數量</th>
-                    <th>小計</th>
-                    <th>變更</th>  
-                </tr> -->
-               <tr  v-for="item in car">
-                    <th><img :src="item.img" alt=""></th>
-                  <th><p>{{item.name}}</p>${{item.price}}<p></p><button @click="addNum(item)">+</button ><input style="text-align:center" type="text" :value="item.num" size="1"><button @click="reduceNum(item)">-</button></th>
-             
-                    <!-- <th></th> 
-                    <th></th> -->
-                    <th><p>${{item.price*item.num}}</p></th>
-           
-               
-                    <th><button  class="addCart"  @click="reduceCar(item.id)">移出購物車</button></th>
-    
-                </tr> 
-               
-            </table>
 
-            <div class="shopping-price">
+            <div class="shopping-list col-12">
+                <div class="shopping-list-order" v-for="item in car">
+                    <div class="shopping-list-pic ">
+                        <img :src="item.img" alt="">
+                    </div>
+                    <div class="shopping-list-body">
+                        <p>{{item.name}}</p>
+                        <div class="shopping-list-int">
+                            <button @click="addNum(item)">+</button ><input style="text-align:center" type="text" :value="item.num" size="1"><button @click="reduceNum(item)">-</button>
+                        </div>
+                        <p>單價:{{item.price}}</p>
+                    </div>
+                    <div class="shopping-list-calculate">
+                        <h5>${{item.price*item.num}}</h5>
+                    </div>
+                    <div class="shopping-list-btn">
+                        <button  class="btnMinimum" style="padding:7px"  @click="reduceCar(item.id)">移出購物車</button>
+                    </div>
+                </div>
+            </div>
+            
+
+
+            <div class="shopping-discount">
+                <h5>選擇優惠券:</h5>
                 <select name="" id="" v-model="sel" @change="change">
                     <option value="1">請選擇</option>
                     <option value="0.85">85折</option>
@@ -49,6 +75,9 @@
                     <option value="0.5">5折</option>
             
                 </select>
+            </div>
+            <div class="shopping-price">
+              
                 <p>商品金額:{{money}}元 折扣金額:{{money-totalPrice}} 結帳金額:${{totalPrice}}</p>
                 <a href="./Payment.html"><button class="btnLittle">前往結帳</button> </a>
             </div>
@@ -66,7 +95,7 @@
                 <button @click="prev" class="prev"><</button>
                 <div class="purchase-area-slide" :style="{left:330*index+'px',
                 transition:.5+'s'}">
-                  <div class="purchase-area-card " v-for="(item,value) in data" :key="item.id">
+                  <div class="purchase-area-card " v-for="(item,value) in commodity" :key="item.id">
                         <div class="purchase-area-pic">
                             <img :src="item.img" alt="">
                         </div>
@@ -90,7 +119,7 @@
                     </div>
             <!-- ============================================ -->
 
-           <div class="purchase-area-card " v-for="(item,value) in data">
+           <div class="purchase-area-card " v-for="(item,value) in commodity">
                 <div class="purchase-area-pic">
                     <img :src="item.img" alt="">
                 </div>
@@ -140,45 +169,378 @@
                     index:0,
                     money:0,
                     totalPrice:0,
-                    
+                //   =============================  
+                obj:{
+               
+               gun:[
+         {
+           "id":1,
+           "itemName": "按摩槍",
+           "img":"../src/images/carpic/massagegun/japan.png",
+           "imgTop":"./carpic/massagegun/activity.png",
+           "imgBody":"./carpic/massagegun/pinkhun.png",
+           "name":"美式按摩槍",
+           "cpacity":"16oz/473ml",
+           "origin":"美國",
+           "num":0,
+           "price":1250,
+           "logo":"Full",
+           "checkout":"貨到付款/線上支付/",
+           "warranty":"1年",
+           "product1":"六段按摩強度調整功能",
+           "product2":"四種按摩頭",
+           "product3":"USB充電",
+
+           "specification":{
+
+                           "name":"日式按摩槍 FG-271",
+                           "brand":"其他",
+                           "type":"按摩棒/按摩器",
+                           "color":"青綠色",
+                           "size":"(寬)168x (深)65x (高)235 mm",
+                           "origin":"美國"
+                   },
+           "feature":{
+                   "one":" 38段檔位調節，男女老少都試用",
+                   "two":"  8MM深層筋膜震感 ",
+                   "three":" 710克輕巧機身",
+                   "four":" USB充",
+                   "five":"3000轉高速捶打",
+                   "six":"2400mAh內置電池",
+                   "seven":"運作低噪，不吵鄰"
+                   }
+           
+           
+         },
+         {
+           "id":2,
+           "itemName": "按摩槍",
+           "img":"./carpic/massagegun/fire.png",
+           "imgTop":null,
+           "imgBody":null,
+           "name":"火星計畫",
+           "cpacity":"16oz/473ml",
+           "origin":"日本",
+           "num":0,
+           "price":1910,
+           "logo":"Full",
+           "checkout":"貨到付款/線上支付/",
+           "warranty":"2年",
+           "product1":"市場同級最輕，9mm迷你筋膜槍",
+           "product2":"350g輕盈隨行，收納包好輕巧",
+           "product3":"防手震專利，防震結構再升級",
+
+           "specification":{
+
+                           "name":"火星計畫",
+                           "brand":"其他",
+                           "type":"按摩棒/按摩器",
+                           "color":"暗黑色",
+                           "size":"(寬)178x (深)61x (高)225 mm",
+                           "origin":"日本"
+                   },
+           "feature":{
+                   "one":" 36段檔位調節，男女老少都試用",
+                   "two":"  8MM深層筋膜震感 ",
+                   "three":" 710克輕巧機身",
+                   "four":" USB充",
+                   "five":"3000轉高速捶打",
+                   "six":"2400mAh內置電池",
+                   "seven":"運作低噪，不吵鄰"
+                   }
+           
+           
+         },
+         {
+           "id":3,
+           "itemName": "按摩槍",
+           "img":"./carpic/massagegun/usb.png",
+           "imgTop":"./carpic/massagegun/usb2.png",
+           "imgBody":"./carpic/massagegun/usb3.png",
+           "name":"NEX Pro便攜型",
+           "cpacity":"16oz/473ml",
+           "origin":"中國",
+           "num":0,
+           "price":1310,
+           "logo":"Full",
+           "checkout":"貨到付款/線上支付/",
+           "warranty":"2年",
+           "product1":"重量僅550G，隨身攜帶好方便",
+           "product2":"100% 金屬高密度塑料製成",
+           "product3":"航空級鋁材雙軸，降低手震",
+
+           "specification":{
+
+                           "name":"NEX Pro便攜型",
+                           "brand":"其他",
+                           "type":"按摩棒/按摩器",
+                           "color":"紅黑色",
+                           "size":"16.5X9.1X4.8cm",
+                           "origin":"中國"
+                   },
+           "feature":{
+                   "one":" 材質:鋁合金, 不銹鋼, 玻璃纖維,",
+                   "two":"  充電時間:６小時 ",
+                   "three":" 最高轉速:3500ppm(Max)",
+                   "four":" USB充",
+                   "five":"3000轉高速捶打",
+                   "six":"2400mAh內置電池",
+                   "seven":"運作低噪，不吵鄰"
+                   }
+           
+         },
+         {
+           "id":4,
+           "itemName": "按摩槍",
+           "img":"./carpic/massagegun/mini.png",
+           "imgTop":"./carpic/massagegun/mini1.png",
+           "imgBody":"./carpic/massagegun/mini2.png",
+           "name":"玩美小摩",
+           "cpacity":"16oz/473ml",
+           "origin":"澳洲",
+           "num":0,
+           "price":1910,
+           "logo":"Full",
+           "checkout":"貨到付款/線上支付/",
+           "warranty":"2年",
+           "product1":"4款可替換按摩頭",
+           "product2":"無碳刷馬達減震設計",
+           "product3":"500g零負擔",
+
+           "specification":{
+
+                           "name":"玩美小摩",
+                           "brand":"其他",
+                           "type":"按摩棒/按摩器",
+                           "color":"時尚粉",
+                           "size":"尺寸：長155x寬88x高45(mm)",
+                           "origin":"澳洲"
+                   },
+           "feature":{
+                   "one":" 型號：TS-136",
+                   "two":"  輸入電壓：DC5V 2A",
+                   "three":" 710克輕巧機身",
+                   "four":" 額定功率：20W",
+                   "five":"3000轉高速捶打",
+                   "six":"2400mAh內置電池",
+                   "seven":"運作低噪，不吵鄰"
+                   }
+           
+           
+         },
+         {
+           "id":5,
+           "itemName": "按摩槍",
+           "img":"./carpic/massagegun/knock.png",
+           "imgTop":"./carpic/massagegun/knock1.png",
+           "name":"敲敲小摩",
+           "cpacity":"16oz/473ml",
+           "origin":"日本",
+           "num":0,
+           "price":1910,
+           "logo":"Full",
+           "checkout":"貨到付款/線上支付/",
+           "warranty":"2年",
+           "product1":"MIT台灣研發設計、製造。",
+           "product2":"採用日系高品質電芯",
+           "product3":"470g 輕量小巧的體積",
+
+           "specification":{
+
+                           "name":"敲敲小摩",
+                           "brand":"其他",
+                           "type":"按摩棒/按摩器",
+                           "color":"夕陽粉",
+                           "size":"90.7 x 47 x 146.2 mm",
+                           "origin":"日本"
+                   },
+           "feature":{
+                   "one":" 四段震動檔數，每分鐘轉速 1600 / 2100 / 2700 / 3200 rpm",
+                   "two":"  電池容量2900mAh ",
+                   "three":" 710克輕巧機身",
+                   "four":" USB充",
+                   "five":"工業級PC / ABS",
+                   "six":"2400mAh內置電池"
+                
+                   }
+           
+           
+         },
+         {
+           "id":6,
+           "itemName": "按摩槍",
+           "img":"./carpic/massagegun/rose.png",
+           "imgTop":"./carpic/massagegun/rose1.png",
+           "imgBody":"./carpic/massagegun/rose2.png",
+           "name":"迷你震動按摩槍",
+           "cpacity":"16oz/473ml",
+           "origin":"德國",
+           "num":0,
+           "price":1800,
+           "logo":"Full",
+           "checkout":"貨到付款/線上支付/",
+           "warranty":"2年",
+           "product1":"無刷強磁馬達",
+           "product2":"四種按摩頭",
+           "product3":"九段震動調速",
+
+           "specification":{
+
+                           "name":"迷你震動按摩槍",
+                           "brand":"其他",
+                           "type":"按摩棒/按摩器",
+                           "color":"玫瑰紅",
+                           "size":"(寬)178x (深)61x (高)225 mm",
+                           "origin":"德國"
+                   },
+           "feature":{
+                   "one":" 無刷強磁馬達",
+                   "two":"  無刷馬達 ",
+                   "three":" 680克輕巧機身",
+                   "four":" 九段震動調速",
+                   "five":"輸入電壓/電流：DC 5V/2A(Max)",
+                   "six":"2400mAh內置電池",
+                   "seven":"運作低噪，不吵鄰"
+                   }
+           
+           
+         }
+     ],  
+               
+               equipment:[
+         {
+             "itemName": "按摩滾筒",
+             "img":"https://picsum.photos/300/200/?random=10",
+             "name":"滾筒",
+             "cpacity":"16oz/473ml",
+             "origin":"澳洲",
+             "price":200
+         },
+         {
+           "itemName": "按摩滾筒",
+             "img":"https://picsum.photos/300/200/?random=11",
+             "name":"滾筒",
+             "cpacity":"16oz/473ml",
+             "origin":"澳洲",
+             "price":200
+         },
+         {
+           "itemName": "按摩滾筒",
+             "img":"https://picsum.photos/300/200/?random=12",
+             "name":"滾筒",
+             "cpacity":"16oz/473ml",
+             "origin":"澳洲",
+             "price":200
+         },
+         {
+           "itemName": "按摩滾筒",
+             "img":"https://picsum.photos/300/200/?random=13",
+             "name":"滾筒",
+             "cpacity":"16oz/473ml",
+             "origin":"澳洲",
+             "price":200
+         },
+         {
+           "itemName": "按摩滾筒",
+             "img":"https://picsum.photos/300/200/?random=14",
+             "name":"滾筒",
+             "cpacity":"16oz/473ml",
+             "origin":"澳洲",
+             "price":200
+         },
+         {
+           "itemName": "按摩滾筒",
+             "img":"https://picsum.photos/300/200/?random=15",
+             "name":"滾筒",
+             "cpacity":"16oz/473ml",
+             "origin":"澳洲",
+             "price":200
+         }
+     ],
+               
+               rose:[
+         {
+           "itemName": "按摩精油",
+           
+           "img":"https://picsum.photos/300/200/?random=10",
+           "name":"玫瑰 ROSE",
+           "cpacity":"16oz/473ml",
+           "origin":"中國",
+           "price":1200
+         },
+         {
+           "itemName": "按摩精油",
+             "img":"https://picsum.photos/300/200/?random=11",
+             "name":"玫瑰 ROSE",
+             "cpacity":"16oz/473ml",
+             "origin":"中國",
+             "price":1200
+         },
+         {
+           "itemName": "按摩精油",
+             "img":"https://picsum.photos/300/200/?random=12",
+             "name":"玫瑰 ROSE",
+             "cpacity":"16oz/473ml",
+             "origin":"中國",
+             "price":1200
+         },
+         {
+           "itemName": "按摩精油",
+             "img":"https://picsum.photos/300/200/?random=13",
+             "name":"玫瑰 ROSE",
+             "cpacity":"16oz/473ml",
+             "origin":"中國",
+             "price":1200
+         },
+         {
+           "itemName": "按摩精油",
+             "img":"https://picsum.photos/300/200/?random=14",
+             "name":"玫瑰 ROSE",
+             "cpacity":"16oz/473ml",
+             "origin":"中國",
+             "price":1200
+         },
+         {
+           "itemName": "按摩精油",
+             "img":"https://picsum.photos/300/200/?random=15",
+             "name":"玫瑰 ROSE",
+             "cpacity":"16oz/473ml",
+             "origin":"中國",
+             "price":1200
+         }
+     ]
+               }
                    
               
                }
            },
            methods: {
                commodityInfo(){
-                   axios.get("./json/list.json")
-                   .then((res)=>{
-                    
-                       this.data = res.data.gun
-                      
-                       this.totalPrice=this.discount
-                       console.log(this.totalPrice)
-                   })
+                console.log(this.obj)
+                           
+                           this.data = this.obj.data
+       
+                           this.commodity=this.obj.gun
+                           this.gun = this.obj.gun
+                           this.equipment = this.obj.equipment
+                           this.oil = this.obj.rose
                },
         
                addCar(id,item){
                
-
-                let count = this.data.findIndex(item=>{
-                    
-                    
+                let count = this.commodity.findIndex(item=>{
                    return item.id===id
-                
                 }) 
                 let code = this.car.find(carItem=>carItem.id==id)
-                
-                    
-
                     if(!code){
                     alert("成功加入購物車")
                     item.num+=1
                     this.car.push({
-                        id:this.data[count].id,
-                        img:this.data[count].img,
-                        name:this.data[count].name,
-                        price:this.data[count].price,
-                        num:this.data[count].num
+                        id:this.commodity[count].id,
+                        img:this.commodity[count].img,
+                        name:this.commodity[count].name,
+                        price:this.commodity[count].price,
+                        num:this.commodity[count].num
                         
                     })
 

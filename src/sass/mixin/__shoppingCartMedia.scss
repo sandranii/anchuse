@@ -1,10 +1,8 @@
-@media screen and (min-width: 7680px) and (max-width: 1200px){
-
+@media screen and (min-width: 768px) and (min-width: 1200px){
+    
     
 .shopping-cart{
     @include container();
-
-    
     line-height: 3;
     .shopping-title{
         @include container();
@@ -21,49 +19,33 @@
     
       
     }
-    .shopping-table{
-        margin: auto
+    .shopping-list{
+        margin-bottom: 50px;
+        .shopping-list-order{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
 
-       
-    }
-    tbody>:first-child{
-        background-color: aliceblue;
-        font-weight: 800;
-    }
-    tr{
-        display: flex;
-        background-color:aliceblue;
-        margin: 10px 0;
-        padding: 10px;
-    }
-    th{
-        width:120px;
-        margin: auto;
-        display: flex;
-        p{ font-size: 12px;}
-       
-        button{
-            padding: 10px;
-        }
-        img{
-            width: 100%;
+            .shopping-list-body{
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                width: 30%;
             
+                .shopping-list-int{
+                    display: flex;
+                }
+            }
         }
-        .addCart{
-            width: 110px;
-            text-align: center;
-            border-radius: 100px;
-            padding: 5px;
-            font-size: 16px;
-            font-weight: 800;
-            background-color: $blue;
-            color: $white;
-            border: none;
-            position: relative;
-            z-index: 10;
-            letter-spacing: 1px;
-        }
+        .shopping-list-pic{
+            width: 120px;
+            img{
+                width: 100%;
+            }
+        }  
     }
+
+  
     .shopping-price{
         @include container();
         display: flex;
