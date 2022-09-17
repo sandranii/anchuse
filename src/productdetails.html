@@ -122,8 +122,9 @@
                     </table>
                 </div>
 
-                <div class="illustrate-txt" v-if="article==2" style="font-weight:800;letter-spacing:3px;">
-                <p style="font-size:25px">{{special.one}}</p>
+                <div class="illustrate-txt" v-if="article==2" style="font-weight:800;letter-spacing:3px;" >
+               
+                <p  style="font-size:25px">{{special.one}}</p>
                 <p style="font-size:25px">{{special.two}}</p>
                 <p style="font-size:25px">{{special.three}}</p>
                 <p style="font-size:25px">{{special.four}}</p>
@@ -177,6 +178,7 @@
                 precautions:false,
                 pickUp:false,
                 comment:false,
+                title:"*",
               
           
            }
@@ -189,16 +191,12 @@
                    this.data = res.data.gun
 
                    
-                   this.product =  this.order[0].specification
-                   this.special =  this.order[0].feature
+                   this.product = this.order[0].specification
+
                 
-                   console.log(this.order)
-                //    for(let i=0;i<2;i++){
-                //   
-                //     console.log(this.special)
-                //    }
-        
-                  
+                   this.special =this.order[0].feature
+                   
+                    
                })
            },
 
