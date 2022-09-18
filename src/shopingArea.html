@@ -104,19 +104,12 @@
                                 <img :src="item.img">
                             </div>
                             <div class="area-name bold">
-                                <h5>{{item.name}}</h5>
+                                <h4>{{item.name}}</h4>
                             </div>
-                            <div class="area-introduce">
-                                <div class="area-oritem">
-                                    <small class="area-capacity">保固:<strong>{{item.warranty}}</strong></small>
-                                    <small class="area-origin">✔️{{item.product1}}</small><br>
-                                    <small class="area-origin">✔️{{item.product2}}</small><br>
-                                    <small class="area-origin">✔️{{item.product3}}</small><br>
-                            
-                                </div>
-                                <div class="area-price">
-                                    <p>${{item.price}}元</p>
-                                </div>
+                     
+                            <div class="area-price">
+                                <p>NT${{item.price}}</p>
+                                <P v-for="i in 5">⭐</P>
                             </div>
                         </div>
                     </div>
@@ -216,9 +209,9 @@
           {
             "id":1,
             "itemName": "按摩槍",
-            "img":"./images/carpic/massagegun/japan.png",
-            "imgTop":"./images/carpic/massagegun/activity.png",
-            "imgBody":"./images/carpic/massagegun/pinkhun.png",
+            "img":"./images/japan.png",
+            "imgTop":"./images/activity.png",
+            "imgBody":"./images/pinkhun.png",
             "name":"美式按摩槍",
             "origin":"美國",
             "num":0,
@@ -254,7 +247,7 @@
           {
             "id":2,
             "itemName": "按摩槍",
-            "img":"./images/carpic/massagegun/fire.png",
+            "img":"./images/fire.png",
             "imgTop":null,
             "imgBody":null,
             "name":"火星計畫",
@@ -292,9 +285,9 @@
           {
             "id":3,
             "itemName": "按摩槍",
-            "img":"./images/carpic/massagegun/usb.png",
-            "imgTop":"./images/carpic/massagegun/usb2.png",
-            "imgBody":"./images/carpic/massagegun/usb3.png",
+            "img":"./images/usb.png",
+            "imgTop":"./images/usb2.png",
+            "imgBody":"./images/usb3.png",
             "name":"NEX Pro便攜型",
             "origin":"中國",
             "num":0,
@@ -329,9 +322,9 @@
           {
             "id":4,
             "itemName": "按摩槍",
-            "img":"./images/carpic/massagegun/mini.png",
-            "imgTop":"./images/carpic/massagegun/mini1.png",
-            "imgBody":"./images/carpic/massagegun/mini2.png",
+            "img":"./images/mini.png",
+            "imgTop":"./images/mini1.png",
+            "imgBody":"./images/mini2.png",
             "name":"玩美小摩",
             "origin":"澳洲",
             "num":0,
@@ -367,8 +360,8 @@
           {
             "id":5,
             "itemName": "按摩槍",
-            "img":"./images/carpic/massagegun/knock.png",
-            "imgTop":"./images/carpic/massagegun/knock1.png",
+            "img":"./images/knock.png",
+            "imgTop":"./images/knock1.png",
             "name":"敲敲小摩",
             "origin":"日本",
             "num":0,
@@ -404,9 +397,9 @@
           {
             "id":6,
             "itemName": "按摩槍",
-            "img":"./images/carpic/massagegun/rose.png",
-            "imgTop":"./images/carpic/massagegun/rose1.png",
-            "imgBody":"./images/carpic/massagegun/rose2.png",
+            "img":"./images/rose.png",
+            "imgTop":"./images/rose1.png",
+            "imgBody":"./images/rose2.png",
             "name":"迷你震動按摩槍",
             "origin":"德國",
             "num":0,
