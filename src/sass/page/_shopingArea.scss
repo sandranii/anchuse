@@ -126,26 +126,31 @@
           .area-card{
               margin: 15px 10px;
               padding: 5px;
-              box-shadow: 0px 0px 10px rgb(204, 204, 204);
-              line-height: 2;
-            
-           
+              box-shadow: 0px 0px 10px rgb(204, 204, 204); 
           }
           .area-oritem{
+            line-height: 1.5;
+            .area-capacity{
+                display: flex;
+                flex-wrap: nowrap;
+                width: 200px;
+                overflow: hidden;   
+           
+           
               small{
-                  display: block;
+                display: block;
               }
-          }
+            }
+           
+        }
+       
           .area-introduce{
             
               padding: 5px;
           }
           .area-name{
-              padding: 5px;
-
-             
+              padding: 5px;  
           }
-          
           .area-pic img{
               width: 100%;
           }
@@ -153,13 +158,19 @@
               display: flex;
               justify-content: flex-end;
               padding: 5px;
+              p{
+                font-size: 22px;
+                color:$red
+              }
+
+           
           }
           .add-shoppingCar{
               display: flex;
               justify-content: flex-end;
               padding: 5px;
           }
-          
+        
        
           }
 }

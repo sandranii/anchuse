@@ -227,16 +227,20 @@
                           
                       }
                       .area-oritem{
-                          small{
-                              display: block;
-                          }
+                        line-height: 1;
+                    
                       }
                       .area-introduce{
-                        
-                          padding: 5px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        padding: 0px;
+                        height: 200px;
                       }
                       .area-name{
                           padding: 5px;
+                          flex-grow: 1;
+                      
                       }
                       .area-pic img{
                           width: 100%;
@@ -245,6 +249,9 @@
                           display: flex;
                           justify-content: flex-end;
                           padding: 5px;
+                          flex-grow: 1;
+                          align-items: center;
+                      
                       }
                       .add-shoppingCar{
                           display: flex;
