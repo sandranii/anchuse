@@ -3,6 +3,8 @@
 .col-7,.col-8,.col-9,.col-10,.col-11,.col-12{
 width:100% !important;
 }
+
+
 .shopping-cart{
     @include container();
 
@@ -125,8 +127,10 @@ width:100% !important;
         }
     .shopping-check{
         width: 75%;
+       
     .shopping-checkout{
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
         align-items: center;
         justify-content: flex-end;

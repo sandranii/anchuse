@@ -57,14 +57,10 @@
     }
 
     .shopping-checkout{
-<<<<<<< HEAD
-        width: 70%;
-=======
         width: 100%;
->>>>>>> dev
         display: flex;
-        flex-direction: row;
-    }
+        flex-direction: row !important;
+    
     .shopping-price{
         margin-bottom: 50px;
         display: flex;
@@ -73,6 +69,7 @@
         letter-spacing: 2px;
         
     }
+}
 }
 
 // ======================================
