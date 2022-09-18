@@ -52,21 +52,25 @@
 
         <div class="commodity-search">
             <div class="commodity-filter">
-                <select name="" id="">
-                    <option value="">由新到老</option>
-                    <option value="">價錢由高至低</option>
+                <span>排序方式: </span>
+                <select name="" id="" @change="change" v-model="orderSel">
+                    
+                    <option value="news">由新到舊</option>
+                    <option value="old">由舊到新</option>
+                    <option value="height">價錢由高至低</option>
+                    <option value="low">價錢由低至高</option>
                 </select>
             </div>
             <div class="commodity-enter">
-                <input type="text">
+                <input type="text" placeholder="輸入商品名稱">
             </div>
-            <div class="commodity-keywords">
+            <!-- <div class="commodity-keywords">
                 <p class="words">玫瑰</p>
                 <p class="words">薄荷</p>
                 <p class="words">筋膜槍</p>
                 <p class="words">按摩槍</p>
                 <p class="words">精油</p>
-            </div>
+            </div> -->
         </div>
     </div>
    
@@ -75,12 +79,12 @@
         <div class="row">
             <div class="area-order">
                 <div class="area-order-title">
-                    <h2>嚴選商品</h2>
+                    <h4>商品清單</h4>
                 </div>
                 <ul>
-                    <li v-for="(product,key) in obj" @click="showOil(key)">
-                        <span style="font-size: 23px;font-weight: 800;">{{product[0].itemName}}</span>
-                        <span class="triangle">{{text}}</span>                          
+                    <li v-for="(product,key,value) in obj" @click="showOil(key,value)" :class="{focus:value==number}" >
+                        <span style="font-size: 23px;font-weight: 800;" :class="{focus:value==number}">{{product[0].itemName}}</span>
+                        <!-- <span class="triangle">{{text}}</span>                           -->
 
                         <ul :class="{oilList:openPage1}">
                             <li>玫瑰ROSE</li>
@@ -106,44 +110,40 @@
                             <div class="area-name bold">
                                 <h4>{{item.name}}</h4>
                             </div>
-                     
+                            <small v-for="i in radom">⭐</small>
                             <div class="area-price">
+                               
                                 <p>NT${{item.price}}</p>
-                                <P v-for="i in 5">⭐</P>
+                                
                             </div>
                         </div>
                     </div>
                 </a>
-               
+         
             
-     
-             
+                <a href="./productdetails.html">
+                    <div class="area-box" v-if="currentPage==2" :class="{block:currentPage==1}" >
 
-                <div class="area-box" v-if="show=currentPage=='2'" 
-                :class="{block:currentPage==2}">
-                    <div class="col-3  area-card" v-for="(item,value) in info">
-                        <div class="area-pic">
-                            <img :src="item.img">
-                        </div>
-                        <div class="area-name">
-                            <h3>{{item.name}}</h3>
-                        </div>
-                        <div class="area-introduce">
-                            <div class="area-oritem">
-                                <small class="area-capacity">{{item.cpacity}}</small>
-                                <small class="area-origin">產地：{{item.origin}}</small>
-                        
+                 
+                        <div class="col-3  area-card" v-for="(item,key) in commodity" @click="addOrder(item.id)" :key="item.id" >
+                      
+                            <div class="area-pic">
+                                <img :src="item.img">
                             </div>
+                            <div class="area-name bold">
+                                <h4>{{item.name}}</h4>
+                            </div>
+                            <small v-for="i in radom">⭐</small>
                             <div class="area-price">
-                                <p>售價:{{item.price}}元</p>
+                               
+                                <p>NT${{item.price}}</p>
+                                
                             </div>
-                           
                         </div>
                     </div>
-                 
-                </div>
+                </a>
 <!-- ========================================================== -->
-                <div class="area-box" v-if="show=currentPage=='3'" :class="{block:currentPage==3}">
+                <!-- <div class="area-box" v-if="show=currentPage=='3'" :class="{block:currentPage==3}">
                     <div class="col-3  area-card" v-for="(item,value) in rose">
                         <div class="area-pic">
                             <img :src="item.img">
@@ -163,10 +163,10 @@
                         </div>
                     </div>
                 </div>
-            
-                <div class="page-number-computer">
+             -->
+                <div class="page-number-computer" v-if="number==0">
                     <button  class="btnLittle"  @click="pageReduce"><</button>
-                    <span style="  letter-spacing: 2px;" v-for="i in 3" :class="{fontcolor:i==currentPage}" @click="chose(i)">{{i}}</span>
+                    <span style="  letter-spacing: 2px;" v-for="i in 2" :class="{fontcolor:i==currentPage}" @click="chose(i)">{{i}}</span>
                     <button class="btnLittle"  @click="pageAdd()">></button>
                 </div>
             </div> 
@@ -201,8 +201,93 @@
                 openPage1:true,
                 openPage2:true,
                 currentPage:1,
+                radom:5,
+                number:0,
+                orderSel:"",
 
                 //=======================
+                secondGun:[
+
+{
+"id":7,
+"itemName": "按摩槍",
+"img":"./images/japan.png",
+"imgTop":"./images/activity.png",
+"imgBody":"./images/pinkhun.png",
+"name":"美式按摩槍",
+"origin":"美國",
+"num":0,
+"price":1250,
+"logo":"Full",
+"date":11/15,
+"checkout":"貨到付款/線上支付/",
+"warranty":"1年",
+"product1":"六段按摩強度調整功能",
+"product2":"四種按摩頭",
+"product3":"USB充電",
+
+"specification":{
+
+            "name":"日式按摩槍 FG-271",
+            "brand":"其他",
+            "type":"按摩棒/按摩器",
+            "color":"青綠色",
+            "size":"(寬)168x (深)65x (高)235 mm",
+            "origin":"美國"
+    },
+"feature":{
+    "one":" 38段檔位調節，男女老少都試用",
+    "two":"  8MM深層筋膜震感 ",
+    "three":" 710克輕巧機身",
+    "four":" USB充",
+    "five":"3000轉高速捶打",
+    "six":"2400mAh內置電池",
+    "seven":"運作低噪，不吵鄰"
+    }
+
+
+},
+{
+"id":8,
+"itemName": "按摩槍",
+"img":"./images/japan.png",
+"imgTop":"./images/activity.png",
+"imgBody":"./images/pinkhun.png",
+"name":"美式按摩槍",
+"origin":"美國",
+"num":0,
+"price":1250,
+"logo":"Full",
+"date":11/15,
+"checkout":"貨到付款/線上支付/",
+"warranty":"1年",
+"product1":"六段按摩強度調整功能",
+"product2":"四種按摩頭",
+"product3":"USB充電",
+
+"specification":{
+
+            "name":"日式按摩槍 FG-271",
+            "brand":"其他",
+            "type":"按摩棒/按摩器",
+            "color":"青綠色",
+            "size":"(寬)168x (深)65x (高)235 mm",
+            "origin":"美國"
+    },
+"feature":{
+    "one":" 38段檔位調節，男女老少都試用",
+    "two":"  8MM深層筋膜震感 ",
+    "three":" 710克輕巧機身",
+    "four":" USB充",
+    "five":"3000轉高速捶打",
+    "six":"2400mAh內置電池",
+    "seven":"運作低噪，不吵鄰"
+    }
+
+
+},
+
+],
                 obj:{
                
                 gun:[
@@ -217,6 +302,7 @@
             "num":0,
             "price":1250,
             "logo":"Full",
+            "date":11/15,
             "checkout":"貨到付款/線上支付/",
             "warranty":"1年",
             "product1":"六段按摩強度調整功能",
@@ -255,6 +341,7 @@
             "num":0,
             "price":1910,
             "logo":"Full",
+            "date":3/21,
             "checkout":"貨到付款/線上支付/",
             "warranty":"2年",
             "product1":"市場同級最輕，9mm迷你",
@@ -293,6 +380,7 @@
             "num":0,
             "price":1310,
             "logo":"Full",
+            "date":4/1,
             "checkout":"貨到付款/線上支付/",
             "warranty":"2年",
             "product1":"重量僅550G，隨身攜帶好方便",
@@ -330,6 +418,7 @@
             "num":0,
             "price":1910,
             "logo":"Full",
+            "date":7/15,
             "checkout":"貨到付款/線上支付/",
             "warranty":"2年",
             "product1":"4款可替換按摩頭",
@@ -367,6 +456,7 @@
             "num":0,
             "price":1910,
             "logo":"Full",
+            "date":2/5,
             "checkout":"貨到付款/線上支付/",
             "warranty":"2年",
             "product1":"MIT台灣研發設計、製造。",
@@ -405,6 +495,7 @@
             "num":0,
             "price":1800,
             "logo":"Full",
+            "date":12/25,
             "checkout":"貨到付款/線上支付/",
             "warranty":"2年",
             "product1":"無刷強磁馬達",
@@ -433,6 +524,7 @@
             
           }
       ],  
+         
                 
                 equipment:[
           {
@@ -551,9 +643,11 @@
                     this.gun = this.obj.gun
                     this.equipment = this.obj.equipment
                     this.oil = this.obj.rose
+
+                    this.orderSel="news"
             
             },
-            showOil(key){
+            showOil(key,value){
                 if(key=="gun"){
                     this.commodity=this.gun
                 }else if(key=="equipment"){
@@ -561,6 +655,8 @@
                 }else{
                     this.commodity=this.oil
                 }
+                console.log(value)
+                this.number=value
 
             },
             showAppliance(){
@@ -577,13 +673,21 @@
             pageReduce(){
                 if(this.currentPage>1){
                     this.currentPage-=1;
+                }
+                if(this.currentPage==1){
+                    this.commodity = this.obj.gun
                 }   
             },
             pageAdd(){
-              
-                if(this.currentPage<3){
+             
+                if(this.currentPage<2){
                     this.currentPage+=1;
+                    
                 }
+                if(this.currentPage==2){
+                    this.commodity = this.secondGun
+                }
+        
             },
             addOrder(id){
              let index = this.commodity.findIndex(item=>item.id==id)
@@ -628,6 +732,30 @@
                 if(!buyCar) return;
                 this.car = JSON.parse(buyCar)
             },
+            change(){
+                console.log(this.orderSel)
+                if(this.orderSel=="news"){
+                    this.commodity.sort(function(a,b){
+                        return a.date-b.date
+                    })
+
+                }else if(this.orderSel=="old"){
+                    this.commodity.sort(function(a,b){
+                        return b.date-a.date
+                    })
+
+                
+                } else if(this.orderSel=="height"){
+                    this.commodity.sort(function(a,b){
+                        return b.price-a.price
+                })
+              
+            }else if(this.orderSel=="low"){
+                this.commodity.sort(function(a,b){
+                        return a.price-b.price
+                })
+            }
+        }
           
           
         },

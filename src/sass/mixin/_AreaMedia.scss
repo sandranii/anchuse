@@ -201,9 +201,7 @@
                     border: 1px solid $blue;
                     padding: 15px  15px;
 
-                    span{
-                        color: $blue;
-                    }
+                    
                     
                 }
             
@@ -214,9 +212,11 @@
                 height: 100vh !important;;
                 .area-box{
                     @include container();
+                    height: 100vh;
                     display: flex !important;
                     flex-wrap: wrap;
                     justify-content: center;
+                    align-items: flex-start;
                     padding-top: 50px;
                     padding-bottom: 50px;
                       .area-card{
@@ -246,7 +246,7 @@
                           width: 100%;
                       }
                       .area-price{
-                          display: flex;
+                          
                           justify-content: flex-end;
                           padding: 5px;
                           flex-grow: 1;
