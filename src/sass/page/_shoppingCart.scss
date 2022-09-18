@@ -26,9 +26,21 @@ width:100% !important;
             display: flex;
             justify-content: space-around;
             align-items: center;
+            box-shadow: 0px 0px 10px rgb(195, 195, 195);
+            padding: 10px 15px; 
+            margin: 10px 0;
 
             .shopping-list-body{
                 width: 30%;
+               
+                .shopping-list-name{
+                    line-height: 1;
+                    small{
+                        display: none;
+                     
+                    }
+               
+                }
             
                 .shopping-list-int{
                     display: flex;
@@ -42,8 +54,44 @@ width:100% !important;
             }
         }  
     }
+    .shopping-line{
+        @include container();
+        text-align: center;
+
+        small{
+            color: rgb(190, 190, 190);
+            position: relative;
+
+            &:before{
+                content: "";
+                width: 500px;
+                height: 2px;
+                position: absolute;
+                background-color:rgb(190, 190, 190);
+                left: 150%;
+                top: 50%;
+
+            }
+            
+            &:after{
+                content: "";
+                width: 500px;
+                height: 2px;
+                position: absolute;
+                background-color:rgb(190, 190, 190);
+                right: 150%;
+                top: 50%;
+
+            }
+        }
+        
+    }
+ 
 
     .shopping-discount{
+        box-shadow: 0px 0px 10px rgb(195, 195, 195);
+        padding: 10px 15px; 
+        margin: 10px 0;
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -54,11 +102,49 @@ width:100% !important;
     }
 
     .shopping-price{
-        @include container();
+  
+        box-shadow: 0px 0px 10px rgb(195, 195, 195);
+        padding: 10px 15px; 
+        margin-bottom: 50px;
         display: flex;
         align-items: center;
-        justify-content:flex-end;
+        justify-content:flex-start;
         letter-spacing: 2px;
+        
+        .shopping-box{
+            width: 30%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 30px;
+
+            input{
+                width: 30px;
+                height: 30px;
+            }
+        }
+    .shopping-check{
+        width: 75%;
+    .shopping-checkout{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        p{
+            margin: 0 5px;
+
+            strong{
+                font-size: 20px;
+                color: $red
+            }
+        }
+
+    }
+
+}
+    
+       
         
     }
 }
