@@ -189,11 +189,7 @@
                .then((res)=>{
                 //    
                    this.data = res.data.gun
-
-                   
                    this.product = this.order[0].specification
-
-                
                    this.special =this.order[0].feature
                    
                     
@@ -217,7 +213,9 @@
                     img:this.order[index].img,
                     name:this.order[index].name,
                     price:this.order[index].price,
-                    num:this.order[index].num
+                    num:this.order[index].num,
+                    product1:this.order[index].product1,
+                    product2:this.order[index].product2
                 })
                 }else{
                 alert("購物車內已有相同物品")
