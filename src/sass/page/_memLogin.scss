@@ -1,11 +1,21 @@
-.memberLogin {
-    text-align: center;
-    padding-top: 40px;
+.full_page{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 
+.memberLogin {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     h2 {
         font-size: 26px;
         position: relative;
-        left: -160px;
+        left: -130px;
+        margin-bottom: 0;
     }
 
     hr {
@@ -70,9 +80,18 @@
     }
 }
 
-.btnLittle{
+.login_btn{
+    margin: 10px 0;
     a{
         text-decoration: none;
         color: $white;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .full_page{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
     }
 }
