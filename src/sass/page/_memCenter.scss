@@ -1,5 +1,7 @@
 .memCenter {
+    @include container;
     position: relative;
+    padding-bottom: 100px;
     input{
         font-size: 20px;
     }
@@ -44,7 +46,7 @@
             display: block;
         }
     }
-
+    
     // 個人資料
     .content1 {
         h2 {
@@ -250,7 +252,9 @@
         }
 
         .tab_group {
+            width: 200px;
             display: block;
+            font-size: 20px;
         }
 
         .tab_group label {
@@ -267,7 +271,7 @@
 
         //歷史訂單
         .content2 {
-            font-size: 1.5rem;
+            font-size: 1rem;
         }
 
         .order_search_row {
@@ -283,13 +287,7 @@
 
         //預約紀錄
         .content3 {
-            font-size: 1.5rem;
-        }
-
-        .reserve_search_row {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+            font-size: 1rem;
         }
 
     }
@@ -297,12 +295,9 @@
 
 @media screen and (min-width: 1200px) {
     .memCenter {
-        .content2 {
-            font-size: 2rem;
-        }
-
-        .content3 {
-            font-size: 2rem;
+        .reserve_search_row {
+            display: flex;
+            flex-direction: row;
         }
     }
 }
