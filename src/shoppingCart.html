@@ -45,7 +45,7 @@
 
             <div class="shopping-list col-12">
                 <div class="shopping-list-order" v-for="item in car">
-                    <input type="checkbox" name="check" @change="check(item)" v-model="calculate">
+                    <input type="checkbox" name="check" @change="check(item)" v-model="calculate" :value="item.name">
                     <div class="shopping-list-pic ">
                         <img :src="item.img" alt="">
                     </div>

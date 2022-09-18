@@ -98,12 +98,12 @@
             <div class="wrap">
         
 
-                <a href="./productdetails.html">
+       
                     <div class="area-box" v-if="currentPage==1" :class="{block:currentPage==1}" >
 
-                 
-                        <div class="col-3  area-card" v-for="(item,key) in commodity" @click="addOrder(item.id)" :key="item.id" >
                       
+                        <div class="col-3  area-card" v-for="(item,key) in commodity" @click="addOrder(item.id)" :key="item.id" >
+                            <a href="./productdetails.html">
                             <div class="area-pic">
                                 <img :src="item.img">
                             </div>
@@ -116,17 +116,16 @@
                                 <p>NT${{item.price}}</p>
                                 
                             </div>
+                        </a>
                         </div>
+                   
                     </div>
-                </a>
-         
-            
-                <a href="./productdetails.html">
+                
+              
                     <div class="area-box" v-if="currentPage==2" :class="{block:currentPage==1}" >
-
                  
                         <div class="col-3  area-card" v-for="(item,key) in commodity" @click="addOrder(item.id)" :key="item.id" >
-                      
+                            <a href="./productdetails.html">
                             <div class="area-pic">
                                 <img :src="item.img">
                             </div>
@@ -139,9 +138,10 @@
                                 <p>NT${{item.price}}</p>
                                 
                             </div>
+                        </a>
                         </div>
                     </div>
-                </a>
+                
 <!-- ========================================================== -->
                 <!-- <div class="area-box" v-if="show=currentPage=='3'" :class="{block:currentPage==3}">
                     <div class="col-3  area-card" v-for="(item,value) in rose">
@@ -230,7 +230,7 @@
 
             "name":"日式按摩槍 FG-271",
             "brand":"其他",
-            "type":"按摩棒/按摩器",
+            "type":"按摩滾筒",
             "color":"青綠色",
             "size":"(寬)168x (深)65x (高)235 mm",
             "origin":"美國"
@@ -527,107 +527,264 @@
          
                 
                 equipment:[
-          {
-              "itemName": "按摩滾筒",
-              "img":"https://picsum.photos/300/200/?random=10",
-              "name":"滾筒",
-              "cpacity":"16oz/473ml",
-              "origin":"澳洲",
-              "price":200
+                {
+            "id":9,
+            "itemName": "按摩滾筒",
+            "img":"./images/33cm.png",
+            "imgTop":"./images/33cm01.png",
+            "name":"33cm運動滾輪",
+            "origin":"美國",
+            "num":0,
+            "price":150,
+            "logo":"QMAT",
+            "date":8/15,
+            "checkout":"貨到付款/線上支付/",
+            "warranty":"2年",
+            "product1":"腿部乳酸堆積舒緩，拒絕蘿蔔腿",
+            "product2":"運動後緩解肌肉痠痛，深層按摩",
+            "product3":"需長期久站工作者改善靜脈曲張",
+
+            "specification":{
+
+                            "name":"33cm運動滾輪",
+                            "brand":"其他",
+                            "type":"按摩滾筒",
+                            "color":"粉紫銀河",
+                            "size":"直徑13cmx33cm",
+                            "origin":"日本"
+                    },
+            "feature":{
+                    "one":"不可曝曬, 不可用清潔劑清洗",
+                    "two":" 抗汗、不易凹陷回復性佳、使用壽命久 ",
+                    "three":" 約600g(±5g)",
+                    "four":" 表面硬度40-45度，內部硬度60 shore c",
+                    "five":"3000轉高速捶打",
+          
+                    },
+                },
+                {
+            
+            "id":10,
+            "itemName":"按摩滾筒",
+            "img":"./images/Eco.png",
+            "imgTop":"./images/Eco1.png",
+            "name":"環保EVA空心瑜珈柱",
+            "origin":"美國",
+            "num":0,
+            "price":120,
+            "logo":"Full",
+            "date":2/15,
+            "checkout":"貨到付款/線上支付/",
+            "warranty":"3年",
+            "product1":"3D立體結構模擬手感按壓",
+            "product2":"預防運動損傷 促進血液循環",
+            "product3":"舒緩肌肉酸痛疲 勞增進肌肉彈性",
+
+            "specification":{
+
+                            "name":"環保EVA空心瑜珈柱",
+                            "brand":"其他",
+                            "type":"按摩滾筒",
+                            "color":"藍色",
+                            "size":"直徑14cm*高33cm",
+                            "origin":"美國"
+                    },
+            "feature":{
+                    "one":" 優質EVA",
+                    "two":"  環保ABS ",
+                    "three":" 877g",
+                    "four":" 採手工測量，如有1~2cm誤差，皆屬正常範圍",
+                    "five":"3000轉高速捶打",
+                    "six":"可承重量：100kg內",
+                    }
+                    
           },
           {
+            
+            "id":11,
             "itemName": "按摩滾筒",
-              "img":"https://picsum.photos/300/200/?random=11",
-              "name":"滾筒",
-              "cpacity":"16oz/473ml",
-              "origin":"澳洲",
-              "price":200
+            "img":"./images/funsport.png",
+            "imgTop":"./images/funsport1.png",
+            "imgBody":"./images/funsport2.png",
+            "name":"艾羅力筋膜按摩滾筒",
+            "origin":"西班牙",
+            "num":0,
+            "price":1250,
+            "logo":"Full",
+            "date":11/15,
+            "checkout":"貨到付款/線上支付/",
+            "warranty":"1年",
+            "product1":"筋膜放鬆按摩,健身運動配備",
+            "product2":"輔助瑜珈伸展,復健伸展運用",
+            "product3":"自力深層按摩",
+
+            "specification":{
+
+                            "name":"艾羅力筋膜按摩滾筒",
+                            "brand":"其他",
+                            "type":"按摩滾筒",
+                            "color":"星夜藍",
+                            "size":"長45x直徑15cm",
+                            "origin":"西班牙"
+                    },
+            "feature":{
+                    "one":" 硬度-30D",
+                    "two":"  材質-EVA ",
+                    "three":" 軟硬度:稍軟",
+                    "four":" USB充",
+                    "six":"2400mAh內置電池",
+                    "seven":"運作低噪，不吵鄰"
+                    }
+                    
           },
           {
+            
+            "id":12,
             "itemName": "按摩滾筒",
-              "img":"https://picsum.photos/300/200/?random=12",
-              "name":"滾筒",
-              "cpacity":"16oz/473ml",
-              "origin":"澳洲",
-              "price":200
+            "img":"./images/MEJEY.png",
+            "name":"實心瑜珈軸",
+            "origin":"台灣",
+            "num":0,
+            "price":250,
+            "logo":"Full",
+            "date":3/5,
+            "checkout":"貨到付款/線上支付/",
+            "warranty":"2年",
+            "product1":"手感親膚,安心環保",
+            "product2":"瑜珈按摩好幫手",
+            "product3":"商品使用方式請參考網頁圖示說明",
+
+            "specification":{
+
+                            "name":"實心瑜珈軸",
+                            "brand":"其他",
+                            "type":"按摩滾筒",
+                            "color":"粉灰色",
+                            "size":":約44CMX12CM",
+                            "origin":"台灣"
+                    },
+            "feature":{
+                    "one":" MEJEY 按摩瑜珈軸",
+                    "two":" 升級款!! 實心按摩滾筒,不易變形 ",
+                    "three":"2種凸點,貼心設計不同體驗",
+                    "four":" 可用於腰部、腿部、背部、臀部等等,瑜珈按摩好幫手",
+                    "five":"手感親膚,安心環保",
+                    }
+                    
           },
-          {
-            "itemName": "按摩滾筒",
-              "img":"https://picsum.photos/300/200/?random=13",
-              "name":"滾筒",
-              "cpacity":"16oz/473ml",
-              "origin":"澳洲",
-              "price":200
-          },
-          {
-            "itemName": "按摩滾筒",
-              "img":"https://picsum.photos/300/200/?random=14",
-              "name":"滾筒",
-              "cpacity":"16oz/473ml",
-              "origin":"澳洲",
-              "price":200
-          },
-          {
-            "itemName": "按摩滾筒",
-              "img":"https://picsum.photos/300/200/?random=15",
-              "name":"滾筒",
-              "cpacity":"16oz/473ml",
-              "origin":"澳洲",
-              "price":200
-          }
       ],
                 
-                rose:[
-          {
-            "itemName": "按摩精油",
+                ball:[
+                {
             
-            "img":"https://picsum.photos/300/200/?random=10",
-            "name":"玫瑰 ROSE",
-            "cpacity":"16oz/473ml",
-            "origin":"中國",
-            "price":1200
+            "id":13,
+            "itemName": "按摩球",
+            "img":"./images/ROAR.png",
+            "name":"天然橡膠按摩球 ",
+            "origin":"台灣",
+            "num":0,
+            "price":50,
+            "logo":"INEXTION",
+            "date":3/5,
+            "checkout":"貨到付款/線上支付/",
+            "warranty":"1年",
+            "product1":"一組2種不同硬度的設計",
+            "product2":"高密度天然橡膠材質",
+            "product3":"提供體貼不同身體狀況的按壓強度",
+
+            "specification":{
+
+                            "name":"天然橡膠按摩球 ",
+                            "brand":"其他",
+                            "type":"按摩球",
+                            "color":"粉灰色",
+                            "size":":直徑 6.3cm",
+                            "origin":"台灣"
+                    },
+            "feature":{
+                    "one":" 硬度：淺藍 - 50D*1、天灰 - 65D*1",
+                    "two":" 重量：0.2kg ",
+                    "three":"材質：天然橡膠",
+                    "four":" 可用於腰部、腿部、背部、臀部等等,瑜珈按摩好幫手",
+                    "five":"手感親膚,安心環保",
+                    }
+                    
           },
           {
-            "itemName": "按摩精油",
-              "img":"https://picsum.photos/300/200/?random=11",
-              "name":"玫瑰 ROSE",
-              "cpacity":"16oz/473ml",
-              "origin":"中國",
-              "price":1200
+          "id":14,
+            "itemName": "按摩球",
+            "img":"./images/WE FIT.png",
+            "imgTop":"./images/WE FIT1.png.png",
+            "imgBody":"./images/WE FIT2.png.png",
+            "name":"多功能筋膜按摩球 ",
+            "origin":"美國",
+            "num":0,
+            "price":50,
+            "logo":"INEXTION",
+            "date":3/5,
+            "checkout":"貨到付款/線上支付/",
+            "warranty":"1年",
+            "product1":"隨時隨地 舒爽放鬆",
+            "product2":"固定底座 按摩更方便",
+            "product3":"輕巧便攜",
+
+            "specification":{
+
+                            "name":"多功能筋膜按摩球 ",
+                            "brand":"其他",
+                            "type":"按摩球",
+                            "color":"橘色",
+                            "size":":直徑 6.3cm",
+                            "origin":"美國"
+                    },
+            "feature":{
+                    "one":" 輕巧便攜，不佔空間",
+                    "two":" 重量：1kg ",
+                    "three":"緩解肌肉痠痛，消除訓練後的疲勞",
+                    "four":" 可用於腰部、腿部、背部、臀部等等,瑜珈按摩好幫手",
+                    "five":"產品材質：熱塑性彈性體(TPE)",
+                    }
+                    
           },
           {
-            "itemName": "按摩精油",
-              "img":"https://picsum.photos/300/200/?random=12",
-              "name":"玫瑰 ROSE",
-              "cpacity":"16oz/473ml",
-              "origin":"中國",
-              "price":1200
+          "id":15,
+            "itemName": "按摩球",
+            "img":"./images/sport.png",
+            "imgTop":"./images/sport1.png",
+            "imgBody":"./images/sport2.png",
+            "name":"康力爾花生球 ",
+            "origin":"中國大陸",
+            "num":0,
+            "price":120,
+            "logo":"Fun Sport",
+            "date":7/5,
+            "checkout":"貨到付款/線上支付/",
+            "warranty":"1年",
+            "product1":"符合人體工學弧形設計",
+            "product2":"天然橡膠微彈性",
+            "product3":"專業尺寸硬度",
+
+            "specification":{
+
+                            "name":"康力爾花生球 ",
+                            "brand":"其他",
+                            "type":"按摩球",
+                            "color":"黑黃",
+                            "size":":138x66mm／雙球65mm",
+                            "origin":"中國大陸"
+                    },
+            "feature":{
+                    "one":" 5合1新創醒肌按摩功能",
+                    "two":" 245g／雙球顆100g ",
+                    "three":"緩解肌肉痠痛，消除訓練後的疲勞",
+                    "four":" TPR橡膠、不鏽鋼、酒精（球內）",
+                    "five":"材質:橡膠",
+                    }
+                    
           },
-          {
-            "itemName": "按摩精油",
-              "img":"https://picsum.photos/300/200/?random=13",
-              "name":"玫瑰 ROSE",
-              "cpacity":"16oz/473ml",
-              "origin":"中國",
-              "price":1200
-          },
-          {
-            "itemName": "按摩精油",
-              "img":"https://picsum.photos/300/200/?random=14",
-              "name":"玫瑰 ROSE",
-              "cpacity":"16oz/473ml",
-              "origin":"中國",
-              "price":1200
-          },
-          {
-            "itemName": "按摩精油",
-              "img":"https://picsum.photos/300/200/?random=15",
-              "name":"玫瑰 ROSE",
-              "cpacity":"16oz/473ml",
-              "origin":"中國",
-              "price":1200
-          }
-      ]
+          
+        
+            ]
                 }
 
         }
@@ -642,7 +799,7 @@
                     this.commodity=this.obj.gun
                     this.gun = this.obj.gun
                     this.equipment = this.obj.equipment
-                    this.oil = this.obj.rose
+                    this.ball = this.obj.ball
 
                     this.orderSel="news"
             
@@ -650,14 +807,15 @@
             showOil(key,value){
                 if(key=="gun"){
                     this.commodity=this.gun
+               
                 }else if(key=="equipment"){
                     this.commodity=this.equipment
                 }else{
-                    this.commodity=this.oil
+                    this.commodity=this.ball
                 }
                 console.log(value)
                 this.number=value
-
+                this.currentPage=1
             },
             showAppliance(){
                 this.openPage2 = !this.openPage2
@@ -685,7 +843,9 @@
                     
                 }
                 if(this.currentPage==2){
+                    
                     this.commodity = this.secondGun
+                    console.log(this.secondGun)
                 }
         
             },

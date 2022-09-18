@@ -200,9 +200,6 @@
                     background-color: $white;
                     border: 1px solid $blue;
                     padding: 15px  15px;
-
-                    
-                    
                 }
             
             }
@@ -215,7 +212,7 @@
                     height: 100vh;
                     display: flex !important;
                     flex-wrap: wrap;
-                    justify-content: center;
+                    justify-content: flex-start;
                     align-items: flex-start;
                     padding-top: 50px;
                     padding-bottom: 50px;
