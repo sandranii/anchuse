@@ -27,16 +27,16 @@
                 <img src="./images/storeEmployee.png" alt="店鋪環境">
             </h3>
             <div class="container">
-                <div class="row">
+                <div class="row row_hall">
                     <div class="col-6 col-12">
-                        <h4 class="third_title">
+                        <h4 class="third_title title_hall">
                             <img src="./images/title_Hall.png" alt="接待大廳標題">
                         </h4>
-                        <p class="text">
-                            大廳佈置使用大理石檯面及簡約木質風<br>
-                            呈現視覺上的舒適感<br>
-                            讓顧客進入按指穴就有一種回家的放鬆感
-                        </p>
+                        <div class="text text_hall">
+                            <p>大廳佈置使用大理石檯面及簡約木質風</p>
+                            <p>呈現視覺上的舒適感</p>
+                            <p>讓顧客進入按指穴就有一種回家的放鬆感</p>
+                        </div>
                     </div>
                     <div class="col-6 col-12 imgMove">
                         <div class="Dframe Dframe_left">
@@ -56,10 +56,10 @@
                         </div>
                     </div>
                     <div class="col-6 col-12">
-                        <h4 class="third_title textMove">
+                        <h4 class="third_title title_room textMove">
                             <img src="./images/title_Room.png" alt="按摩空間標題">
                         </h4>
-                        <div class="text textMove">
+                        <div class="text textMove text_room">
                             <p>按摩室皆為單人包間</p>
                             <p>讓顧客享受高級的奢華感</p>
                             <p>同時不被旁人所影響或打擾</p>
@@ -69,17 +69,17 @@
                 </div>
             </div>
             <div class="container">
-                <div class="row">
+                <div class="row row_bath">
                     <div class="col-6 col-12">
-                        <h4 class="third_title">
+                        <h4 class="third_title title_bath">
                             <img src="./images/title_Wash.png" alt="盥洗設備標題">
                         </h4>
-                        <p class="text">
-                            盥洗室屬於公共設備<br>
-                            本館共有 6 間盥洗室<br>
-                            在按摩前及按摩後皆可使用<br>
-                            每人使用盥洗室的時間一次不可超過 40 分鐘
-                        </p>
+                        <div class="text text_bath">
+                            <p>盥洗室屬於公共設備</p>
+                            <p>本館共有 6 間盥洗室</p>
+                            <p>在按摩前及按摩後皆可使用</p>
+                            <p>每人使用盥洗室的時間一次不可超過 40 分鐘</p>
+                        </div>
                     </div>
                     <div class="col-6 col-12 imgMove">
                         <div class="Dframe Dframe_right">
@@ -117,22 +117,54 @@ gsap.registerPlugin(ScrollTrigger);
             // toggleActions: "restart pasue resume none"
         },
         rotation: 360,
-        duration: 15,
+        duration: 28,
         repeat: Infinity,
         ease: "linear"
     });
-    gsap.from(".textMove",{
+    gsap.from(".title_hall",{
+        scrollTrigger: {
+            trigger: ".row_hall",
+            start: "20% center"
+        },
+        x: 250,
+        duration: 1.5,
+        opacity: 0,
+        ease: "back"
+    });
+    gsap.from(".title_room",{
         scrollTrigger: {
             trigger: ".row_round",
             start: "top center"
         },
         x: 250,
-        duration: 1.4,
+        duration: 1.5,
         delay: 0.8,
         opacity: 0,
         ease: "back"
     });
-    gsap.from(".text p",{
+    gsap.from(".title_bath",{
+        scrollTrigger: {
+            trigger: ".row_bath",
+            start: "20% center"
+        },
+        x: 250,
+        duration: 1.5,
+        opacity: 0,
+        ease: "back"
+    });
+    gsap.from(".text_hall p",{
+        scrollTrigger: {
+            trigger: ".row_hall",
+            start: "20% center"
+        },
+        x: 250,
+        stagger: 0.2,
+        duration: 1.5,
+        delay: 0.2,
+        opacity: 0,
+        ease: "back"
+    });
+    gsap.from(".text_room p",{
         scrollTrigger: {
             trigger: ".row_round",
             start: "top center"
@@ -141,6 +173,18 @@ gsap.registerPlugin(ScrollTrigger);
         stagger: 0.2,
         duration: 1.5,
         delay: 1,
+        opacity: 0,
+        ease: "back"
+    });
+    gsap.from(".text_bath p",{
+        scrollTrigger: {
+            trigger: ".row_bath",
+            start: "20% center"
+        },
+        x: 250,
+        stagger: 0.2,
+        duration: 1.5,
+        delay: 0.2,
         opacity: 0,
         ease: "back"
     });
