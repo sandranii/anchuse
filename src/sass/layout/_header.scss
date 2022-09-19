@@ -26,7 +26,7 @@
         ul{
             width: 60%;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             
             li{
                 align-self: center;
@@ -36,7 +36,7 @@
                     display: inline-block;
                     font-family: $fontTitle;
                     font-weight: 600;
-                    font-size: 17px;
+                    font-size: 18px;
                     letter-spacing: 2px;
                     color: $blue;
                     text-decoration: none;
@@ -177,7 +177,7 @@
                     color: $white;
                 }
             }
-           
+
         }
     }
     .header_icon{
@@ -232,36 +232,92 @@
 
 /*======    平板版 RWD | 768px ~ 1200px ======*/
 @media screen and (min-width: 768px) and (max-width: 1199.98px){
-    .page_header {
+    .page_header nav{
         width: 100%;
-        display: flex;
-        background-color: $baseWhite;
-        box-shadow: 0px 2px 3px rgba(48, 48, 48, 0.252);
-        
     
+        .header_logo{
+            width: 160px;
+        }
         nav{
+            position: fixed;
+        }
+        ul{
+            display: flex;
+            flex-direction: column;
             width: 100%;
-            
-            .header_logo{
-                width: 150px;
-                img{
-                    width: 100%;
+            position: absolute;
+            background-color: $blue ;
+            height: 90vh;
+            top: 80px;
+            left: -100%;
+            transition: all .7s;
+            opacity: 0;
+            background-image: url('/images/bcgFlowerLittle.png');
+            background-repeat:no-repeat;
+            background-position: center;
+            background-size: cover;
+            z-index: 998;
+            li{
+                line-height: 30px;
+                margin: 10px 0;
+                
+                a{
+                    color: $white;
+                    &:before{
+                        background-color: $white;
+                    }
+                    &:hover{
+                        color: $white;
+                    }
                 }
+    
             }
-            ul{
-                width: 60%;
-                li{
-                    align-self: center;
-                    
-                    a {
-
-                        font-size: 16px;
-                        letter-spacing: 1px;
-                        padding: 5px;
-                        
+        }
+        .header_icon{
+            margin-right: 55px;
+            .header_member{
+                width: 30px;
+                align-self: center;
+                a{
+                    padding: 0;
+    
+                    img{
+                        vertical-align: bottom;
+                        width: 100%;
+                    }
+                }
+            }  
+            .header_shopping_cart{
+                width: 30px;
+                align-self: center;
+                a{
+                    padding: 0;
+    
+                    img{
+                        vertical-align: bottom;
+                        width: 100%;
                     }
                 }
             }
         }
+        #check:checked ~ ul{
+            left: 0;
+            opacity: 1;
+        }
+        
+        label{
+            width: 36px;
+            height: 36px;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            right: 10px;
+            justify-content: space-evenly;
+            span{
+                display: block;
+                
+            }
+        }
+    
     }
 }
