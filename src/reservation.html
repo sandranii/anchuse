@@ -39,8 +39,8 @@
                     <!-- vue v-for -->
                     <div class="msg_card_frame" v-for="(msgCard, index) in msgCardList" :key="index"
                         :class="{reverse: index%2 === 1}">
-                        <div class="msg_card">
-                            <div class="msgCardTxt">
+                        <div class="msg_card row">
+                            <div class="msg_card_txt col col-12 col-md-8 col-xl-8">
                                 <h3 class="name">
                                     {{msgCard.name}}
                                 </h3>
@@ -79,7 +79,7 @@
                                     <a class="btnLarge" href="./resvPage.html">立即預約</a>
                                 </div>
                             </div>
-                            <div class="pic_ctnr msg_card_pic">
+                            <div class="pic_ctnr msg_card_pic col col-12 col-md-4 col-xl-4">
                                 <img :src="msgCard.pic" :alt="msgCard.pic_alt">
                             </div>
                         </div>
@@ -89,7 +89,7 @@
             </section>
 
         </main>
-        <footer>footer</footer>
+        <footer>@@include('./layout/footer.html')</footer>
     </div>
     <script>
         const VM = {

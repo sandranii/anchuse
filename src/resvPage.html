@@ -25,14 +25,14 @@
                     </div>
                     <div class="content container">
                         <div class="row">
-                            <div class="col col-6">
+                            <div class="col col-12 col-md-6 col-xl-6">
                                 <div class=" content_pic frame">
                                     <div class="framei">
                                         <img src="./images/resv1.jpg" alt="全身穴道按摩照片">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col col-6">
+                            <div class="col col-12 col-md-6 col-xl-6">
                                 <div class="content_txt">
                                     <h1 class="name bold">
                                         <div class="circle">全</div>
@@ -66,7 +66,7 @@
                                             </option>
                                         </select>
                                         <div class="calendar">
-                                            <input id="datetimepicker" type="text">
+                                            <input id="datetimepicker" class="xdsoft_datetimepicker " type="text">
                                         </div>
                                         <div class="content_footer">
                                             <div class="price">售價：{{price}}</div>
@@ -127,7 +127,7 @@
                     <small>• RELATED MASSAGE •</small>
                 </div>
                 <div class="items row">
-                    <div class="item col col-4" v-for="(item, index) in msgCardList" :key="index">
+                    <div class="item col col-12 col-md-4 col-xl-4" v-for="(item, index) in msgCardList" :key="index">
                         <div class="item_pic">
                             <img :src="item.pic" :alt="item.pic_alt">
                         </div>
@@ -143,7 +143,7 @@
                 </div>
             </section>
         </main>
-        <footer>footer</footer>
+        <footer>@@include('./layout/footer.html')</footer>
     </div>
     <script>
         const VM = {
@@ -213,9 +213,6 @@
     </script>
 </body>
 <!-- datetimepicker -->
-<!-- <link rel="stylesheet" type="text/css" href="datetimepicker/jquery.datetimepicker.css" /> -->
-<!-- <script src="datetimepicker/jquery.js"></script> -->
-<!-- <script src="datetimepicker/build/jquery.datetimepicker.full.min.js"></script> -->
 <script src="./js/jquery-3.6.0.js"></script>
 <script src="./js/jquery.datetimepicker.full.min.js"></script>
 <script>

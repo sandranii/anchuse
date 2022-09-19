@@ -1,4 +1,16 @@
 .resv_page {
+    @include m() {
+        @include grid(12);
+    }
+
+    @include t() {
+        @include grid(12, -md);
+    }
+
+    @include pc() {
+        @include grid(12, -xl);
+    }
+
     img {
         object-position: center;
         object-fit: cover;
@@ -15,7 +27,8 @@
             @include container ();
 
             .breadcrumb {
-                margin-top: 50px;
+                margin-top: 60px;
+                margin-left: 40px;
                 color: $blue;
 
                 a {
@@ -52,8 +65,9 @@
                         }
 
                         .content_txt {
-                            // background-color: red;
-                            margin-left: auto;
+                            width: 100%;
+                            padding: 0 20px;
+                            box-sizing: border-box;
                             margin: auto;
 
                             h1 {
@@ -70,9 +84,7 @@
                                     border-radius: 50%;
                                     font-size: 2rem;
                                     text-align: center;
-
                                 }
-
                             }
 
                             p {
@@ -84,7 +96,7 @@
                             .therapist,
                             .timespan {
                                 display: block;
-                                width: 80%;
+                                width: 100%;
                                 padding: 5px;
                                 padding-left: 10px;
                                 margin-bottom: 20px;
@@ -107,7 +119,7 @@
                             }
 
                             .content_footer {
-                                width: 80%;
+                                width: 100%;
                                 display: flex;
                                 justify-content: space-between;
                                 align-items: center;
