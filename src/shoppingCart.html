@@ -53,8 +53,8 @@
                 </div> 
    
                 <div class="shopping-list-order" v-for="item in car">
-                    <input type="checkbox" name="check" @change="check(item)" v-model="calculate" :checked>
-
+                    <input type="checkbox"   v-model="calculate" :value="item">
+             
                     <div class="shopping-list-pic ">
                         <img :src="item.img" alt="">
                     </div>
@@ -83,7 +83,7 @@
          
                 <div class="shopping-discount">
                     <h5>選擇優惠券:</h5>
-                    <select name="" id="" v-model="sel" @change="change">
+                    <select name="" id="" v-model="sel">
                         <option value="1">請選擇</option>
                         <option value="0.85">85折</option>
                         <option value="0.7">7折</option>
@@ -93,11 +93,11 @@
                 </div>
                 <div class="shopping-price">
                     <div class="shopping-box">
-                        全選<input type="checkbox" @change="checkAll" :checked>
+                        全選<input type="checkbox" v-model="checked"  @click="checkTotal">
                     </div>
                     <div class="shopping-check">
                     <div class="shopping-checkout">
-                        <p>商品金額:{{money}}元</p><p>折扣金額:{{money-totalPrice}}</p>  <p>結帳金額:$<strong>{{totalPrice}}</strong></p>
+                        <p>商品金額:{{box}}元</p><p>折扣金額:{{box-totalPrice}}</p>  <p>結帳金額:$<strong>{{totalPrice}}</strong></p>
                     <a href="./Payment.html"><button class="btnLittle">前往結帳</button> </a>
                     </div>
                     
@@ -177,6 +177,11 @@
                     calculate:'',
                     total:[],
                     detect:0,
+                    calculate:[],
+                    checkBox:[],
+                    checked:false,
+                    box:0,
+
                 //   =============================  
                 secondGun:[
 
@@ -268,7 +273,7 @@
                 "img":"./images/japan.png",
                 "imgTop":"./images/activity.png",
                 "imgBody":"./images/pinkhun.png",
-                "name":"無線震動按摩槍(",
+                "name":"無線震動按摩槍",
                 "origin":"美國",
                 "num":0,
                 "price":1250,
@@ -282,7 +287,7 @@
 
                 "specification":{
 
-                        "name":"日式按摩槍 FG-271",
+                        "name":"無線震動按摩槍",
                         "brand":"其他",
                         "type":"按摩棒/按摩器",
                         "color":"青綠色",
@@ -774,19 +779,30 @@
                         this.total.sort(function(){//把陣列打亂
                             return (0.5-Math.random());
                         });
+           
                            
+               },
+               checkTotal(){
+                if(this.checked){
+                    this.calculate=[]
+
+                }else{
+                    this.calculate=this.car
+                   
+                }
+                        
                },
            
         
                addCar(id,item){
-               
+                
                 let count = this.total.findIndex(item=>{
                    return item.id===id
                 }) 
                 let code = this.car.find(carItem=>carItem.id==id)
                     if(!code){
                     alert("成功加入購物車")
-                    item.num+=1
+                    item.num=1
                     this.car.push({
                         id:this.total[count].id,
                         img:this.total[count].img,
@@ -798,23 +814,22 @@
                         
                         
                     })
-
+                    this.calculate=this.car
+                  
                 }else{
                     alert("購物車內已有相同物品")
                 }
-                this.totalPrice = this.discount
-   
-               
+                
                 this.setCar() 
-             
-                           
+                        
                },
                reduceCar(id){
               
                 let index = this.car.findIndex(item=>item.id===id)
-               
+              
                 this.car.splice(index,1)
-                        
+                
+                this.calculate=this.car     
                 this.setCar()
            
                 },
@@ -829,17 +844,12 @@
                 this.setCar()
                
                },
-               check(item){
-
-               },
-              checkAll(){
-                this.calculate=!this.calculate
-              },
-            
-          
+           
+             
            setCar(){
              localStorage.setItem("car",JSON.stringify(this.car))
              localStorage.setItem("price",JSON.stringify(this.totalPrice))
+             localStorage.setItem("chose",JSON.stringify(this.calculate))
              
            },
          
@@ -852,6 +862,10 @@
                 let gold = localStorage.getItem("price")
                 if(!gold) return;
                 this.totalPrice = JSON.parse(gold)
+
+                let choses = localStorage.getItem("chose")
+                if(!choses) return
+                this.calculate = JSON.parse(choses)
             },
          
             prev(){
@@ -881,6 +895,10 @@
                 buyCar:function(){//不可與陣列同名
                     return JSON.parse(JSON.stringify(this.car))
                 },
+                // checkList:function(){
+                //     return JSON.parse(JSON.stringify(this.calculate))
+                // }
+              
            },
            watch:{
                 buyCar:{
@@ -891,6 +909,7 @@
                             this.money = parseFloat(this.money+newVal[i].price*newVal[i].num)
                           
                         }
+
                         if(newVal!=""){
                         this.detect+=1
                      
@@ -902,11 +921,18 @@
                     }
                     
                 },
+            
              
             },
             updated(){//資料有更新會自動呼叫
-                this.totalPrice = Math.round(this.money*this.sel)
+                this.totalPrice = Math.round(this.box*this.sel)
                 this.setCar()
+
+                this.box=""
+                    for(let i=0;i<this.calculate.length;i++){
+                        this.box = parseFloat(this.box+this.calculate[i].price*this.calculate[i].num)
+                    }
+                    
             },
            
            mounted() {//等app載入之後才會讀取
