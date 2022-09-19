@@ -104,30 +104,31 @@ gsap.registerPlugin(ScrollTrigger);
             start: "top center",
             // toggleActions: "restart pasue resume none"
         },
-        x: -600,
-        rotation: -270,
-        duration: 2,
-        opacity: 0
+        x: -400,
+        rotation: -90,
+        duration: 1.6,
+        opacity: 0,
+        ease: "back"
     });
     gsap.from(".Rframe",{
         scrollTrigger: {
             trigger: ".row_round",
-            start: "top center",
+            // start: "top center",
             // toggleActions: "restart pasue resume none"
         },
-        x: -400,
-        rotation: 180,
-        duration: 1.5,
-        delay: 0.5,
-        opacity: 0.5
+        rotation: 360,
+        duration: 15,
+        repeat: Infinity,
+        ease: "linear"
     });
     gsap.from(".textMove",{
         scrollTrigger: {
             trigger: ".row_round",
             start: "top center"
         },
-        x: 300,
-        duration: 1.6,
+        x: 250,
+        duration: 1.4,
+        delay: 0.8,
         opacity: 0,
         ease: "back"
     });
@@ -136,10 +137,10 @@ gsap.registerPlugin(ScrollTrigger);
             trigger: ".row_round",
             start: "top center"
         },
-        x: 300,
+        x: 250,
         stagger: 0.2,
-        duration: 1.6,
-        delay: 0.2,
+        duration: 1.5,
+        delay: 1,
         opacity: 0,
         ease: "back"
     });
