@@ -8,6 +8,10 @@
     <title>按指穴</title>
     <link rel="shortcut icon" href="./images/littleWebLogo.png">
     <link rel="stylesheet" href="./css/style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
 </head>
 
 <body>
@@ -44,7 +48,7 @@
                     <div class="round_front reveal fade-right"></div>
                 </div>
             </section>
-            <section class="massage_school">
+            <section class="massage_school"><!------按摩小學堂------>
                 <div class="title_area ">
                     <div class="title">
                         <h2 class="title_font">按</h2>
@@ -55,10 +59,47 @@
                     </div>
                     <small>• MASSAGE SCHOOL •</small>
                 </div>
+                <div class="massage_school_content">
+                    <div class="massage_school_intro">
+                        <h3>&nbsp;玩遊戲認識穴道</h3>
+                        <p>您知道身體有多少穴道嗎?您知道按哪個穴道可以讓身體紓壓嗎?花個時間玩場小遊戲，既能認識穴道又能領取折價券唷!
+                        </p>
+                        <a href="./massageschool.html"><div class="btnLittle">查看更多</div></a>
+                    </div>
+                    <div class="swiper mySwiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide"><img src="/images/schoolhead.png" alt=""></div>
+                            <div class="swiper-slide"><img src="/images/schoolhead.png" alt=""></div>
+                            <div class="swiper-slide"><img src="/images/schoolhead.png" alt=""></div>
+                        </div>
+                        <!-- If we need pagination -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="about_us_pic">
+                    <div class="round_back rotate-center "></div>
+                    <div class="round_front reveal fade-right"></div>
+                </div>
+            </section>
+            <section class="product">
+                <div class="title_area ">
+                    <div class="title">
+                        <h2 class="title_font">商</h2>
+                        <h2 class="title_font">品</h2>
+                        <h2 class="title_font">專</h2>
+                        <h2 class="title_font">區</h2>
+                    </div>
+                    <small>• PRODUCTS • </small>
+                </div>
             </section>
         </main>
     </div>
     @@include('./layout/footer.html')
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="./js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script>
     function reveal() {
     var reveals = document.querySelectorAll(".reveal");
@@ -77,6 +118,24 @@
 }
 
     window.addEventListener("scroll", reveal);
+
+
+    var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2800,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + "</span>";
+          },
+        },
+      });
+
     </script>
 </body>
 

@@ -367,7 +367,7 @@ main{
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     // overflow: hidden;
 
     .about_us_intro{
@@ -423,8 +423,8 @@ main{
         }
 
         .round_front{
-            width: 400px;
-            height: 400px;
+            width: 420px;
+            height: 420px;
             border-radius: 50%;
             position: relative;
             background-color: $blue;
@@ -443,7 +443,7 @@ main{
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: space-between;
         overflow: hidden;
         
         .about_us_intro{
@@ -514,9 +514,87 @@ main{
 
 }
 
+/*======    平板版 RWD | 768px ~ 1200px ======*/
+@media screen and (min-width: 768px) and (max-width: 1199.98px){
+    .about_us{
+        width: 100%;
+        height: 760px;
+        max-width: 1200px;
+        padding: 120px 0px 0px 0px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        overflow: hidden;
+        
+        .about_us_intro{
+            width: 70%;
+    
+            .title_area{
 
+                .title{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 6px;
+                .title_font {
+                    @include title();
+    
+                    &:before {
+                        @include titleBefore();
+                    }
+    
+                    margin-bottom: 0;
+                }
+                }
+    
+                small {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    color: $blue;
+                    letter-spacing: 2px;
+                    margin-bottom: 20px;
+                }
+    
+                p{
+                    line-height: 40px;
+                    margin-bottom: 30px;
+                }
+            }
+        }
+        .about_us_pic{
+            position: relative;
+            width: 700px;
+            height: 100%;
+    
+            .round_back{
+                width: 500px;
+                height: 500px;
+                position: absolute;
+                top: -40px;
+                right: -200px;
+                background: url(../images/imageRoundGate.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                
+            }
+    
+            .round_front{
+                width: 450px;
+                height: 450px;
+                border-radius: 50%;
+                position: relative;
+                background-color: $blue;
+                top:0px;
+                right: -150px;
+            }
+        }
+    }
+}
 
-
+//=======================按摩學堂=====================
 
 .massage_school{
     width: 100%;
@@ -552,7 +630,87 @@ main{
             text-align: center;
             color: $blue;
             letter-spacing: 2px;
-            margin-bottom: 20px;
+            margin-bottom: 70px;
         }
     }
+    .massage_school_content{
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-around;
+       
+        .massage_school_intro{
+            width: 400px;
+            padding-top: 60px;
+            h3{
+                color: $red;
+                font-family: $fontTitle;
+                letter-spacing: 1px;
+                margin-bottom: 30px;
+                position: relative;
+
+                &::before{
+                    content: url(/images/h3RedFrame.png);
+                    width: 100%;
+                    height: 100%;
+                    top: -7px;
+                    left:-6px;
+                    position: absolute;
+                }
+            }
+            p{
+                line-height: 40px;
+                margin-bottom: 30px;
+            }
+        }
+
+        .swiper {
+            width: 600px;
+            height: 350px;
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+    
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            // -webkit-box-pack: center;
+            // -ms-flex-pack: center;
+            // -webkit-justify-content: center;
+            // justify-content: center;
+            // -webkit-box-align: center;
+            // -ms-flex-align: center;
+            // -webkit-align-items: center;
+            // align-items: center;
+          }
+    
+          .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+    
+          .swiper-pagination-bullet {
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            color: $blue;
+            opacity: 1;
+            background: white;
+          }
+    
+          .swiper-pagination-bullet-active {
+            color: #fff;
+            background: $blue;
+          }
+
+    }
+    
 }
+
