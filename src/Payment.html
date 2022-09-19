@@ -44,7 +44,7 @@
                     <th>價格</th>
           
                 </tr>
-                <tr v-for="item in car">
+                <tr v-for="item in calculate">
                     <th>{{item.name}}</th>
                     <th>{{item.num}}</th>
                     <th>{{item.price*item.num}}</th>
@@ -52,10 +52,10 @@
                 
                 </tr>
             
-                <tr style="border-top:2px solid black">
+                <tr style="border-top:1px solid black">
                     <th>折抵價錢</th>
                     <th></th>
-                    <th>-{{money-totalPrice}}</th>
+                    <th>-{{box-totalPrice}}</th>
                 </tr>
                 <tr >
                
@@ -172,6 +172,9 @@
                     money:0,
                     active:1,
                     width:0,
+                    box:0,
+                    calculate:[],
+                    
                  
                    }
                },
@@ -185,7 +188,7 @@
                         // this.equipment = this.obj.equipment
                         // this.oil = this.obj.rose
                  
-               
+                       
                         window.onresize=()=>{
                             this.width = window.innerWidth
                             console.log(this.width)//查銀幕寬度
@@ -194,9 +197,6 @@
                         }
                          
                         }
-                       
-                     
-                   
                     },
                     first(){
                         this.selArea = this.township[0].AreaList.AreaName
@@ -204,14 +204,19 @@
                    
                     
                  carOnline(){
-                let buyCar = localStorage.getItem("car");
-                    if(!buyCar) return;
-                    this.car = JSON.parse(buyCar)
+                // let buyCar = localStorage.getItem("car");
+                //     if(!buyCar) return;
+                //     this.this.car = JSON.parse(buyCar)
 
                     
                 let gold = localStorage.getItem("price")
                 if(!gold) return;
                 this.totalPrice = JSON.parse(gold)
+
+                let choses = localStorage.getItem("chose")
+                if(!choses) return
+                this.calculate = JSON.parse(choses)
+                
                 },
                 set(){
                     this.$set(car,1,{})
@@ -228,6 +233,9 @@
                 },
                 buyCar:function(){
                     return JSON.parse(JSON.stringify(this.car))
+                },
+                checkList:function(){
+                    return JSON.parse(JSON.stringify(this.calculate))
                 }
 
                },
@@ -239,10 +247,21 @@
                             this.money = parseFloat(this.money+newVal[i].price*newVal[i].num)
                         }
                     }
+                },
+                checkList:{
+                    handler(newVal,oldVal){
+                        this.box=""
+                        for(let i=0;i<newVal.length;i++){
+                            this.box = parseFloat(this.box+newVal[i].price*newVal[i].num)
+                        }
+                    }
                 }
                },
                created() {
                 this.carOnline()
+               },
+               updated() {
+              
                },
                mounted() {
                    this.getAddress()
