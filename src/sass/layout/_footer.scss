@@ -1,12 +1,13 @@
 footer{
     width: 100%;
+    height: 100%;
     display: flex;
     background-color: $blue;
     nav{
         width:1200px;
-        height: 180px;
+        height: 100%;
         margin: 0 auto;
-        padding: 70px 20px;
+        padding: 70px 20px 20px 20px;
         .footer_content{
             width:100%;
             height: 100%;
@@ -78,14 +79,14 @@ footer{
         .copyright{
             width: 100%;
             height: 20%;
-            display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            white-space: nowrap;
+            line-height: 24px;
+            margin-top: 80px;
             p{
                 display: block;
-                width: 25%;
-                color: rgb(172, 172, 172);
+                width: 100%;
+                color: rgba(172, 172, 172, 0.668);
                 font-size: 14px;
             }
         }
@@ -98,10 +99,11 @@ footer{
 @media screen and (min-width: 320px) and (max-width: 767.98px){
     footer{
         width: 100%;
+        height: 100%;
         nav{
             width:100%;
             height: 100%;
-            padding: 70px 40px;
+            padding: 70px 20px 20px 20px;
             .footer_content{
                 width:100%;
                 height: 450px;
@@ -113,7 +115,6 @@ footer{
             }
             .copyright{
                 width: 100%;
-                height: 50px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
