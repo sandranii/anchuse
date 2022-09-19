@@ -37,7 +37,8 @@
                 </div>
                 <div id="view" class="msg_card_list">
                     <!-- vue v-for -->
-                    <div class="msg_card_frame" v-for="(msgCard, index) in msgCardList" :key="index">
+                    <div class="msg_card_frame" v-for="(msgCard, index) in msgCardList" :key="index"
+                        :class="{reverse: index%2 === 1}">
                         <div class="msg_card">
                             <div class="msgCardTxt">
                                 <h3 class="name">

@@ -42,38 +42,37 @@
                                         <div class="circle">按</div>
                                         <div class="circle">摩</div>
                                     </h1>
-                                    <p>請選擇按摩師傅</p>
-                                    <select name="" id="" class="therapist">
-                                        <option disabled value="">請選擇按摩師傅</option>
-                                        <option value="">李駿燕 師傅</option>
-                                        <option value="">言子倩 師傅</option>
-                                        <option value="">康晉壕 師傅</option>
-                                        <option value="">倪玉涓 師傅</option>
-                                    </select>
-                                    <p>請選擇時間長度</p>
-                                    <select name="" id="" class="timespan">
-                                        <option disabled value="">請選擇時間長度</option>
-                                        <option value="">
-                                            <span class="msg_timespan_1">120分鐘</span>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <span class="msg_price_1">NT$2,400</span>
-                                        </option>
-                                        <option value="">
-                                            <span class="msg_timespan_1">60分鐘</span>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <span class="msg_price_1">NT$1,600</span>
-                                        </option>
-                                    </select>
-                                    <div class="calendar">
-                                        日曆
-                                    </div>
-                                    <div class="content_footer">
-                                        <div class="price">售價：$1,600</div>
-                                        <div class="btnLittle">
-                                            <a href="">確認預約</a>
+                                    <form action="" method="get">
+                                        <p>請選擇按摩師傅</p>
+                                        <select name="" id="" class="therapist">
+                                            <option disabled value="">請選擇按摩師傅</option>
+                                            <option value="">李駿燕 師傅</option>
+                                            <option value="">言子倩 師傅</option>
+                                            <option value="">康晉壕 師傅</option>
+                                            <option value="">倪玉涓 師傅</option>
+                                        </select>
+                                        <p>請選擇時間長度</p>
+                                        <select v-model="price" name="" id="" class="timespan">
+                                            <option disabled value="">請選擇時間長度</option>
+                                            <option value="2,400" selected>
+                                                <span class="msg_timespan_1">120分鐘</span>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <span class="msg_price_1">NT$2,400</span>
+                                            </option>
+                                            <option value="1,600">
+                                                <span class="msg_timespan_1">60分鐘</span>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <span class="msg_price_1">NT$1,600</span>
+                                            </option>
+                                        </select>
+                                        <div class="calendar">
+                                            <input id="datetimepicker" type="text">
                                         </div>
-                                    </div>
-
+                                        <div class="content_footer">
+                                            <div class="price">售價：{{price}}</div>
+                                            <input class="btnLittle" type="submit" value="確認預約">
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
 
@@ -81,10 +80,10 @@
                     </div>
                 </div>
                 <div class="supplement">
-                    <div class="tabs">
-                        <button class="tab" @click="activeTab='A'">按摩描述</button>
-                        <button class="tab" @click="activeTab='B'">注意事項</button>
-                        <button class="tab" @click="activeTab='C'">常見問題</button>
+                    <div class="tabs row">
+                        <button class="tab col col-3" @click="activeTab='A'">按摩描述</button>
+                        <button class="tab col col-3" @click="activeTab='B'">注意事項</button>
+                        <button class="tab col col-3" @click="activeTab='C'">常見問題</button>
                     </div>
 
                     <div v-if="activeTab == 'A'" class="tab_container">
@@ -137,7 +136,7 @@
                                 {{item.name}}
                             </span>
                             <span class="item_price_2">
-                                NT${{item.price_2}}
+                                NT$ {{item.price_2}}
                             </span>
                         </div>
                     </div>
@@ -150,6 +149,7 @@
         const VM = {
             data() {
                 return {
+                    price: '2,400',
                     activeTab: "A",
                     msgCardList: [
                         // {
@@ -207,6 +207,23 @@
 
         Vue.createApp(VM).mount('#view')
     </script>
+    <script>
+        jQuery('#datetimepicker').datetimepicker();
+        console.log('hello');
+    </script>
 </body>
+<!-- datetimepicker -->
+<!-- <link rel="stylesheet" type="text/css" href="datetimepicker/jquery.datetimepicker.css" /> -->
+<!-- <script src="datetimepicker/jquery.js"></script> -->
+<!-- <script src="datetimepicker/build/jquery.datetimepicker.full.min.js"></script> -->
+<script src="./js/jquery-3.6.0.js"></script>
+<script src="./js/jquery.datetimepicker.full.min.js"></script>
+<script>
+    jQuery('#datetimepicker').datetimepicker({
+        format: 'd.m.Y H:i',
+        inline: true,
+        lang: 'ru'
+    });
+</script>
 
 </html>

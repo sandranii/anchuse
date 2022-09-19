@@ -90,10 +90,20 @@
                                 margin-bottom: 20px;
                             }
 
-                            //用套件
+                            //datetimepicker套件
                             .calendar {
-                                background-color: #fa0;
-                                @include rect(400px, 450px);
+                                margin-top: 40px;
+                                margin-bottom: 40px;
+
+                                .xdsoft_datetimepicker {
+                                    // width: 400px;
+                                    margin: auto;
+
+                                    .active {
+                                        background-color: #fff;
+
+                                    }
+                                }
                             }
 
                             .content_footer {
@@ -101,6 +111,12 @@
                                 display: flex;
                                 justify-content: space-between;
                                 align-items: center;
+                                color: $red;
+
+                                .price {
+                                    color: $red;
+                                    font-size: 24px;
+                                }
 
                                 .btnLittle {
                                     text-align: center;
@@ -120,8 +136,27 @@
 
             .tabs {
                 border-bottom: 1px solid $blue;
+                color: $blue;
 
+                .tab {
+                    background-color: transparent;
+                    border: none;
+                    color: $blue;
+                    text-align: center;
+                    padding: 10px 0;
+                    font-size: 24px;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    &:active {
+                        font-weight: 800;
+                    }
+                }
             }
+
+
 
             .tab_container {
                 padding: 50px 80px;
@@ -182,6 +217,11 @@
                 .item_txt {
                     display: flex;
                     justify-content: space-between;
+                    font-size: 18px;
+
+                    span {
+                        font-size: 18px;
+                    }
                 }
             }
 
