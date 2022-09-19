@@ -5,174 +5,178 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-   
-<div id="app">
-    <header class="page_header">
-        <nav>
-            <input type="checkbox" id="check">
-            <label for="check">
-                <span class="line1"></span>
-                <span class="line2"></span>
-                <span class="line3"></span>
-            </label> 
-            <a href="../index.html" class="header_logo"><img src="../images/headerLogo.png" alt=""></a>
-            <ul>
-                <li><a href="../aboutUs.html">關於我們</a></li>
-                <li><a href="../reservation.html">預約按摩</a></li>
-                <li><a href="../shopingArea.html">商品專區</a></li>
-                <!-- <a href="../index.html" class="header_logo"><img src="../images/headerLogo.png" alt=""></a> -->
-                <li><a href="../massageschool.html">按摩小學堂</a></li>
-                <li><a href="">常見問題</a></li>
-            </ul>
-            <div class="header_icon">
-                <span class="header_member"><a href="../memLogin.html" ><img src="../images/headerMember.png" alt=""></a></span>
-                <span class="header_shopping_cart"><a href="../shoppingCart.html"><img src="../images/headerShoppinCart.png" alt=""></a></span>
-            </div>  
-            
-        </nav>
-    </header>
 
-    <!-- ========================= -->
-    
-    <div class="commodity-container">
-        <div class="page-path">
-            <div class="commodity-title">
-               <div class="title-font">嚴</div>
-               <div class="title-font">選</div>
-               <div class="title-font">商</div>
-               <div class="title-font">品</div>
-            </div>
-            <div class="bread">
-                <small>首頁>商品專區>嚴選產品</small>
-            </div>  
+    <div class="background-pic">
+        <img src="./images/bcgFlower.png" alt="">
         </div>
-
-        <div class="commodity-search">
-            <div class="commodity-filter">
-                <span>排序方式: </span>
-                <select name="" id="" @change="change" v-model="orderSel">
+        <div id="app">
+            <header class="page_header">
+                <nav>
+                    <input type="checkbox" id="check">
+                    <label for="check">
+                        <span class="line1"></span>
+                        <span class="line2"></span>
+                        <span class="line3"></span>
+                    </label> 
+                    <a href="../index.html" class="header_logo"><img src="../images/headerLogo.png" alt=""></a>
+                    <ul>
+                        <li><a href="../aboutUs.html">關於我們</a></li>
+                        <li><a href="../reservation.html">預約按摩</a></li>
+                        <li><a href="../shopingArea.html">商品專區</a></li>
+                        <!-- <a href="../index.html" class="header_logo"><img src="../images/headerLogo.png" alt=""></a> -->
+                        <li><a href="../massageschool.html">按摩小學堂</a></li>
+                        <li><a href="">常見問題</a></li>
+                    </ul>
+                    <div class="header_icon">
+                        <span class="header_member"><a href="../memLogin.html" ><img src="../images/headerMember.png" alt=""></a></span>
+                        <span class="header_shopping_cart"><a href="../shoppingCart.html"><img src="../images/headerShoppinCart.png" alt=""></a></span>
+                    </div>  
                     
-                    <option value="news">由新到舊</option>
-                    <option value="old">由舊到新</option>
-                    <option value="height">價錢由高至低</option>
-                    <option value="low">價錢由低至高</option>
-                </select>
-            </div>
-            <div class="commodity-enter">
-                <input type="text" placeholder="輸入商品名稱">
-            </div>
-            <!-- <div class="commodity-keywords">
-                <p class="words">玫瑰</p>
-                <p class="words">薄荷</p>
-                <p class="words">筋膜槍</p>
-                <p class="words">按摩槍</p>
-                <p class="words">精油</p>
-            </div> -->
-        </div>
-    </div>
-   
+                </nav>
+            </header>
 
-    <div class="area-list">
-        <div class="row">
-            <div class="area-order">
-                <div class="area-order-title">
-                    <h4>商品清單</h4>
+            <!-- ========================= -->
+            
+            <div class="commodity-container">
+                <div class="page-path">
+                    <div class="commodity-title">
+                    <div class="title-font">嚴</div>
+                    <div class="title-font">選</div>
+                    <div class="title-font">商</div>
+                    <div class="title-font">品</div>
+                    </div>
+                    <div class="bread">
+                        <small>首頁>商品專區>嚴選產品</small>
+                    </div>  
                 </div>
-                <ul>
-                    <li v-for="(product,key,value) in obj" @click="showOil(key,value)" :class="{focus:value==number}" >
-                        <span style="font-size: 23px;font-weight: 800;" :class="{focus:value==number}">{{product[0].itemName}}</span>
-                        <!-- <span class="triangle">{{text}}</span>                           -->
 
-                        <ul :class="{oilList:openPage1}">
-                            <li>玫瑰ROSE</li>
-                            <li>薰衣草 Lavender</li>
-                            <li>薄荷 Peppermint</li>
-                        </ul>    
-                    </li>
-                </ul>
+                <div class="commodity-search">
+                    <div class="commodity-filter">
+                        <span class="bold">排序方式: </span>
+                        <select name="" id="" @change="change" v-model="orderSel">
+                            
+                            <option value="news">由新到舊</option>
+                            <option value="old">由舊到新</option>
+                            <option value="height">價錢由高至低</option>
+                            <option value="low">價錢由低至高</option>
+                        </select>
+                    </div>
+                    <div class="commodity-enter">
+                        <input type="text" placeholder="輸入商品名稱">
+                        <button>   <i class="fa-solid fa-magnifying-glass"></i></button>
+                     
+                    </div>
+                    <!-- <div class="commodity-keywords">
+                        <p class="words">玫瑰</p>
+                        <p class="words">薄荷</p>
+                        <p class="words">筋膜槍</p>
+                        <p class="words">按摩槍</p>
+                        <p class="words">精油</p>
+                    </div> -->
+                </div>
             </div>
-    
-            <div class="wrap">
         
 
-       
-                    <div class="area-box" v-if="currentPage==1" :class="{block:currentPage==1}" >
+            <div class="area-list">
+                <div class="row">
+                    <div class="area-order">
+                        <div class="area-order-title">
+                            <h4>商品清單</h4>
+                        </div>
+                        <ul>
+                            <li v-for="(product,key,value) in obj" @click="showOil(key,value)" :class="{focus:value==number}" >
+                                <span style="font-size: 23px;font-weight: 800;" :class="{focus:value==number}">{{product[0].itemName}}</span>
+                                <!-- <span class="triangle">{{text}}</span>                           -->
 
-                      
-                        <div class="col-3  area-card" v-for="(item,key) in commodity" @click="addOrder(item.id)" :key="item.id" >
-                            <a href="./productdetails.html">
-                            <div class="area-pic">
-                                <img :src="item.img">
-                            </div>
-                            <div class="area-name bold">
-                                <h4>{{item.name}}</h4>
-                            </div>
-                            <small v-for="i in radom">⭐</small>
-                            <div class="area-price">
-                               
-                                <p>NT${{item.price}}</p>
-                                
-                            </div>
-                        </a>
-                        </div>
-                   
+                                <ul :class="{oilList:openPage1}">
+                                    <li>玫瑰ROSE</li>
+                                    <li>薰衣草 Lavender</li>
+                                    <li>薄荷 Peppermint</li>
+                                </ul>    
+                            </li>
+                        </ul>
                     </div>
-                
-              
-                    <div class="area-box" v-if="currentPage==2" :class="{block:currentPage==1}" >
-                 
-                        <div class="col-3  area-card" v-for="(item,key) in commodity" @click="addOrder(item.id)" :key="item.id" >
-                            <a href="./productdetails.html">
-                            <div class="area-pic">
-                                <img :src="item.img">
-                            </div>
-                            <div class="area-name bold">
-                                <h4>{{item.name}}</h4>
-                            </div>
-                            <small v-for="i in radom">⭐</small>
-                            <div class="area-price">
-                               
-                                <p>NT${{item.price}}</p>
-                                
-                            </div>
-                        </a>
-                        </div>
-                    </div>
-                
-<!-- ========================================================== -->
-                <!-- <div class="area-box" v-if="show=currentPage=='3'" :class="{block:currentPage==3}">
-                    <div class="col-3  area-card" v-for="(item,value) in rose">
-                        <div class="area-pic">
-                            <img :src="item.img">
-                        </div>
-                        <div class="area-name">
-                            <h3>{{item.name}}</h3>
-                        </div>
-                        <div class="area-introduce">
-                            <div class="area-oritem">
-                                <small class="area-capacity">{{item.cpacity}}</small>
-                                <small class="area-origin">產地：{{item.origin}}</small>
+            
+                    <div class="wrap">
+            
+                            <div class="area-box" v-if="currentPage==1" :class="{block:currentPage==1}" >
+
+                                <div class="col-3  area-card" v-for="(item,key) in commodity" @click="addOrder(item.id)" :key="item.id" >
+                                    <a href="./productdetails.html">
+                                    <div class="area-pic">
+                                        <img :src="item.img">
+                                    </div>
+                                    <div class="area-name bold">
+                                        <h4>{{item.name}}</h4>
+                                    </div>
+                                    <small v-for="i in radom">⭐</small>
+                                    <div class="area-price">
+                                    
+                                        <p>NT${{item.price}}</p>
+                                        
+                                    </div>
+                                </a>
+                                </div>
                         
                             </div>
-                            <div class="area-price">
-                                <p>售價:{{item.price}}元</p>
+                        
+                    
+                            <div class="area-box" v-if="currentPage==2" :class="{block:currentPage==2}" >
+                        
+                                <div class="col-3  area-card" v-for="(item,key) in commodity" @click="addOrder(item.id)" :key="item.id" >
+                                    <a href="./productdetails.html">
+                                    <div class="area-pic">
+                                        <img :src="item.img">
+                                    </div>
+                                    <div class="area-name bold">
+                                        <h4>{{item.name}}</h4>
+                                    </div>
+                                    <small v-for="i in radom">⭐</small>
+                                    <div class="area-price">
+                                    
+                                        <p>NT${{item.price}}</p>
+                                        
+                                    </div>
+                                </a>
+                                </div>
+                            </div>
+                        
+        <!-- ========================================================== -->
+                        <!-- <div class="area-box" v-if="show=currentPage=='3'" :class="{block:currentPage==3}">
+                            <div class="col-3  area-card" v-for="(item,value) in rose">
+                                <div class="area-pic">
+                                    <img :src="item.img">
+                                </div>
+                                <div class="area-name">
+                                    <h3>{{item.name}}</h3>
+                                </div>
+                                <div class="area-introduce">
+                                    <div class="area-oritem">
+                                        <small class="area-capacity">{{item.cpacity}}</small>
+                                        <small class="area-origin">產地：{{item.origin}}</small>
+                                
+                                    </div>
+                                    <div class="area-price">
+                                        <p>售價:{{item.price}}元</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    -->
+                        <div class="page-number-computer" v-if="number==0">
+                            <button  class="btnLittle"  @click="pageReduce"><</button>
+                            <span style="  letter-spacing: 2px;" v-for="i in 2" :class="{fontcolor:i==currentPage}" @click="chose(i)">{{i}}</span>
+                            <button class="btnLittle"  @click="pageAdd()">></button>
+                        </div>
+                    </div> 
                 </div>
-             -->
-                <div class="page-number-computer" v-if="number==0">
-                    <button  class="btnLittle"  @click="pageReduce"><</button>
-                    <span style="  letter-spacing: 2px;" v-for="i in 2" :class="{fontcolor:i==currentPage}" @click="chose(i)">{{i}}</span>
-                    <button class="btnLittle"  @click="pageAdd()">></button>
-                </div>
-            </div> 
+            </div>            
         </div>
-    </div>            
-</div>
+  
    
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
@@ -208,86 +212,85 @@
                 //=======================
                 secondGun:[
 
-{
-"id":7,
-"itemName": "按摩槍",
-"img":"./images/japan.png",
-"imgTop":"./images/activity.png",
-"imgBody":"./images/pinkhun.png",
-"name":"美式按摩槍",
-"origin":"美國",
-"num":0,
-"price":1250,
-"logo":"Full",
-"date":11/15,
-"checkout":"貨到付款/線上支付/",
-"warranty":"1年",
-"product1":"六段按摩強度調整功能",
-"product2":"四種按摩頭",
-"product3":"USB充電",
+                    {
+                    "id":7,
+                    "itemName": "按摩槍",
+                    "img":"./images/Fujitek .png",
+                    "imgTop":"./images/Fujitek 1.png",
+                    "imgBody":"./images/Fujitek 2.png",
+                    "name":"感應式隨行筋膜槍",
+                    "origin":"台灣",
+                    "num":0,
+                    "price":1999,
+                    "logo":"Erugam",
+                    "date":11/15,
+                    "checkout":"貨到付款/線上支付/",
+                    "warranty":"1年",
+                    "product1":"4檔力道/4款更換頭",
+                    "product2":"USB快速充電",
+                    "product3":"智慧控制按摩力道",
 
-"specification":{
+                    "specification":{
 
-            "name":"日式按摩槍 FG-271",
-            "brand":"其他",
-            "type":"按摩滾筒",
-            "color":"青綠色",
-            "size":"(寬)168x (深)65x (高)235 mm",
-            "origin":"美國"
-    },
-"feature":{
-    "one":" 38段檔位調節，男女老少都試用",
-    "two":"  8MM深層筋膜震感 ",
-    "three":" 710克輕巧機身",
-    "four":" USB充",
-    "five":"3000轉高速捶打",
-    "six":"2400mAh內置電池",
-    "seven":"運作低噪，不吵鄰"
-    }
-
-
-},
-{
-"id":8,
-"itemName": "按摩槍",
-"img":"./images/japan.png",
-"imgTop":"./images/activity.png",
-"imgBody":"./images/pinkhun.png",
-"name":"美式按摩槍",
-"origin":"美國",
-"num":0,
-"price":1250,
-"logo":"Full",
-"date":11/15,
-"checkout":"貨到付款/線上支付/",
-"warranty":"1年",
-"product1":"六段按摩強度調整功能",
-"product2":"四種按摩頭",
-"product3":"USB充電",
-
-"specification":{
-
-            "name":"日式按摩槍 FG-271",
-            "brand":"其他",
-            "type":"按摩棒/按摩器",
-            "color":"青綠色",
-            "size":"(寬)168x (深)65x (高)235 mm",
-            "origin":"美國"
-    },
-"feature":{
-    "one":" 38段檔位調節，男女老少都試用",
-    "two":"  8MM深層筋膜震感 ",
-    "three":" 710克輕巧機身",
-    "four":" USB充",
-    "five":"3000轉高速捶打",
-    "six":"2400mAh內置電池",
-    "seven":"運作低噪，不吵鄰"
-    }
+                                "name":"感應式隨行筋膜槍",
+                                "brand":"其他",
+                                "type":"按摩槍",
+                                "color":"草莓牛奶",
+                                "size":"W65xH65xD65mm",
+                                "origin":"台灣"
+                        },
+                    "feature":{
+                        "one":" 無線5V",
+                        "two":"  8MM深層筋膜震感 ",
+                        "three":" 710克輕巧機身",
+                        "four":" USB充",
+                        "five":"日本設計，台灣製造",
+                        "six":"2400mAh內置電池",
+                        "seven":"直擊痛點促進血液循環"
+                        }
 
 
-},
+                    },
+                    {
+                    "id":8,
+                    "itemName": "按摩槍",
+                    "img":"./images/Hyperice.png",
+                    "imgTop":"./images/Hyperice1.png",
+                    "name":"無線震動按摩槍",
+                    "origin":"美國",
+                    "num":0,
+                    "price":1550,
+                    "logo":"Hyperice",
+                    "date":11/15,
+                    "checkout":"貨到付款/線上支付/",
+                    "warranty":"1年",
+                    "product1":"採用專利靜音科技",
+                    "product2":"搭載壓力感測技術",
+                    "product3":"五段速控制",
 
-],
+                    "specification":{
+
+                                "name":"無線震動按摩槍",
+                                "brand":"其他",
+                                "type":"按摩棒/按摩器",
+                                "color":"青綠色",
+                                "size":"112 x 49 x 159mm",
+                                "origin":"美國"
+                        },
+                    "feature":{
+                        "one":" 3無線110V",
+                        "two":"  電池類型：18650 ",
+                        "three":" 710克輕巧機身",
+                        "four":" 電池容量：1,800 mAh",
+                        "five":"3000轉高速捶打",
+                        "six":"每天按摩8分鐘, 可續航23天",
+                        "seven":"運作低噪，不吵鄰"
+                        }
+
+
+                    },
+
+                    ],
                 obj:{
                
                 gun:[
@@ -297,7 +300,7 @@
             "img":"./images/japan.png",
             "imgTop":"./images/activity.png",
             "imgBody":"./images/pinkhun.png",
-            "name":"美式按摩槍",
+            "name":"無線震動按摩槍",
             "origin":"美國",
             "num":0,
             "price":1250,
@@ -311,7 +314,7 @@
 
             "specification":{
 
-                            "name":"日式按摩槍 FG-271",
+                            "name":"無線震動按摩槍",
                             "brand":"其他",
                             "type":"按摩棒/按摩器",
                             "color":"青綠色",
@@ -680,6 +683,7 @@
             "id":13,
             "itemName": "按摩球",
             "img":"./images/ROAR.png",
+            "imgTop":null,
             "name":"天然橡膠按摩球 ",
             "origin":"台灣",
             "num":0,
