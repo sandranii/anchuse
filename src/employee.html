@@ -101,7 +101,8 @@ gsap.registerPlugin(ScrollTrigger);
     gsap.from(".RimgFrame",{
         scrollTrigger: {
             trigger: ".row_round",
-            toggleActions: "restart pasue resume none"
+            start: "top center",
+            // toggleActions: "restart pasue resume none"
         },
         x: -600,
         rotation: -270,
@@ -111,7 +112,8 @@ gsap.registerPlugin(ScrollTrigger);
     gsap.from(".Rframe",{
         scrollTrigger: {
             trigger: ".row_round",
-            toggleActions: "restart pasue resume none"
+            start: "top center",
+            // toggleActions: "restart pasue resume none"
         },
         x: -400,
         rotation: 180,
@@ -122,21 +124,23 @@ gsap.registerPlugin(ScrollTrigger);
     gsap.from(".textMove",{
         scrollTrigger: {
             trigger: ".row_round",
+            start: "top center"
         },
         x: 300,
         duration: 1.6,
-        opacity: 0.2,
+        opacity: 0,
         ease: "back"
     });
     gsap.from(".text p",{
         scrollTrigger: {
             trigger: ".row_round",
+            start: "top center"
         },
         x: 300,
         stagger: 0.2,
         duration: 1.6,
         delay: 0.2,
-        opacity: 0.2,
+        opacity: 0,
         ease: "back"
     });
 
