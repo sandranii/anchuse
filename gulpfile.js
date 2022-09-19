@@ -65,9 +65,9 @@ const rename = require('gulp-rename');
 function ugJS() {
     return src('src/js/*.js') //來源
         .pipe(uglify()) //函式
-        .pipe(rename({
-            extname: '.min.js'
-        }))
+        // .pipe(rename({
+        //     extname: '.min.js'
+        // }))
         .pipe(dest('dest/js'))
 }
 
