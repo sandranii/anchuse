@@ -1,4 +1,17 @@
 .reservation {
+    @include m() {
+        @include grid(12);
+    }
+
+    @include t() {
+        @include grid(12, -md);
+    }
+
+    @include pc() {
+        @include grid(12, -xl);
+    }
+
+
 
     .banner img,
     .pic_ctnr img {
@@ -63,15 +76,22 @@
                 box-shadow: 6px 10px 0px 0px $blue;
                 box-sizing: border-box;
 
-                .msg_card {
-                    padding: 60px;
+                .msg_card.row {
+                    padding: 30px 0;
                     border-radius: 8px;
                     border: 2px solid $blue;
                     display: flex;
+                    flex-wrap: wrap;
+
                     justify-content: space-between;
                     align-items: center;
 
-                    .msgCardTxt {
+                    .col {
+                        padding: 30px;
+                        margin: auto;
+                    }
+
+                    .msg_card_txt {
                         width: 475px;
 
                         .intro {
@@ -107,9 +127,8 @@
                     }
 
                     .msg_card_pic {
-                        // margin: 30px auto 0px auto;
-                        width: 300px;
-                        height: 300px;
+                        @include rect(300px);
+
                     }
                 }
             }

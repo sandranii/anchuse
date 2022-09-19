@@ -65,9 +65,9 @@ const rename = require('gulp-rename');
 function ugJS() {
     return src('src/js/*.js') //來源
         .pipe(uglify()) //函式
-        .pipe(rename({
-            extname: '.min.js'
-        }))
+        // .pipe(rename({
+        //     extname: '.min.js'
+        // }))
         .pipe(dest('dest/js'))
 }
 
@@ -173,27 +173,27 @@ exports.default = series(parallel(htmltemplate, styleSass, ugJS, img), browser);
 
 
 //上線使用  css跨瀏覽器
- 
+
 const autoprefixer = require('gulp-autoprefixer');
 
 function prefix() {
     return src('dest/css/*.css')
-    .pipe(autoprefixer({
-        cascade: false
-    })).pipe(rename({
-        extname: '.autoprefix.css'
-    }))
-    .pipe(dest('dest/css'))
+        .pipe(autoprefixer({
+            cascade: false
+        })).pipe(rename({
+            extname: '.autoprefix.css'
+        }))
+        .pipe(dest('dest/css'))
 }
 exports.auto = prefix;
 
 // 壓圖 
 const imagemin = require('gulp-imagemin');
 
-function img_c(){
+function img_c() {
     return src('src/images/*.*')
-    .pipe(imagemin())
-    .pipe(dest('dest/images'))
+        .pipe(imagemin())
+        .pipe(dest('dest/images'))
 }
 
 exports.images = img_c;
@@ -218,14 +218,14 @@ exports.js = babel5;
 const clean = require('gulp-clean');
 
 function clear() {
-  return src('dest' ,{ read: false ,allowEmpty: true })//不去讀檔案結構，增加刪除效率  / allowEmpty : 允許刪除空的檔案
-  .pipe(clean({force: true})); //強制刪除檔案 
+    return src('dest', { read: false, allowEmpty: true })//不去讀檔案結構，增加刪除效率  / allowEmpty : 允許刪除空的檔案
+        .pipe(clean({ force: true })); //強制刪除檔案 
 }
-exports.cls  = clear;
+exports.cls = clear;
 
 
 // 上線用
-exports.online = series(clear, parallel(htmltemplate, styleSass,babel5 , img_c))
+exports.online = series(clear, parallel(htmltemplate, styleSass, babel5, img_c))
 
 
 

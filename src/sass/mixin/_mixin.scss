@@ -55,28 +55,83 @@
 }
 
 
-@mixin grid($val ,$d:null){//格線系統
+@mixin grid($val, $d:null) {
+
+    //格線系統
     @for $i from 1 through $val {
-      .col#{$d}-#{$i} {
-        width: calc($i / $val * 100%);
-      }
-    }
-  }
-
-  @include grid(12);
-
-
- 
-    
-    @mixin cellphone() {
-        @media screen and (max-width:$cellPhone) {
-            .col-1,.col-2,.col-3,.col-4,.col-5,.col-6,
-            .col-7,.col-8,.col-9,.col-10,.col-11,.col-12{
-            width:90%;
-            }
-            
+        .col#{$d}-#{$i} {
+            width: calc($i / $val * 100%);
         }
-        @content;
-      
     }
-  
+}
+
+@include grid(12);
+
+
+
+
+@mixin cellphone() {
+    @media screen and (max-width:$cellPhone) {
+
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-10,
+        .col-11,
+        .col-12 {
+            width: 90%;
+        }
+
+    }
+
+    @content;
+
+}
+
+
+// $t-min : 768px;
+// $pc-min : 1024px;
+
+// 手機板 mobile
+@mixin m() {
+    // @media screen and (max-width : $m-min) {
+
+    //     @content
+    // }
+    @media screen and (min-width: 320px) and (max-width: 767.98px) {
+
+        @content
+    }
+}
+
+;
+
+// 平板 tablet
+@mixin t() {
+    // @media screen and (max-width : $t-min) {
+
+    //     @content
+    // }
+    @media screen and (min-width: 768px) and (max-width: 1199.98px) {
+
+        @content
+    }
+}
+
+;
+
+// 桌機 pc
+@mixin pc() {
+    @media screen and (min-width: 1200px) {
+
+        @content
+    }
+}
+
+;
