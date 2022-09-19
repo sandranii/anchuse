@@ -11,6 +11,8 @@
 //component
 @import "./component/btn";
 @import './component/banner';
+@import './component/datetimepicker';
+
 // layout
 @import "./layout/header";
 @import "./layout/footer";
@@ -21,7 +23,7 @@
 @import "./page/memCenter";
 
 @import './page/reservation';
-
+@import './page/resvPage';
 @import './page/aboutUs';
 @import './page/aboutMasseuse';
 @import './page/employee';
@@ -39,4 +41,3 @@
 @import "./mixin/productMedia";
 @import"./mixin/AreaMedia";
 @import"./mixin/_shoppingCartMedia";
-

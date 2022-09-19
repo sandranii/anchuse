@@ -9,7 +9,8 @@
     "專案開發使用": "gulp",
     "上線打包使用": "gulp online",
     "css合併": "gulp allcss",
-    "上線壓圖": "gulp images"
+    "上線壓圖": "gulp images",
+    "sass同步監看": "sass src/sass/style.scss src/css/style.css -w"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,7 @@
     "sass": "^1.54.4"
   },
   "dependencies": {
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "jquery-datetimepicker": "^2.5.21"
   }
 }
