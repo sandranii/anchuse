@@ -48,6 +48,10 @@
             </div>
 
             <div class="shopping-list col-12">
+                 <div class="shopping-cart-empty" v-if="detect==0" style="text-align:center;">
+                    <h1>目前購物車是空的</h1>
+                </div> 
+   
                 <div class="shopping-list-order" v-for="item in car">
                     <input type="checkbox" name="check" @change="check(item)" v-model="calculate" :checked>
 
@@ -115,7 +119,7 @@
                 <button @click="prev" class="prev"><</button>
                 <div class="purchase-area-slide" :style="{left:330*index+'px',
                 transition:.5+'s'}">
-                  <div class="purchase-area-card " v-for="(item,value) in commodity" :key="item.id">
+                  <div class="purchase-area-card " v-for="(item,value) in total" :key="item.id">
                         <div class="purchase-area-pic">
                             <img :src="item.img" alt="">
                         </div>
@@ -139,25 +143,6 @@
                     </div>
             <!-- ============================================ -->
 
-           <div class="purchase-area-card " v-for="(item,value) in commodity">
-                <div class="purchase-area-pic">
-                    <img :src="item.img" alt="">
-                </div>
-                <div class="purchase-area-name">
-                    <h3>{{item.name}}</h3>
-                </div>
-                <div class="purchase-area-introduce">
-                    <div class="purchase-area-cpacity">
-                            <small>{{item.cpacity}}</small>
-                        </div>
-                        <div class="purchase-area-orign">
-                            <small>{{item.orign}}</small>
-                        </div>
-                    </div>
-                <div class="purchase-area-price">
-                    <p>售價:{{item.price}}</p>
-                </div>
-            </div> 
 
                 </div>
                 <button @click="next" class="next">></button>
@@ -167,8 +152,6 @@
        
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
-
-
 
     <script>
         Vue.createApp({
@@ -192,6 +175,8 @@
                     totalPrice:0,
                     box:0,
                     calculate:'',
+                    total:[],
+                    detect:0,
                 //   =============================  
                 secondGun:[
 
@@ -779,18 +764,23 @@
            },
            methods: {
                commodityInfo(){
-                           this.data = this.obj.data
-                           this.commodity=this.obj.gun
-                           this.gun = this.obj.gun
-                           this.equipment = this.obj.equipment
-                           this.oil = this.obj.rose
+                        this.data = this.obj.data
+                        this.commodity=this.obj.gun
+                        this.gun = this.obj.gun
+                        this.equipment = this.obj.equipment
+                        this.ball = this.obj.ball
 
-                           console.log(this.car)
+                        this.total = this.total.concat(this.ball,this.equipment,this.secondGun,this.gun)
+                        this.total.sort(function(){//把陣列打亂
+                            return (0.5-Math.random());
+                        });
+                           
                },
+           
         
                addCar(id,item){
                
-                let count = this.commodity.findIndex(item=>{
+                let count = this.total.findIndex(item=>{
                    return item.id===id
                 }) 
                 let code = this.car.find(carItem=>carItem.id==id)
@@ -798,13 +788,13 @@
                     alert("成功加入購物車")
                     item.num+=1
                     this.car.push({
-                        id:this.commodity[count].id,
-                        img:this.commodity[count].img,
-                        name:this.commodity[count].name,
-                        price:this.commodity[count].price,
-                        num:this.commodity[count].num,
-                        product1:this.commodity[count].product1,
-                        product2:this.commodity[count].product2,
+                        id:this.total[count].id,
+                        img:this.total[count].img,
+                        name:this.total[count].name,
+                        price:this.total[count].price,
+                        num:this.total[count].num,
+                        product1:this.total[count].product1,
+                        product2:this.total[count].product2,
                         
                         
                     })
@@ -865,7 +855,7 @@
             },
          
             prev(){
-                    if(this.index>-8){
+                    if(this.index>-12){
                         this.index-=1
                     }   
             },
@@ -873,7 +863,6 @@
                 if(this.index<0){
                     this.index+=1
                 }
-             
             },
             select(){
                 this.sel=1
@@ -887,7 +876,6 @@
            created() {//mount之前 會先讀到data
                this.carOnline()
               
-           
            },
            computed:{
                 buyCar:function(){//不可與陣列同名
@@ -902,7 +890,13 @@
                         for(let i=0;i<newVal.length;i++){
                             this.money = parseFloat(this.money+newVal[i].price*newVal[i].num)
                           
-                        }   
+                        }
+                        if(newVal!=""){
+                        this.detect+=1
+                     
+                        }else{
+                            this.detect=0
+                        }
                     
                        
                     }
@@ -917,8 +911,7 @@
            
            mounted() {//等app載入之後才會讀取
                this.commodityInfo()
-                this.select()
-                
+                this.select() 
            },
         }).mount("#app")
        </script>
