@@ -24,7 +24,7 @@
                 
             <section class="about_us"><!------關於我們------>
                 <div class="about_us_intro">
-                    <div class="title_area">
+                    <div class="title_area reveal fade-left">
                         <div class="title">
                             <h2 class="title_font">關</h2>
                             <h2 class="title_font">於</h2>
@@ -40,12 +40,12 @@
                     </div>
                 </div>
                 <div class="about_us_pic">
-                    <div class="round_back rotate-center"></div>
-                    <div class="round_front"></div>
+                    <div class="round_back rotate-center "></div>
+                    <div class="round_front reveal fade-right"></div>
                 </div>
             </section>
             <section class="massage_school">
-                <div class="title_area">
+                <div class="title_area ">
                     <div class="title">
                         <h2 class="title_font">按</h2>
                         <h2 class="title_font">摩</h2>
@@ -59,6 +59,25 @@
         </main>
     </div>
     @@include('./layout/footer.html')
+    <script>
+    function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+
+    for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementVisible = 150;
+
+    if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("fade_active");
+    } else {
+        reveals[i].classList.remove("fade_active");
+    }
+    }
+}
+
+    window.addEventListener("scroll", reveal);
+    </script>
 </body>
 
 </html>
