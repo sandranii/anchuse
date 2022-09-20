@@ -1,3 +1,4 @@
+
 .background-pic{
     position: fixed;
     top: 0;
@@ -13,11 +14,8 @@
     display: flex;
     flex-direction: column;
     line-height: 2;
-   
+    text-align: center;
     justify-content: center;
-    .commodity-title{
-        display: flex;
-        text-align: center;
 
         .title-font{
             width: 50px;
@@ -44,13 +42,11 @@
             left: 2.5%;
             border-radius: 50%;
         }
-    }
+    
     .bread{
         padding: 10px;
     }
-   .commodity-filter{
-    text-align: center;
-   }
+
    .commodity-enter{
     text-align: center;
     padding: 10px 0;
@@ -77,7 +73,10 @@
    }
 
 }
-
+.commodity-filter{
+    display: flex;
+    justify-content: center;
+}
 // =======================================
 .area-list{
     padding: 10px;
@@ -140,13 +139,15 @@
     margin: auto;
     position: relative;
     padding-bottom: 100px;
+    .bread{
+        margin: 20px 0;
+      }
     .area-box{
       
         @include container();
           padding-top: 50px;
           justify-content: center;
-      
-        
+     
           .area-card{
               margin: 30px 10px;
               padding: 5px;
@@ -156,6 +157,7 @@
                     transform: scale(1.1,1.1);
                 }
           }
+        
           .area-oritem{
             line-height: 1.5;
             .area-capacity{
@@ -163,7 +165,6 @@
                 flex-wrap: nowrap;
                 width: 200px;
                 overflow: hidden;   
-           
            
               small{
                 display: block;
@@ -226,4 +227,55 @@
     a{
         text-decoration: none;
     }
+    .commodity-path{
+        padding-top: 50px;
+
+        .commodity-title{
+            display: flex;
+            @include container();
+            justify-content: center;
+            padding-top: 40px 0;
+            line-height: 1.5;
+            
+    
+            .title-font{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: #163D82;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 27px;
+                font-weight: 900;
+                color: aliceblue;
+                font-family:serif,sans-serif,cursive,fantasy,monospace;
+            }
+            .title-font:before{
+                content: "";
+                width: 42px;
+                height: 42px;
+                background-color: transparent;
+                border: 3px solid aliceblue;
+                position: absolute;
+                top: .5px;
+                left: 2.5%;
+                border-radius: 50%;
+            }
+        }
+
+    }
+
+    .commodity-post{
+        text-align: center;
+        padding-bottom: 30px;
+        p{
+            color: $blue;
+            font-weight: 800;
+        }
+        
+    }
+
+
  
