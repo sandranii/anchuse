@@ -33,6 +33,15 @@
                     margin-bottom: 0;
                 }
             }
+            small {
+                display: block;
+                @include container();
+                text-align: center;
+                color: $blue;
+                letter-spacing: 2px;
+                font-weight: 600;
+                opacity: 0.8;
+            }
         }
         .frame{
             width: 60%;
