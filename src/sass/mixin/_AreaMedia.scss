@@ -1,20 +1,16 @@
 
 
     @media screen and (min-width:768px) {
-
+        .commodity-title{
+            text-align: center;
+            padding-top: 70px;
+        }
         .commodity-container{
-            padding-top: 50px;
             display: flex;
             flex-direction: row ;
             line-height: 2;
-            justify-content: space-around ;
-            .commodity-title{
-                text-align: center;
-            }
-            .bread{
-                padding: 10px;
-                letter-spacing: 2px;
-            }
+            justify-content:flex-end;
+            
             .commodity-search{
                 display: flex;
                 flex-direction: column;
@@ -25,8 +21,11 @@
             margin: 0 10px;
            }
            
-           
-        
+        }
+        .commodity-filter{
+            @include container();
+            display: flex;
+            justify-content: flex-end;
         }
         // ===================================
         .area-list{
@@ -41,7 +40,7 @@
             .area-order{
                 width: 100%;
                 max-width: 240px;
-                height: 80vh;
+                height: 75vh;
                 margin: auto;
                 
         
@@ -81,7 +80,7 @@
                     height: 100vh;
                     display: flex ;
                     flex-wrap: wrap;
-                    justify-content: flex-start;
+                    justify-content: center;
                     align-items: flex-start;
                     padding-top: 50px;
                     padding-bottom: 50px;
@@ -124,15 +123,10 @@
                           justify-content: flex-end;
                           padding: 5px;
                       }
-                      
                     
-                      
-                  
                       }
+
             }
-           
-
-
         }
 
         .page-number-computer{
