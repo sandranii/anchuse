@@ -5,9 +5,9 @@
         .commodity-container{
             padding-top: 50px;
             display: flex;
-            flex-direction: row !important;
+            flex-direction: row ;
             line-height: 2;
-            justify-content: space-around !important;
+            justify-content: space-around ;
             .commodity-title{
                 text-align: center;
             }
@@ -35,8 +35,8 @@
          
             .row{
                 display: flex;
-                flex-direction: row !important;
-                align-items: flex-start !important;
+                flex-direction: row ;
+                align-items: flex-start ;
             }
             .area-order{
                 width: 100%;
@@ -74,12 +74,12 @@
             }
             // ==========================
             .wrap{
-                display: block !important;
-                height: 100vh !important;;
+                display: block ;
+                height: 100vh ;;
                 .area-box{
                     @include container();
                     height: 100vh;
-                    display: flex !important;
+                    display: flex ;
                     flex-wrap: wrap;
                     justify-content: flex-start;
                     align-items: flex-start;
@@ -138,8 +138,8 @@
         .page-number-computer{
             width: 550px;
             margin: auto;
-            display: flex !important;
-            justify-content: flex-end !important;
+            display: flex ;
+            justify-content: flex-end ;
             align-items: center;
             padding: 20px 0;
             button{
