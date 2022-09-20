@@ -3,7 +3,7 @@ gsap.registerPlugin(ScrollTrigger);
     gsap.from(".frame_one",{
         scrollTrigger: {
             trigger: ".frame_one",
-            start: "top center"
+            start: "top 70%"
         },
         duration: 2, 
         rotationX: 60, 
@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
     gsap.from(".frame_two",{
         scrollTrigger: {
             trigger: ".frame_two",
-            start: "top center"
+            start: "top 70%"
         },
         duration: 2, 
         rotationX: 60, 
@@ -29,7 +29,7 @@ gsap.registerPlugin(ScrollTrigger);
     gsap.from(".text_one p",{
         scrollTrigger: {
             trigger: ".frame_one",
-            start: "top center"
+            start: "top 70%"
         },
         x: 150,
         stagger: 0.2,
@@ -41,7 +41,7 @@ gsap.registerPlugin(ScrollTrigger);
     gsap.from(".text_two p",{
         scrollTrigger: {
             trigger: ".frame_two",
-            start: "top center"
+            start: "top 70%"
         },
         x: 150,
         stagger: 0.2,
