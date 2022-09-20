@@ -13,7 +13,7 @@
     <div class="background-pic">
         <img src="./images/bcgFlower.png" alt="">
         </div>
-    <div id="app"  style="margin-bottom:1200px">
+    <div id="app">
         <header class="page_header">
             <nav>
                 <input type="checkbox" id="check">
@@ -47,16 +47,12 @@
                 <div class="title-font">車</div>
             </div>
 
-            <div class="bread">
-                <a href="./index.html">首頁</a>><a href="./shopingArea.html">商品專區</a>><a href="./productdetails.html">詳細資訊</a>><a href="./shoppingCart.html">購物車</a>
-            </div>
-
             <div class="shopping-list col-12">
                  <div class="shopping-cart-empty" v-if="detect==0" style="text-align:center;">
                     <h1>目前購物車是空的</h1>
                 </div> 
    
-                <div class="shopping-list-order" v-for="item in cart">
+                <div class="shopping-list-order" v-for="item in car">
                     <input type="checkbox"   v-model="calculate" :value="item">
              
                     <div class="shopping-list-pic ">
@@ -112,7 +108,6 @@
         </div>
 
 
-
         <div class="purchase-area">
             <div class="purchase-area-title">
                <div class="title-font">加</div>
@@ -154,7 +149,7 @@
             </div>
         </div>
     </div>
-   @@include('./layout/footer.html')
+       
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
 
@@ -186,7 +181,6 @@
                     checkBox:[],
                     checked:false,
                     box:0,
-                    cart:[],
 
                 //   =============================  
                 secondGun:[
@@ -785,9 +779,8 @@
                         this.total.sort(function(){//把陣列打亂
                             return (0.5-Math.random());
                         });
-                        this.calculate=this.cart
-
-                     
+                        this.calculate=this.car
+           
                            
                },
                checkTotal(){
@@ -795,7 +788,7 @@
                     this.calculate=[]
 
                 }else{
-                    this.calculate=this.cart
+                    this.calculate=this.car
                    
                 }
                         
@@ -807,11 +800,11 @@
                 let count = this.total.findIndex(item=>{
                    return item.id===id
                 }) 
-                let code = this.cart.find(carItem=>carItem.id==id)
+                let code = this.car.find(carItem=>carItem.id==id)
                     if(!code){
                     alert("成功加入購物車")
                     item.num=1
-                    this.cart.push({
+                    this.car.push({
                         id:this.total[count].id,
                         img:this.total[count].img,
                         name:this.total[count].name,
@@ -833,11 +826,11 @@
                },
                reduceCar(id){
               
-                let index = this.cart.findIndex(item=>item.id===id)
+                let index = this.car.findIndex(item=>item.id===id)
               
-                this.cart.splice(index,1)
+                this.car.splice(index,1)
                 
-                this.calculate=this.cart     
+                this.calculate=this.car     
                 this.setCar()
            
                 },
@@ -855,7 +848,7 @@
            
              
            setCar(){
-             localStorage.setItem("cart",JSON.stringify(this.cart))
+             localStorage.setItem("car",JSON.stringify(this.car))
              localStorage.setItem("price",JSON.stringify(this.totalPrice))
              localStorage.setItem("chose",JSON.stringify(this.calculate))
              
@@ -863,9 +856,9 @@
          
       
            carOnline(){
-            // let buyCar = localStorage.getItem("car");
-            //     if(!buyCar) return;
-            //     this.car = JSON.parse(buyCar)
+            let buyCar = localStorage.getItem("car");
+                if(!buyCar) return;
+                this.car = JSON.parse(buyCar)
 
                 let gold = localStorage.getItem("price")
                 if(!gold) return;
@@ -874,14 +867,6 @@
                 let choses = localStorage.getItem("chose")
                 if(!choses) return
                 this.calculate = JSON.parse(choses)
-
-                // let products = localStorage.getItem("product");
-                //     if (!products) return;
-                //     this.product= JSON.parse(products)
-
-                let carStr = localStorage.getItem('cart');
-                if (!carStr) return;
-                this.cart= JSON.parse(carStr)
             },
          
             prev(){
@@ -909,7 +894,7 @@
            },
            computed:{
                 buyCar:function(){//不可與陣列同名
-                    return JSON.parse(JSON.stringify(this.cart))
+                    return JSON.parse(JSON.stringify(this.car))
                 },
                 // checkList:function(){
                 //     return JSON.parse(JSON.stringify(this.calculate))
