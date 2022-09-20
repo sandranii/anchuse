@@ -426,7 +426,7 @@ main{
             width: 450px;
             height: 450px;
             position: absolute;
-            top: -50px;
+            top: 0px;
             right: -70px;
             background: url(../images/imageRoundGate.png);
             background-repeat: no-repeat;
@@ -439,7 +439,7 @@ main{
             border-radius: 50%;
             position: relative;
             background-color: $blue;
-            top: -30px;
+            top: 20px;
             right: -90px;
         }
     }
@@ -448,7 +448,7 @@ main{
 @media screen and (min-width: 320px) and (max-width: 767.98px){
     .about_us{
         width: 100%;
-        height: 760px;
+        height: 120%;
         max-width: 1200px;
         padding: 120px 0px 0px 0px;
         margin: 0 auto;
@@ -459,7 +459,7 @@ main{
         
         .about_us_intro{
             width: 90%;
-    
+            margin: 0 auto;
             .title_area{
 
                 .title{
@@ -503,7 +503,7 @@ main{
                 width: 450px;
                 height: 450px;
                 position: absolute;
-                top: -50px;
+                top: -100px;
                 right: -200px;
                 background: url(../images/imageRoundGate.png);
                 background-repeat: no-repeat;
@@ -517,8 +517,8 @@ main{
                 border-radius: 50%;
                 position: relative;
                 background-color: $blue;
-                top:30px;
-                right: -30px;
+                top:0px;
+                right: -35px;
             }
         }
     }
@@ -539,8 +539,8 @@ main{
         overflow: hidden;
         
         .about_us_intro{
-            width: 70%;
-    
+            width: 90%;
+            margin: 0 auto;
             .title_area{
 
                 .title{
@@ -581,10 +581,10 @@ main{
             height: 100%;
     
             .round_back{
-                width: 500px;
-                height: 500px;
+                width: 450px;
+                height: 450px;
                 position: absolute;
-                top: -40px;
+                top: -150px;
                 right: -200px;
                 background: url(../images/imageRoundGate.png);
                 background-repeat: no-repeat;
@@ -593,13 +593,13 @@ main{
             }
     
             .round_front{
-                width: 450px;
-                height: 450px;
+                width: 400px;
+                height: 400px;
                 border-radius: 50%;
                 position: relative;
                 background-color: $blue;
-                top:0px;
-                right: -150px;
+                top:-100px;
+                right: -200px;
             }
         }
     }
@@ -610,11 +610,11 @@ main{
 .massage_school{
     width: 100%;
     max-width: 1200px;
-    padding: 130px 0px 0px 0px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding-top: 60px;
     .title_area{
         width: 100%;
 
@@ -712,3 +712,35 @@ main{
     
 }
 
+/*====== 行動版 RWD | 320px ~ 768px ======*/
+@media screen and (min-width: 320px) and (max-width: 767.98px){
+.massage_school{
+    display: flex;
+    .massage_school_content{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .massage_school_intro{
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 0px;
+        }
+    }
+    .swiper{
+        width: 80%;
+    }
+    
+}
+}
+/*======    平板版 RWD | 768px ~ 1200px ======*/
+@media screen and (min-width: 768px) and (max-width: 1199.98px){
+.massage_school{
+    width: 90%;
+    .massage_school_content{
+
+        .swiper{
+            width: 600px;
+        }
+    }
+}
+}
