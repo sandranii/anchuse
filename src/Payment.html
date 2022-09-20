@@ -12,11 +12,9 @@
     <div class="background-pic">
         <img src="./images/bcgFlower.png" alt="">
         </div>
-<div id="app">
-
+<div id="app"  style="margin-bottom:300px">
+    @@include('./layout/header.html')
 <div class="path">
-    
-
 
     <div class="target" :class="{hint:active==1}">
         <h4 :class="{hint:active==1}">確認商品</h4>
@@ -156,8 +154,7 @@
 
        
 </div>
- 
-
+@@include('./layout/footer.html')  
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
         <script src="https://unpkg.com/vue@next"></script>
@@ -204,9 +201,10 @@
                    
                     
                  carOnline(){
-                // let buyCar = localStorage.getItem("car");
-                //     if(!buyCar) return;
-                //     this.this.car = JSON.parse(buyCar)
+             
+                    let carStr = localStorage.getItem('cart');
+                if (!carStr) return;
+                this.cart= JSON.parse(carStr)
 
                     
                 let gold = localStorage.getItem("price")
