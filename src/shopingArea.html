@@ -880,7 +880,7 @@
                 let index = this.data.findIndex(item=>item.id==id)
                 this.order.splice(index,1)
                 console.log(this.order)
-                localStorage.clear("order")
+                this.storage()
             },
             storage(){
                 localStorage.setItem("order",JSON.stringify(this.order))
