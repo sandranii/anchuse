@@ -53,7 +53,6 @@
    }
    .commodity-enter{
     text-align: center;
-    display: flex;
     padding: 10px 0;
 
     input{
@@ -146,7 +145,7 @@
         @include container();
           padding-top: 50px;
           justify-content: center;
-          display: none;
+      
         
           .area-card{
               margin: 30px 10px;
@@ -198,10 +197,7 @@
           }
           }
 }
-  
-
 .page-number-computer{
-
     margin: auto;
     display: flex ;
     justify-content: center;
@@ -220,19 +216,14 @@
         position: absolute;
         top: 0;
     }
-    .block{
-        
-        
-        transition: .5s;
-    }
 
-    h5{
-        font-weight: 800 !important;
-      }
     .focus{
         background-color: $red !important;
         color:$white !important;
         border-bottom: $red !important;
         transition: .5s;
+    }
+    a{
+        text-decoration: none;
     }
  
