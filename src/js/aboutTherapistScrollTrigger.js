@@ -20,9 +20,9 @@ gsap.registerPlugin(ScrollTrigger);
             start: "center 70%",
             end: "center 20%",
         },
-        x: 250,
+        x: 100,
         stagger: 0.2,
-        duration: 1.2,
+        duration: 1,
         delay: 0.2,
         opacity: 0,
         ease: "back"
@@ -34,9 +34,9 @@ gsap.registerPlugin(ScrollTrigger);
             start: "center 70%",
             end: "center 20%",
         },
-        duration: 1.2,
-        delay: 1,
-        x:200,
+        duration: 1,
+        delay: 1.2,
+        x: 100,
         opacity: 0,
         ease: "back"
     });
@@ -61,9 +61,9 @@ gsap.registerPlugin(ScrollTrigger);
             start: "center 70%",
             end: "center 20%",
         },
-        x: 250,
+        x: 100,
         stagger: 0.2,
-        duration: 1.2,
+        duration: 1,
         delay: 0.2,
         opacity: 0,
         ease: "back"
@@ -75,16 +75,16 @@ gsap.registerPlugin(ScrollTrigger);
             start: "center 70%",
             end: "center 20%",
         },
-        duration: 1.2,
+        duration: 1,
         delay: 1,
-        x:200,
+        x: 100,
         opacity: 0,
         ease: "back"
     });    
 
 
 
-// ========================================按摩師 1
+// ========================================按摩師 3
     gsap.from(".frame_three",{
         scrollTrigger: {
             trigger: ".frame_three",
@@ -104,9 +104,9 @@ gsap.registerPlugin(ScrollTrigger);
             start: "center 70%",
             end: "center 20%",
         },
-        x: 250,
+        x: 100,
         stagger: 0.2,
-        duration: 1.2,
+        duration: 1,
         delay: 0.2,
         opacity: 0,
         ease: "back"
@@ -118,9 +118,9 @@ gsap.registerPlugin(ScrollTrigger);
             start: "center 70%",
             end: "center 20%",
         },
-        duration: 1.2,
+        duration: 1,
         delay: 1,
-        x:200,
+        x: 100,
         opacity: 0,
         ease: "back"
     });    
@@ -146,9 +146,9 @@ gsap.registerPlugin(ScrollTrigger);
             start: "center 70%",
             end: "center 20%",
         },
-        x: 250,
+        x: 100,
         stagger: 0.2,
-        duration: 1.2,
+        duration: 1,
         delay: 0.2,
         opacity: 0,
         ease: "back"
@@ -160,9 +160,9 @@ gsap.registerPlugin(ScrollTrigger);
             start: "center 70%",
             end: "center 20%",
         },
-        duration: 1.2,
-        delay: 1.2,
-        x:200,
+        duration: 1,
+        delay: 1,
+        x: 100,
         opacity: 0,
         ease: "back"
     });
