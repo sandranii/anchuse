@@ -1,27 +1,6 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// ===========================================掉下來滾出去
-    // gsap.timeline({
-    //     scrollTrigger: {
-    //         trigger: ".frame_one",
-    //         start: "center 70%",
-    //         end: "center 20%",
-    //     },
-    // })
-    // .from(".frame_one",{
-    //     y:-400,
-    //     duration: 1.6,
-    //     opacity: 0,
-    //     ease: "bounce"
-    // })
-    // .to(".frame_one",{
-    //     x:-800,
-    //     rotate: -360,
-    //     duration: 3,
-    //     ease: "linear"
-    // });
-
-
+// ========================================按摩師 1
     gsap.from(".frame_one",{
         scrollTrigger: {
             trigger: ".frame_one",
@@ -29,16 +8,15 @@ gsap.registerPlugin(ScrollTrigger);
         },
         x: -300,
         rotation: -45,
-        // y: -500,
         duration: 2,
         opacity: 0,
-        ease: "bounce"
+        ease: "back"
     });
 
 
     gsap.from(".text_one p",{
         scrollTrigger: {
-            trigger: ".container_1",
+            trigger: ".container_one",
             start: "center 70%",
             end: "center 20%",
         },
@@ -52,57 +30,139 @@ gsap.registerPlugin(ScrollTrigger);
 
     gsap.from(".btnLittle_one",{
         scrollTrigger: {
-            trigger: ".container_1",
+            trigger: ".container_one",
             start: "center 70%",
             end: "center 20%",
         },
-        duration: 1,
+        duration: 1.2,
         delay: 1,
         x:200,
         opacity: 0,
-        ease: "bounce"
+        ease: "back"
     });
 
-// ========================================圖片文字做交換(雙節點)
-    // gsap.fromTo(
-    //     ".frame_one",
-    //     {
-    //       x: -375,
-    //       opacity: 0
-    //     },
-    //     {
-    //       x: 0,
-    //       opacity: 1,
-    //       ease: "back",
-    //       duration: 2,
-    //       scrollTrigger: {
-    //         trigger: ".frame_one",
-    //         start: "center 70%",
-    //         end: "center 20%",
-    //         toggleActions: "restart pasue resume none"
-    //       }
-    //     },
-    //     0.2
-    //   );
-      
-    //   gsap.fromTo(
-    //     ".frame_one",
-    //     {
-    //       x: 0,
-    //       opacity: 1
-    //     },
-    //     {
-    //       x: 600,
-    //     //   opacity: 0,
-    //       ease: "power4",
-    //       duration: 4,
-    //       scrollTrigger: {
-    //         trigger: ".frame_one",
-    //         // start: "center -= 300px",
-    //         start: "center+=300px 70%",
-    //         end: "center 20%",
-    //         markers: "true",
-    //         toggleActions: "restart pasue resume none"
-    //       }
-    //     }
-    //   );
+// ========================================按摩師 2
+    gsap.from(".frame_two",{
+        scrollTrigger: {
+            trigger: ".frame_two",
+            start: "30% center",
+        },
+        x: -300,
+        rotation: -45,
+        duration: 2,
+        opacity: 0,
+        ease: "back"
+    });
+
+
+    gsap.from(".text_two p",{
+        scrollTrigger: {
+            trigger: ".container_two",
+            start: "center 70%",
+            end: "center 20%",
+        },
+        x: 250,
+        stagger: 0.2,
+        duration: 1.2,
+        delay: 0.2,
+        opacity: 0,
+        ease: "back"
+    });
+
+    gsap.from(".btnLittle_two",{
+        scrollTrigger: {
+            trigger: ".container_two",
+            start: "center 70%",
+            end: "center 20%",
+        },
+        duration: 1.2,
+        delay: 1,
+        x:200,
+        opacity: 0,
+        ease: "back"
+    });    
+
+
+
+// ========================================按摩師 1
+    gsap.from(".frame_three",{
+        scrollTrigger: {
+            trigger: ".frame_three",
+            start: "30% center",
+        },
+        x: -300,
+        rotation: -45,
+        duration: 2,
+        opacity: 0,
+        ease: "back"
+    });
+
+
+    gsap.from(".text_three p",{
+        scrollTrigger: {
+            trigger: ".container_three",
+            start: "center 70%",
+            end: "center 20%",
+        },
+        x: 250,
+        stagger: 0.2,
+        duration: 1.2,
+        delay: 0.2,
+        opacity: 0,
+        ease: "back"
+    });
+
+    gsap.from(".btnLittle_three",{
+        scrollTrigger: {
+            trigger: ".container_three",
+            start: "center 70%",
+            end: "center 20%",
+        },
+        duration: 1.2,
+        delay: 1,
+        x:200,
+        opacity: 0,
+        ease: "back"
+    });    
+
+
+// ========================================按摩師 4
+    gsap.from(".frame_four",{
+        scrollTrigger: {
+            trigger: ".frame_four",
+            start: "30% center",
+        },
+        x: -300,
+        rotation: -45,
+        duration: 2,
+        opacity: 0,
+        ease: "back"
+    });
+
+
+    gsap.from(".text_four p",{
+        scrollTrigger: {
+            trigger: ".container_four",
+            start: "center 70%",
+            end: "center 20%",
+        },
+        x: 250,
+        stagger: 0.2,
+        duration: 1.2,
+        delay: 0.2,
+        opacity: 0,
+        ease: "back"
+    });
+
+    gsap.from(".btnLittle_four",{
+        scrollTrigger: {
+            trigger: ".container_four",
+            start: "center 70%",
+            end: "center 20%",
+        },
+        duration: 1.2,
+        delay: 1.2,
+        x:200,
+        opacity: 0,
+        ease: "back"
+    });
