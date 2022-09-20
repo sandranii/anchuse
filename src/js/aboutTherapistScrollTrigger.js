@@ -31,10 +31,10 @@ gsap.registerPlugin(ScrollTrigger);
         scrollTrigger: {
             trigger: ".container_1",
             start: "36% center",
-            markers: true
+            // markers: true
         },
         duration: 0.8,
-        delay: 1.2,
+        delay: 1,
         scale: 0,
         ease: "back"
     });
