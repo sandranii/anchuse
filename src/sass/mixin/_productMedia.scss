@@ -1,5 +1,3 @@
-
-    
     @media screen and (min-width:1200px) {
         .bread{
             padding: 10px;
@@ -14,7 +12,13 @@
             .product-body{
                 width: 45%;
             }
-       
+            .product-name{
+                display: flex;
+            }
+            .product-txt{
+                text-align: left;
+          
+            }
             .product-pic{
                 width: 45%;
             }
@@ -27,13 +31,14 @@
                 display: none ;
                 justify-content: space-evenly;
                 margin: auto;
-        
+             
                 .pic-number{
                     font-size: 0px;
                     width: 10px;
                     height: 10px;
                     border-radius: 50%;
                     background-color: gray;
+        
                 }
             }
             .pic-slide{

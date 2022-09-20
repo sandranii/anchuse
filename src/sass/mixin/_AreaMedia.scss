@@ -1,6 +1,6 @@
 
 
-    @media screen and (min-width:768px) {
+    @media screen and (min-width:1200px) {
 
         .commodity-container{
             padding-top: 50px;
@@ -74,8 +74,8 @@
             }
             // ==========================
             .wrap{
-                display: block ;
-                height: 100vh ;;
+                
+                height: 100vh ;
                 .area-box{
                     @include container();
                     height: 100vh;
