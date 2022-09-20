@@ -2,7 +2,6 @@
 
 .title_area {
     @include container();
-    margin-top: 70px;
     margin-bottom: 70px;
     .sure_title {
         @include container();
