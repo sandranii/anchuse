@@ -1,11 +1,15 @@
 .product-title{
     @include container();
     line-height: 3;
+    
     .bread{
         padding: 10px;
         font-size: 16px;
     }
     .product-name{
+        text-align: center;
+    }
+    .product-txt{
         text-align: center;
     }
     .product-pic{
