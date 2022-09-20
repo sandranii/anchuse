@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,940 +8,1001 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
-    
+
     <div class="background-pic">
         <img src="./images/bcgFlower.png" alt="">
+    </div>
+
+    <div id="app" style="margin-bottom:700px">
+        @@include('./layout/header.html')
+        <div class="bread">
+            <a href="./index.html">首頁</a>><a href="./shopingArea.html">商品專區</a>><a href="./productdetails.html">詳細資訊</a>
+        </div>
+        <div class="product-title">
+
+            <div class="product-pic" :class="{light:value==page}">
+                <!-- <img :src="item.img" > -->
+                <img :src="product.img" v-if="page==0">
+                <img :src="product.imgTop" v-if="page==1">
+                <img :src="product.imgBody" v-if="page==2">
+                <div class="pic-slide">
+                    <button @click="prev()">
+                        </button>
+                            <div class="pic-chose">
+                                <img v-show="product.img" :src="product.img" alt="" :class="{light:page==0}" @click="changePhoto(0)">
+                                <img v-show="product.imgTop" :src="product.imgTop" alt="" :class="{light:page==1}" @click="changePhoto(1)">
+                                <img  v-show="product.imgBody" :src="product.imgBody" alt="" :class="{light:page==2}" @click="changePhoto(2)">
+
+                            </div>
+
+                            <button @click="next()">></button>
+                </div>
+            </div>
+
+
+            <div class="pic-control">
+                <div class="pic-number" v-for="(i,value) in 3" :class="{active:page==i-1}" @click="changePic(i)">{{i-1}}
+                </div>
+
+            </div>
+
+
+
+            <div class="product-body">
+                <div class="product-name">
+                    <h2>{{product.name}}</h2>
+                </div>
+
+                <div class="product-price">
+                    <p>售價:{{product.price}}元</p>
+                </div>
+                <div class="product-introduce">
+                    <div class="product-txt">
+                        <p>品牌:{{product.logo}}</p>
+                        <ul>
+                            <li>💓{{product.product1}}</li>
+                            <li>💓{{product.product2}}</li>
+                            <li>💓{{product.product3}}</li>
+                        </ul>
+
+                    </div>
+                    <div class="product-number">
+                        <button @click="addNum">+</button>
+                        <input type="text" v-model="product.num">
+                        <button @click="reduceNum">-</button>
+                    </div>
+                    <div class="product-addcar">
+                        <button class="btnLarge" @click="addCar">加入購物車</button>
+                        <a href="./shoppingCart.html"><button class="btnLarge  redBtn"
+                                @click="direct">直接購買</button> </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-        <div id="app">
-            <div class="bread">
-                <p>首頁>商品專區>按摩精油>薰衣草</p>
-            </div>
-            <div class="product-title">
-            
-                <div class="product-pic" v-for="item in order" :class="{light:value==page}">
-                    <!-- <img :src="item.img" > -->
-                    <img :src="item.img" v-if ="page==0">
-                    <img :src="item.imgTop" v-if ="page==1">
-                    <img :src="item.imgBody" v-if ="page==2">
-                    <div class="pic-slide" >
-                        <button @click="prev()"><</button>
-                        <div class="pic-chose" v-for="(item,index) in order">              
-                            <img  :src="item.img" alt="" :class="{light:page==0}" @click="changePhoto(0)">
-                            <img  :src="item.imgTop" alt="" :class="{light:page==1}" @click="changePhoto(1)">
-                            <img  :src="item.imgBody" alt="" :class="{light:page==2}" @click="changePhoto(2)">
-            
-                        </div>
-                    
-                        <button @click="next()">></button>
-                    </div>
+
+
+        <!-- ================================================ -->
+        <div class="illustrate col-12">
+            <div class="illustrate-chose ">
+                <div class="illustrate-order" @click="changeRule" :class="{color:rule}">
+                    <h4>規格說明</h4>
                 </div>
-            
-
-                <div class="pic-control" >
-                    <div class="pic-number" v-for="(i,value) in 3" :class="{active:page==i-1}" 
-                    @click="changePic(i)">{{i-1}}</div>
-                    
+                <div class="illustrate-order" @click="changeNotice" :class="{color:precautions}">
+                    <h4>產品特色</h4>
                 </div>
-
-            
-
-                <div class="product-body" v-for="item in order" :key="item.id">
-                    <div class="product-name" >
-                        <h2>{{item.name}}</h2>
-                    </div>
-            
-                    <div class="product-price"  >
-                        <p>售價:{{item.price}}元</p>
-                    </div>
-                    <div class="product-introduce">
-                        <div class="product-txt">
-                            <p>品牌:{{item.logo}}</p>
-                            <ul>
-                                <li>💓{{item.product1}}</li>
-                                <li>💓{{item.product2}}</li>
-                                <li>💓{{item.product3}}</li>
-                            </ul>
-            
-                        </div>
-                        <div class="product-number">
-                            <button @click="addNum(item)">+</button>
-                            <input type="text" v-model="item.num">
-                            <button  @click="reduceNum(item)">-</button>
-                        </div>
-                        <div class="product-addcar">
-                            <button  class="btnLarge"  @click="addCar(item.id,item)">加入購物車</button>
-                            <a href="./shoppingCart.html"><button   class="btnLarge  redBtn" @click="direct(item.id,item)">直接購買</button> </a>
-                        </div>
-                    </div>
-            
+                <div class="illustrate-order" @click="changePickUp" :class="{color:pickUp}">
+                    <h4>取貨問題</h4>
+                </div>
+                <div class="illustrate-order" @click="changeComment" :class="{color:comment}">
+                    <h4>退貨須知</h4>
                 </div>
             </div>
 
+            <div class="illustrate-txt " v-if="article==1" width="600">
+                <table border="1" width="100%">
+                    <tr>
+                        <th>商品名稱</th>
+                        <th>{{product.name}}</th>
+                    </tr>
+                    <tr>
+                        <th>品牌</th>
+                        <th>{{product.brand}}</th>
+                    </tr>
+                    <tr>
+                        <th>尺寸</th>
+                        <th>{{product.size}}</th>
+                    </tr>
+                    <tr>
+                        <th>顏色</th>
+                        <th>{{product.color}}</th>
+                    </tr>
+                    <tr>
+                        <th>類別</th>
+                        <th style="border-bottom: none;">{{product.type}}</th>
+                    </tr>
+                    <tr>
+                        <th>產地</th>
+                        <th>{{product.origin}}</th>
+                    </tr>
+                </table>
+            </div>
 
-        
-            <!-- ================================================ -->
-            <div class="illustrate col-12">
-                <div class="illustrate-chose ">
-                    <div class="illustrate-order" @click="changeRule":class="{color:rule}">
-                        <h4>規格說明</h4>
-                    </div>
-                    <div class="illustrate-order" @click="changeNotice" :class="{color:precautions}">
-                        <h4>產品特色</h4>
-                    </div>
-                    <div class="illustrate-order" @click="changePickUp":class="{color:pickUp}">
-                        <h4>取貨問題</h4>
-                    </div>
-                    <div class="illustrate-order" @click="changeComment" :class="{color:comment}">
-                        <h4>退貨須知</h4>
-                    </div>
-                </div>
+            <div class="illustrate-txt" v-if="article==2" style="font-weight:800;letter-spacing:3px;">
 
-                <div class="illustrate-txt " v-if="article==1"  width="600">
-                    <table border="1" width="100%">
-                        <tr >
-                            <th>商品名稱</th>
-                            <th>{{product.name}}</th>
-                        </tr>
-                        <tr>
-                            <th>品牌</th>
-                            <th>{{product.brand}}</th>
-                        </tr>
-                        <tr>
-                            <th>尺寸</th>
-                            <th>{{product.size}}</th>
-                        </tr>
-                        <tr>
-                            <th>顏色</th>
-                            <th>{{product.color}}</th>
-                        </tr>
-                        <tr>
-                            <th>類別</th>
-                            <th style="border-bottom: none;">{{product.type}}</th>
-                        </tr>
-                        <tr>
-                            <th>產地</th>
-                            <th>{{product.origin}}</th>
-                        </tr>
-                    </table>
-                </div>
-
-                <div class="illustrate-txt" v-if="article==2" style="font-weight:800;letter-spacing:3px;" >
-               
-                <p  style="font-size:25px">{{special.one}}</p>
+                <p style="font-size:25px">{{special.one}}</p>
                 <p style="font-size:25px">{{special.two}}</p>
                 <p style="font-size:25px">{{special.three}}</p>
                 <p style="font-size:25px">{{special.four}}</p>
                 <p style="font-size:25px">{{special.five}}</p>
                 <p style="font-size:25px">{{special.six}}</p>
                 <p style="font-size:25px">{{special.seven}}</p>
-                </div>
+            </div>
 
-                <div class="illustrate-txt" v-if="article==3">
+            <div class="illustrate-txt" v-if="article==3">
                 <p>※使用前請務必充飽電再使用※ </p>
-                <p>※請將當筆訂單所有之商品、贈品寄送至 '' 台中市豐原大道一段647號  葵柏兒  04-2313-8558 轉422 '' </p>
+                <p>※請將當筆訂單所有之商品、贈品寄送至 '' 台中市豐原大道一段647號 葵柏兒 04-2313-8558 轉422 '' </p>
                 <p>※若非商品問提退貨之運費，請消費者自行吸收。</p>
                 <p>※退回之商品內容必須保維持所有商品、贈品、附件、包裝、附隨文件或資料的完整性</p>
                 <p>※退貨須連同發票一併退回，若沒有提供發票，恕不退還現金</p>
-                
-                    
-                </div>
 
-                <div class="illustrate-txt" v-if="article==4">
-                    <p>※須於訂單商品送達後14日內申請 </p>
-                    <p>※ 此商品僅配送一樓，謝謝 ※</p>
-                    <p>※ 請將此平台的購買證明印出 或 發票 與保固卡一起保存，即可視為保證章，享保固服務</p>
-                    <p>※ 因拍攝與實品略有色差，圖片僅供參考，請以實際收到商品為準</p>
-                    <p>※ 以上規格資料若與原廠資料有所出入，以原廠官方所公佈資料為準</p>
-                    <p>※鑑賞期非試用期，此商品不開放試用，請見諒；一經拆封使用，將影響退貨權限，如需退換貨請保持商品與其包裝之完整</p> 
-                    <p>   ※退換貨時商品必須是全新狀態(不得有刮傷或人為的破壞)，並有完整的包裝，包含外紙箱、配件紙箱、保麗龍、保護袋、贈品等及所有附隨文件之完整。若上述之包裝或配件不完整者，需負擔整修費用。</p>
-                    <p>    ※ 此商品僅配送一樓，謝謝！</p>
-                    <p> ※ 此商品只限台灣本島運送，偏遠地區無法配送，請見諒！</p>
-                </div>
+
+            </div>
+
+            <div class="illustrate-txt" v-if="article==4">
+                <p>※須於訂單商品送達後14日內申請 </p>
+                <p>※ 此商品僅配送一樓，謝謝 ※</p>
+                <p>※ 請將此平台的購買證明印出 或 發票 與保固卡一起保存，即可視為保證章，享保固服務</p>
+                <p>※ 因拍攝與實品略有色差，圖片僅供參考，請以實際收到商品為準</p>
+                <p>※ 以上規格資料若與原廠資料有所出入，以原廠官方所公佈資料為準</p>
+                <p>※鑑賞期非試用期，此商品不開放試用，請見諒；一經拆封使用，將影響退貨權限，如需退換貨請保持商品與其包裝之完整</p>
+                <p> ※退換貨時商品必須是全新狀態(不得有刮傷或人為的破壞)，並有完整的包裝，包含外紙箱、配件紙箱、保麗龍、保護袋、贈品等及所有附隨文件之完整。若上述之包裝或配件不完整者，需負擔整修費用。</p>
+                <p> ※ 此商品僅配送一樓，謝謝！</p>
+                <p> ※ 此商品只限台灣本島運送，偏遠地區無法配送，請見諒！</p>
             </div>
         </div>
+    </div>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <!-- ================================== -->
+    <footer>
+        <nav>
+            <div class="footer_content">
+                <div class="follow">
+                    <a href="./index.html" class="footer_logo"><img src="./images/footerLogo.png" alt=""></a>
+                    <div class="social">
+                        <a href=""><img src="./images/footerIG.png" alt=""></a>
+                        <a href=""><img src="./images/footerFB.png" alt=""></a>
+                        <a href=""><img src="./images/footerLine.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="time">
+                    <h4>&thinsp;營業時間</h4>
+                    <p>週一至週日 早上10:00 - 晚上10:00</p>
+                </div>
+                <div class="contact">
+                    <h4>&thinsp;聯絡我們</h4>
+                    <p>新竹市南區光復北路94巷87號</p>
+                    <p>03-5315492</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>本網站為緯育TibaMe_前端設計工程師班第77期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。
+                </p>
+                <br>
+                <p>© Copyright _anchuse. All Rights Reserved.</p>
+            </div>
+        </nav>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
 
 
 
-<script>
-    Vue.createApp({
-       data(){
-           return{
-                data:[],
-                order:[],
-                car:[],
-                product:[],
-                special:[],
-                page:0,
-                article:1,
-                rule:true,
-                precautions:false,
-                pickUp:false,
-                comment:false,
-                title:"*",
-                secondGun:[
-
-{
-"id":7,
-"itemName": "按摩槍",
-"img":"./images/Fujitek .png",
-"imgTop":"./images/Fujitek 1.png",
-"imgBody":"./images/Fujitek 2.png",
-"name":"感應式隨行筋膜槍",
-"origin":"台灣",
-"num":0,
-"price":1999,
-"logo":"Erugam",
-"date":11/15,
-"checkout":"貨到付款/線上支付/",
-"warranty":"1年",
-"product1":"4檔力道/4款更換頭",
-"product2":"USB快速充電",
-"product3":"智慧控制按摩力道",
-
-"specification":{
-
-            "name":"感應式隨行筋膜槍",
-            "brand":"其他",
-            "type":"按摩槍",
-            "color":"草莓牛奶",
-            "size":"W65xH65xD65mm",
-            "origin":"台灣"
-    },
-"feature":{
-    "one":" 無線5V",
-    "two":"  8MM深層筋膜震感 ",
-    "three":" 710克輕巧機身",
-    "four":" USB充",
-    "five":"日本設計，台灣製造",
-    "six":"2400mAh內置電池",
-    "seven":"直擊痛點促進血液循環"
-    }
-
-
-},
-{
-"id":8,
-"itemName": "按摩槍",
-"img":"./images/Hyperice.png",
-"imgTop":"./images/Hyperice1.png",
-"name":"無線震動按摩槍",
-"origin":"美國",
-"num":0,
-"price":1550,
-"logo":"Hyperice",
-"date":11/15,
-"checkout":"貨到付款/線上支付/",
-"warranty":"1年",
-"product1":"採用專利靜音科技",
-"product2":"搭載壓力感測技術",
-"product3":"五段速控制",
-
-"specification":{
-
-            "name":"無線震動按摩槍",
-            "brand":"其他",
-            "type":"按摩棒/按摩器",
-            "color":"青綠色",
-            "size":"112 x 49 x 159mm",
-            "origin":"美國"
-    },
-"feature":{
-    "one":" 3無線110V",
-    "two":"  電池類型：18650 ",
-    "three":" 710克輕巧機身",
-    "four":" 電池容量：1,800 mAh",
-    "five":"3000轉高速捶打",
-    "six":"每天按摩8分鐘, 可續航23天",
-    "seven":"運作低噪，不吵鄰"
-    }
-
-
-},
-
-],
-obj:{
-
-gun:[
-{
-"id":1,
-"itemName": "按摩槍",
-"img":"./images/japan.png",
-"imgTop":"./images/activity.png",
-"imgBody":"./images/pinkhun.png",
-"name":"無線震動按摩槍",
-"origin":"美國",
-"num":0,
-"price":1250,
-"logo":"Full",
-"date":11/15,
-"checkout":"貨到付款/線上支付/",
-"warranty":"1年",
-"product1":"六段按摩強度調整功能",
-"product2":"四種按摩頭",
-"product3":"USB充電",
-
-"specification":{
-
-        "name":"無線震動按摩槍",
-        "brand":"其他",
-        "type":"按摩棒/按摩器",
-        "color":"青綠色",
-        "size":"(寬)168x (深)65x (高)235 mm",
-        "origin":"美國"
-},
-"feature":{
-"one":" 38段檔位調節，男女老少都試用",
-"two":"  8MM深層筋膜震感 ",
-"three":" 710克輕巧機身",
-"four":" USB充",
-"five":"3000轉高速捶打",
-"six":"2400mAh內置電池",
-"seven":"運作低噪，不吵鄰"
-}
-
-
-},
-{
-"id":2,
-"itemName": "按摩槍",
-"img":"./images/fire.png",
-"imgTop":null,
-"imgBody":null,
-"name":"火星計畫",
-"origin":"日本",
-"num":0,
-"price":1910,
-"logo":"Full",
-"date":3/21,
-"checkout":"貨到付款/線上支付/",
-"warranty":"2年",
-"product1":"市場同級最輕，9mm迷你",
-"product2":"350g輕盈隨行，收納好輕巧",
-"product3":"防手震專利，防震結構再升級",
-
-"specification":{
-
-        "name":"火星計畫",
-        "brand":"其他",
-        "type":"按摩棒/按摩器",
-        "color":"暗黑色",
-        "size":"(寬)178x (深)61x (高)225 mm",
-        "origin":"日本"
-},
-"feature":{
-"one":" 36段檔位調節，男女老少都試用",
-"two":"  8MM深層筋膜震感 ",
-"three":" 710克輕巧機身",
-"four":" USB充",
-"five":"3000轉高速捶打",
-"six":"2400mAh內置電池",
-"seven":"運作低噪，不吵鄰"
-}
-
-
-},
-{
-"id":3,
-"itemName": "按摩槍",
-"img":"./images/usb.png",
-"imgTop":"./images/usb2.png",
-"imgBody":"./images/usb3.png",
-"name":"NEX Pro便攜型",
-"origin":"中國",
-"num":0,
-"price":1310,
-"logo":"Full",
-"date":4/1,
-"checkout":"貨到付款/線上支付/",
-"warranty":"2年",
-"product1":"重量僅550G，隨身攜帶好方便",
-"product2":"100% 金屬高密度塑料製成",
-"product3":"航空級鋁材雙軸，降低手震",
-
-"specification":{
-
-        "name":"NEX Pro便攜型",
-        "brand":"其他",
-        "type":"按摩棒/按摩器",
-        "color":"紅黑色",
-        "size":"16.5X9.1X4.8cm",
-        "origin":"中國"
-},
-"feature":{
-"one":" 材質:鋁合金, 不銹鋼, 玻璃纖維,",
-"two":"  充電時間:６小時 ",
-"three":" 最高轉速:3500ppm(Max)",
-"four":" USB充",
-"five":"3000轉高速捶打",
-"six":"2400mAh內置電池",
-"seven":"運作低噪，不吵鄰"
-}
-
-},
-{
-"id":4,
-"itemName": "按摩槍",
-"img":"./images/mini.png",
-"imgTop":"./images/mini1.png",
-"imgBody":"./images/mini2.png",
-"name":"玩美小摩",
-"origin":"澳洲",
-"num":0,
-"price":1910,
-"logo":"Full",
-"date":7/15,
-"checkout":"貨到付款/線上支付/",
-"warranty":"2年",
-"product1":"4款可替換按摩頭",
-"product2":"無碳刷馬達減震設計",
-"product3":"500g零負擔",
-
-"specification":{
-
-        "name":"玩美小摩",
-        "brand":"其他",
-        "type":"按摩棒/按摩器",
-        "color":"時尚粉",
-        "size":"尺寸：長155x寬88x高45(mm)",
-        "origin":"澳洲"
-},
-"feature":{
-"one":" 型號：TS-136",
-"two":"  輸入電壓：DC5V 2A",
-"three":" 710克輕巧機身",
-"four":" 額定功率：20W",
-"five":"3000轉高速捶打",
-"six":"2400mAh內置電池",
-"seven":"運作低噪，不吵鄰"
-}
-
-
-},
-{
-"id":5,
-"itemName": "按摩槍",
-"img":"./images/knock.png",
-"imgTop":"./images/knock1.png",
-"name":"敲敲小摩",
-"origin":"日本",
-"num":0,
-"price":1910,
-"logo":"Full",
-"date":2/5,
-"checkout":"貨到付款/線上支付/",
-"warranty":"2年",
-"product1":"MIT台灣研發設計、製造。",
-"product2":"採用日系高品質電芯",
-"product3":"470g 輕量小巧的體積",
-
-"specification":{
-
-        "name":"敲敲小摩",
-        "brand":"其他",
-        "type":"按摩棒/按摩器",
-        "color":"夕陽粉",
-        "size":"90.7 x 47 x 146.2 mm",
-        "origin":"日本"
-},
-"feature":{
-"one":" 四段震動檔數，每分鐘轉速 1600 / 2100 / 2700 / 3200 rpm",
-"two":"  電池容量2900mAh ",
-"three":" 710克輕巧機身",
-"four":" USB充",
-"five":"工業級PC / ABS",
-"six":"2400mAh內置電池"
-
-}
-
-
-},
-{
-"id":6,
-"itemName": "按摩槍",
-"img":"./images/rose.png",
-"imgTop":"./images/rose1.png",
-"imgBody":"./images/rose2.png",
-"name":"迷你震動按摩槍",
-"origin":"德國",
-"num":0,
-"price":1800,
-"logo":"Full",
-"date":12/25,
-"checkout":"貨到付款/線上支付/",
-"warranty":"2年",
-"product1":"無刷強磁馬達",
-"product2":"四種按摩頭",
-"product3":"九段震動調速",
-
-"specification":{
-
-        "name":"迷你震動按摩槍",
-        "brand":"其他",
-        "type":"按摩棒/按摩器",
-        "color":"玫瑰紅",
-        "size":"(寬)178x (深)61x (高)225 mm",
-        "origin":"德國"
-},
-"feature":{
-"one":" 無刷強磁馬達",
-"two":"  無刷馬達 ",
-"three":" 680克輕巧機身",
-"four":" 九段震動調速",
-"five":"輸入電壓/電流：DC 5V/2A(Max)",
-"six":"2400mAh內置電池",
-"seven":"運作低噪，不吵鄰"
-}
-
-
-}
-],  
-
-
-equipment:[
-{
-"id":9,
-"itemName": "按摩滾筒",
-"img":"./images/33cm.png",
-"imgTop":"./images/33cm01.png",
-"name":"33cm運動滾輪",
-"origin":"美國",
-"num":0,
-"price":150,
-"logo":"QMAT",
-"date":8/15,
-"checkout":"貨到付款/線上支付/",
-"warranty":"2年",
-"product1":"腿部乳酸堆積舒緩，拒絕蘿蔔腿",
-"product2":"運動後緩解肌肉痠痛，深層按摩",
-"product3":"需長期久站工作者改善靜脈曲張",
-
-"specification":{
-
-        "name":"33cm運動滾輪",
-        "brand":"其他",
-        "type":"按摩滾筒",
-        "color":"粉紫銀河",
-        "size":"直徑13cmx33cm",
-        "origin":"日本"
-},
-"feature":{
-"one":"不可曝曬, 不可用清潔劑清洗",
-"two":" 抗汗、不易凹陷回復性佳、使用壽命久 ",
-"three":" 約600g(±5g)",
-"four":" 表面硬度40-45度，內部硬度60 shore c",
-"five":"3000轉高速捶打",
-
-},
-},
-{
-
-"id":10,
-"itemName":"按摩滾筒",
-"img":"./images/Eco.png",
-"imgTop":"./images/Eco1.png",
-"name":"環保EVA空心瑜珈柱",
-"origin":"美國",
-"num":0,
-"price":120,
-"logo":"Full",
-"date":2/15,
-"checkout":"貨到付款/線上支付/",
-"warranty":"3年",
-"product1":"3D立體結構模擬手感按壓",
-"product2":"預防運動損傷 促進血液循環",
-"product3":"舒緩肌肉酸痛疲 勞增進肌肉彈性",
-
-"specification":{
-
-        "name":"環保EVA空心瑜珈柱",
-        "brand":"其他",
-        "type":"按摩滾筒",
-        "color":"藍色",
-        "size":"直徑14cm*高33cm",
-        "origin":"美國"
-},
-"feature":{
-"one":" 優質EVA",
-"two":"  環保ABS ",
-"three":" 877g",
-"four":" 採手工測量，如有1~2cm誤差，皆屬正常範圍",
-"five":"3000轉高速捶打",
-"six":"可承重量：100kg內",
-}
-
-},
-{
-
-"id":11,
-"itemName": "按摩滾筒",
-"img":"./images/funsport.png",
-"imgTop":"./images/funsport1.png",
-"imgBody":"./images/funsport2.png",
-"name":"艾羅力筋膜按摩滾筒",
-"origin":"西班牙",
-"num":0,
-"price":1250,
-"logo":"Full",
-"date":11/15,
-"checkout":"貨到付款/線上支付/",
-"warranty":"1年",
-"product1":"筋膜放鬆按摩,健身運動配備",
-"product2":"輔助瑜珈伸展,復健伸展運用",
-"product3":"自力深層按摩",
-
-"specification":{
-
-        "name":"艾羅力筋膜按摩滾筒",
-        "brand":"其他",
-        "type":"按摩滾筒",
-        "color":"星夜藍",
-        "size":"長45x直徑15cm",
-        "origin":"西班牙"
-},
-"feature":{
-"one":" 硬度-30D",
-"two":"  材質-EVA ",
-"three":" 軟硬度:稍軟",
-"four":" USB充",
-"six":"2400mAh內置電池",
-"seven":"運作低噪，不吵鄰"
-}
-
-},
-{
-
-"id":12,
-"itemName": "按摩滾筒",
-"img":"./images/MEJEY.png",
-"name":"實心瑜珈軸",
-"origin":"台灣",
-"num":0,
-"price":250,
-"logo":"Full",
-"date":3/5,
-"checkout":"貨到付款/線上支付/",
-"warranty":"2年",
-"product1":"手感親膚,安心環保",
-"product2":"瑜珈按摩好幫手",
-"product3":"商品使用方式請參考網頁圖示說明",
-
-"specification":{
-
-        "name":"實心瑜珈軸",
-        "brand":"其他",
-        "type":"按摩滾筒",
-        "color":"粉灰色",
-        "size":":約44CMX12CM",
-        "origin":"台灣"
-},
-"feature":{
-"one":" MEJEY 按摩瑜珈軸",
-"two":" 升級款!! 實心按摩滾筒,不易變形 ",
-"three":"2種凸點,貼心設計不同體驗",
-"four":" 可用於腰部、腿部、背部、臀部等等,瑜珈按摩好幫手",
-"five":"手感親膚,安心環保",
-}
-
-},
-],
-
-ball:[
-{
-
-"id":13,
-"itemName": "按摩球",
-"img":"./images/ROAR.png",
-"imgTop":null,
-"name":"天然橡膠按摩球 ",
-"origin":"台灣",
-"num":0,
-"price":50,
-"logo":"INEXTION",
-"date":3/5,
-"checkout":"貨到付款/線上支付/",
-"warranty":"1年",
-"product1":"一組2種不同硬度的設計",
-"product2":"高密度天然橡膠材質",
-"product3":"提供體貼不同身體狀況的按壓強度",
-
-"specification":{
-
-        "name":"天然橡膠按摩球 ",
-        "brand":"其他",
-        "type":"按摩球",
-        "color":"粉灰色",
-        "size":":直徑 6.3cm",
-        "origin":"台灣"
-},
-"feature":{
-"one":" 硬度：淺藍 - 50D*1、天灰 - 65D*1",
-"two":" 重量：0.2kg ",
-"three":"材質：天然橡膠",
-"four":" 可用於腰部、腿部、背部、臀部等等,瑜珈按摩好幫手",
-"five":"手感親膚,安心環保",
-}
-
-},
-{
-"id":14,
-"itemName": "按摩球",
-"img":"./images/WE FIT.png",
-"imgTop":"./images/WE FIT1.png.png",
-"imgBody":"./images/WE FIT2.png.png",
-"name":"多功能筋膜按摩球 ",
-"origin":"美國",
-"num":0,
-"price":50,
-"logo":"INEXTION",
-"date":3/5,
-"checkout":"貨到付款/線上支付/",
-"warranty":"1年",
-"product1":"隨時隨地 舒爽放鬆",
-"product2":"固定底座 按摩更方便",
-"product3":"輕巧便攜",
-
-"specification":{
-
-        "name":"多功能筋膜按摩球 ",
-        "brand":"其他",
-        "type":"按摩球",
-        "color":"橘色",
-        "size":":直徑 6.3cm",
-        "origin":"美國"
-},
-"feature":{
-"one":" 輕巧便攜，不佔空間",
-"two":" 重量：1kg ",
-"three":"緩解肌肉痠痛，消除訓練後的疲勞",
-"four":" 可用於腰部、腿部、背部、臀部等等,瑜珈按摩好幫手",
-"five":"產品材質：熱塑性彈性體(TPE)",
-}
-
-},
-{
-"id":15,
-"itemName": "按摩球",
-"img":"./images/sport.png",
-"imgTop":"./images/sport1.png",
-"imgBody":"./images/sport2.png",
-"name":"康力爾花生球 ",
-"origin":"中國大陸",
-"num":0,
-"price":120,
-"logo":"Fun Sport",
-"date":7/5,
-"checkout":"貨到付款/線上支付/",
-"warranty":"1年",
-"product1":"符合人體工學弧形設計",
-"product2":"天然橡膠微彈性",
-"product3":"專業尺寸硬度",
-
-"specification":{
-
-        "name":"康力爾花生球 ",
-        "brand":"其他",
-        "type":"按摩球",
-        "color":"黑黃",
-        "size":":138x66mm／雙球65mm",
-        "origin":"中國大陸"
-},
-"feature":{
-"one":" 5合1新創醒肌按摩功能",
-"two":" 245g／雙球顆100g ",
-"three":"緩解肌肉痠痛，消除訓練後的疲勞",
-"four":" TPR橡膠、不鏽鋼、酒精（球內）",
-"five":"材質:橡膠",
-}
-
-},
-
-
-]
-}
-          
-           }
-       },
-       methods: {
-           commodityInfo(){
-        
-                   this.commodity = this.obj.gun
-                   this.product = this.order[0].specification
-                   this.special =this.order[0].feature
-                   console.log(this.order)
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    activeId: '',
+                    data: [],
+                    order: [],
+                    car: [],
+                    product: {},
+                    special: [],
+                    page: 0,
+                    article: 1,
+                    rule: true,
+                    precautions: false,
+                    pickUp: false,
+                    comment: false,
+                    title: "*",
                    
-           },
+                  
+                    secondGun: [
 
-           addCar(id,item){
-          
-                let index = this.order.findIndex(item=>{
-                return item.id===id
-                })
+                        {
+                            "id": 7,
+                            "itemName": "按摩槍",
+                            "img": "./images/Fujitek .png",
+                            "imgTop": "./images/Fujitek 1.png",
+                            "imgBody": "./images/Fujitek 2.png",
+                            "name": "感應式隨行筋膜槍",
+                            "origin": "台灣",
+                            "num": 0,
+                            "price": 1999,
+                            "logo": "Erugam",
+                            "date": 11 / 15,
+                            "checkout": "貨到付款/線上支付/",
+                            "warranty": "1年",
+                            "product1": "4檔力道/4款更換頭",
+                            "product2": "USB快速充電",
+                            "product3": "智慧控制按摩力道",
+
+                            "specification": {
+
+                                "name": "感應式隨行筋膜槍",
+                                "brand": "其他",
+                                "type": "按摩槍",
+                                "color": "草莓牛奶",
+                                "size": "W65xH65xD65mm",
+                                "origin": "台灣"
+                            },
+                            "feature": {
+                                "one": " 無線5V",
+                                "two": "  8MM深層筋膜震感 ",
+                                "three": " 710克輕巧機身",
+                                "four": " USB充",
+                                "five": "日本設計，台灣製造",
+                                "six": "2400mAh內置電池",
+                                "seven": "直擊痛點促進血液循環"
+                            }
+
+
+                        },
+                        {
+                            "id": 8,
+                            "itemName": "按摩槍",
+                            "img": "./images/Hyperice.png",
+                            "imgTop": "./images/Hyperice1.png",
+                            "name": "無線震動按摩槍",
+                            "origin": "美國",
+                            "num": 0,
+                            "price": 1550,
+                            "logo": "Hyperice",
+                            "date": 11 / 15,
+                            "checkout": "貨到付款/線上支付/",
+                            "warranty": "1年",
+                            "product1": "採用專利靜音科技",
+                            "product2": "搭載壓力感測技術",
+                            "product3": "五段速控制",
+
+                            "specification": {
+
+                                "name": "無線震動按摩槍",
+                                "brand": "其他",
+                                "type": "按摩棒/按摩器",
+                                "color": "青綠色",
+                                "size": "112 x 49 x 159mm",
+                                "origin": "美國"
+                            },
+                            "feature": {
+                                "one": " 3無線110V",
+                                "two": "  電池類型：18650 ",
+                                "three": " 710克輕巧機身",
+                                "four": " 電池容量：1,800 mAh",
+                                "five": "3000轉高速捶打",
+                                "six": "每天按摩8分鐘, 可續航23天",
+                                "seven": "運作低噪，不吵鄰"
+                            }
+
+
+                        },
+
+                    ],
+                    obj: {
+
+                        gun: [
+                            {
+                                "id": 1,
+                                "itemName": "按摩槍",
+                                "img": "./images/japan.png",
+                                "imgTop": "./images/activity.png",
+                                "imgBody": "./images/pinkhun.png",
+                                "name": "無線震動按摩槍",
+                                "origin": "美國",
+                                "num": 0,
+                                "price": 1250,
+                                "logo": "Full",
+                                "date": 11 / 15,
+                                "checkout": "貨到付款/線上支付/",
+                                "warranty": "1年",
+                                "product1": "六段按摩強度調整功能",
+                                "product2": "四種按摩頭",
+                                "product3": "USB充電",
+
+                                "specification": {
+
+                                    "name": "無線震動按摩槍",
+                                    "brand": "其他",
+                                    "type": "按摩棒/按摩器",
+                                    "color": "青綠色",
+                                    "size": "(寬)168x (深)65x (高)235 mm",
+                                    "origin": "美國"
+                                },
+                                "feature": {
+                                    "one": " 38段檔位調節，男女老少都試用",
+                                    "two": "  8MM深層筋膜震感 ",
+                                    "three": " 710克輕巧機身",
+                                    "four": " USB充",
+                                    "five": "3000轉高速捶打",
+                                    "six": "2400mAh內置電池",
+                                    "seven": "運作低噪，不吵鄰"
+                                }
+
+
+                            },
+                            {
+                                "id": 2,
+                                "itemName": "按摩槍",
+                                "img": "./images/fire.png",
+                                "imgTop": null,
+                                "imgBody": null,
+                                "name": "火星計畫",
+                                "origin": "日本",
+                                "num": 0,
+                                "price": 1910,
+                                "logo": "Full",
+                                "date": 3 / 21,
+                                "checkout": "貨到付款/線上支付/",
+                                "warranty": "2年",
+                                "product1": "市場同級最輕，9mm迷你",
+                                "product2": "350g輕盈隨行，收納好輕巧",
+                                "product3": "防手震專利，防震結構再升級",
+
+                                "specification": {
+
+                                    "name": "火星計畫",
+                                    "brand": "其他",
+                                    "type": "按摩棒/按摩器",
+                                    "color": "暗黑色",
+                                    "size": "(寬)178x (深)61x (高)225 mm",
+                                    "origin": "日本"
+                                },
+                                "feature": {
+                                    "one": " 36段檔位調節，男女老少都試用",
+                                    "two": "  8MM深層筋膜震感 ",
+                                    "three": " 710克輕巧機身",
+                                    "four": " USB充",
+                                    "five": "3000轉高速捶打",
+                                    "six": "2400mAh內置電池",
+                                    "seven": "運作低噪，不吵鄰"
+                                }
+
+
+                            },
+                            {
+                                "id": 3,
+                                "itemName": "按摩槍",
+                                "img": "./images/usb.png",
+                                "imgTop": "./images/usb2.png",
+                                "imgBody": "./images/usb3.png",
+                                "name": "NEX Pro便攜型",
+                                "origin": "中國",
+                                "num": 0,
+                                "price": 1310,
+                                "logo": "Full",
+                                "date": 4 / 1,
+                                "checkout": "貨到付款/線上支付/",
+                                "warranty": "2年",
+                                "product1": "重量僅550G，隨身攜帶好方便",
+                                "product2": "100% 金屬高密度塑料製成",
+                                "product3": "航空級鋁材雙軸，降低手震",
+
+                                "specification": {
+
+                                    "name": "NEX Pro便攜型",
+                                    "brand": "其他",
+                                    "type": "按摩棒/按摩器",
+                                    "color": "紅黑色",
+                                    "size": "16.5X9.1X4.8cm",
+                                    "origin": "中國"
+                                },
+                                "feature": {
+                                    "one": " 材質:鋁合金, 不銹鋼, 玻璃纖維,",
+                                    "two": "  充電時間:６小時 ",
+                                    "three": " 最高轉速:3500ppm(Max)",
+                                    "four": " USB充",
+                                    "five": "3000轉高速捶打",
+                                    "six": "2400mAh內置電池",
+                                    "seven": "運作低噪，不吵鄰"
+                                }
+
+                            },
+                            {
+                                "id": 4,
+                                "itemName": "按摩槍",
+                                "img": "./images/mini.png",
+                                "imgTop": "./images/mini1.png",
+                                "imgBody": "./images/mini2.png",
+                                "name": "玩美小摩",
+                                "origin": "澳洲",
+                                "num": 0,
+                                "price": 1910,
+                                "logo": "Full",
+                                "date": 7 / 15,
+                                "checkout": "貨到付款/線上支付/",
+                                "warranty": "2年",
+                                "product1": "4款可替換按摩頭",
+                                "product2": "無碳刷馬達減震設計",
+                                "product3": "500g零負擔",
+
+                                "specification": {
+
+                                    "name": "玩美小摩",
+                                    "brand": "其他",
+                                    "type": "按摩棒/按摩器",
+                                    "color": "時尚粉",
+                                    "size": "尺寸：長155x寬88x高45(mm)",
+                                    "origin": "澳洲"
+                                },
+                                "feature": {
+                                    "one": " 型號：TS-136",
+                                    "two": "  輸入電壓：DC5V 2A",
+                                    "three": " 710克輕巧機身",
+                                    "four": " 額定功率：20W",
+                                    "five": "3000轉高速捶打",
+                                    "six": "2400mAh內置電池",
+                                    "seven": "運作低噪，不吵鄰"
+                                }
+
+
+                            },
+                            {
+                                "id": 5,
+                                "itemName": "按摩槍",
+                                "img": "./images/knock.png",
+                                "imgTop": "./images/knock1.png",
+                                "name": "敲敲小摩",
+                                "origin": "日本",
+                                "num": 0,
+                                "price": 1910,
+                                "logo": "Full",
+                                "date": 2 / 5,
+                                "checkout": "貨到付款/線上支付/",
+                                "warranty": "2年",
+                                "product1": "MIT台灣研發設計、製造。",
+                                "product2": "採用日系高品質電芯",
+                                "product3": "470g 輕量小巧的體積",
+
+                                "specification": {
+
+                                    "name": "敲敲小摩",
+                                    "brand": "其他",
+                                    "type": "按摩棒/按摩器",
+                                    "color": "夕陽粉",
+                                    "size": "90.7 x 47 x 146.2 mm",
+                                    "origin": "日本"
+                                },
+                                "feature": {
+                                    "one": " 四段震動檔數，每分鐘轉速 1600 / 2100 / 2700 / 3200 rpm",
+                                    "two": "  電池容量2900mAh ",
+                                    "three": " 710克輕巧機身",
+                                    "four": " USB充",
+                                    "five": "工業級PC / ABS",
+                                    "six": "2400mAh內置電池"
+
+                                }
+
+
+                            },
+                            {
+                                "id": 6,
+                                "itemName": "按摩槍",
+                                "img": "./images/rose.png",
+                                "imgTop": "./images/rose1.png",
+                                "imgBody": "./images/rose2.png",
+                                "name": "迷你震動按摩槍",
+                                "origin": "德國",
+                                "num": 0,
+                                "price": 1800,
+                                "logo": "Full",
+                                "date": 12 / 25,
+                                "checkout": "貨到付款/線上支付/",
+                                "warranty": "2年",
+                                "product1": "無刷強磁馬達",
+                                "product2": "四種按摩頭",
+                                "product3": "九段震動調速",
+
+                                "specification": {
+
+                                    "name": "迷你震動按摩槍",
+                                    "brand": "其他",
+                                    "type": "按摩棒/按摩器",
+                                    "color": "玫瑰紅",
+                                    "size": "(寬)178x (深)61x (高)225 mm",
+                                    "origin": "德國"
+                                },
+                                "feature": {
+                                    "one": " 無刷強磁馬達",
+                                    "two": "  無刷馬達 ",
+                                    "three": " 680克輕巧機身",
+                                    "four": " 九段震動調速",
+                                    "five": "輸入電壓/電流：DC 5V/2A(Max)",
+                                    "six": "2400mAh內置電池",
+                                    "seven": "運作低噪，不吵鄰"
+                                }
+
+
+                            }
+                        ],
+
+
+                        equipment: [
+                            {
+                                "id": 9,
+                                "itemName": "按摩滾筒",
+                                "img": "./images/33cm.png",
+                                "imgTop": "./images/33cm01.png",
+                                "name": "33cm運動滾輪",
+                                "origin": "美國",
+                                "num": 0,
+                                "price": 150,
+                                "logo": "QMAT",
+                                "date": 8 / 15,
+                                "checkout": "貨到付款/線上支付/",
+                                "warranty": "2年",
+                                "product1": "腿部乳酸堆積舒緩，拒絕蘿蔔腿",
+                                "product2": "運動後緩解肌肉痠痛，深層按摩",
+                                "product3": "需長期久站工作者改善靜脈曲張",
+
+                                "specification": {
+
+                                    "name": "33cm運動滾輪",
+                                    "brand": "其他",
+                                    "type": "按摩滾筒",
+                                    "color": "粉紫銀河",
+                                    "size": "直徑13cmx33cm",
+                                    "origin": "日本"
+                                },
+                                "feature": {
+                                    "one": "不可曝曬, 不可用清潔劑清洗",
+                                    "two": " 抗汗、不易凹陷回復性佳、使用壽命久 ",
+                                    "three": " 約600g(±5g)",
+                                    "four": " 表面硬度40-45度，內部硬度60 shore c",
+                                    "five": "3000轉高速捶打",
+
+                                },
+                            },
+                            {
+
+                                "id": 10,
+                                "itemName": "按摩滾筒",
+                                "img": "./images/Eco.png",
+                                "imgTop": "./images/Eco1.png",
+                                "name": "環保EVA空心瑜珈柱",
+                                "origin": "美國",
+                                "num": 0,
+                                "price": 120,
+                                "logo": "Full",
+                                "date": 2 / 15,
+                                "checkout": "貨到付款/線上支付/",
+                                "warranty": "3年",
+                                "product1": "3D立體結構模擬手感按壓",
+                                "product2": "預防運動損傷 促進血液循環",
+                                "product3": "舒緩肌肉酸痛疲 勞增進肌肉彈性",
+
+                                "specification": {
+
+                                    "name": "環保EVA空心瑜珈柱",
+                                    "brand": "其他",
+                                    "type": "按摩滾筒",
+                                    "color": "藍色",
+                                    "size": "直徑14cm*高33cm",
+                                    "origin": "美國"
+                                },
+                                "feature": {
+                                    "one": " 優質EVA",
+                                    "two": "  環保ABS ",
+                                    "three": " 877g",
+                                    "four": " 採手工測量，如有1~2cm誤差，皆屬正常範圍",
+                                    "five": "3000轉高速捶打",
+                                    "six": "可承重量：100kg內",
+                                }
+
+                            },
+                            {
+
+                                "id": 11,
+                                "itemName": "按摩滾筒",
+                                "img": "./images/funsport.png",
+                                "imgTop": "./images/funsport1.png",
+                                "imgBody": "./images/funsport2.png",
+                                "name": "艾羅力筋膜按摩滾筒",
+                                "origin": "西班牙",
+                                "num": 0,
+                                "price": 1250,
+                                "logo": "Full",
+                                "date": 11 / 15,
+                                "checkout": "貨到付款/線上支付/",
+                                "warranty": "1年",
+                                "product1": "筋膜放鬆按摩,健身運動配備",
+                                "product2": "輔助瑜珈伸展,復健伸展運用",
+                                "product3": "自力深層按摩",
+
+                                "specification": {
+
+                                    "name": "艾羅力筋膜按摩滾筒",
+                                    "brand": "其他",
+                                    "type": "按摩滾筒",
+                                    "color": "星夜藍",
+                                    "size": "長45x直徑15cm",
+                                    "origin": "西班牙"
+                                },
+                                "feature": {
+                                    "one": " 硬度-30D",
+                                    "two": "  材質-EVA ",
+                                    "three": " 軟硬度:稍軟",
+                                    "four": " USB充",
+                                    "six": "2400mAh內置電池",
+                                    "seven": "運作低噪，不吵鄰"
+                                }
+
+                            },
+                            {
+
+                                "id": 12,
+                                "itemName": "按摩滾筒",
+                                "img": "./images/MEJEY.png",
+                                "name": "實心瑜珈軸",
+                                "origin": "台灣",
+                                "num": 0,
+                                "price": 250,
+                                "logo": "Full",
+                                "date": 3 / 5,
+                                "checkout": "貨到付款/線上支付/",
+                                "warranty": "2年",
+                                "product1": "手感親膚,安心環保",
+                                "product2": "瑜珈按摩好幫手",
+                                "product3": "商品使用方式請參考網頁圖示說明",
+
+                                "specification": {
+
+                                    "name": "實心瑜珈軸",
+                                    "brand": "其他",
+                                    "type": "按摩滾筒",
+                                    "color": "粉灰色",
+                                    "size": ":約44CMX12CM",
+                                    "origin": "台灣"
+                                },
+                                "feature": {
+                                    "one": " MEJEY 按摩瑜珈軸",
+                                    "two": " 升級款!! 實心按摩滾筒,不易變形 ",
+                                    "three": "2種凸點,貼心設計不同體驗",
+                                    "four": " 可用於腰部、腿部、背部、臀部等等,瑜珈按摩好幫手",
+                                    "five": "手感親膚,安心環保",
+                                }
+
+                            },
+                        ],
+
+                        ball: [
+                            {
+
+                                "id": 13,
+                                "itemName": "按摩球",
+                                "img": "./images/ROAR.png",
+                                "imgTop": null,
+                                "name": "天然橡膠按摩球 ",
+                                "origin": "台灣",
+                                "num": 0,
+                                "price": 50,
+                                "logo": "INEXTION",
+                                "date": 3 / 5,
+                                "checkout": "貨到付款/線上支付/",
+                                "warranty": "1年",
+                                "product1": "一組2種不同硬度的設計",
+                                "product2": "高密度天然橡膠材質",
+                                "product3": "提供體貼不同身體狀況的按壓強度",
+
+                                "specification": {
+
+                                    "name": "天然橡膠按摩球 ",
+                                    "brand": "其他",
+                                    "type": "按摩球",
+                                    "color": "粉灰色",
+                                    "size": ":直徑 6.3cm",
+                                    "origin": "台灣"
+                                },
+                                "feature": {
+                                    "one": " 硬度：淺藍 - 50D*1、天灰 - 65D*1",
+                                    "two": " 重量：0.2kg ",
+                                    "three": "材質：天然橡膠",
+                                    "four": " 可用於腰部、腿部、背部、臀部等等,瑜珈按摩好幫手",
+                                    "five": "手感親膚,安心環保",
+                                }
+
+                            },
+                            {
+                                "id": 14,
+                                "itemName": "按摩球",
+                                "img": "./images/WE FIT.png",
+                                "imgTop": "./images/WE FIT1.png.png",
+                                "imgBody": "./images/WE FIT2.png.png",
+                                "name": "多功能筋膜按摩球 ",
+                                "origin": "美國",
+                                "num": 0,
+                                "price": 50,
+                                "logo": "INEXTION",
+                                "date": 3 / 5,
+                                "checkout": "貨到付款/線上支付/",
+                                "warranty": "1年",
+                                "product1": "隨時隨地 舒爽放鬆",
+                                "product2": "固定底座 按摩更方便",
+                                "product3": "輕巧便攜",
+
+                                "specification": {
+
+                                    "name": "多功能筋膜按摩球 ",
+                                    "brand": "其他",
+                                    "type": "按摩球",
+                                    "color": "橘色",
+                                    "size": ":直徑 6.3cm",
+                                    "origin": "美國"
+                                },
+                                "feature": {
+                                    "one": " 輕巧便攜，不佔空間",
+                                    "two": " 重量：1kg ",
+                                    "three": "緩解肌肉痠痛，消除訓練後的疲勞",
+                                    "four": " 可用於腰部、腿部、背部、臀部等等,瑜珈按摩好幫手",
+                                    "five": "產品材質：熱塑性彈性體(TPE)",
+                                }
+
+                            },
+                            {
+                                "id": 15,
+                                "itemName": "按摩球",
+                                "img": "./images/sport.png",
+                                "imgTop": "./images/sport1.png",
+                                "imgBody": "./images/sport2.png",
+                                "name": "康力爾花生球 ",
+                                "origin": "中國大陸",
+                                "num": 0,
+                                "price": 120,
+                                "logo": "Fun Sport",
+                                "date": 7 / 5,
+                                "checkout": "貨到付款/線上支付/",
+                                "warranty": "1年",
+                                "product1": "符合人體工學弧形設計",
+                                "product2": "天然橡膠微彈性",
+                                "product3": "專業尺寸硬度",
+
+                                "specification": {
+
+                                    "name": "康力爾花生球 ",
+                                    "brand": "其他",
+                                    "type": "按摩球",
+                                    "color": "黑黃",
+                                    "size": ":138x66mm／雙球65mm",
+                                    "origin": "中國大陸"
+                                },
+                                "feature": {
+                                    "one": " 5合1新創醒肌按摩功能",
+                                    "two": " 245g／雙球顆100g ",
+                                    "three": "緩解肌肉痠痛，消除訓練後的疲勞",
+                                    "four": " TPR橡膠、不鏽鋼、酒精（球內）",
+                                    "five": "材質:橡膠",
+                                }
+
+                            },
+
+
+                        ]
+                    }
+
+                }
+            },
+            methods: {
+                commodityInfo() {
+                    let detail = this.obj.gun;
+                    this.commodity = this.obj.gun
+                    // this.product = detail[0].specification
+                    this.special = detail[0].feature
+
+                    this.product.num=1
+                },
+
+                addCar(id, item) {
+                  
+                    // get cart from localStorage
+                    let cartStr = localStorage.getItem('cart');
+                    let cart = [];
+                    if (cartStr) {
+                        cart = JSON.parse(cartStr);
+                    }
                 
-                let code = this.car.find(item=>item.id===id)
-                if(item.num==0){
-                    alert("數量不能為零")
-                }else{
-                    if(!code){
-                    alert("成功加入購物車")
-                    this.car.push({
-                    id:this.order[index].id,
-                    img:this.order[index].img,
-                    name:this.order[index].name,
-                    price:this.order[index].price,
-                    num:this.order[index].num,
-                    product1:this.order[index].product1,
-                    product2:this.order[index].product2
-                })
-                }else{
-                alert("購物車內已有相同物品")
-                }
+                    // update cart
+                    let index = cart.findIndex(item => {
+                        return item.id === this.product.id
+                    })
 
-                }
+                    if (index > -1) {
+                        cart[index].num = this.product.num;
+                    } else {
+                        cart.push(this.product);
+                    }
+                    // update cart to localStorage
+                    console.log(cart)
+                    localStorage.setItem('cart', JSON.stringify(cart));
+
+                    // let code = this.car.find(item => item.id === id)
+                    // if (product.num == 0) {
+                    //     alert("數量不能為零")
+                    // } else {
+                    //     if (!code) {
+                    //         alert("成功加入購物車")
+                    //         this.car.push({
+                    //             id: this.product.id,
+                    //             img: this.product.img,
+                    //             name: this.product.name,
+                    //             price: this.product.price,
+                    //             num: this.product.num,
+                    //             product1: this.product.product1,
+                    //             product2: this.product.product2
+                    //         })
+                    //     } else {
+                    //         alert("購物車內已有相同物品")
+                    //     }
+
+                    // }
+
+                    // this.setCar()
+                },
+                direct(id, item) {
+                    let cartStr = localStorage.getItem('cart');
+                    let cart = [];
+                    if (cartStr) {
+                        cart = JSON.parse(cartStr);
+                    }
                 
-            
-                this.setCar()
-           },
-           direct(id,item){
-            let index = this.order.findIndex(item=>{
-                return item.id===id
-                })
-                
-                let code = this.car.find(item=>item.id===id)
-                if(item.num==0){
-                    alert("數量不能為零")
-                    event.preventDefault();
-                }else{
-                    if(!code){
-        
-                    this.car.push({
-                    id:this.order[index].id,
-                    img:this.order[index].img,
-                    name:this.order[index].name,
-                    price:this.order[index].price,
-                    num:this.order[index].num,
-                    product1:this.order[index].product1,
-                    product2:this.order[index].product2,
-                })
+                    // update cart
+                    let index = cart.findIndex(item => {
+                        return item.id === this.product.id
+                    })
+
+                    if (index > -1) {
+                        cart[index].num = this.product.num;
+                    } else {
+                        cart.push(this.product);
+                    }
+                    // update cart to localStorage
+                    console.log(cart)
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    this.setCar()
+                    
+                },
+                changePic(i) {
+                    this.page = i - 1
+                },
+                info() {
+
+
+
+                },
+                changeRule() {
+                    this.article = 1
+                    this.precautions = false
+                    this.rule = true
+                    this.pickUp = false
+                    this.comment = false
+                },
+                changeNotice() {
+                    this.article = 2
+                    this.precautions = true
+                    this.rule = false
+                    this.pickUp = false
+                    this.comment = false
+                },
+                changePickUp() {
+                    this.article = 3
+                    this.rule = false
+                    this.precautions = false
+                    this.pickUp = true
+                    this.comment = false
+                },
+                changeComment() {
+                    this.article = 4
+                    this.rule = false
+                    this.precautions = false
+                    this.pickUp = false
+                    this.comment = true
+
+                },
+                changePhoto(value) {
+                    this.page = value
+                },
+                prev() {
+
+                    console.log(this.page)
+                    if (this.page > 0) {
+                        this.page -= 1
+                    }
+                },
+                next() {
+                    console.log(this.page)
+                    if (this.page < 2) {
+                        this.page += 1;
+                    }
+                },
+                addNum(item) {
+                    this.product.num += 1
+                    this.addCar()
+                },
+                reduceNum(item) {
+                    if (this.product.num > 0) {
+                        this.product.num -= 1
+                    }
+                },
+                set() {
+                    this.$set(product, 1, {})
+                },
+
+
+                storage() {
+                    localStorage.setItem("order", JSON.stringify(this.order))
+
+                },
+                setCar() {
+                    localStorage.setItem("car", JSON.stringify(this.car))
+                    // localStorage.setItem("product", JSON.stringify(this.product))
+                },
+
+                online() {
+                    //從後端拿清單資料
+                    let orderList = localStorage.getItem("order");
+                    if (!orderList) return;
+                    this.order = JSON.parse(orderList);
+
+                },
+                carOnline() {
+                    let buyCar = localStorage.getItem("car");
+                    if (!buyCar) return;
+                    this.car = JSON.parse(buyCar)
+
+                    let products = localStorage.getItem("product");
+                    if (!products) return;
+                    this.product= JSON.parse(products)
                 }
 
-                }
-                this.setCar()
 
-           },
-           changePic(i){
-            this.page=i-1
-        },
-        info(){
+            },
+            created() {
+                this.online()
+                this.carOnline()
+            },
+            computed: {
+                // detail: function () {
+                //     return JSON.parse(JSON.stringify(this.product))
+                // },
+                // product() {
+                //     return this.obj.gun.find(item => item.id == this.activeId) ?? {};
+                // },
+            },
+            watch: {
 
-          
 
-        },
-        changeRule(){
-            this.article=1
-            this.precautions=false
-            this.rule=true
-            this.pickUp=false
-            this.comment=false
-        },
-        changeNotice(){
-            this.article=2
-            this.precautions=true
-            this.rule=false
-            this.pickUp=false
-            this.comment=false
-        },
-        changePickUp(){
-            this.article=3
-            this.rule=false
-            this.precautions=false
-            this.pickUp=true
-            this.comment=false
-        },
-        changeComment(){
-            this.article=4
-            this.rule=false
-            this.precautions=false
-            this.pickUp=false
-            this.comment=true
-
-        },
-        changePhoto(value){
-            this.page = value
-        },
-        prev(){
-            
-            console.log(this.page)
-            if(this.page>0){
-                this.page-=1
-            } 
-        },
-        next(){
-            console.log(this.page)
-            if(this.page<2){
-                this.page+=1;
-            }
-        },
-        addNum(item){
-            item.num+=1
-            
-        },
-        reduceNum(item){
-            if(item.num>0){
-                item.num-=1
-            }
-        },
-        set(){
-            this.$set(product,1,{})
-        },
-       
-        
-           storage(){
-               localStorage.setItem("order",JSON.stringify(this.order))
-            
-           },
-           setCar(){
-             localStorage.setItem("car",JSON.stringify(this.car))
-             localStorage.setItem("product",JSON.stringify(this.product))
-           },
-           
-           online(){
-               let orderList = localStorage.getItem("order");
-               if(!orderList) return;
-               this.order = JSON.parse(orderList);
-           
-           },
-        carOnline(){
-            let buyCar = localStorage.getItem("car");
-                if(!buyCar) return;
-                this.car = JSON.parse(buyCar)
-        }
-         
-         
-       },
-       created() {
-           this.online()
-           this.carOnline()
-       },
-       computed:{
-            detail:function(){
-                return JSON.parse(JSON.stringify(this.product))
-            }
-       },
-       watch:{
-       
-           
-       },
-       mounted() {
-           this.commodityInfo()
-           this.info()
-       },
-    }).mount("#app")
-   </script>  
+            },
+            created() {
+                this.activeId = window.location.search.split('id=')[1]
+                this.product =  this.obj.gun.find(item => item.id == this.activeId) ?? {};
+            },
+            mounted() {
+                this.commodityInfo()
+                this.info()
+            },
+        }).mount("#app")
+    </script>
 </body>
+
 </html>

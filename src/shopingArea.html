@@ -13,7 +13,7 @@
     <div class="background-pic">
         <img src="./images/bcgFlower.png" alt="">
         </div>
-        <div id="app">
+        <div id="app" style="margin-bottom:1000px">
             <header class="page_header">
                 <nav>
                     <input type="checkbox" id="check">
@@ -40,6 +40,10 @@
             </header>
 
             <!-- ========================= -->
+
+            <div class="banner">
+                <img src="./images/bannerProduct" alt="">
+            </div>
          
             <div class="commodity-path">
                 <div class="commodity-title">
@@ -105,12 +109,12 @@
             
                     <div class="wrap">
                         <div class="bread">
-                            <small>首頁>商品專區>嚴選產品</small>
+                            <a href="./index.html">首頁</a>><a href="./shopingArea.html">商品專區</a>
                         </div>
                             <div class="area-box" v-if="currentPage==1" :class="{block:currentPage==1}" >
 
                                 <div class="col-3  area-card" v-for="(item,key) in commodity" @click="addOrder(item.id)" :key="item.id" >
-                                    <a href="./productdetails.html">
+                                    <a  :href="`./productdetails.html?id=${item.id}`">
                                     <div class="area-pic">
                                         <img :src="item.img">
                                     </div>
@@ -132,7 +136,7 @@
                             <div class="area-box" v-if="currentPage==2" :class="{block:currentPage==2}" >
                         
                                 <div class="col-3  area-card" v-for="(item,key) in commodity" @click="addOrder(item.id)" :key="item.id" >
-                                    <a href="./productdetails.html">
+                                <a :href="`./productdetails.html?id=${item.id}`">
                                     <div class="area-pic">
                                         <img :src="item.img">
                                     </div>
@@ -178,12 +182,14 @@
                         </div>
                     </div> 
                 </div>
-            </div>            
+            </div>   
+                  
         </div>
         <!-- =================================footer -->
-        
-  
-   
+    <div class="footer">
+        @@include('./layout/footer.html')  
+    </div>
+       
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
@@ -812,6 +818,8 @@
                     this.ball = this.obj.ball
 
                     this.orderSel="news"
+
+                    
             
             },
             showOil(key,value){
@@ -860,9 +868,9 @@
         
             },
             addOrder(id){
+           
              let index = this.commodity.findIndex(item=>item.id==id)
-          
-                this.order.push({
+             this.order = [{
                     id:this.commodity[index].id,
                     img:this.commodity[index].img,
                     imgTop:this.commodity[index].imgTop,
@@ -876,20 +884,17 @@
                     product3:this.commodity[index].product3,
                     specification:this.commodity[index].specification,
                     feature:this.commodity[index].feature
-                })
-
-                
-               
+                }]
+             
                 this.storage()
             },
             clear(){
-                let index = this.data.findIndex(item=>item.id==id)
-                this.order.splice(index,1)
-                console.log(this.order)
+                let item = this.data.find(item=>item.id==id)
+                this.order = [item]
                 this.storage()
             },
             storage(){
-                localStorage.setItem("order",JSON.stringify(this.order))
+                localStorage.setItem("order", JSON.stringify(this.order))
             },
             online(){
                 let orderList = localStorage.getItem("order");
