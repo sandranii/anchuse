@@ -4,11 +4,10 @@ gsap.from(".RimgFrame",{
     scrollTrigger: {
         trigger: ".row_round",
         start: "top center",
-        // toggleActions: "restart pasue resume none"
     },
-    x: -400,
-    rotation: -90,
-    duration: 1.6,
+    x: -800,
+    rotation: -120,
+    duration: 2,
     opacity: 0,
     ease: "back"
 });
