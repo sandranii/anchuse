@@ -45,8 +45,41 @@
                 transform: scale(1.05, 1.05);
             }
         }
+        .container{
+            .row{
+                .btnLarge{
+                    text-align: center;
+                }
+                .content{
+                    display: flex;
+                    box-sizing: border-box;
+                    .imgFrame{
+                        border: 4px solid $blue;
+                        border-radius: 12px;
+                        overflow: hidden;
+                        box-sizing: border-box;
+                        width: 90%;
+                        img{
+                            width: 100%;
+                            display: block;
+                            background-size: 100% 100%;
+                        }
+                    }
+                    .imgInfo{
+                        color: $white;
+                        font-family: $fontTitle;
+                        .circle {
+                            background-color: $red;
+                            font-weight: 500;
+                            margin: 2px;
+                            border-radius: 50%;
+                            text-align: center;
+                        }
+                    }
+                } 
+            }
+        }
     }
-
     .store_info{
         .sub_title{
             margin-bottom: 70px;
@@ -64,44 +97,22 @@
         .container{
             .row{
                 display: flex;
-                    .btnLarge{
-                        margin: 70px auto 0px;
-                        text-align: center;
+                .btnLarge{
+                    margin: 70px auto 0px;
+                }
+                .content{
+                    width: 75%;
+                    margin: auto;
+                    .imgInfo{
+                        width: 3.3vw;
+                        padding: 0.5vw;
+                        .circle {
+                            @include rect(3.4vw);
+                            line-height: 3.4vw;
+                            font-size: 2vw;
+                        }
                     }
-                    .content{
-                        width: 75%;
-                        margin: auto;
-                        display: flex;
-                        box-sizing: border-box;
-                        .imgFrame{
-                            border: 4px solid $blue;
-                            border-radius: 12px;
-                            overflow: hidden;
-                            box-sizing: border-box;
-                            width: 90%;
-                            img{
-                                width: 100%;
-                                display: block;
-                                background-size: 100% 100%;
-                            }
-                        }
-                        .imgInfo{
-                            width: 3.3vw;
-                            padding: 0.5vw;
-                            color: $white;
-                            font-family: $fontTitle;
-                            .circle {
-                                background-color: $red;
-                                font-weight: 500;
-                                margin: 2px;
-                                @include rect(3.4vw);
-                                line-height: 3.4vw;
-                                border-radius: 50%;
-                                font-size: 2vw;
-                                text-align: center;
-                            }
-                        }
-                    } 
+                }
             }
         }
     }
@@ -119,45 +130,33 @@
             .row{
                 margin-left: auto;
                 margin-right: auto;
-                .btnLarge{
-                    margin: 60px auto;
-                    text-align: center;
-                }
-                .content{
-                    width: 80%;
-                    margin-left: auto;
-                    margin-right: auto;
-                    display: flex;
-                    box-sizing: border-box;
-                    .imgFrame{
+                .redTitle{
+                    margin-top: 150px;
+                    .btnLarge{
+                        margin: 60px auto;
+                    }
+                    .content{
+                        width: 80%;
                         margin-left: auto;
                         margin-right: auto;
-                        border: 4px solid $blue;
-                        border-radius: 12px;
-                        overflow: hidden;
-                        box-sizing: border-box;
-                        width: 90%;
-                        img{
-                            width: 100%;
-                            display: block;
-                            background-size: 100% 100%;
+                        justify-content: center;
+                        position: relative;
+                        .imgFrame{
+                            margin-left: auto;
+                            margin-right: auto;
                         }
-                    }
-                    .imgInfo{
-                        position: absolute;
-                        z-index: -1;
-                        width: 10%;
-                        img{
-                            width: 80%;
+                        .imgInfo{
+                            display: flex;
+                            position: absolute;
+                            top: -12vh;
+                            .circle {
+                                @include rect(48px);
+                                line-height: 1.4;
+                                font-size: 32px;
+                            }
                         }
-                    }
-                    .imgInfo:nth-child(1){
-                        left: 10%;
-                    }
-                    .imgInfo:nth-child(2){
-                        right: 8%;
-                    }
-                } 
+                    } 
+                }
             }
         }
     }
