@@ -783,6 +783,7 @@
                             return (0.5-Math.random());
                         });
                         this.calculate=this.car
+                        
            
                            
                },
@@ -798,9 +799,22 @@
                },
            
                drop(){
-                    // let del = this.calculate.find(item=>item===this.car);
-                    // console.log(del)
+                for (let i = this.car.length - 1; i >= 0; i--) {
+                    a = this.car[i];
+                    for (let j = this.calculate.length - 1; j >= 0; j--) {
+                        b = this.calculate[j];
+                        if (a == b) {
+                            this.car.splice(i, 1);
+                            this.calculate.splice(j, 1);
+                            break;
+                        
+                        }
+                    }
+                }
+                this.calculate=[]
+                this.setCar()
                },
+
                addCar(id,item){
                 
                 let count = this.total.findIndex(item=>{
@@ -821,7 +835,8 @@
                         
                         
                     })
-                    this.calculate=this.car
+             
+                this.calculate = this.calculate.concat(this.car)
                   
                 }else{
                     alert("購物車內已有相同物品")
@@ -836,7 +851,7 @@
               
                 this.car.splice(index,1)
                 
-                this.calculate=this.car     
+                // this.calculate=this.car     
                 this.setCar()
            
                 },
@@ -888,10 +903,7 @@
             select(){
                 this.sel=1
             },
-            // set(){
-            //     this.$set(car,1,{});
-            // },
-             
+            
            },
        
            created() {//mount之前 會先讀到data
@@ -914,9 +926,7 @@
                         this.money="";                        
                         for(let i=0;i<newVal.length;i++){
                             this.money = parseFloat(this.money+newVal[i].price*newVal[i].num)
-                          
                         }
-
                         if(newVal!=""){
                         this.detect+=1
                      
@@ -933,12 +943,12 @@
             },
             updated(){//資料有更新會自動呼叫
                 this.totalPrice = Math.round(this.box*this.sel)
-                this.setCar()
-
+          
                 this.box=""
                     for(let i=0;i<this.calculate.length;i++){
                         this.box = parseFloat(this.box+this.calculate[i].price*this.calculate[i].num)
-                    }      
+                    } 
+                    this.setCar()     
             },
            
            mounted() {//等app載入之後才會讀取
