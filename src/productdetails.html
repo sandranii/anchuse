@@ -13,9 +13,20 @@
         <img src="./images/bcgFlower.png" alt="">
         </div>
 
-        <div id="app">
+        <header> @@include('./layout/header.html')</header>
+
+        <div class="banner">
+            <img src="./images/bannerProduct.png" alt="">
+        </div>
+        <div class="main_title">
+            <img src="./images/productTitle.png" alt="">
+        </div>
+        <!-- ========================================banner -->
+
+        <div id="app" class="shopping-container" style="margin-top:100px">
+          
             <div class="bread">
-                <p>首頁>商品專區>按摩精油>薰衣草</p>
+                <a href="./index.html">首頁</a>><a href="./shopingArea.html">商品專區</a>><a href="./shopingArea.html">{{bread}}</a>
             </div>
             <div class="product-title">
             
@@ -98,7 +109,7 @@
                 </div>
 
                 <div class="illustrate-txt " v-if="article==1"  width="600">
-                    <table border="1" width="600">
+                    <table border="1" width="100%">
                         <tr >
                             <th>商品名稱</th>
                             <th>{{product.name}}</th>
@@ -160,7 +171,7 @@
                 </div>
             </div>
         </div>
-
+        <footer>@@include('./layout/footer.html')</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
@@ -183,6 +194,7 @@
                 pickUp:false,
                 comment:false,
                 title:"*",
+                bread:'',
                 secondGun:[
 
 {
@@ -310,8 +322,6 @@ gun:[
 "id":2,
 "itemName": "按摩槍",
 "img":"./images/fire.png",
-"imgTop":null,
-"imgBody":null,
 "name":"火星計畫",
 "origin":"日本",
 "num":0,
@@ -772,7 +782,8 @@ ball:[
                    this.commodity = this.obj.gun
                    this.product = this.order[0].specification
                    this.special =this.order[0].feature
-                   console.log(this.order)
+                   console.log("--->",)
+                   this.bread = this.order[0].specification.type
                    
            },
 

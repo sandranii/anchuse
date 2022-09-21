@@ -14,38 +14,43 @@
     <div class="background-pic">
         <img src="./images/bcgFlower.png" alt="">
         </div>
-        <div id="app" style="margin-bottom:100px">
-            <header class="page_header">
-                <nav>
-                    <input type="checkbox" id="check">
-                    <label for="check">
-                        <span class="line1"></span>
-                        <span class="line2"></span>
-                        <span class="line3"></span>
-                    </label> 
-                    <a href="../index.html" class="header_logo"><img src="../images/headerLogo.png" alt=""></a>
-                    <ul>
-                        <li><a href="../aboutUs.html">關於我們</a></li>
-                        <li><a href="../reservation.html">預約按摩</a></li>
-                        <li><a href="../shopingArea.html">商品專區</a></li>
-                        <!-- <a href="../index.html" class="header_logo"><img src="../images/headerLogo.png" alt=""></a> -->
-                        <li><a href="../massageschool.html">按摩小學堂</a></li>
-                        <li><a href="">常見問題</a></li>
-                    </ul>
-                    <div class="header_icon">
-                        <span class="header_member"><a href="../memLogin.html" ><img src="../images/headerMember.png" alt=""></a></span>
-                        <span class="header_shopping_cart"><a href="../shoppingCart.html"><img src="../images/headerShoppinCart.png" alt=""></a></span>
-                    </div>  
-                    
-                </nav>
-            </header>
 
-            <!-- ========================= -->
+        <header class="page_header">
+            <nav>
+                <input type="checkbox" id="check">
+                <label for="check">
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                    <span class="line3"></span>
+                </label> 
+                <a href="../index.html" class="header_logo"><img src="../images/headerLogo.png" alt=""></a>
+                <ul>
+                    <li><a href="../aboutUs.html">關於我們</a></li>
+                    <li><a href="../reservation.html">預約按摩</a></li>
+                    <li><a href="../shopingArea.html">商品專區</a></li>
+                    <!-- <a href="../index.html" class="header_logo"><img src="../images/headerLogo.png" alt=""></a> -->
+                    <li><a href="../massageschool.html">按摩小學堂</a></li>
+                    <li><a href="">常見問題</a></li>
+                </ul>
+                <div class="header_icon">
+                    <span class="header_member"><a href="../memLogin.html" ><img src="../images/headerMember.png" alt=""></a></span>
+                    <span class="header_shopping_cart"><a href="../shoppingCart.html"><img src="../images/headerShoppinCart.png" alt=""></a></span>
+                </div>  
+                
+            </nav>
+        </header>
+        <!-- ===================================header -->
+        <div class="banner">
+            <img src="./images/bannerProduct.png" alt="">
+        </div>
+        <div class="main_title">
+            <img src="./images/productTitle.png" alt="">
+        </div>
 
-            <div class="banner">
-                <img src="./images/bannerProduct" alt="">
-            </div>
-         
+
+     <!-- ========================= -->
+        <div id="app" style="margin-bottom:100px" class="shopping-container">
+   
             <div class="commodity-path">
                 <div class="commodity-title">
                     <div class="title-font" >嚴</div>
@@ -92,11 +97,11 @@
                 <div class="row">
                     <div class="area-order">
                         <div class="area-order-title">
-                            <h4>商品清單</h4>
+                            <h4 @click="allCommodity" :class="{focus:number=='3'}">ALL</h4>
                         </div>
                         <ul>
                             <li v-for="(product,key,value) in obj" @click="showOil(key,value)" :class="{focus:value==number}" >
-                                <span style="font-size: 23px;font-weight: 800;" :class="{focus:value==number}">{{product[0].itemName}}</span>
+                                <span class="list-chose"  style="font-size: 23px;font-weight: 800;" :class="{focus:value==number}">{{product[0].itemName}}</span>
                                 <!-- <span class="triangle">{{text}}</span>                           -->
 
                                 <ul :class="{oilList:openPage1}">
@@ -128,9 +133,8 @@
                                         <p>NT${{item.price}}</p>
                                         
                                     </div>
-                                </a>
+                                    </a>
                                 </div>
-                        
                             </div>
                         
                     
@@ -155,27 +159,7 @@
                             </div>
                       
         <!-- ========================================================== -->
-                        <!-- <div class="area-box" v-if="show=currentPage=='3'" :class="{block:currentPage==3}">
-                            <div class="col-3  area-card" v-for="(item,value) in rose">
-                                <div class="area-pic">
-                                    <img :src="item.img">
-                                </div>
-                                <div class="area-name">
-                                    <h3>{{item.name}}</h3>
-                                </div>
-                                <div class="area-introduce">
-                                    <div class="area-oritem">
-                                        <small class="area-capacity">{{item.cpacity}}</small>
-                                        <small class="area-origin">產地：{{item.origin}}</small>
-                                
-                                    </div>
-                                    <div class="area-price">
-                                        <p>售價:{{item.price}}元</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    -->
+          
                         <div class="page-number-computer" v-if="number==0">
                             <button  class="btnLittle"  @click="pageReduce"><</button>
                             <span style="  letter-spacing: 2px;" v-for="i in 2" :class="{fontcolor:i==currentPage}" @click="chose(i)">{{i}}</span>
@@ -211,6 +195,7 @@
                 car:[],
                 gun:[],
                 commodity:[],
+                total:[],
                 index:1,
                 count:0,
                 text:"+",
@@ -219,9 +204,8 @@
                 openPage2:true,
                 currentPage:1,
                 radom:5,
-                number:0,
+                number:3,
                 orderSel:"",
-                name:"俊彥",
 
                 //=======================
                 secondGun:[
@@ -270,6 +254,7 @@
                     "itemName": "按摩槍",
                     "img":"./images/Hyperice.png",
                     "imgTop":"./images/Hyperice1.png",
+                    "imgBody":"./images/mini2.png",
                     "name":"無線震動按摩槍",
                     "origin":"美國",
                     "num":0,
@@ -286,7 +271,7 @@
 
                                 "name":"無線震動按摩槍",
                                 "brand":"其他",
-                                "type":"按摩棒/按摩器",
+                                "type":"按摩槍",
                                 "color":"青綠色",
                                 "size":"112 x 49 x 159mm",
                                 "origin":"美國"
@@ -330,7 +315,7 @@
 
                             "name":"無線震動按摩槍",
                             "brand":"其他",
-                            "type":"按摩棒/按摩器",
+                            "type":"按摩槍",
                             "color":"青綠色",
                             "size":"(寬)168x (深)65x (高)235 mm",
                             "origin":"美國"
@@ -351,8 +336,8 @@
             "id":2,
             "itemName": "按摩槍",
             "img":"./images/fire.png",
-            "imgTop":null,
-            "imgBody":null,
+            "imgTop":"./images/activity.png",
+            "imgBody":"./images/usb3.png",
             "name":"火星計畫",
             "origin":"日本",
             "num":0,
@@ -369,7 +354,7 @@
 
                             "name":"火星計畫",
                             "brand":"其他",
-                            "type":"按摩棒/按摩器",
+                            "type":"按摩槍",
                             "color":"暗黑色",
                             "size":"(寬)178x (深)61x (高)225 mm",
                             "origin":"日本"
@@ -408,7 +393,7 @@
 
                             "name":"NEX Pro便攜型",
                             "brand":"其他",
-                            "type":"按摩棒/按摩器",
+                            "type":"按摩槍",
                             "color":"紅黑色",
                             "size":"16.5X9.1X4.8cm",
                             "origin":"中國"
@@ -446,7 +431,7 @@
 
                             "name":"玩美小摩",
                             "brand":"其他",
-                            "type":"按摩棒/按摩器",
+                            "type":"按摩槍",
                             "color":"時尚粉",
                             "size":"尺寸：長155x寬88x高45(mm)",
                             "origin":"澳洲"
@@ -468,6 +453,7 @@
             "itemName": "按摩槍",
             "img":"./images/knock.png",
             "imgTop":"./images/knock1.png",
+            "imgBody":"./images/mini2.png",
             "name":"敲敲小摩",
             "origin":"日本",
             "num":0,
@@ -484,7 +470,7 @@
 
                             "name":"敲敲小摩",
                             "brand":"其他",
-                            "type":"按摩棒/按摩器",
+                            "type":"按摩槍",
                             "color":"夕陽粉",
                             "size":"90.7 x 47 x 146.2 mm",
                             "origin":"日本"
@@ -523,7 +509,7 @@
 
                             "name":"迷你震動按摩槍",
                             "brand":"其他",
-                            "type":"按摩棒/按摩器",
+                            "type":"按摩槍",
                             "color":"玫瑰紅",
                             "size":"(寬)178x (深)61x (高)225 mm",
                             "origin":"德國"
@@ -549,6 +535,7 @@
             "itemName": "按摩滾筒",
             "img":"./images/33cm.png",
             "imgTop":"./images/33cm01.png",
+            "imgBody":"./images/funsport2.png",
             "name":"33cm運動滾輪",
             "origin":"美國",
             "num":0,
@@ -585,6 +572,7 @@
             "itemName":"按摩滾筒",
             "img":"./images/Eco.png",
             "imgTop":"./images/Eco1.png",
+            "imgBody":"./images/funsport2.png",
             "name":"環保EVA空心瑜珈柱",
             "origin":"美國",
             "num":0,
@@ -659,6 +647,8 @@
             "id":12,
             "itemName": "按摩滾筒",
             "img":"./images/MEJEY.png",
+            "imgTop":"./images/funsport1.png",
+            "imgBody":"./images/funsport2.png",
             "name":"實心瑜珈軸",
             "origin":"台灣",
             "num":0,
@@ -697,7 +687,8 @@
             "id":13,
             "itemName": "按摩球",
             "img":"./images/ROAR.png",
-            "imgTop":null,
+            "imgTop":"./images/WE FIT1.png.png",
+            "imgBody":"./images/WE FIT2.png.png",
             "name":"天然橡膠按摩球 ",
             "origin":"台灣",
             "num":0,
@@ -813,15 +804,22 @@
                 console.log(this.obj)
                            
                     this.data = this.obj.data
-                    this.commodity=this.obj.gun
+                   
                     this.gun = this.obj.gun
                     this.equipment = this.obj.equipment
                     this.ball = this.obj.ball
 
+                    this.total = this.total.concat(this.ball,this.equipment,this.secondGun,this.gun)
+                        this.total.sort(function(){//把陣列打亂
+                            return (0.5-Math.random());
+                        });
+                    this.commodity=this.total
                     this.orderSel="news"
-
-                    
-            
+                   
+            },
+            allCommodity(){
+                this.number=3
+                this.commodity = this.total
             },
             showOil(key,value){
                 if(key=="gun"){
@@ -878,13 +876,14 @@
                     imgBody:this.commodity[index].imgBody,
                     name:this.commodity[index].name,
                     price:this.commodity[index].price,
-                    num:this.commodity[index].num,
+                    num:this.commodity[index].num+1,
                     logo:this.commodity[index].logo,
                     product1:this.commodity[index].product1,
                     product2:this.commodity[index].product2,
                     product3:this.commodity[index].product3,
                     specification:this.commodity[index].specification,
-                    feature:this.commodity[index].feature
+                    feature:this.commodity[index].feature,
+                    itemName:this.commodity[index].itemName
                 }]
              
                 this.storage()
