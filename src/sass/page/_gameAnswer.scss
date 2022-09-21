@@ -50,9 +50,12 @@
             border-radius: 50%;
             border: none;
             cursor: pointer;
+            transition: 0.3s;
         }
         .acupoint:hover,.acupoint:focus{
             background-color: $red;
+            transition: 0.3s;
+            scale: 1.5;
             box-shadow: 0px 0px 10px $red,inset 0px 0px 5px $white;
         }
         .zhong_chong{
@@ -64,32 +67,32 @@
             left: 52%;
         }
         .he_gu{
-            top: 35%;
-            left: 50%;
+            top: 37%;
+            left: 38%;
         }
         .ming_men{
-            top: 43%;
-            left: 10%;
+            top: 73%;
+            left: 12%;
         }
         .shen_men{
-            top: 95%;
-            left: 28%;
+            top: 90%;
+            left: 65%;
         }
         .lao_gong{
-            top: 55%;
-            left: 40%;
+            top: 58%;
+            left: 37%;
         }
         .yu_ji{
-            top: 67%;
-            left: 72%;
+            top: 40%;
+            left: 57%;
         }
         .shao_fu{
-            top: 67%;
-            left: 25%;
+            top: 68%;
+            left: 31%;
         }
         .tai_yuan{
-            top: 93%;
-            left: 53%;
+            top: 72%;
+            left: 80%;
         }
     }
     .answer_btn{
