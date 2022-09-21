@@ -1,0 +1,98 @@
+.switch{
+    @include m() {
+        @include grid(12);
+    }
+
+    @include t() {
+        @include grid(12, -md);
+    }
+
+    @include pc() {
+        @include grid(12, -xl);
+    }
+
+    .FAQ{
+        @include container();
+        margin-top: 120px;
+        margin-bottom: 120px;
+        .frame{
+            display: block;
+            .item{
+                transition: 0.3s;
+                display: flex;
+                justify-content: space-between;
+                border: 2px solid $blue;
+                border-radius: 6px;
+                box-shadow: 3px 3px 0px 0px $blue;
+                margin: 3% 15%;
+                padding: 20px;
+                p{
+                    opacity: 0.8;
+                    font-weight: 600;
+                }
+                .plus{
+                    @include rect(20px);
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    transition: 0.6s;
+                    span:nth-child(1){
+                        background-color: $blue;
+                        width: 100%;
+                        height: 4px;
+                    }
+                    span:nth-child(2){
+                        position: absolute;
+                        width: 100%;
+                        height: 4px;
+                        background-color: $blue;
+                        rotate: 90deg;
+                        transition: 0.6s;
+                    }
+                }
+                &:hover{
+                    box-shadow: 5px 5px 0px 0px $blue;
+                }
+                &:active{
+                    box-shadow: 1px 1px 0px 0px $blue;
+                }
+            }
+        }
+    }
+    .online_consultation{
+        margin-bottom: 120px;
+        .imgRow{
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            .lineImgCell{
+                position: relative;
+                left: 120px;
+            }   
+            .lineImgPeople{
+                position: relative;
+                right: -80px;
+            }         
+        }
+        .textColumn{
+            position: relative;
+            padding: 100px 0;
+            right: 120px;
+            .text{
+                margin: auto;
+                width: 50%;
+                line-height: 1.5;
+                font-weight: 600;
+                opacity: 0.8;
+            }
+            .btnLarge{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    margin: 0px 10px;
+                }
+            }
+        }
+    }
+}
