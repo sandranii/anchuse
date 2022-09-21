@@ -6,191 +6,188 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員中心</title>
+    <link rel="shortcut icon" href="./images/littleWebLogo.png">
     <link rel="stylesheet" href="./css/style.css">
 </head>
-<style>
-    img{
-        width: 30%;
-        
-    }
-</style>
 
 <body>
     <div id="lightbox-teleport">
-    <h1 class="sr_only">會員中心</h1>
-    @@include('./layout/header.html')
-    <!-- header -->
-    <div class="memCenter">
-        <div class="member">
-            <div class="mem_mug_shot">
-                <img src="./images/member.jpg">
-            </div>
-            <div class="mem_name">無名氏</div>
-        </div>
-        <div class="mem_banner">
-            <img src="./images/memberbanner.jpg">
-        </div>
-        <div class="panel_group">
-            <input type="radio" name="panel_radio" id="radio1" class="panel_control" checked>
-            <input type="radio" name="panel_radio" id="radio2" class="panel_control">
-            <input type="radio" name="panel_radio" id="radio3" class="panel_control">
-            <div class="tab_group">
-                <label for="radio1">個人資料</label>
-                <label for="radio2">歷史訂單</label>
-                <label for="radio3">預約紀錄</label>
-            </div>
-            <div class="content_group">
-                <!-- 個人資料 -->
-                <div class="content content1">
-                    <h2>個人資料</h2>
-                    <hr>
-                    <div class="mem_data">
-                        <div class="person_info">
-                            <div class="person_info_item">
-                                帳號: &nbsp;  abc123
-                            </div>
-                            <div class="person_info_item">
-                                密碼: &nbsp;  ******
-                            </div>
-                            <div class="person_info_item">
-                                信箱: &nbsp; abc123@gmail.com
-                            </div>
-                            <div class="person_info_item">
-                                生日: &nbsp; 1998年10月27日
-                            </div>
-                            <div class="person_info_item">
-                                手機: &nbsp; 0912345678
-                            </div>
-                            <div class="person_info_item">
-                                市話: &nbsp; 03-12345678
-                            </div>
-                            <div class="person_info_item">
-                                地址: &nbsp; 桃園市中壢區復興路46號9樓
-                            </div>
-                        </div>
-                        <div class="edit">
-                            <button class="btnMinimum">編輯</button>
-                        </div>
-                    </div>
+        <h1 class="sr_only">會員中心</h1>
+        @@include('./layout/header.html')
+        <!-- header -->
+        <div class="memCenter">
+            <div class="member">
+                <div class="mem_mug_shot">
+                    <img src="./images/member.jpg">
                 </div>
-                <!-- 歷史訂單 -->
-                <div class="content content2">
-                    <h2>歷史訂單</h2>
-                    <hr>
-                    <!-- 歷史訂單搜尋 -->
-                    <div class="order_search_bar">
-                        <label for="order_search"><img src="./images/Search.png"></label>
-                        <div class="order_search_row">
-                            <div class="category_row">
-                                <select name="category">
-                                    <option value="">購買日期</option>
-                                    <option value="">訂單編號</option>
-                                    <option value="">訂單名稱</option>
-                                </select>
-                                <select name="state" id="state_search" class="state_search">
-                                    <option value="">未出貨</option>
-                                    <option value="">已出貨</option>
-                                    <option value="">訂單名稱</option>
-                                </select>
-                            </div>
-                            <input type="text" id="order_search">
-                        </div>
-                    </div>
-                    <!-- 資料表格 -->
-                    <div class="order_data">
-                        <table>
-                            <tr>
-                                <th>訂單編號</th>
-                                <th>訂單名稱</th>
-                                <th>訂單日期</th>
-                                <th>訂單狀態</th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <td>A123456789</td>
-                                <td>訂單一</td>
-                                <td>2022-09-16</td>
-                                <td>未出貨</td>
-                                <td valign="middle">
-                                    <div id="order_detail">
-                                        
-                                        <light-box >
-
-                                           
-                                        </light-box>
-                                    </div>
-                                </td>
-                                <!--  -->
-                            </tr>
-                        </table>
-                    </div>
+                <div class="mem_name">無名氏</div>
+            </div>
+            <div class="mem_banner">
+                <img src="./images/memberbanner.jpg">
+            </div>
+            <div class="panel_group">
+                <input type="radio" name="panel_radio" id="radio1" class="panel_control" checked>
+                <input type="radio" name="panel_radio" id="radio2" class="panel_control">
+                <input type="radio" name="panel_radio" id="radio3" class="panel_control">
+                <div class="tab_group">
+                    <label for="radio1">個人資料</label>
+                    <label for="radio2">歷史訂單</label>
+                    <label for="radio3">預約紀錄</label>
                 </div>
-                <!-- 預約紀錄 -->
-                <div class="content content3">
-                    <h2>預約紀錄</h2>
-                    <hr>
-                    <!-- 預約紀錄搜尋 -->
-                    <div class="reserve_search_bar">
-                        <label for="reserve_search"><img src="./images/Search.png"></label>
-                        <div class="reserve_search_row">
-                            <div class="category_row">
-                                <select name="category">
-                                    <option value="">預約日期</option>
-                                    <option value="">預約項目</option>
-                                </select>
-                                <div class="reserve_time">
-                                    預約時間:
-                                    <input type="text">
-                                    ~
-                                    <input type="text">
+                <div class="content_group">
+                    <!-- 個人資料 -->
+                    <div class="content content1">
+                        <h2>個人資料</h2>
+                        <hr>
+                        <div class="mem_data">
+                            <div class="person_info">
+                                <div class="person_info_item">
+                                    帳號: &nbsp; abc123
+                                </div>
+                                <div class="person_info_item">
+                                    密碼: &nbsp; ******
+                                </div>
+                                <div class="person_info_item">
+                                    信箱: &nbsp; abc123@gmail.com
+                                </div>
+                                <div class="person_info_item">
+                                    生日: &nbsp; 1998年10月27日
+                                </div>
+                                <div class="person_info_item">
+                                    手機: &nbsp; 0912345678
+                                </div>
+                                <div class="person_info_item">
+                                    市話: &nbsp; 03-12345678
+                                </div>
+                                <div class="person_info_item">
+                                    地址: &nbsp; 桃園市中壢區復興路46號9樓
                                 </div>
                             </div>
-                            <input type="text" id="reserve_search">
+                            <div class="edit">
+                                <button class="btnMinimum">編輯</button>
+                            </div>
                         </div>
                     </div>
-                    <!-- 資料表格 -->
-                    <div class="order_data">
-                        <table>
-                            <tr>
-                                <th>預約日期</th>
-                                <th>按摩項目</th>
-                                <th>按摩師</th>
-                                <th>開始時間</th>
-                                <th>結束時間</th>
-                            </tr>
-                            <tr>
-                                <td>2022-09-16</td>
-                                <td>全身指壓按摩</td>
-                                <td>無名氏</td>
-                                <td>10:00</td>
-                                <td>11:00</td>
-                            </tr>
-                        </table>
+                    <!-- 歷史訂單 -->
+                    <div class="content content2">
+                        <h2>歷史訂單</h2>
+                        <hr>
+                        <!-- 歷史訂單搜尋 -->
+                        <div class="order_search_bar">
+                            <label for="order_search"><img src="./images/Search.png"></label>
+                            <div class="order_search_row">
+                                <div class="category_row">
+                                    <select name="category">
+                                        <option value="">購買日期</option>
+                                        <option value="">訂單編號</option>
+                                        <option value="">訂單名稱</option>
+                                    </select>
+                                    <select name="state" id="state_search" class="state_search">
+                                        <option value="">未出貨</option>
+                                        <option value="">已出貨</option>
+                                        <option value="">訂單名稱</option>
+                                    </select>
+                                </div>
+                                <input type="text" id="order_search">
+                            </div>
+                        </div>
+                        <!-- 資料表格 -->
+                        <div class="order_data">
+                            <table>
+                                <tr>
+                                    <th>訂單編號</th>
+                                    <th>訂單名稱</th>
+                                    <th>訂單日期</th>
+                                    <th>訂單狀態</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td>A123456789</td>
+                                    <td>訂單一</td>
+                                    <td>2022-09-16</td>
+                                    <td>未出貨</td>
+                                    <td valign="middle">
+                                        <div id="order_detail">
+
+                                            <light-box>
+
+
+                                            </light-box>
+                                        </div>
+                                    </td>
+                                    <!--  -->
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- 預約紀錄 -->
+                    <div id="vieworder" class="content content3">
+                        <h2>預約紀錄</h2>
+                        <hr>
+                        <!-- 預約紀錄搜尋 -->
+                        <div class="reserve_search_bar">
+                            <label for="reserve_search"><img src="./images/Search.png"></label>
+                            <div class="reserve_search_row">
+                                <div class="category_row">
+                                    <select name="category">
+                                        <option value="">預約日期</option>
+                                        <option value="">預約項目</option>
+                                    </select>
+                                    <div class="reserve_time">
+                                        預約時間:
+                                        <input type="text">
+                                        ~
+                                        <input type="text">
+                                    </div>
+                                </div>
+                                <input type="text" id="reserve_search">
+                            </div>
+                        </div>
+                        <!-- 資料表格 -->
+                        <div class="order_data">
+                            <table>
+                                <tr>
+                                    <th>預約日期</th>
+                                    <th>按摩項目</th>
+                                    <th>按摩師</th>
+                                    <th>價錢</th>
+                                    <th>開始時間</th>
+                                    <th>結束時間</th>
+                                </tr>
+                                <tr>
+                                    <td>2022-09-16</td>
+                                    <td>{{this.orderList[0]["orderMsg"]}}</td>
+                                    <td>{{this.orderList[0]["orderTherapist"]}}</td>
+                                    <td>{{this.orderList[0]["orderPrice"]}}</td>
+                                    <td>10:00</td>
+                                    <td>11:00</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- footer -->
+        @@include('./layout/footer.html')
+        <script src="https://unpkg.com/vue@next"></script>
     </div>
-    <!-- footer -->
-    @@include('./layout/footer.html')
-    <script src="https://unpkg.com/vue@next"></script>
-</div>
 </body>
 <script>
     const order_detail = Vue.createApp({
-       
+
         data() {
             return {
-               cart:[],
+                cart: [],
             }
-        
+
         },
-        methods:{
-    
+        methods: {
+
         },
-        created(){
-           
-        
+        created() {
+
+
         }
     })
     order_detail.component('light-box', {
@@ -241,18 +238,18 @@
             </teleport>
             <button class="btnMinimum order_detail"  @click="isShow = true">詳細資訊</button>
         </div>`,
-   
+
         data: () => ({
             isShow: false,
-            car:[],
-          
+            car: [],
+
         }),
         computed: {
             modalStyle() {
                 return {
                     'display': this.isShow ? '' : 'none',
-                   
-                  
+
+
                 };
             }
         },
@@ -261,30 +258,62 @@
                 console.log('click')
                 this.isShow = !this.isShow;
             },
-            online(){
+            online() {
                 let buyCar = localStorage.getItem("car");
-                if(!buyCar) return;
+                if (!buyCar) return;
                 this.car = JSON.parse(buyCar)
             },
-          
-            send(){
-              for(let i=0;i<this.car.length;i++){
-                this.price = this.car[i].price
-                this.name = this.car[i].name
-                this.num = this.car[i].num
-                this.img = this.car[i].img   
-              }
+
+            send() {
+                for (let i = 0; i < this.car.length; i++) {
+                    this.price = this.car[i].price
+                    this.name = this.car[i].name
+                    this.num = this.car[i].num
+                    this.img = this.car[i].img
+                    this.img = this.car[i].img
+                    this.img = this.car[i].img
+                    this.img = this.car[i].img
+                    this.img = this.car[i].img
+                    this.img = this.car[i].img
+                    this.img = this.car[i].img
+                    this.img = this.car[i].img
+                    this.img = this.car[i].img
+                    this.img = this.car[i].img
+                    this.img = this.car[i].img
+                    this.img = this.car[i].img
+                    this.img = this.car[i].img
+                }
             }
-            
-           
+
+
         },
-    
+
         created() {
             this.online()
             this.send()
         },
     });
     order_detail.mount('#order_detail')
+</script>
+<script>
+    const VM = {
+        data() {
+            return {
+            }
+        },
+        methods: {
+            getStorage() {
+                var orderLists = localStorage.getItem("resvOrder")
+                if (!orderLists) return
+                this.orderList = JSON.parse(orderLists)
+            },
+        },
+        created() {
+            this.getStorage()
+        },
+    }
+
+    Vue.createApp(VM).mount('#vieworder')
 </script>
 
 </html>

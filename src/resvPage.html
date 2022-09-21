@@ -11,6 +11,9 @@
     <script src="https://unpkg.com/vue@next"></script>
     <script src="./js/jquery-3.6.0.js"></script>
     <script src="./js/jquery.datetimepicker.full.min.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="https://unpkg.com/view-ui-plus/dist/styles/viewuiplus.css">
+    <script type="text/javascript" src="https://unpkg.com/vue@next"></script>
+    <script type="text/javascript" src="https://unpkg.com/view-ui-plus"></script> -->
 </head>
 
 <body>
@@ -60,12 +63,12 @@
                                         <p>請選擇時間長度</p>
                                         <select v-model="orderPrice" name="" id="orderPrice" class="timespan">
                                             <option disabled value="">請選擇時間長度</option>
-                                            <option value="2,400/ 120分鐘" selected>
+                                            <option value="2,400" selected>
                                                 <span class="msg_timespan_1">120分鐘</span>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <span class="msg_price_1">NT$2,400</span>
                                             </option>
-                                            <option value="1,600/ 60分鐘">
+                                            <option value="1,600">
                                                 <span class=" msg_timespan_1">60分鐘</span>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <span class="msg_price_1">NT$1,600</span>
@@ -74,6 +77,11 @@
                                         <div class="calendar">
                                             <input id="datetimepicker" class="xdsoft_datetimepicker " type="text">
                                         </div>
+                                        <!-- <div id="app">
+                                            <date-picker type="datetime" format="yyyy-MM-dd HH:mm"
+                                                placeholder="請選擇預約日期及時間" :options="options2" style="width: 300px">
+                                            </date-picker>
+                                        </div> -->
                                         <div class="content_footer">
                                             <div class="price">NT$ {{orderPrice}}</div>
                                             <input class="btnLittle" type="button" @click="confirm" value="確認預約">
@@ -170,24 +178,12 @@
                         orderList: [],
                         orderMsg: "全身穴道按摩",
                         orderTherapist: "李駿燕",
-                        orderPrice: "1,600/ 60分鐘",
+                        orderPrice: "1,600",
                         orderDate: "2022/09/21",
                         timeStart: "",
                         timeEnd: "",
                         activeTab: "A",
                         msgCardList: [
-                            // {
-                            //     name: '全身穴道按摩',
-                            //     intro: '經典穴道按摩課程，經過經絡及淋巴循環，釋放緊繃、痠痛的肌肉；深層紓壓舒緩身心，特別推薦給工作壓力大、肌肉僵硬容易痠痛者，例如久坐辦公室或放鬆運動過後的身體。',
-                            //     timespan_1: 120,
-                            //     price_1: 2400,
-                            //     rec_1: '適合平常沒有按摩習慣或身體很多部位都很緊繃者​',
-                            //     timespan_2: 60,
-                            //     price_2: 1600,
-                            //     rec_2: '適合平常有按摩習慣者​',
-                            //     // pic: './images/resv1.jpg',
-                            //     pic_alt: '全身穴道按摩照片',
-                            // },
                             {
                                 name: '精油深層放鬆',
                                 intro: '提供珍貴漢方中藥草精油，在純手技按摩手法外，利用不同精油的植物特性加強放鬆。以中式推拿舒展筋骨，西式芳療順淋巴，從身體到情緒，把負面疲勞一一帶走，達到身心排毒的功效。',
@@ -277,5 +273,29 @@
         lang: 'ru'
     });
 </script>
+<!-- <script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                options1: {
+                    disabledDate(date) {
+                        return date && date.valueOf() < Date.now() - 86400000;
+                    }
+                },
+                options2: {
+                    disabledDate(date) {
+                        const disabledDay = date.getDate();
+                        return disabledDay === 15;
+                    }
+                }
+            }
+        },
+        methods: {
+
+        }
+    });
+    app.use(ViewUIPlus);
+    app.mount("#app");
+</script> -->
 
 </html>
