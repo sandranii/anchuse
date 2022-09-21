@@ -34,6 +34,10 @@
                 a {
                     color: $blue;
                 }
+
+                a.this_page {
+                    border-bottom: 1px solid $blue;
+                }
             }
 
             .content.container {
@@ -199,60 +203,38 @@
 
         .title_area {
             margin-bottom: 30px;
-
-            .resv_title {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-bottom: 5px;
-
-                .title_font {
-                    @include title();
-
-                    &:before {
-                        @include titleBefore();
-                    }
-                }
-            }
-
-            small {
-                display: block;
-                text-align: center;
-                color: $blue;
-                letter-spacing: 2px;
-            }
         }
+    }
 
-        .items.row {
-            display: flex;
-            flex-wrap: wrap;
+    .items.row {
+        display: flex;
+        flex-wrap: wrap;
 
-            .col {
-                padding-left: 15px;
-                padding-right: 15px;
-                margin-bottom: 30px;
-                box-sizing: border-box;
+        .col {
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-bottom: 30px;
+            box-sizing: border-box;
 
-                .item_link {
-                    .item_pic {
-                        margin-bottom: 30px;
-                        border-radius: 15px;
-                        overflow: hidden;
-                    }
+            .item_link {
+                .item_pic {
+                    margin-bottom: 30px;
+                    border-radius: 15px;
+                    overflow: hidden;
+                }
 
-                    .item_txt {
-                        display: flex;
-                        justify-content: space-between;
+                .item_txt {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 18px;
+
+                    span {
                         font-size: 18px;
-
-                        span {
-                            font-size: 18px;
-                        }
                     }
                 }
-
             }
 
         }
+
     }
 }

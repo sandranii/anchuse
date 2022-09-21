@@ -9,6 +9,8 @@
     <link rel="shortcut icon" href="./images/littleWebLogo.png">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://unpkg.com/vue@next"></script>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="./js/jquery.datetimepicker.full.min.js"></script>
 </head>
 
 <body>
@@ -25,7 +27,7 @@
                     <div class="breadcrumb">
                         <a href="./index.html">首頁</a> >
                         <a href="./reservation.html">預約按摩</a> >
-                        <a href="./resvPage.html">全身穴道按摩</a>
+                        <a class="this_page" href="./resvPage.html">全身穴道按摩</a>
                     </div>
                     <div class="content container">
                         <div class="row">
@@ -48,23 +50,23 @@
                                     </h1>
                                     <form action="" method="get">
                                         <p>請選擇按摩師傅</p>
-                                        <select name="" id="" class="therapist">
-                                            <option disabled value="">請選擇按摩師傅</option>
-                                            <option value="">李駿燕 師傅</option>
-                                            <option value="">言子倩 師傅</option>
-                                            <option value="">康晉壕 師傅</option>
-                                            <option value="">倪玉涓 師傅</option>
+                                        <select v-model="orderTherapist" name="" id="orderTherapist" class="therapist">
+                                            <option value="" disabled>請選擇按摩師傅</option>
+                                            <option value="李駿燕">李駿燕 師傅</option>
+                                            <option value="言子倩">言子倩 師傅</option>
+                                            <option value="康晉壕">康晉壕 師傅</option>
+                                            <option value="倪玉涓">倪玉涓 師傅</option>
                                         </select>
                                         <p>請選擇時間長度</p>
-                                        <select v-model="price" name="" id="" class="timespan">
+                                        <select v-model="orderPrice" name="" id="orderPrice" class="timespan">
                                             <option disabled value="">請選擇時間長度</option>
-                                            <option value="2,400" selected>
+                                            <option value="2,400/ 120分鐘" selected>
                                                 <span class="msg_timespan_1">120分鐘</span>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <span class="msg_price_1">NT$2,400</span>
                                             </option>
-                                            <option value="1,600">
-                                                <span class="msg_timespan_1">60分鐘</span>
+                                            <option value="1,600/ 60分鐘">
+                                                <span class=" msg_timespan_1">60分鐘</span>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <span class="msg_price_1">NT$1,600</span>
                                             </option>
@@ -73,8 +75,8 @@
                                             <input id="datetimepicker" class="xdsoft_datetimepicker " type="text">
                                         </div>
                                         <div class="content_footer">
-                                            <div class="price">NT$ {{price}}</div>
-                                            <input class="btnLittle" type="submit" value="確認預約">
+                                            <div class="price">NT$ {{orderPrice}}</div>
+                                            <input class="btnLittle" type="button" @click="confirm" value="確認預約">
                                         </div>
                                     </form>
                                 </div>
@@ -128,12 +130,12 @@
             </section>
             <section class="related">
                 <div class="title_area">
-                    <div class="resv_title">
-                        <h3 class="title_font">相</h3>
-                        <h3 class="title_font">關</h3>
-                        <h3 class="title_font">按</h3>
-                        <h3 class="title_font">摩</h3>
-                    </div>
+                    <h2 class="sure_title">
+                        <p class="title_font">相</p>
+                        <p class="title_font">關</p>
+                        <p class="title_font">按</p>
+                        <p class="title_font">摩</p>
+                    </h2>
                     <small>• RELATED MASSAGE •</small>
                 </div>
                 <div class="items row">
@@ -164,7 +166,14 @@
                 data() {
                     return {
                         // isActive: true,//預測剛開始是打開active
-                        price: '2,400',
+                        // orderMsg: "01",
+                        orderList: [],
+                        orderMsg: "全身穴道按摩",
+                        orderTherapist: "李駿燕",
+                        orderPrice: "1,600/ 60分鐘",
+                        orderDate: "2022/09/21",
+                        timeStart: "",
+                        timeEnd: "",
                         activeTab: "A",
                         msgCardList: [
                             // {
@@ -221,15 +230,40 @@
                 methods: {
                     // btnClick() {
                     //     this.isActive = !this.isActive
-                    // }
+                    // },
+                    confirm() {
+                        this.orderList.push({
+                            orderMsg: "全身穴道按摩",
+                            orderTherapist: orderTherapist.value,
+                            orderPrice: orderPrice.value,
+                        })
+                        this.setStorage()
+                        window.alert("預約成功");
+                    },
+                    setStorage() {
+                        localStorage.setItem('resvOrder', JSON.stringify(this.orderList))
+                    },
+                    getStorage() {
+                        var orderLists = localStorage.getItem("resvOrder")
+                        if (!orderLists) return
+                        this.orderList = JSON.parse(orderLists)
+                    },
+
+                },
+                created() {
+                    this.getStorage()
+                },
+                watch: {
+                    orderList: {
+                        handler(newVal, oldVal) {
+                            this.setStorage(newVal)
+                        },
+                        deep: true//監聽陣列內容
+                    }
                 },
             }
 
             Vue.createApp(VM).mount('#view')
-        </script>
-        <script>
-            jQuery('#datetimepicker').datetimepicker();
-            console.log('hello');
         </script>
     </div>
 </body>

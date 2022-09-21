@@ -24,34 +24,7 @@
         @include container;
 
         .title_area {
-            @include container();
             margin-top: 70px;
-
-            .resv_title {
-                @include container();
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-bottom: 5px;
-
-                .title_font {
-                    @include title();
-
-                    &::before {
-                        @include titleBefore();
-                    }
-
-                    margin-bottom: 0;
-                }
-            }
-
-            small {
-                display: block;
-                @include container();
-                text-align: center;
-                color: $blue;
-                letter-spacing: 2px;
-            }
         }
 
         .msg_card_list {
