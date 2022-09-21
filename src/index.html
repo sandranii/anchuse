@@ -112,7 +112,7 @@
                             </div>
                             <small>• RESERVATION •</small>
                             <p>按指穴提供四種按摩服務項目，不管是久坐上班族，或是帶個兩小孩的全職媽媽，我們都有適合的按摩項目為您解決各種酸痛!</p>
-                            <a href="./reservation.html"><button class="btnLittle">查看更多</button></a>
+                            <a href="./reservation.html"><div class="btnLittle">查看更多</div></a>
                         </div>
                     </div>
                     <div class="reservation_content"><!------預約按摩------>
@@ -128,7 +128,9 @@
                                     <p class="pirce">60分鐘 / NT$1,600</p>
                                     <p>適合平常有按摩習慣者</p>
                                 </div>
-                                <a href="./resvPage.html"><button class="btnLittle">立即預約</button></a>
+                                <div class="intro_btn">
+                                    <a href="./resvPage.html"><div class="btnLittle">立即預約</div></a>
+                                </div>
                             </div>
                         </div>
                         <div class="item">
@@ -143,7 +145,9 @@
                                     <p class="pirce">60分鐘 / NT$1,600</p>
                                     <p>適合平常有按摩習慣者</p>
                                 </div>
-                                <a href="./resvPage.html"><button class="btnLittle">立即預約</button></a>
+                                <div class="intro_btn">
+                                    <a href="./resvPage.html"><div class="btnLittle">立即預約</div></a>
+                                </div>
                             </div>
                         </div>
                         <div class="item">
@@ -157,9 +161,10 @@
                                     <p>適合平常沒有按摩習慣或身體很多部位都很緊繃者</p>
                                     <p class="pirce">60分鐘 / NT$1,600</p>
                                     <p>適合平常有按摩習慣者</p>
-
                                 </div>
-                                <a href="./resvPage.html"><button class="btnLittle">立即預約</button></a>
+                                <div class="intro_btn">
+                                    <a href="./resvPage.html"><div class="btnLittle">立即預約</div></a>
+                                </div>
                             </div>
                         </div>
                         <div class="item">
@@ -174,12 +179,50 @@
                                     <p class="pirce">60分鐘 / NT$1,200</p>
                                     <p>適合平常有按摩習慣者</p>
                                 </div>
-                                <a href="./resvPage.html"><button class="btnLittle">立即預約</button></a>
+                                <div class="intro_btn">
+                                    <a href="./resvPage.html"><div class="btnLittle">立即預約</div></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
+                <section class="index_review"><!------客戶感想------->
+                    <div class="title_area ">
+                        <div class="sure_title">
+                            <h2 class="title_font">客</h2>
+                            <h2 class="title_font">戶</h2>
+                            <h2 class="title_font">感</h2>
+                            <h2 class="title_font">想</h2>
+                        </div>
+                        <small>• REVIEW •</small>
+                    </div>
+                    <div class="swiper2 mySwiper2">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide"><img src="./images/unhappyCat.png" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/astronaut.png" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/smellCat.png" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/strongCat.png" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/shockCat.png" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/FrisbeeGog.png" alt=""></div>
+                        </div>
+                        <!-- If we need pagination -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </section>
+                <section class="latest_news">
+                    <div class="title_area ">
+                        <div class="sure_title">
+                            <h2 class="title_font">客</h2>
+                            <h2 class="title_font">戶</h2>
+                            <h2 class="title_font">感</h2>
+                            <h2 class="title_font">想</h2>
+                        </div>
+                        <small>• REVIEW •</small>
+                    </div>
+                </section>
         </main>
     </div>
     @@include('./layout/footer.html')
@@ -210,17 +253,40 @@
         spaceBetween: 30,
         centeredSlides: true,
         autoplay: {
-          delay: 2800,
-          disableOnInteraction: false,
+            delay: 2800,
+            disableOnInteraction: false,
         },
         pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-          renderBullet: function (index, className) {
+            el: ".swiper-pagination",
+            clickable: true,
+            renderBullet: function (index, className) {
             return '<span class="' + className + '">' + (index + 1) + "</span>";
-          },
+            },
         },
-      });
+    });
+
+    var swiper2 = new Swiper(".mySwiper2", {
+        
+        
+        breakpoints: {
+              320: {
+                slidesPerView: 2,
+                spaceBetween: 160,
+              },
+              992: {
+                slidesPerView: 3,
+                spaceBetween:30,
+              },
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        },
+    });
 
     </script>
 </body>
