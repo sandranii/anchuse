@@ -9,15 +9,7 @@
 </head>
 <body>
     @@include('./layout/header.html')
-    <div class="banner">
-        <img src="./images/bannerProduct.png" alt="">
-    </div>
-    <div class="main_title">
-        <img src="./images/productTitle.png" alt="">
-    </div>
-    <div class="background-pic">
-        <img src="./images/bcgFlower.png" alt="">
-    </div>
+ 
         
     <!-- ========================================banner -->
 <div id="app"  style="margin-bottom:300px; margin-top: 100px;"class="shopping-container" >
@@ -48,7 +40,6 @@
                     <th>商品名稱</th>
                     <th>數量</th>
                     <th>價格</th>
-          
                 </tr>
                 <tr v-for="item in calculate">
                     <th>{{item.name}}</th>
@@ -69,7 +60,6 @@
                     <th></th>
                     <th>{{totalPrice}}</th>
                 </tr>
-                
             </table>
             <div class="pay-btn">
                 <button class="btnLittle" @click="next">下一步</button>
