@@ -210,9 +210,9 @@
                     
                  carOnline(){
              
-                    let carStr = localStorage.getItem('cart');
-                    if (!carStr) return;
-                    this.cart= JSON.parse(carStr)
+                    let buyCar = localStorage.getItem('car');
+                    if (!buyCar) return;
+                    this.car= JSON.parse(buyCar)
 
                         
                     let gold = localStorage.getItem("price")
