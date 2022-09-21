@@ -17,7 +17,7 @@
                 text-align: center;
                 line-height: 2;
                 color: #524F4F;
-                font-size: 18px;
+                font-size: 24px;
             }
         }
         &::before{
@@ -28,8 +28,8 @@
             border-bottom: 50px solid transparent ;
             border-left: 50px solid transparent;
             position: absolute;
-            top: 100%;
-            left: 1%;
+            top: 110%;
+            left: 2%;
         }
     }
     .answer_hand{
@@ -60,7 +60,9 @@
         }
         .zhong_chong{
             top: 55%;
-            left: 35%;
+            left: 33%;
+            scale: 1.5;
+            box-shadow: 0px 0px 10px $red,inset 0px 0px 5px $white;
         }
         .shao_shang{
             top: 5%;
@@ -78,10 +80,6 @@
             top: 90%;
             left: 65%;
         }
-        .lao_gong{
-            top: 58%;
-            left: 37%;
-        }
         .yu_ji{
             top: 40%;
             left: 57%;
@@ -93,6 +91,44 @@
         .tai_yuan{
             top: 72%;
             left: 80%;
+        }
+        .answer_box{
+            position: absolute;
+            top: 30%;
+            left: 70%;
+            width: 400px;
+            padding: 5px;
+            border: 3px solid $blue;
+            border-radius: 12px;
+            box-shadow: 6px 10px 0px 0px $blue;
+            background-color: #fff;
+            .answer_box_frame{
+                border-radius: 8px;
+                border: 2px solid $blue;
+                .answer_title{
+                    font-family: $fontTitle;
+                    color: $blue;
+                    padding-top: 10px;
+                    padding-left: 10px;
+                }
+                .answer_txt{
+                    color: #524F4F;
+                    padding: 10px;
+                    letter-spacing: 2px;
+                    line-height: 25px;
+                }
+            }
+        }
+        .answer_box::before{
+            content: '';
+            width: 210px;
+            height: 2px;
+            background-color: $blue;
+            position: absolute;
+            top: 112%;
+            left: -50%;
+            transform: rotate(-10deg
+            );
         }
     }
     .answer_btn{
@@ -112,14 +148,7 @@
 @media screen and (min-width: 768px) and (max-width: 1199.98px){
     .game_answer{
         .answer_container{
-            .answer_frame{
-                .answer{
-                    font-size: 20px;
-                }
-            }
-            &::before{
-                top: 110%;
-            }
+            width: 60%;
         }
         .answer_hand{
             width: 60%;
@@ -130,16 +159,12 @@
         }
     }
 }
+
 /*====== 桌機版 RWD | >1200px ======*/
 @media screen and (min-width: 1200px){
     .game_answer{
         .answer_container{
             width: 60%;
-            .answer_frame{
-                .answer{
-                    font-size: 24px;
-                }
-            }
         }
         .answer_hand{
             width: 40%;
@@ -147,6 +172,7 @@
                 width: 25px;
                 height: 25px;
             }
+            
         }
     }
 }
