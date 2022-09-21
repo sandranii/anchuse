@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>穴道小遊戲</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="massage_game">
+
+    <h1 class="sr_only">穴道小遊戲</h1>
+
+    <div class="background_flower">
+        @@include('./layout/header.html')
+
+        <div class="question_container">
+            <div class="question_frame">
+                <p class="question">
+                    天氣炎熱食慾不振，好像中暑了，這時該按哪一個穴道呢?
+                <p>
+            </div>
+        </div>
+        <div class="hand_pic">
+            <img src="./images/game1.png" alt="手部穴道圖">
+            <button class="acupoint zhong_chong"></button>
+            <button class="acupoint shao_shang"></button>
+            <button class="acupoint he_gu"></button>
+            <button class="acupoint ming_men"></button>
+            <button class="acupoint shen_men"></button>
+            <button class="acupoint lao_gong"></button>
+            <button class="acupoint yu_ji"></button>
+            <button class="acupoint shao_fu"></button>
+        </div>
+
+        <div class="game_btn">
+            <a class="btnLarge" href="./gameAnswer.html">確認答案</a>
+        </div>
+
+        @@include('./layout/footer.html')
+    </div>
+</body>
+</html>

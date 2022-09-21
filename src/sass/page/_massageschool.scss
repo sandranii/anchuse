@@ -1,37 +1,15 @@
 .massage_school_page{
     width: 100%;
-    .title_area {
-        @include container();
+    .title_area{
         margin-top: 70px;
-        margin-bottom: 70px;
-        .knowledge_maintitle {
-            @include container();
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 5px;
-            .title_font {
-                @include title();
-                &:before {
-                    @include titleBefore();
-                }
-                margin-bottom: 0;
-            }
-        }
-        small {
-            display: block;
-            @include container();
-            text-align: center;
-            color: $blue;
-            letter-spacing: 2px;
-            font-size: 16px;
-        }
     }
     .msgshl_btn{
         margin-bottom: 120px;
         text-align: center;
         a{
             text-decoration: none;
+            padding-left: 40px;
+            padding-right: 30px;
         }
     } 
     /* Slider */
@@ -253,7 +231,7 @@
         }
     }
 }
-/*======    平板版 RWD | 768px ~ 1200px ======*/
+/*====== 平板版 RWD | 768px ~ 1200px ======*/
 @media screen and (min-width: 768px) and (max-width: 1199.98px){
     .massage_school_page{
         .knowledge_container{

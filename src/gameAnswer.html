@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>穴道小遊戲</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="game_answer">
+
+    <h1 class="sr_only">穴道小遊戲</h1>
+
+    <div class="background_flower">
+        @@include('./layout/header.html')
+
+        <div class="answer_container">
+            <div class="answer_frame">
+                <p class="answer">
+                    正確答案 !
+                <p>
+            </div>
+        </div>
+        <div class="answer_hand">
+            <img src="./images/game1.png" alt="手部穴道圖">
+        </div>
+
+        <div class="answer_btn">
+            <a class="btnLarge" href="./gameOver.html">獲得折價券</a>
+        </div>
+
+        @@include('./layout/footer.html')
+    </div>
+</body>
+</html>
