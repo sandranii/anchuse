@@ -17,6 +17,27 @@
         margin-bottom: 120px;
         .frame{
             display: block;
+            #a1,
+            #a2,
+            #a3,
+            #a4,
+            #a5,
+            #a6{
+                display: inline;
+                &:checked + label{
+                    span:nth-child(2){
+                        rotate: 0deg;
+                    }
+                    .question{
+                        box-shadow: none;
+                    }
+                    & + .answer{
+                        display: block;
+                        animation: FAQSlide 1s both;
+                    }
+                }
+
+            }
             .question{
                 transition: 0.3s;
                 display: flex;
@@ -26,6 +47,7 @@
                 box-shadow: 3px 3px 0px 0px $blue;
                 margin: 3% 15% 0;
                 padding: 20px;
+                background-color: #fff;
                 p{
                     opacity: 0.9;
                     font-weight: 600;
@@ -59,6 +81,7 @@
                 }
             }
             .answer{
+                display: none;
                 line-height: 1.8;
                 font-weight: 600;
                 opacity: 0.8;
@@ -110,4 +133,11 @@
             }
         }
     }
+}
+
+@keyframes FAQSlide {
+    0% { opacity: 0;
+            transform: translateY(-50px);}
+    100% { opacity: 1;
+            transform: translateY(0px);}
 }
