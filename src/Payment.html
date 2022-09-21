@@ -9,14 +9,16 @@
 </head>
 <body>
     @@include('./layout/header.html')
- 
+    <div class="background-pic">
+        <img src="./images/bcgFlower.png" alt="">
+        </div>
         
     <!-- ========================================banner -->
 <div id="app"  style="margin-bottom:300px; margin-top: 100px;"class="shopping-container" >
 
 <div class="path">
 
-    <div class="target" :class="{hint:active==1}">
+    <!-- <div class="target" :class="{hint:active==1}">
         <h4 :class="{hint:active==1}">確認商品</h4>
     </div>
     <div class="target" :class="{hint:active==2}">
@@ -25,12 +27,12 @@
     <div class="target" :class="{hint:active==3}">
         <h4 :class="{hint:active==3}">付款</h4>
     </div>
-</div>
+</div> -->
 
 
 
     <!-- ============================== -->
-    <div class="confirm-data col-6" v-if="active==1">
+    <div class="confirm-data col-6 pay-list " v-if="active==1">
         <div class="confirm-data-title">
             <p>確認商品</p>
         </div>
@@ -69,49 +71,53 @@
     </div>
 <!-- ================================= -->
 
-    <div class="receiver col-6" v-if="active==2">
+    <div class="receiver col-6   pay-list" v-if="active==2">
         <div class="receiver-title">
             <p>收貨人訊息</p>
         </div>
         <form action="">
-            <div class="receiver-name">
-              <label for="name">名字:</label>
-                <input type="text" name="" value="" id="name">
-            </div>
 
-            <label for="gender">性別:</label>
-           <div class="receiver-gender">
-    
-                <select name="" id="gneder">
-                    <option value="">請選擇</option>
-                    <option value="">男</option>
-                    <option value="">女</option>
-                </select>
-           </div> 
-            <div class="receiver-cellphone">
-                <label for="cellphone"> 手機:</label>
-               <input type="text" name="" value="" id="cellphone">
-            </div>
+            <table class="address" width="300" border="1">
+                <tr>
+                    <th><label for="name">名字:</label></th>
+                    <th><input type="text" name="" value="" id="name"></th>
+                </tr>
+                <tr>
+                    <th><label for="gender">性別:</label></th>
+                    <th style="display:flex;">男<input type="radio" name="gender" value="man">
+                        女<input type="radio" name="gender" value="woman"></th>
+                </tr>
+                <tr>
+                    <th><label for="cellphone"> 手機:</label></th>
+                    <th><input type="text" name="" value="" id="cellphone"></th>
+                </tr>
+                <tr>
+                    <th><label for="">付款方式:</label></th>
+                    <th style="display:flex;">信用卡<input type="radio" name="pay" value="man">
+                        貨到付款<input type="radio" name="pay" value="woman"></th>
+                </tr>
+                    
+                <tr>
+                    <th> <label for="">收件地址:</label></th>
+                    <th> <select name="" id="address" v-model="sel">
+                        <option  v-for="item in city" :value="item.CityName" >{{item.CityName}}</option>
+                    </select>    <select name="" id="" v-model="selArea">
+                        <option v-for="item in township"  :value="item.AreaName">{{item.AreaName}}</option>
+                    </select></th>
             
-            <div class="receiver-telephone">
-                <label for="tellphone">市話:</label>
-               <input type="text" name="" value="" id="tellphone">
-            </div>
-            <div class="receiver-address">
-
-                <label for="address">收件地址:</label>
-                縣市:<select name="" id="address" v-model="sel">
-                    <option  v-for="item in city" :value="item.CityName" >{{item.CityName}}</option>
-                </select>
-
-                區域:<select name="" id="" v-model="selArea">
-                    <option v-for="item in township"  :value="item.AreaName">{{item.AreaName}}</option>
-                </select><br>
-                <input type="text" placeholder="請輸入詳細地址">
-            </div>
-            <div class="pay-btn">
-                <button class="btnLittle" @click="next">下一步</button>
-            </div>
+             
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><input type="text" placeholder="請輸入詳細地址"></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><button  class="btnLittle" typr="button">
+                        <a class="pay-url"  href="https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5">前往結帳</a>
+                    </button> </th>
+                </tr>
+            </table>
         </form>
     </div>
 
@@ -119,7 +125,7 @@
  
 <!-- ===================================== -->
 
-    <div class="credit-card col-6" v-if="active==3">
+    <div class="credit-card col-6   pay-list" v-if="active==3">
         <div class="credit-card-title">
             <p>信用卡付款</p>
         </div>
