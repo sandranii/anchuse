@@ -15,13 +15,6 @@
 
        @@include('./layout/header.html')
 
-        <div class="banner">
-            <img src="./images/bannerProduct.png" alt="">
-        </div>
-        <div class="main_title">
-            <img src="./images/productTitle.png" alt="">
-        </div>
-
         <!-- ========================================banner -->
 
         <div id="app" class="shopping-container" style="margin-top:100px">
@@ -76,7 +69,7 @@
                     </div>
             
                     <div class="product-price"  >
-                        <p>售價:{{item.price}}元</p>
+                        <p>${{item.price}}元</p>
                     </div>
                     <div class="product-introduce">
                         <div class="product-txt">
@@ -87,19 +80,29 @@
                                 <li>💓{{item.product3}}</li>
                             </ul>
                             <br>
-                            <p>產地:{{item.specification.origin}}</p>
-                            <p>付款方式:{{item.checkout}}貨到付款</p>
-                            <p>保固資訊:{{item.warranty}}</p>
-            
+                            <table border="1" width="500">
+                                <tr>
+                                    <th><p>產地:{{item.specification.origin}}</p></th>
+                                </tr>
+                                <tr>
+                                    <th><p>付款方式:{{item.checkout}}貨到付款</p></th>
+                                   
+                                </tr>
+                                <tr>
+                                    <th><p>保固資訊:{{item.warranty}}</p></th>
+                                </tr>
+                            </table>
+                       
                         </div>
                         <div class="product-number">
-                            <button @click="addNum(item)">+</button>
+                            <button @click="reduceNum(item)">-</button>
                             <input type="text" v-model="item.num">
-                            <button  @click="reduceNum(item)">-</button>
+                            <button  @click="addNum(item)">+</button>
                         </div>
                         <div class="product-addcar">
                             <button  class="btnLarge"  @click="addCar(item.id,item)">加入購物車</button>
                             <a href="./shoppingCart.html"><button   class="btnLarge  redBtn" @click="direct(item.id,item)">直接購買</button> </a>
+                           
                         </div>
                     </div>
             
@@ -153,7 +156,7 @@
 
                 <div class="illustrate-txt" v-if="article==2" style="font-weight:800;letter-spacing:3px;" >
                
-                <p  style="font-size:25px">{{special.one}}</p>
+                <p style="font-size:25px">{{special.one}}</p>
                 <p style="font-size:25px">{{special.two}}</p>
                 <p style="font-size:25px">{{special.three}}</p>
                 <p style="font-size:25px">{{special.four}}</p>

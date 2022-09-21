@@ -1,4 +1,5 @@
     @media screen and (min-width:1200px) {
+   
         .bread{
             padding: 10px;
             font-size: 16px;
@@ -8,7 +9,7 @@
             line-height: 2;
             display: flex;
             justify-content: space-between;
-            padding-bottom: 200px;
+            padding-bottom: 100px;
           
             .product-body{
                 width: 45%;
@@ -104,7 +105,7 @@
             line-height: 2;
             display: flex;
             justify-content: space-between;
-            padding-bottom: 200px;
+            padding-bottom: 50px;
           
             .product-body{
                 width: 45%;
@@ -169,6 +170,10 @@
                     padding: 5px 0;
                     text-align: center;
                 }
+            }
+            .product-addcar{
+                display: flex;
+                justify-content: flex-start;
             }
             .product-price{
                 display: flex;
