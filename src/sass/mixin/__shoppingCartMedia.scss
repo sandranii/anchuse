@@ -1,6 +1,5 @@
 @media screen and (min-width: 768px) and (min-width: 1200px){
-    
-    
+
 .shopping-cart{
     @include container();
     line-height: 3;
@@ -35,7 +34,7 @@
                 .shopping-list-name{
                     display: block;
                     line-height: 1.3;
-                    small{
+                    p{
                         width: 300px;
                         display: block;
                     }
@@ -53,7 +52,8 @@
             img{
                 width: 100%;
             }
-        }  
+        } 
+        
     }
 
     .shopping-checkout{
@@ -71,6 +71,8 @@
     }
 }
 }
+
+
 
 // ======================================
 .purchase-area{
@@ -109,7 +111,7 @@
     }
     .next{
         position: absolute;
-        right: 0;
+        z-index: 10;
     }
 
     .purchase-area-slide{
