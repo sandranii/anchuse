@@ -767,6 +767,47 @@ main{
     }
 
 }
+/*====== 行動版 RWD | 320px ~ 768px ======*/
+@media screen and (min-width: 320px) and (max-width: 767.98px){
+    .product{
+        width: 90%;
+        
+        .product_content{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            .product_oil{
+                width: 355px;
+                height: 355px;
+            }
+            .product_tool{
+                width: 355px;
+                height: 355px;
+            }
+        }
+    }
+}
+/*======    平板版 RWD | 768px ~ 1200px ======*/
+@media screen and (min-width: 768px) and (max-width: 1199.98px){
+    .product{
+        width: 90%;
+        
+        .product_content{
+            width: 100%;
+            
+
+            .product_oil{
+                width: 350px;
+                height: 350px;
+            }
+            .product_tool{
+                width: 350px;
+                height: 350px;
+            }
+        }
+    }
+}
 //--------------預約按摩---------------
 .reservation_bg{
     width: 100%;
@@ -847,7 +888,6 @@ main{
                     max-width: 500px;
                     display: flex;
                     justify-content: space-around;
-                    flex-wrap: wrap;
                     margin-top: 15px;
 
                     .intro{
@@ -862,11 +902,182 @@ main{
                         p{
                             line-height: 24px;
                         }
+                        .pirce{
+                            color:$red;
+                            font-weight: 600;
+                        }
+                        
+                    }
+                    .intro_btn{
+                        display: flex;
+                        align-items: end;
                     }
                 }
             }
         
         }
         
+    }
+}
+/*====== 行動版 RWD | 320px ~ 768px ======*/
+@media screen and (min-width: 320px) and (max-width: 767.98px){
+    .reservation_bg{
+        background-image: url(../images/brick_RWD.png);
+        background-position: right 35% bottom 22%;
+        .index_reservation{
+            width: 90%;
+            
+            .reservation_intro{
+                width: 100%;
+                height: 300px;
+                position: static;
+                
+
+                
+            }
+        }
+    }
+}
+/*======    平板版 RWD | 768px ~ 1200px ======*/
+@media screen and (min-width: 768px) and (max-width: 1199.98px){
+    .reservation_bg{
+        background-image: url(../images/brick_RWD.png);
+        background-position: right -100% bottom 22%;
+        .index_reservation{
+            width: 90%;
+
+            
+            .reservation_intro{
+                width: 100%;
+                height: 300px;
+                position: static;
+                
+            }
+            .reservation_content{
+                margin: 0 auto;
+            }
+            
+        }
+    }
+}
+
+//--------------客戶感想---------------
+
+.index_review{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 150px;
+    overflow: hidden;
+
+
+    .swiper2 {
+        width: 100%;
+        height: 100%;
+        .swiper-wrapper{
+          
+            .swiper-slide {
+                width: 400px;
+                height: 450px;
+                font-size: 18px;
+                margin: 0 auto;
+                
+            }
+        
+            .swiper-slide img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        
+
+        .swiper-pagination {
+            position: inherit;
+            text-align: center;
+            transition: .3s opacity;
+            transform: translate3d(0,0,0);
+            z-index: 0;
+            margin-top: 30px;
+            .swiper-pagination-bullet {
+                width: 16px;
+                height: 16px;
+                text-align: center;
+                line-height: 24px;
+                font-size: 12px;
+                color:  rgb(205, 205, 205);
+                opacity: 1;
+                background: rgb(205, 205, 205);
+                cursor: pointer;
+              }
+        
+              .swiper-pagination-bullet-active {
+                color: $blue;
+                background: $blue;
+              }
+        }
+    }
+}
+
+
+/*====== 行動版 RWD | 320px ~ 768px ======*/
+@media screen and (min-width: 320px) and (max-width: 767.98px){
+    .index_review{
+        width: 100%;
+    
+        .swiper2 {
+            width: 100%;
+            height: 100%;
+            .swiper-wrapper{
+              
+                .swiper-slide {
+                    width: 350px;
+                    height: 400px;
+                    font-size: 18px;
+                    margin: 0 auto;
+                    
+                    
+                }
+            
+                .swiper-slide img {
+                    display: block;
+                    width: 300px;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+    
+            
+    
+            .swiper-pagination {
+                position: inherit;
+                text-align: center;
+                transition: .3s opacity;
+                transform: translate3d(0,0,0);
+                z-index: 0;
+                margin-top: 30px;
+                .swiper-pagination-bullet {
+                    width: 16px;
+                    height: 16px;
+                    text-align: center;
+                    line-height: 24px;
+                    font-size: 12px;
+                    color:  rgb(205, 205, 205);
+                    opacity: 1;
+                    background: rgb(205, 205, 205);
+                    cursor: pointer;
+                  }
+            
+                  .swiper-pagination-bullet-active {
+                    color: $blue;
+                    background: $blue;
+                  }
+            }
+        }
     }
 }
