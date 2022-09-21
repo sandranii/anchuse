@@ -111,6 +111,20 @@
             top: 44%;
             left: 90%;
         }
+        .shao_shang::after{
+            top: 12px;
+            left: 100%;
+        }
+        .shao_shang:hover::after,
+        .shao_shang:focus::after{
+            left: 100%;
+            transition: 0.5s;
+        }
+        .shao_shang::before{
+            top: 0px;
+            left: 70px;
+            content: '少商穴';
+        }
         .he_gu{
             top: 62%;
             left: 57%;
