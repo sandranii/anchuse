@@ -615,35 +615,7 @@ main{
     flex-wrap: wrap;
     justify-content: space-around;
     padding-top: 120px;
-    .title_area{
-        width: 100%;
-
-        .title{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 6px;
-        .title_font {
-            @include title();
-
-            &:before {
-                @include titleBefore();
-            }
-
-            margin-bottom: 0;
-        }
-        }
-
-        small {
-            display: block;
-            width: 100%;
-            text-align: center;
-            color: $blue;
-            letter-spacing: 2px;
-            margin-bottom: 70px;
-        }
-    }
+    
     .massage_school_content{
         width: 100%;
         max-width: 1200px;
@@ -754,35 +726,6 @@ main{
     flex-wrap: wrap;
     justify-content: space-around;
     padding-top: 120px;
-    .title_area{
-        width: 100%;
-
-        .title{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 6px;
-        .title_font {
-            @include title();
-
-            &:before {
-                @include titleBefore();
-            }
-
-            margin-bottom: 0;
-        }
-        }
-
-        small {
-            display: block;
-            width: 100%;
-            text-align: center;
-            color: $blue;
-            letter-spacing: 2px;
-            margin-bottom: 70px;
-        }
-    }
     .product_content{
         width: 100%;
         max-width: 1200px;
@@ -823,4 +766,15 @@ main{
         }
     }
 
+}
+//--------------預約按摩---------------
+.reservation{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 120px;
+    
 }
