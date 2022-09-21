@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>預約按摩</title>
+    <link rel="shortcut icon" href="./images/littleWebLogo.png">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://unpkg.com/vue@next"></script>
 </head>
@@ -40,8 +41,8 @@
                     <div class="msg_card_frame" v-for="(msgCard, index) in msgCardList" :key="index"
                         :class="{reverse: index%2 === 1}">
                         <div class="msg_card row">
-                            <div class="msg_card_txt col col-12 col-md-8 col-xl-8">
-                                <h3 class="name">
+                            <div class="msg_card_txt col col-12 col-md-12 col-xl-8">
+                                <h3 class="name item_title">
                                     {{msgCard.name}}
                                 </h3>
                                 <div class="intro">
@@ -79,7 +80,7 @@
                                     <a class="btnLarge" href="./resvPage.html">立即預約</a>
                                 </div>
                             </div>
-                            <div class="pic_ctnr msg_card_pic col col-12 col-md-4 col-xl-4">
+                            <div class="pic_ctnr msg_card_pic col col-12 col-md-8 col-xl-4">
                                 <img :src="msgCard.pic" :alt="msgCard.pic_alt">
                             </div>
                         </div>

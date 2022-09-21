@@ -42,10 +42,15 @@
                 .row {
                     display: flex;
                     flex-wrap: wrap;
+                    margin-bottom: 60px;
 
                     .col {
                         padding: 50px 30px;
                         box-sizing: border-box;
+
+                        @include m() {
+                            padding: 30px 10px 15px 10px;
+                        }
 
                         .content_pic.frame {
                             // background-color: #fff;
@@ -74,16 +79,28 @@
                                 color: $white;
                                 margin-bottom: 50px;
                                 font-family: $fontTitle;
+                                position: relative;
 
                                 .circle {
                                     display: inline-block;
                                     background-color: $red;
                                     margin: 2px;
-                                    @include rect(4rem);
-                                    line-height: 4rem;
+                                    @include rect(48px);
+                                    line-height: 48px;
                                     border-radius: 50%;
-                                    font-size: 2rem;
+                                    font-size: 32px;
                                     text-align: center;
+                                }
+
+                                &::before {
+                                    content: '';
+                                    width: 380px;
+                                    height: 10%;
+                                    background-color: $blue;
+                                    top: 40px;
+                                    left: -80px;
+                                    z-index: -1;
+                                    position: absolute;
                                 }
                             }
 
@@ -168,8 +185,6 @@
                 }
             }
 
-
-
             .tab_container {
                 padding: 50px 80px;
                 line-height: 2;
@@ -218,23 +233,24 @@
                 margin-bottom: 30px;
                 box-sizing: border-box;
 
-                .item_pic {
-                    width: 100%;
-                    height: 350px;
-                    margin-bottom: 30px;
-                    border-radius: 15px;
-                    overflow: hidden;
-                }
+                .item_link {
+                    .item_pic {
+                        margin-bottom: 30px;
+                        border-radius: 15px;
+                        overflow: hidden;
+                    }
 
-                .item_txt {
-                    display: flex;
-                    justify-content: space-between;
-                    font-size: 18px;
-
-                    span {
+                    .item_txt {
+                        display: flex;
+                        justify-content: space-between;
                         font-size: 18px;
+
+                        span {
+                            font-size: 18px;
+                        }
                     }
                 }
+
             }
 
         }
