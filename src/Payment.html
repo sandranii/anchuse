@@ -8,12 +8,20 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-
+    @@include('./layout/header.html')
+    <div class="banner">
+        <img src="./images/bannerProduct.png" alt="">
+    </div>
+    <div class="main_title">
+        <img src="./images/productTitle.png" alt="">
+    </div>
     <div class="background-pic">
         <img src="./images/bcgFlower.png" alt="">
-        </div>
-<div id="app"  style="margin-bottom:300px">
-    @@include('./layout/header.html')
+    </div>
+        
+    <!-- ========================================banner -->
+<div id="app"  style="margin-bottom:300px; margin-top: 100px;"class="shopping-container" >
+
 <div class="path">
 
     <div class="target" :class="{hint:active==1}">

@@ -41,7 +41,7 @@
                 width: 100%;
                 max-width: 240px;
                 height: 75vh;
-                margin: auto;
+                margin-top: 100px;
                 
         
                 .area-order-title{
@@ -67,23 +67,21 @@
                     text-align: center;
                     background-color: $white;
                     border: 1px solid $blue;
-                    padding: 15px  15px;
                 }
             
             }
             // ==========================
             .wrap{
                 
-                height: 100vh ;
+                height: 100% ;
                 .area-box{
                     @include container();
-                    height: 100vh;
+                    height: 100%;
                     display: flex ;
                     flex-wrap: wrap;
-                    justify-content: center;
+                    justify-content: flex-start;
                     align-items: flex-start;
-                    padding-top: 50px;
-                    padding-bottom: 50px;
+                    padding: 50px 50px;
                       .area-card{
                           margin: 20px;
                           &:hover{
