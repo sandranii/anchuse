@@ -12,8 +12,7 @@
 
     <div class="background-pic">
         <img src="./images/bcgFlower.png" alt="">
-        </div>
-    <div id="app" style="margin-bottom:100px" class="shopping-container">
+    </div>
         <header class="page_header">
             <nav>
                 <input type="checkbox" id="check">
@@ -45,9 +44,10 @@
         <div class="main_title">
             <img src="./images/productTitle.png" alt="">
         </div>
-        <!-- ========================================banner -->
+        
     
-        <!-- ======================== -->
+        <!-- ========================================banner -->
+    <div id="app" style="margin-bottom:200px;margin-top: 100px;" class="shopping-container">
         <div class="shopping-cart">
             <div class="shopping-title">
                 <div class="title-font">購</div>
@@ -62,15 +62,15 @@
    
                 <div class="shopping-list-order" v-for="item in car">
                     <input type="checkbox"   v-model="calculate" :value="item">
-             
+           
                     <div class="shopping-list-pic ">
                         <img :src="item.img" alt="">
                     </div>
                     <div class="shopping-list-body">
                         <div class="shopping-list-name">
-                            <h5>{{item.name}}</h5>
-                            <small>✅{{item.product1}}</small><br>
-                            <small>✅{{item.product2}}</small><br>
+                            <h5>{{item.name}}</h5><br>
+                            <p>✅{{item.product1}}</p>
+                            <p>✅{{item.product2}}</p>
                          
                         </div>
                  
@@ -102,6 +102,7 @@
                 <div class="shopping-price">
                     <div class="shopping-box">
                         全選<input type="checkbox" v-model="checked"  @click="checkTotal">
+                        <button class="btnLarge" @click="drop">刪除選取項目</button>
                     </div>
                     <div class="shopping-check">
                     <div class="shopping-checkout">
@@ -124,40 +125,34 @@
             </div>
          
             <div class="purchase-area-container">
-                <button @click="prev" class="prev"><</button>
+                <button @click="next" class="next"><</button>
                 <div class="purchase-area-slide" :style="{left:330*index+'px',
                 transition:.5+'s'}">
-                  <div class="purchase-area-card " v-for="(item,value) in total" :key="item.id">
+                  <div class="purchase-area-card" v-for="(item,value) in total" :key="item.id">
                         <div class="purchase-area-pic">
                             <img :src="item.img" alt="">
                         </div>
-                        <div class="purchase-area-name">
-                            <h3>{{item.name}}</h3>
-                        </div>
+                     
                         <div class="purchase-area-introduce">
-                            <div class="purchase-area-cpacity">
-                                    <small>{{item.cpacity}}</small>
-                                </div>
-                                <div class="purchase-area-orign">
-                                    <small>{{item.orign}}</small>
-                                </div>
+                            <div class="purchase-area-name bold">
+                                <h5>{{item.name}}</h5>
                             </div>
                         <div class="purchase-area-price">
-                            <p>售價:{{item.price}}</p>
+                            <h3>$<h3 class="price-important">{{item.price}}</h3></h3>
                         </div>
                         <div class="purchase-area-btn ">
                             <button class="btnLittle" @click="addCar(item.id,item)">加入購物車</button>
                         </div>
                     </div>
-            <!-- ============================================ -->
-
-
                 </div>
-                <button @click="next" class="next">></button>
             </div>
+            <button @click="prev" class="prev">></button>
         </div>
     </div>
+</div>
+
     <footer>@@include('./layout/footer.html')</footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
 
@@ -802,7 +797,10 @@
                         
                },
            
-        
+               drop(){
+                    let del = this.calculate.find(item=>item===this.car);
+                    console.log(del)
+               },
                addCar(id,item){
                 
                 let count = this.total.findIndex(item=>{
@@ -940,8 +938,7 @@
                 this.box=""
                     for(let i=0;i<this.calculate.length;i++){
                         this.box = parseFloat(this.box+this.calculate[i].price*this.calculate[i].num)
-                    }
-                    
+                    }      
             },
            
            mounted() {//等app載入之後才會讀取
