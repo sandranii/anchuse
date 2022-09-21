@@ -211,17 +211,17 @@
                  carOnline(){
              
                     let carStr = localStorage.getItem('cart');
-                if (!carStr) return;
-                this.cart= JSON.parse(carStr)
+                    if (!carStr) return;
+                    this.cart= JSON.parse(carStr)
 
-                    
-                let gold = localStorage.getItem("price")
-                if(!gold) return;
-                this.totalPrice = JSON.parse(gold)
+                        
+                    let gold = localStorage.getItem("price")
+                    if(!gold) return;
+                    this.totalPrice = JSON.parse(gold)
 
-                let choses = localStorage.getItem("chose")
-                if(!choses) return
-                this.calculate = JSON.parse(choses)
+                    let choses = localStorage.getItem("chose")
+                    if(!choses) return
+                    this.calculate = JSON.parse(choses)
                 
                 },
                 set(){
@@ -265,6 +265,13 @@
                },
                created() {
                 this.carOnline()
+
+                axios.get("./json/taiwan.json")
+                .then((res)=>{
+                    console.log(res)
+
+                    this.city=res.data
+                })
                },
                updated() {
               
