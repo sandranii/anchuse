@@ -61,14 +61,27 @@
         display: flex;
         flex-direction: row !important;
     
-    .shopping-price{
-        margin-bottom: 50px;
-        display: flex;
-        align-items: center;
-        justify-content:space-between;
-        letter-spacing: 2px;
-        
+    
+}
+.shopping-price{
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    letter-spacing: 2px;
+
+    .shopping-box{
+        width: 100%;
+        text-align: left;
+        font-size: 30px;
+
+        input{
+            width: 30px;
+            height: 30px;
+            margin-right: 20px;
+        }
     }
+    
 }
 }
 

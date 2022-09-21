@@ -66,6 +66,21 @@
 label{
     display: block;
 }
+.pay-list{
+    background-color: $white;
+}
+address{
+    border: 1px solid black;
+
+    th{
+        text-align: center;
+    }
+    
+}
+.pay-url{
+    text-decoration: none;
+    color: $white;
+}
 // =========================================
 
 
@@ -100,12 +115,14 @@ label{
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    background-color: $white;
 
     .confirm-data-title{
         padding: 5px;
         font-size: 25px;
         font-weight: 800;
         margin-bottom: 20px;
+        
     }
     table{
 
@@ -125,5 +142,13 @@ label{
     text-align: center;
     margin: 20px 0;
 }
+.address{
+    line-height: 3;
 
+        tr{
+            th{
+                font-weight: 500;
+            }
+        }
+   }
 

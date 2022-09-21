@@ -13,14 +13,49 @@
           
             .product-body{
                 width: 45%;
+                
+            }
+            .product-introduce {
+                @include container();
+              
+                .product-txt {
+                    padding: 10px;
+                    line-height: 2;
+                   
+            
+                    ul{
+                  
+                        li{
+                            width: 500px;
+                            margin: auto;
+                            display: flex;
+                            justify-content: flex-start;
+                        }
+                        
+                    }
+                }
+                table{
+                    tr{
+                
+                        margin: auto;
+                        
+                       
+                        th{
+                            width: 100%;
+                            display: block;
+                            flex-wrap: nowrap;
+                            text-align: left;
+                            margin: auto;
+                            
+                        }
+                        
+                    }
+                }
             }
             .product-name{
                 display: flex;
             }
-            .product-txt{
-                text-align: left;
           
-            }
             .product-pic{
                 width: 45%;
             }
@@ -106,18 +141,13 @@
             display: flex;
             justify-content: space-between;
             padding-bottom: 50px;
-          
-            .product-body{
-                width: 45%;
-            }
-        
+
             .product-pic{
                 width: 400px;
             }
             .product-pic img{
                 width: 130%;
             }
-         
             .pic-control{
                 width: 100px;
                 display: none;
@@ -131,7 +161,34 @@
                     border-radius: 50%;
                     background-color: gray;
                 }
+          
+            .product-body{
+                width: 45%;
+
+                .product-introduce{
+                    .product-txt{
+                        ul{
+          
+                            li{
+                                width: 500px;
+                                margin: auto;
+                                display: flex;
+                                justify-content: flex-start;
+                            }
+                            
+                        }
+                    }
+
+                }
             }
+        
+       
+         
+          
+               
+            }
+            
+     
             .pic-slide{
               display: flex;
               align-items: center;
@@ -169,6 +226,7 @@
                     width: 50px;
                     padding: 5px 0;
                     text-align: center;
+                    
                 }
             }
             .product-addcar{
@@ -182,8 +240,10 @@
                 p{
                     font-size: 35px;
                 }
+
               
             }
+          
         
         }
         // ==========================
@@ -244,3 +304,4 @@
             position: relative;
             }
     }
+
