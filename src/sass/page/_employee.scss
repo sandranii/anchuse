@@ -1,17 +1,29 @@
-.employee{
-    margin-top: 120px;
-    .sub_title{
-        margin-bottom: 70px;
-        text-align: center;
+.switch{
+    @include m() {
+        @include grid(12);
     }
-    .container{
-        margin-bottom: 120px;
-        .row{
-            .col-6,
-            .col-12{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
+
+    @include t() {
+        @include grid(12, -md);
+    }
+
+    @include pc() {
+        @include grid(12, -xl);
+    }
+  
+    
+    
+    .employee{
+        margin-top: 120px;
+        overflow: hidden;
+        .sub_title{
+            margin-bottom: 70px;
+            text-align: center;
+        }
+        .container{
+            margin-bottom: 120px;
+            .row{
+                position: relative;
                 .third_title{
                     margin-bottom: 50px;
                 }
@@ -38,7 +50,6 @@
                     width: 637px;
                     height: 638px;
                     position: relative;
-                    right: 30%;
                     background: url(../images/imageRoundGate.png);
                     background-repeat: no-repeat;
                 }
@@ -68,21 +79,17 @@
             }
         }
     }
-}
 
 
-/*======    平板版 RWD | 768px ~ ???px ======*/
+    /*======    桌機版 | 768px ~ ???px ======*/
 
-@media screen and (min-width: 768px){
-    .employee{
-        .container{
-            .row{
-                display: flex;
-                align-items: center;
-                .col-6{
-                    .third_title{
-                        padding-left: 30%;
-                    }
+    @media screen and (min-width: 768px){
+        .employee{
+            .container{
+                .row{
+                    display: flex;
+                    align-items: center;
+                    .third_title,
                     .text{
                         padding-left: 30%;
                     }
@@ -90,45 +97,49 @@
                         right: 30%;
                     }
                     .RimgFrame{
-                        left: 15%;
+                        left: 12%;
+                        bottom: 10%;
                     }
                     .textMove{
                         position: relative;
                         right: 10%;
                     }
                 }
-                .imgMove{
-                    align-items: flex-start;
-                }
             }
         }
     }
-}
 
 
+    /*======    平板 RWD | 768px ~ 1199.98px ======*/
 
-// ==========================================手機版
 
-@media screen and (min-width: 320px) and (max-width: 767.98px){
-    .employee{
-        .container{
-            .row{
-                .col-12{
+    // ==========================================手機版
+
+    @media screen and (min-width: 320px) and (max-width: 767.98px){
+        .employee{
+            .container{
+                .row{
                     text-align: center;
                     margin-bottom: 50px;
                     .Rframe{
-                        right: 30%;
+                        right: 70%;
                     }
                     .RimgFrame{
-                        left: 15%;
+                        left: 5%;
+                        bottom: 20%;
+                    }
+                    .text{
+                        margin-bottom: 100px;
+                    }
+                    .text_room{
+                        margin-bottom: 160px;
                     }
                 }
-            }
-            .row_round{
-                display: flex;
-                flex-direction: column-reverse;
+                .row_round{
+                    display: flex;
+                    flex-direction: column-reverse;
+                }
             }
         }
     }
-    
 }

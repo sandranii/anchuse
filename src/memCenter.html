@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <div id="lightbox-teleport">
     <h1 class="sr_only">會員中心</h1>
     @@include('./layout/header.html')
     <!-- header -->
@@ -40,25 +41,25 @@
                     <div class="mem_data">
                         <div class="person_info">
                             <div class="person_info_item">
-                                帳號: abc123
+                                帳號: &nbsp;  abc123
                             </div>
                             <div class="person_info_item">
-                                密碼: ******
+                                密碼: &nbsp;  ******
                             </div>
                             <div class="person_info_item">
-                                信箱:abc123@gmail.com
+                                信箱: &nbsp; abc123@gmail.com
                             </div>
                             <div class="person_info_item">
-                                生日:1998年10月27日
+                                生日: &nbsp; 1998年10月27日
                             </div>
                             <div class="person_info_item">
-                                手機:0912345678
+                                手機: &nbsp; 0912345678
                             </div>
                             <div class="person_info_item">
-                                市話:03-12345678
+                                市話: &nbsp; 03-12345678
                             </div>
                             <div class="person_info_item">
-                                地址:桃園市中壢區復興路46號9樓
+                                地址: &nbsp; 桃園市中壢區復興路46號9樓
                             </div>
                         </div>
                         <div class="edit">
@@ -104,7 +105,13 @@
                                 <td>訂單一</td>
                                 <td>2022-09-16</td>
                                 <td>未出貨</td>
-                                <td valign="middle"><button class="btnMinimum order_detail">詳細資訊</button></td>
+                                <td valign="middle">
+                                    <div id="order_detail">
+                                        
+                                        <light-box></light-box>
+                                    </div>
+                                </td>
+                                <!--  -->
                             </tr>
                         </table>
                     </div>
@@ -157,6 +164,82 @@
     </div>
     <!-- footer -->
     @@include('./layout/footer.html')
+    <script src="https://unpkg.com/vue@next"></script>
+</div>
 </body>
+<script>
+    const order_detail = Vue.createApp({
+        data() {
+            return {
+                
+            }
+        },
+    })
+    order_detail.component('light-box', {
+        template: `
+        <div class="lightbox">
+            <teleport to="#lightbox-teleport">
+                <div class="modal-mask" :style="modalStyle">
+                    <div class="modal-container"  @click.self="toggleModal">
+                        <div class="modal-body">
+                            <header>
+                                訂單詳細資訊
+                            </header>
+                            <body>
+                                <span class="order-date">
+                                    訂購日期:<slot name="order-date">2022-09-20</slot>
+                                </span>
+                                <span class="total-money">
+                                    總計:<slot name="total-money">1000元</slot>
+                                </span>
+                                <div class="recipient">
+                                    收件人:<slot name="recipient">無名氏</slot>
+                                </div>
+                                <div class="address">
+                                    收件地址:<slot name="address">桃園市中壢區復興路46號9樓</slot>
+                                </div>
+                                <div class="order-list">
+                                    訂購內容:
+                                    <table class="order-detail">
+                                        <tr class="item-title">
+                                            <th>商品圖片</th>
+                                            <th>商品名稱</th>
+                                            <th>商品數量</th>
+                                            <th>商品價格</th>
+                                        </tr>
+                                        <tr class="item-info">
+                                            <td><slot name="item-pic">123</slot></td>
+                                            <td><slot name="item-name">123</slot></td>
+                                            <td><slot name="item-count">123</slot></td>
+                                            <td><slot name="item-price">123</slot></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </body>
+                        </div>
+                    </div>
+                </div>
+            </teleport>
+            <button class="btnMinimum order_detail"  @click="isShow = true">詳細資訊</button>
+        </div>`,
+        data: () => ({
+            isShow: false
+        }),
+        computed: {
+            modalStyle() {
+                return {
+                    'display': this.isShow ? '' : 'none'
+                };
+            }
+        },
+        methods: {
+            toggleModal() {
+                console.log('click')
+                this.isShow = !this.isShow;
+            }
+        }
+    });
+    order_detail.mount('#order_detail')
+</script>
 
 </html>
