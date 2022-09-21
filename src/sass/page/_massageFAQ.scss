@@ -131,12 +131,18 @@
                 font-weight: 600;
                 opacity: 0.8;
             }
-            .btnLarge{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                img{
-                    margin: 0px 10px;
+            .join{
+                width: 220px;
+                border-radius: 100px;
+                margin-left: auto;
+                margin-right: auto;
+                .btnLarge{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        margin: 0px 10px;
+                    }
                 }
             }
         }
@@ -182,6 +188,11 @@
                     .lineImgPeople{
                         right: 15px;
                     }         
+                }
+                .textColumn{
+                    .text{
+                        margin-bottom: 70px;
+                    }
                 }
             }
         }

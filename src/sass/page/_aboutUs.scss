@@ -28,11 +28,13 @@
                 border-radius: 8px;
                 border: 2px solid $blue;
                 .text{
-                    padding: 20px;
-                    text-align: center;
+                    padding: 30px 50px;
                     line-height: 3;
-                    opacity: 0.7;
+                    opacity: 0.8;
                     font-weight: 700;
+                }
+                .text_storeInfo{
+                    text-align: center;
                 }
             }
         }
@@ -148,7 +150,7 @@
                         .imgInfo{
                             display: flex;
                             position: absolute;
-                            top: -13vh;
+                            top: -12vh;
                             .circle {
                                 @include rect(48px);
                                 line-height: 1.4;
