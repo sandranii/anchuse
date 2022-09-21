@@ -441,6 +441,13 @@ main{
             background-color: $blue;
             top: 20px;
             right: -90px;
+            border: 5px solid $blue;
+            img{
+                width: 420px;
+                height: 420px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
         }
     }
 }
@@ -519,6 +526,13 @@ main{
                 background-color: $blue;
                 top:0px;
                 right: -35px;
+                border: 5px solid $blue;
+            img{
+                width: 350px;
+                height: 350px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
             }
         }
     }
@@ -600,6 +614,12 @@ main{
                 background-color: $blue;
                 top:-100px;
                 right: -200px;
+                img{
+                    width: 400px;
+                    height: 400px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
             }
         }
     }
@@ -739,14 +759,15 @@ main{
             background-repeat: no-repeat;
             background-size: contain;
             position: relative;
-            &::before{
-                content: url(../images/h3RedFrame.png);
-                width: 100%;
-                height: 100%;
-                top: -7px;
-                left:-6px;
+            img{
                 position: absolute;
+                width: 450px;
+                height: 288px;
+                top: 85px;
+                right: 15px;
+                border-radius: 10px;
             }
+        
         }
         .product_tool{
             width: 480px;
@@ -755,18 +776,20 @@ main{
             background-repeat: no-repeat;
             background-size: contain;
             position: relative;
-            &::before{
-                content: url(../images/h3RedFrame.png);
-                width: 100%;
-                height: 100%;
-                top: -7px;
-                left:-6px;
+            img{
                 position: absolute;
+                width: 450px;
+                height: 288px;
+                top: 85px;
+                right: 15px;
+                border-radius: 10px;
             }
+        
         }
     }
 
 }
+
 /*====== 行動版 RWD | 320px ~ 768px ======*/
 @media screen and (min-width: 320px) and (max-width: 767.98px){
     .product{
@@ -780,10 +803,26 @@ main{
             .product_oil{
                 width: 355px;
                 height: 355px;
+                img{
+                    position: absolute;
+                    width: 335px;
+                    height: 213px;
+                    top: 62px;
+                    right: 10px;
+                    border-radius: 10px;
+                }
             }
             .product_tool{
                 width: 355px;
                 height: 355px;
+                img{
+                    position: absolute;
+                    width: 335px;
+                    height: 213px;
+                    top: 62px;
+                    right: 10px;
+                    border-radius: 10px;
+                }
             }
         }
     }
@@ -800,10 +839,26 @@ main{
             .product_oil{
                 width: 350px;
                 height: 350px;
+                img{
+                    position: absolute;
+                    width: 333px;
+                    height: 213px;
+                    top: 60px;
+                    right: 7px;
+                    border-radius: 10px;
+                }
             }
             .product_tool{
                 width: 350px;
                 height: 350px;
+                img{
+                    position: absolute;
+                    width: 333px;
+                    height: 213px;
+                    top: 60px;
+                    right: 7px;
+                    border-radius: 10px;
+                }
             }
         }
     }
