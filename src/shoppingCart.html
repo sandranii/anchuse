@@ -46,7 +46,7 @@
                             <h5>${{item.price}}</h5>
                         </div>
                         <div class="shopping-list-int">
-                            <button @click="addNum(item)">+</button ><input style="text-align:center" type="text" :value="item.num" size="1"><button @click="reduceNum(item)">-</button>
+                            <button @click="reduceNum(item)">-</button ><input style="text-align:center" type="text" :value="item.num" size="1"><button @click="addNum(item)">+</button>
                         </div>
                     </div>
                     <div class="shopping-list-btn">

@@ -270,16 +270,23 @@
         }
 
     }
+    .title_area{
+        margin-top: 100px;
 
-    .commodity-post{
-        text-align: center;
-        padding-bottom: 30px;
-        p{
-            color: $blue;
-            font-weight: 800;
+        .commodity-post{
+            text-align: center;
+         
+           
+            p{
+                color: $blue;
+                font-weight: 800;
+            }
+            
         }
-        
+
     }
+
+   
 
 
  
