@@ -75,7 +75,7 @@
                     <div class="shopping-check">
                     <div class="shopping-checkout">
                         <p>商品金額:{{box}}元</p><p>折扣金額:{{box-totalPrice}}</p>  <p>結帳金額:$<strong>{{totalPrice}}</strong></p>
-                    <a href="./Payment.html"><button class="btnLittle">前往結帳</button> </a>
+                    <a   @click="checkCar" href="./Payment.html" ><button class="btnLittle">前往結帳</button> </a>
                     </div>
                     
                 </div>
@@ -764,6 +764,16 @@
                    
                 }
                         
+               },
+               checkCar(event){
+                    if(this.calculate==""){
+                        alert("沒有選取的商品")
+                        event.preventDefault()
+                    }else{
+                        return
+                    }
+          
+                   
                },
            
                drop(){
