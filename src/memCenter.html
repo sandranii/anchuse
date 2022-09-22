@@ -72,13 +72,15 @@
                                     </tr>
                                 </table>
                                 <div class="confirm_button">
-                                    <button class="btnMinimum" id="mem_confirm" style="display: none;" onclick="get_new()">確定</button>
+                                    <button class="btnMinimum" id="mem_confirm" style="display: none;"
+                                        onclick="get_new()">確定</button>
                                 </div>
-                                
+
                             </div>
-                            
+
                             <div class="edit">
-                                <button class="btnMinimum" id="mem_edit" style="display: block;" onclick="edit()">編輯</button>
+                                <button class="btnMinimum" id="mem_edit" style="display: block;"
+                                    onclick="edit()">編輯</button>
                             </div>
                         </div>
                     </div>
@@ -166,15 +168,16 @@
                                     <th>按摩師</th>
                                     <th>價錢</th>
                                     <th>開始時間</th>
-                                    <th>結束時間</th>
+                                    <th>按摩時間長度</th>
                                 </tr>
                                 <tr id="vieworder">
-                                    <td>2022-09-16</td>
+                                    <td id="resvDate"></td>
                                     <td>{{this.orderList[0]["orderMsg"]}}</td>
                                     <td>{{this.orderList[0]["orderTherapist"]}}</td>
                                     <td>{{this.orderList[0]["orderPrice"]}}</td>
-                                    <td>10:00</td>
-                                    <td>11:00</td>
+                                    <!-- <td>{{this.resvDate}</td> -->
+                                    <td id="resvTimeStart"></td>
+                                    <td>1hr</td>
                                 </tr>
                             </table>
                         </div>
@@ -320,6 +323,9 @@
                 var orderLists = localStorage.getItem("resvOrder")
                 if (!orderLists) return
                 this.orderList = JSON.parse(orderLists)
+                // var resvDates = localStorage.getItem("resvDate")
+                // if (!resvDates) return
+                // this.resvDate = JSON.parse(resvDates)
             },
         },
         created() {
@@ -343,7 +349,7 @@
         if (show_button.style.display == "block") {
             show_button.style.display = "none";
         }
-        if(disable.style.display == "none"){
+        if (disable.style.display == "none") {
             disable.style.display = "block";
         }
     }
@@ -359,10 +365,14 @@
         if (show_button.style.display == "none") {
             show_button.style.display = "block";
         }
-        if(disable.style.display == "block"){
+        if (disable.style.display == "block") {
             disable.style.display = "none";
         }
     }
 </script>
+<script src="./js/jquery-3.6.0.js"></script>
+<script src="./js/jquery.datetimepicker.full.min.js"></script>
+<script src="./js/resvDatetimepicker.js"></script>
+
 
 </html>
