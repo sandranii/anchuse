@@ -40,31 +40,45 @@
                         <h2>個人資料</h2>
                         <hr>
                         <div class="mem_data">
-                            <div class="person_info">
-                                <div class="person_info_item">
-                                    帳號: &nbsp; abc123
+                            <div class="mem_data_table">
+                                <table id="person_info">
+                                    <tr class="person_info_item">
+                                        <th>帳號:</th>
+                                        <td>abc123</td>
+                                    </tr>
+                                    <tr class="person_info_item">
+                                        <th>密碼:</th>
+                                        <td>******</td>
+                                    </tr>
+                                    <tr class="person_info_item">
+                                        <th>信箱:</th>
+                                        <td>abc123@gmail.com</td>
+                                    </tr>
+                                    <tr class="person_info_item">
+                                        <th>生日:</th>
+                                        <td>1998年10月27日</td>
+                                    </tr>
+                                    <tr class="person_info_item">
+                                        <th>手機:</th>
+                                        <td>0912345678</td>
+                                    </tr>
+                                    <tr class="person_info_item">
+                                        <th>市話:</th>
+                                        <td>03-12345678</td>
+                                    </tr>
+                                    <tr class="person_info_item">
+                                        <th>地址:</th>
+                                        <td>桃園市中壢區復興路46號9樓</td>
+                                    </tr>
+                                </table>
+                                <div class="confirm_button">
+                                    <button class="btnMinimum" id="mem_confirm" style="display: none;" onclick="get_new()">確定</button>
                                 </div>
-                                <div class="person_info_item">
-                                    密碼: &nbsp; ******
-                                </div>
-                                <div class="person_info_item">
-                                    信箱: &nbsp; abc123@gmail.com
-                                </div>
-                                <div class="person_info_item">
-                                    生日: &nbsp; 1998年10月27日
-                                </div>
-                                <div class="person_info_item">
-                                    手機: &nbsp; 0912345678
-                                </div>
-                                <div class="person_info_item">
-                                    市話: &nbsp; 03-12345678
-                                </div>
-                                <div class="person_info_item">
-                                    地址: &nbsp; 桃園市中壢區復興路46號9樓
-                                </div>
+                                
                             </div>
+                            
                             <div class="edit">
-                                <button class="btnMinimum">編輯</button>
+                                <button class="btnMinimum" id="mem_edit" style="display: block;" onclick="edit()">編輯</button>
                             </div>
                         </div>
                     </div>
@@ -121,7 +135,7 @@
                         </div>
                     </div>
                     <!-- 預約紀錄 -->
-                    <div id="vieworder" class="content content3">
+                    <div class="content content3">
                         <h2>預約紀錄</h2>
                         <hr>
                         <!-- 預約紀錄搜尋 -->
@@ -154,7 +168,7 @@
                                     <th>開始時間</th>
                                     <th>結束時間</th>
                                 </tr>
-                                <tr>
+                                <tr id="vieworder">
                                     <td>2022-09-16</td>
                                     <td>{{this.orderList[0]["orderMsg"]}}</td>
                                     <td>{{this.orderList[0]["orderTherapist"]}}</td>
@@ -314,6 +328,41 @@
     }
 
     Vue.createApp(VM).mount('#vieworder')
+</script>
+<script>
+    function edit() {
+        var get_table = document.getElementById("person_info");
+        for (i = 0; i < 7; i++) {
+            var get_td = get_table.rows[i].cells[1];
+            var value = get_td.innerHTML;
+            get_td.innerHTML = `<input type='text' class='new' value='${value}'>`;
+        }
+        var show_button = document.getElementById("mem_edit");
+        var disable = document.getElementById("mem_confirm");
+        console.log(show_button);
+        if (show_button.style.display == "block") {
+            show_button.style.display = "none";
+        }
+        if(disable.style.display == "none"){
+            disable.style.display = "block";
+        }
+    }
+
+    function get_new() {
+        var get_table = document.getElementById("person_info");
+        for (i = 0; i < 7; i++) {
+            get_table.rows[i].cells[1].innerHTML = document.getElementsByClassName("new")[0].value;
+        }
+        var show_button = document.getElementById("mem_edit");
+        var disable = document.getElementById("mem_confirm");
+        console.log(show_button);
+        if (show_button.style.display == "none") {
+            show_button.style.display = "block";
+        }
+        if(disable.style.display == "block"){
+            disable.style.display = "none";
+        }
+    }
 </script>
 
 </html>

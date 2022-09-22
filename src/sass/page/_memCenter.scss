@@ -1,13 +1,14 @@
-#lightbox-teleport{
+#lightbox-teleport {
     //LightBox
     position: relative;
+
     .lightbox {
         position: relative;
         display: block;
         overflow: hidden;
         width: 100%;
         height: 100%;
-      }
+    }
 
     .modal-mask {
         position: absolute;
@@ -19,50 +20,55 @@
         display: table;
         background-color: rgba(0, 0, 0, .5);
         transition: opacity .3s ease;
-      }
+    }
 
-      .modal-container {
+    .modal-container {
         cursor: pointer;
         display: table-cell;
         vertical-align: middle;
-      
-      }
 
-      .modal-body {
+    }
+
+    .modal-body {
         width: 75%;
         cursor: auto;
         display: block;
         margin: 0 auto;
-        padding:0 0 2rem;
+        padding: 0 0 2rem;
         background-color: #fff;
-        header{
+
+        header {
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 24px;
             padding: 5px;
             background-color: $blue;
-            color:$white;
+            color: $white;
         }
-        body{
+
+        body {
             padding-top: 5px;
             font-size: 16px;
-            .order-list{
-                table{
+
+            .order-list {
+                table {
                     border: 1px solid $black;
-                    td{
+
+                    td {
                         padding: 3px;
                     }
                 }
-                .order-detail{
-                text-align: center;
-                margin:5px auto;
+
+                .order-detail {
+                    text-align: center;
+                    margin: 5px auto;
+                }
             }
-            }
-            
+
         }
-      }
-      
+    }
+
 }
 
 
@@ -70,9 +76,11 @@
     @include container;
     position: relative;
     padding-bottom: 100px;
-    input{
+
+    input {
         font-size: 16px;
     }
+
     //會員大頭貼
     .member {
         display: flex;
@@ -114,7 +122,7 @@
             display: block;
         }
     }
-    
+
     // 個人資料
     .content1 {
         h2 {
@@ -130,12 +138,21 @@
         padding-top: 30px;
     }
 
-    .person_info_item {
-        padding-bottom: 40px;
-        padding-left: 20px;
-        font-size: 20px;
+    .mem_data_table{
+        margin-left: 380px;
     }
 
+    #person_info {
+        th ,th{
+            font-size: 20px;
+            padding: 20px;
+        }
+    }
+
+
+    #mem_confirm{
+        margin: 0 auto;
+    }
     .edit {
         text-align: center;
         padding-right: 20px;
@@ -203,7 +220,7 @@
         }
     }
 
-    
+
     //預約紀錄
     // 預約紀錄搜尋
     .content3 {
@@ -232,7 +249,8 @@
     .category_row {
         display: flex;
         margin-bottom: 5px;
-        select{
+
+        select {
             font-size: 16px;
         }
     }
@@ -241,6 +259,7 @@
         margin: 0 10px;
         display: flex;
         align-items: center;
+
         input {
             width: 60px;
         }
@@ -314,42 +333,48 @@
 }
 
 @media screen and (min-width: 768px) {
-    #lightbox-teleport{
-        .modal-body{
+    #lightbox-teleport {
+        .modal-body {
             width: 50%;
-            body{
+
+            body {
                 font-size: 22px;
                 padding: 5px;
-                span{
+
+                span {
                     font-size: 22px;
                 }
-                .order-list{
-                    table{
+
+                .order-list {
+                    table {
                         border: 1px solid $black;
-                        th{
+
+                        th {
                             padding: 5px;
                         }
-                        td{
+
+                        td {
                             padding: 5px;
                         }
                     }
-                    .order-detail{
-                    text-align: center;
-                    margin:5px auto;
-                }
+
+                    .order-detail {
+                        text-align: center;
+                        margin: 5px auto;
+                    }
                 }
             }
         }
 
         .modal-container {
             vertical-align: middle;
-          }
+        }
 
     }
 
     .memCenter {
 
-        
+
         .panel_group {
             display: flex;
             justify-content: space-between;
@@ -367,10 +392,6 @@
 
         .content_group {
             flex-grow: 1;
-        }
-
-        .person_info_item {
-            padding-left: 80px;
         }
 
         //歷史訂單
