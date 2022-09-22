@@ -77,7 +77,8 @@
             transition: 0.5s;
         }
         .acupoint::before{
-            width: 60px;
+            width: 12px;
+            font-size: 12px;
             position: absolute;
             top: 0px;
             left: 0px;
@@ -95,6 +96,39 @@
         .zhong_chong{
             left: 35%;
         }
+        .shao_shang{
+            top: 44%;
+            left: 90%;
+        }
+        .he_gu{
+            top: 62%;
+            left: 57%;
+        }
+        .ming_men{
+            top: 43%;
+            left: 10%;
+        }
+        .shen_men{
+            top: 95%;
+            left: 28%;
+        }
+        .lao_gong{
+            top: 55%;
+            left: 40%;
+        }
+        
+        .yu_ji{
+            top: 67%;
+            left: 72%;
+        }
+        .shao_fu{
+            top: 67%;
+            left: 25%;
+        }
+        .tai_yuan{
+            top: 93%;
+            left: 53%;
+        }
         .zhong_chong::after{
             top: 12px;
             left: 0px;
@@ -105,13 +139,9 @@
             transition: 0.5s;
         }
         .zhong_chong::before{
-            top: 0px;
-            left: -100px;
+            top: -25px;
+            left: -65px;
             content: '中衝穴';
-        }
-        .shao_shang{
-            top: 44%;
-            left: 90%;
         }
         .shao_shang::after{
             top: 12px;
@@ -119,17 +149,14 @@
         }
         .shao_shang:hover::after,
         .shao_shang:focus::after{
+            width: 10px;
             left: 100%;
             transition: 0.5s;
         }
         .shao_shang::before{
-            top: 0px;
-            left: 70px;
+            top: -25px;
+            left: 30px;
             content: '少商穴';
-        }
-        .he_gu{
-            top: 62%;
-            left: 57%;
         }
         .he_gu::after{
             top: 12px;
@@ -138,17 +165,13 @@
         .he_gu:hover::after,
         .he_gu:focus::after{
             left: 100%;
-            width: 100px;
+            width: 40px;
             transition: 0.5s;
         }
         .he_gu::before{
-            top: 0px;
-            left: 130px;
+            top: -23px;
+            left: 60px;
             content: '合谷穴';
-        }
-        .ming_men{
-            top: 43%;
-            left: 10%;
         }
         .ming_men::after{
             top: 12px;
@@ -156,17 +179,14 @@
         }
         .ming_men:hover::after,
         .ming_men:focus::after{
-            left: -40px;
+            width: 13px;
+            left: -13px;
             transition: 0.5s;
         }
         .ming_men::before{
-            top: 0px;
-            left: -100px;
+            top: -25px;
+            left: -35px;
             content: '命門穴';
-        }
-        .shen_men{
-            top: 95%;
-            left: 28%;
         }
         .shen_men::after{
             top: 12px;
@@ -174,17 +194,14 @@
         }
         .shen_men:hover::after,
         .shen_men:focus::after{
-            left: -40px;
+            width: 28px;
+            left: -28px;
             transition: 0.5s;
         }
         .shen_men::before{
-            top: 0px;
-            left: -100px;
+            top: -25px;
+            left: -50px;
             content: '神門穴';
-        }
-        .lao_gong{
-            top: 55%;
-            left: 40%;
         }
         .lao_gong::after{
             top: 12px;
@@ -192,18 +209,14 @@
         }
         .lao_gong:hover::after,
         .lao_gong:focus::after{
-            left: -140px;
-            width: 140px;
+            left: -60px;
+            width: 60px;
             transition: 0.5s;
         }
         .lao_gong::before{
-            top: 0px;
-            left: -200px;
+            top: -25px;
+            left: -80px;
             content: '勞宮穴';
-        }
-        .yu_ji{
-            top: 67%;
-            left: 72%;
         }
         .yu_ji::after{
             top: 12px;
@@ -211,17 +224,14 @@
         }
         .yu_ji:hover::after,
         .yu_ji:focus::after{
+            width: 20px;
             left: 100%;
             transition: 0.5s;
         }
         .yu_ji::before{
-            top: 0px;
-            left: 70px;
+            top: -25px;
+            left: 40px;
             content: '魚際穴';
-        }
-        .shao_fu{
-            top: 67%;
-            left: 25%;
         }
         .shao_fu::after{
             top: 12px;
@@ -229,18 +239,14 @@
         }
         .shao_fu:hover::after,
         .shao_fu:focus::after{
-            left: -60px;
-            width: 60px;
+            left: -28px;
+            width: 28px;
             transition: 0.5s;
         }
         .shao_fu::before{
-            top: 0px;
-            left: -120px;
+            top: -25px;
+            left: -50px;
             content: '少府穴';
-        }
-        .tai_yuan{
-            top: 93%;
-            left: 53%;
         }
         .tai_yuan::after{
             top: 12px;
@@ -248,12 +254,13 @@
         }
         .tai_yuan:hover::after,
         .tai_yuan:focus::after{
+            width: 30px;
             left: 100%;
             transition: 0.5s;
         }
         .tai_yuan::before{
-            top: 0px;
-            left: 70px;
+            top: -25px;
+            left: 50px;
             content: '太淵穴';
         }
     }
@@ -289,6 +296,139 @@
                 width: 25px;
                 height: 25px;
             }
+            .acupoint::before{
+                width: 60px;
+                font-size: 20px;
+            }
+            .zhong_chong::after{
+                top: 12px;
+                left: 0px;
+            }
+            .zhong_chong:hover::after,
+            .zhong_chong:focus::after{
+                left: -40px;
+                transition: 0.5s;
+            }
+            .zhong_chong::before{
+                top: 0px;
+                left: -100px;
+                content: '中衝穴';
+            }
+            .shao_shang::after{
+                top: 12px;
+                left: 100%;
+            }
+            .shao_shang:hover::after,
+            .shao_shang:focus::after{
+                left: 100%;
+                transition: 0.5s;
+            }
+            .shao_shang::before{
+                top: 0px;
+                left: 70px;
+                content: '少商穴';
+            }
+            .he_gu::after{
+                top: 12px;
+                left: 100%;
+            }
+            .he_gu:hover::after,
+            .he_gu:focus::after{
+                left: 100%;
+                width: 100px;
+                transition: 0.5s;
+            }
+            .he_gu::before{
+                top: 0px;
+                left: 130px;
+                content: '合谷穴';
+            }
+            .ming_men::after{
+                top: 12px;
+                left: 0px;
+            }
+            .ming_men:hover::after,
+            .ming_men:focus::after{
+                left: -40px;
+                transition: 0.5s;
+            }
+            .ming_men::before{
+                top: 0px;
+                left: -100px;
+                content: '命門穴';
+            }
+            .shen_men::after{
+                top: 12px;
+                left: 0px;
+            }
+            .shen_men:hover::after,
+            .shen_men:focus::after{
+                left: -40px;
+                transition: 0.5s;
+            }
+            .shen_men::before{
+                top: 0px;
+                left: -100px;
+                content: '神門穴';
+            }
+            .lao_gong::after{
+                top: 12px;
+                left: 0px;
+            }
+            .lao_gong:hover::after,
+            .lao_gong:focus::after{
+                left: -140px;
+                width: 140px;
+                transition: 0.5s;
+            }
+            .lao_gong::before{
+                top: 0px;
+                left: -200px;
+                content: '勞宮穴';
+            }
+            .yu_ji::after{
+                top: 12px;
+                left: 100%;
+            }
+            .yu_ji:hover::after,
+            .yu_ji:focus::after{
+                left: 100%;
+                transition: 0.5s;
+            }
+            .yu_ji::before{
+                top: 0px;
+                left: 70px;
+                content: '魚際穴';
+            }
+            .shao_fu::after{
+                top: 12px;
+                left: 0px;
+            }
+            .shao_fu:hover::after,
+            .shao_fu:focus::after{
+                left: -60px;
+                width: 60px;
+                transition: 0.5s;
+            }
+            .shao_fu::before{
+                top: 0px;
+                left: -120px;
+                content: '少府穴';
+            }
+            .tai_yuan::after{
+                top: 12px;
+                left: 100%;
+            }
+            .tai_yuan:hover::after,
+            .tai_yuan:focus::after{
+                left: 100%;
+                transition: 0.5s;
+            }
+            .tai_yuan::before{
+                top: 0px;
+                left: 70px;
+                content: '太淵穴';
+            }
         }
     }
 }
@@ -308,6 +448,139 @@
             .acupoint{
                 width: 25px;
                 height: 25px;
+            }
+            .acupoint::before{
+                width: 60px;
+                font-size: 20px;
+            }
+            .zhong_chong::after{
+                top: 12px;
+                left: 0px;
+            }
+            .zhong_chong:hover::after,
+            .zhong_chong:focus::after{
+                left: -40px;
+                transition: 0.5s;
+            }
+            .zhong_chong::before{
+                top: 0px;
+                left: -100px;
+                content: '中衝穴';
+            }
+            .shao_shang::after{
+                top: 12px;
+                left: 100%;
+            }
+            .shao_shang:hover::after,
+            .shao_shang:focus::after{
+                left: 100%;
+                transition: 0.5s;
+            }
+            .shao_shang::before{
+                top: 0px;
+                left: 70px;
+                content: '少商穴';
+            }
+            .he_gu::after{
+                top: 12px;
+                left: 100%;
+            }
+            .he_gu:hover::after,
+            .he_gu:focus::after{
+                left: 100%;
+                width: 100px;
+                transition: 0.5s;
+            }
+            .he_gu::before{
+                top: 0px;
+                left: 130px;
+                content: '合谷穴';
+            }
+            .ming_men::after{
+                top: 12px;
+                left: 0px;
+            }
+            .ming_men:hover::after,
+            .ming_men:focus::after{
+                left: -40px;
+                transition: 0.5s;
+            }
+            .ming_men::before{
+                top: 0px;
+                left: -100px;
+                content: '命門穴';
+            }
+            .shen_men::after{
+                top: 12px;
+                left: 0px;
+            }
+            .shen_men:hover::after,
+            .shen_men:focus::after{
+                left: -40px;
+                transition: 0.5s;
+            }
+            .shen_men::before{
+                top: 0px;
+                left: -100px;
+                content: '神門穴';
+            }
+            .lao_gong::after{
+                top: 12px;
+                left: 0px;
+            }
+            .lao_gong:hover::after,
+            .lao_gong:focus::after{
+                left: -140px;
+                width: 140px;
+                transition: 0.5s;
+            }
+            .lao_gong::before{
+                top: 0px;
+                left: -200px;
+                content: '勞宮穴';
+            }
+            .yu_ji::after{
+                top: 12px;
+                left: 100%;
+            }
+            .yu_ji:hover::after,
+            .yu_ji:focus::after{
+                left: 100%;
+                transition: 0.5s;
+            }
+            .yu_ji::before{
+                top: 0px;
+                left: 70px;
+                content: '魚際穴';
+            }
+            .shao_fu::after{
+                top: 12px;
+                left: 0px;
+            }
+            .shao_fu:hover::after,
+            .shao_fu:focus::after{
+                left: -60px;
+                width: 60px;
+                transition: 0.5s;
+            }
+            .shao_fu::before{
+                top: 0px;
+                left: -120px;
+                content: '少府穴';
+            }
+            .tai_yuan::after{
+                top: 12px;
+                left: 100%;
+            }
+            .tai_yuan:hover::after,
+            .tai_yuan:focus::after{
+                left: 100%;
+                transition: 0.5s;
+            }
+            .tai_yuan::before{
+                top: 0px;
+                left: 70px;
+                content: '太淵穴';
             }
         }
     }
