@@ -11,9 +11,6 @@
     <script src="https://unpkg.com/vue@next"></script>
     <script src="./js/jquery-3.6.0.js"></script>
     <script src="./js/jquery.datetimepicker.full.min.js"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="https://unpkg.com/view-ui-plus/dist/styles/viewuiplus.css">
-    <script type="text/javascript" src="https://unpkg.com/vue@next"></script>
-    <script type="text/javascript" src="https://unpkg.com/view-ui-plus"></script> -->
 </head>
 
 <body>
@@ -77,14 +74,11 @@
                                         <div class="calendar">
                                             <input id="datetimepicker" class="xdsoft_datetimepicker " type="text">
                                         </div>
-                                        <!-- <div id="app">
-                                            <date-picker type="datetime" format="yyyy-MM-dd HH:mm"
-                                                placeholder="請選擇預約日期及時間" :options="options2" style="width: 300px">
-                                            </date-picker>
-                                        </div> -->
+
                                         <div class="content_footer">
                                             <div class="price">NT$ {{orderPrice}}</div>
-                                            <input class="btnLittle" type="button" @click="confirm" value="確認預約">
+                                            <input id="confirm" class="btnLittle" type="button" @click="confirm"
+                                                value="確認預約">
                                         </div>
                                     </form>
                                 </div>
@@ -173,13 +167,11 @@
             const VM = {
                 data() {
                     return {
-                        // isActive: true,//預測剛開始是打開active
-                        // orderMsg: "01",
                         orderList: [],
                         orderMsg: "全身穴道按摩",
                         orderTherapist: "李駿燕",
                         orderPrice: "1,600",
-                        orderDate: "2022/09/21",
+                        orderDate: "",
                         timeStart: "",
                         timeEnd: "",
                         activeTab: "A",
@@ -224,9 +216,6 @@
                     }
                 },
                 methods: {
-                    // btnClick() {
-                    //     this.isActive = !this.isActive
-                    // },
                     confirm() {
                         this.orderList.push({
                             orderMsg: "全身穴道按摩",
@@ -266,36 +255,52 @@
 <!-- datetimepicker -->
 <script src="./js/jquery-3.6.0.js"></script>
 <script src="./js/jquery.datetimepicker.full.min.js"></script>
-<script>
+<script src="./js/resvDatetimepicker.js"></script>
+<!-- <script>
     jQuery('#datetimepicker').datetimepicker({
         format: 'd.m.Y H:i',
         inline: true,
-        lang: 'ru'
+        lang: 'zh-TW',
+        minTime: "10:00",                // 设置timepicker最小的限制时间   如：08:00
+        maxTime: "22:00",                // 设置timepicker最小的限制时间   如：08:00
+        // startDate: true,
+        validateOnBlur: true,
+        disabledDates: ['10.10.2022', '23.09.2022'],
+        formatDate: 'd.m.Y',
+        showApplyButton: true,
     });
-</script>
-<!-- <script>
-    const app = Vue.createApp({
-        data() {
-            return {
-                options1: {
-                    disabledDate(date) {
-                        return date && date.valueOf() < Date.now() - 86400000;
-                    }
-                },
-                options2: {
-                    disabledDate(date) {
-                        const disabledDay = date.getDate();
-                        return disabledDay === 15;
-                    }
-                }
-            }
-        },
-        methods: {
 
+    $('#datetimepicker').datetimepicker({
+        onChangeDateTime: function (dateText, inst) {
+            console.log(dateText);
         }
     });
-    app.use(ViewUIPlus);
-    app.mount("#app");
+    $('#input').datetimepicker();
+    // $('button.somebutton').on('click', function () {
+    $('#confirm').on('click', function () {
+        // var d = $('#input').datetimepicker('getValue');
+        // window.alert(d);
+        // console.log(d.value);
+
+        // Use
+
+        var jsDate = $('#datetimepicker').datetimepicker('getValue');
+        if (jsDate !== null) { // if any date selected in datepicker
+            jsDate instanceof Date; // -> true
+            jsDate.getDate();
+            jsDate.getMonth();
+            jsDate.getFullYear();
+        }
+        console.log(jsDate);
+        console.log(jsDate.toLocaleString());
+        console.log(jsDate.getHours());
+        console.log(jsDate.getDate());
+        console.log(jsDate.getMonth() + 1);
+        console.log(jsDate.getFullYear());
+        localStorage.setItem('resvDate', jsDate);
+        localStorage.getItem('resvDate');
+    })
 </script> -->
+
 
 </html>
