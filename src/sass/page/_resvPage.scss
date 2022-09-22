@@ -184,8 +184,16 @@
                     }
 
                     &:active {
-                        font-weight: 800;
+                        background-color: $blue;
+                        color: #fff;
                     }
+                }
+
+                #tabA.btnActive,
+                #tabB.btnActive2,
+                #tabC.btnActive3 {
+                    background-color: $blue;
+                    color: #fff;
                 }
             }
 
