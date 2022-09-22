@@ -89,15 +89,12 @@
                 </div>
                 <div class="supplement">
                     <div class="tabs row">
-                        <button class="tab col col-4 col-md-3 col-xl-3" @click="activeTab='A'">按摩描述</button>
-                        <!-- <button id="m_btn" :class="{btnActive: isActive}" @click="btnClick">{{isActive? "+" :
-                            "-"}}</button> -->
-                        <button class="tab col col-4 col-md-3 col-xl-3" @click="activeTab='B'">注意事項</button>
-                        <!-- <button id="m_btn2" :class="{btnActive2: isActive}" @click="btnClick">{{isActive? "+" :
-                            "-"}}</button> -->
-                        <button class="tab col col-4 col-md-3 col-xl-3" @click="activeTab='C'">常見問題</button>
-                        <!-- <button id="m_btn3" :class="{btnActive3: isActive}" @click="btnClick">{{isActive? "+" :
-                            "-"}}</button> -->
+                        <button id="tabA" class="tab col col-4 col-md-3 col-xl-3" :class="{btnActive: isActive}"
+                            @click="tabA">按摩描述</button>
+                        <button id="tabB" class="tab col col-4 col-md-3 col-xl-3" :class="{btnActive2: isActive2}"
+                            @click="tabB">注意事項</button>
+                        <button id="tabC" class="tab col col-4 col-md-3 col-xl-3" :class="{btnActive3: isActive3}"
+                            @click="tabC">常見問題</button>
                     </div>
 
                     <div v-if="activeTab == 'A'" class="tab_container">
@@ -167,6 +164,9 @@
             const VM = {
                 data() {
                     return {
+                        isActive: true,//預測剛開始是打開active
+                        isActive2: false,//預測剛開始是打開active
+                        isActive3: false,//預測剛開始是打開active
                         orderList: [],
                         orderMsg: "全身穴道按摩",
                         orderTherapist: "李駿燕",
@@ -216,6 +216,25 @@
                     }
                 },
                 methods: {
+                    tabA() {
+                        this.activeTab = 'A'
+                        this.isActive = true
+                        this.isActive2 = false
+                        this.isActive3 = false
+
+                    },
+                    tabB() {
+                        this.activeTab = 'B'
+                        this.isActive = false
+                        this.isActive2 = true
+                        this.isActive3 = false
+                    },
+                    tabC() {
+                        this.activeTab = 'C'
+                        this.isActive = false
+                        this.isActive2 = false
+                        this.isActive3 = true
+                    },
                     confirm() {
                         this.orderList.push({
                             orderMsg: "全身穴道按摩",
