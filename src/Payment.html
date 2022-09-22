@@ -84,7 +84,7 @@
                 </tr>
                 <tr>
                     <th><label for="gender">性別:</label></th>
-                    <th style="display:flex;">男<input type="radio" name="gender" value="man">
+                    <th   style="display:flex;justify-content: center;">男<input type="radio" name="gender" value="man">
                         女<input type="radio" name="gender" value="woman"></th>
                 </tr>
                 <tr>
@@ -93,8 +93,8 @@
                 </tr>
                 <tr>
                     <th><label for="">付款方式:</label></th>
-                    <th style="display:flex;">信用卡<input type="radio" name="pay" value="man">
-                        貨到付款<input type="radio" name="pay" value="woman"></th>
+                    <th   style="display:flex;justify-content: center;">信用卡<input type="radio" name="pay" value="card" @click="paymentMethod=1">
+                        貨到付款<input type="radio" name="pay"  @click="paymentMethod=2" value="arrival"></th>
                 </tr>
                     
                 <tr>
@@ -114,7 +114,8 @@
                 <tr>
                     <th></th>
                     <th><button  class="btnLittle" typr="button">
-                        <a class="pay-url"  href="https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5">前往結帳</a>
+                        <a class="pay-url" v-if="paymentMethod==1"  href="https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5">前往結帳</a>
+                        <a class="pay-url" v-else="paymentMethod==2"  href="https://www.ibon.com.tw/retail_inquiry.aspx#gsc.tab=0">前往結帳</a>
                     </button> </th>
                 </tr>
             </table>
@@ -170,6 +171,7 @@
                     width:0,
                     box:0,
                     calculate:[],
+                    paymentMethod:1,
                     
                  
                    }
