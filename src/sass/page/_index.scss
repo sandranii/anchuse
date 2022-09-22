@@ -155,13 +155,10 @@ main{
     height: 90vh;
     margin: 0 auto;
     display: flex;
-    // background-image: url(../images/mainBanner.gif);
-    // background-repeat:no-repeat;
-    // background-position: center;
-    // background-size: cover;
     overflow: hidden;
     position: relative;
-    video{
+
+    .main_video{
         position: absolute;
         width: 100%;
         height: 100%;
@@ -190,31 +187,24 @@ main{
         }
     }
 
-    .banner_circle{
+    .circle_video{
         position: absolute;
         width: 95px;
         height: 90vh;
         right: 0;
-        background-image: url(../images/bannercircle.gif);
-        background-repeat:no-repeat;
-        background-position: center;
-        background-size: cover;
-
+        opacity: 0.3;
         
     }
 
-    .first{
+    .one{
         transform: rotate(180deg);
     }
-    .second {
+    .two {
         position: absolute;
         width: 95px;
         height: 90vh;
         left: 0px;
-        background-image: url(../images/bannercircle.gif);
-        background-repeat:no-repeat;
-        background-position: center;
-        background-size: cover;
+
 
         
     }
