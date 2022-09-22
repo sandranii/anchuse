@@ -1,4 +1,6 @@
 .reservation {
+    margin-top: 80px;
+
     @include m() {
         @include grid(12);
     }
@@ -124,6 +126,14 @@
                             text-align: right;
                         }
                     }
+
+
+                }
+            }
+
+            .msg_card_frame.btnLeft .msg_card .msg_card_txt .btn {
+                @include pc() {
+                    text-align: left;
                 }
             }
 

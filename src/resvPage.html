@@ -89,11 +89,11 @@
                 </div>
                 <div class="supplement">
                     <div class="tabs row">
-                        <button id="tabA" class="tab col col-4 col-md-3 col-xl-3" :class="{btnActive: isActive}"
+                        <button class="tab col col-4 col-md-3 col-xl-3" :class="{btnActive: isActive}"
                             @click="tabA">按摩描述</button>
-                        <button id="tabB" class="tab col col-4 col-md-3 col-xl-3" :class="{btnActive2: isActive2}"
+                        <button class="tab col col-4 col-md-3 col-xl-3" :class="{btnActive: isActive2}"
                             @click="tabB">注意事項</button>
-                        <button id="tabC" class="tab col col-4 col-md-3 col-xl-3" :class="{btnActive3: isActive3}"
+                        <button class="tab col col-4 col-md-3 col-xl-3" :class="{btnActive: isActive3}"
                             @click="tabC">常見問題</button>
                     </div>
 
@@ -140,9 +140,7 @@
                 <div class="items row">
                     <div class="item col col-12 col-md-4 col-xl-4" v-for="(item, index) in msgCardList" :key="index">
                         <a href="" class="item_link">
-
                             <div class="item_pic">
-                                <!-- <a href="" class="item_link"><img :src="item.pic" :alt="item.pic_alt"></a> -->
                                 <img :src="item.pic" :alt="item.pic_alt">
                             </div>
                             <div class="item_txt">
@@ -165,8 +163,8 @@
                 data() {
                     return {
                         isActive: true,//預測剛開始是打開active
-                        isActive2: false,//預測剛開始是打開active
-                        isActive3: false,//預測剛開始是打開active
+                        isActive2: false,
+                        isActive3: false,
                         orderList: [],
                         orderMsg: "全身穴道按摩",
                         orderTherapist: "李駿燕",
@@ -275,51 +273,5 @@
 <script src="./js/jquery-3.6.0.js"></script>
 <script src="./js/jquery.datetimepicker.full.min.js"></script>
 <script src="./js/resvDatetimepicker.js"></script>
-<!-- <script>
-    jQuery('#datetimepicker').datetimepicker({
-        format: 'd.m.Y H:i',
-        inline: true,
-        lang: 'zh-TW',
-        minTime: "10:00",                // 设置timepicker最小的限制时间   如：08:00
-        maxTime: "22:00",                // 设置timepicker最小的限制时间   如：08:00
-        // startDate: true,
-        validateOnBlur: true,
-        disabledDates: ['10.10.2022', '23.09.2022'],
-        formatDate: 'd.m.Y',
-        showApplyButton: true,
-    });
-
-    $('#datetimepicker').datetimepicker({
-        onChangeDateTime: function (dateText, inst) {
-            console.log(dateText);
-        }
-    });
-    $('#input').datetimepicker();
-    // $('button.somebutton').on('click', function () {
-    $('#confirm').on('click', function () {
-        // var d = $('#input').datetimepicker('getValue');
-        // window.alert(d);
-        // console.log(d.value);
-
-        // Use
-
-        var jsDate = $('#datetimepicker').datetimepicker('getValue');
-        if (jsDate !== null) { // if any date selected in datepicker
-            jsDate instanceof Date; // -> true
-            jsDate.getDate();
-            jsDate.getMonth();
-            jsDate.getFullYear();
-        }
-        console.log(jsDate);
-        console.log(jsDate.toLocaleString());
-        console.log(jsDate.getHours());
-        console.log(jsDate.getDate());
-        console.log(jsDate.getMonth() + 1);
-        console.log(jsDate.getFullYear());
-        localStorage.setItem('resvDate', jsDate);
-        localStorage.getItem('resvDate');
-    })
-</script> -->
-
 
 </html>
