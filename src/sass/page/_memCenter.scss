@@ -138,9 +138,8 @@
         padding-top: 30px;
     }
 
-    .mem_data_table{
-        margin-left: 380px;
-    }
+    // .mem_data_table{
+    // }
 
     #person_info {
         th ,th{
@@ -313,6 +312,7 @@
         background-color: $blue;
         position: relative;
         color: $white;
+        white-space: nowrap;
     }
 
     .content {
